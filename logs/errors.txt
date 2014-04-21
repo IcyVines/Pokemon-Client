@@ -1,0 +1,383 @@
+
+TypeError: Object p2a: Gengar-Mega has no method 'Trap'
+    at Tools.exports.BattleAbilities.shadowtag.onModifyPokemon (/Users/IcyVines/Desktop/Pokemon-Showdown/data/abilities.js:2350:13)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:2046:38)
+    at BattlePokemon.update (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:421:15)
+    at Tools.Battle.switchIn (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:2410:11)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3320:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3409:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3487:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3469:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3813:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:144:12)
+
+Additional information:
+message = battle-customgame-89|choose|p1|move Flamethrower|10
+currentRequest = move
+
+Log:
+|player|p1|asldfnjkasdf|265
+|player|p2|askfbhjasf|266
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Politoed, M
+|poke|p1|Ninetales, F
+|poke|p2|Politoed, F
+|poke|p2|Gengar-Mega, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Politoed|Politoed, M|321/321
+|switch|p1a: Politoed|Politoed, M|321/321
+|switch|p1a: Politoed|Politoed, M|321/321
+|switch|p1a: Politoed|Politoed, M|321/321
+|split
+|switch|p2a: Politoed|Politoed, F|321/321
+|switch|p2a: Politoed|Politoed, F|321/321
+|switch|p2a: Politoed|Politoed, F|321/321
+|switch|p2a: Politoed|Politoed, F|321/321
+|-weather|RainDance
+|turn|1
+|
+|move|p1a: Politoed|Hydro Pump|p2a: Politoed
+|-immune|p2a: Politoed|[msg]
+|-boost|p2a: Politoed|spd|1|[from] ability: Damp
+|-boost|p2a: Politoed|def|1|[from] ability: Damp
+|-unboost|p2a: Politoed|spe|1|[from] ability: Damp
+|debug|randBW(16) = 1
+|debug|rain water boost
+|debug|randBW(16) = 3
+|-resisted|p2a: Politoed
+|split
+|-damage|p2a: Politoed|273/321
+|-damage|p2a: Politoed|273/321
+|-damage|p2a: Politoed|273/321
+|-damage|p2a: Politoed|273/321
+|move|p2a: Politoed|Refresh|p2a: Politoed
+|
+|-weather|RainDance|[upkeep]
+|turn|2
+|
+|move|p1a: Politoed|Hydro Pump|p2a: Politoed
+|-immune|p2a: Politoed|[msg]
+|-boost|p2a: Politoed|spd|1|[from] ability: Damp
+|-boost|p2a: Politoed|def|1|[from] ability: Damp
+|-unboost|p2a: Politoed|spe|1|[from] ability: Damp
+|debug|randBW(16) = 5
+|debug|rain water boost
+|debug|randBW(16) = 8
+|-resisted|p2a: Politoed
+|split
+|-damage|p2a: Politoed|238/321
+|-damage|p2a: Politoed|238/321
+|-damage|p2a: Politoed|238/321
+|-damage|p2a: Politoed|238/321
+|move|p2a: Politoed|Refresh|p2a: Politoed
+|
+|-weather|RainDance|[upkeep]
+|turn|3
+|
+|move|p1a: Politoed|Hydro Pump|p2a: Politoed
+|-immune|p2a: Politoed|[msg]
+|-boost|p2a: Politoed|spd|1|[from] ability: Damp
+|-boost|p2a: Politoed|def|1|[from] ability: Damp
+|-unboost|p2a: Politoed|spe|1|[from] ability: Damp
+|debug|randBW(16) = 10
+|debug|rain water boost
+|debug|randBW(16) = 11
+|-resisted|p2a: Politoed
+|split
+|-damage|p2a: Politoed|211/321
+|-damage|p2a: Politoed|211/321
+|-damage|p2a: Politoed|211/321
+|-damage|p2a: Politoed|211/321
+|move|p2a: Politoed|Refresh|p2a: Politoed
+|
+|-weather|RainDance|[upkeep]
+|turn|4
+|
+|move|p1a: Politoed|Hydro Pump|p2a: Politoed
+|-immune|p2a: Politoed|[msg]
+|-boost|p2a: Politoed|spd|1|[from] ability: Damp
+|-boost|p2a: Politoed|def|1|[from] ability: Damp
+|-unboost|p2a: Politoed|spe|1|[from] ability: Damp
+|debug|randBW(16) = 14
+|debug|rain water boost
+|debug|randBW(16) = 1
+|-resisted|p2a: Politoed
+|split
+|-damage|p2a: Politoed|186/321
+|-damage|p2a: Politoed|186/321
+|-damage|p2a: Politoed|186/321
+|-damage|p2a: Politoed|186/321
+|move|p2a: Politoed|Recover|p2a: Politoed
+|split
+|-heal|p2a: Politoed|321/321
+|-heal|p2a: Politoed|321/321
+|-heal|p2a: Politoed|321/321
+|-heal|p2a: Politoed|321/321
+|
+|-weather|RainDance|[upkeep]
+|turn|5
+|
+|move|p1a: Politoed|Hydro Pump|p2a: Politoed
+|-immune|p2a: Politoed|[msg]
+|-boost|p2a: Politoed|spd|1|[from] ability: Damp
+|-boost|p2a: Politoed|def|1|[from] ability: Damp
+|-unboost|p2a: Politoed|spe|1|[from] ability: Damp
+|debug|randBW(16) = 4
+|debug|rain water boost
+|debug|randBW(16) = 2
+|-resisted|p2a: Politoed
+|split
+|-damage|p2a: Politoed|300/321
+|-damage|p2a: Politoed|300/321
+|-damage|p2a: Politoed|300/321
+|-damage|p2a: Politoed|300/321
+|move|p2a: Politoed|Rest|p2a: Politoed
+|-status|p2a: Politoed|slp
+|debug|randBW(2,5) = 3
+|split
+|-heal|p2a: Politoed|321/321 slp|[silent]
+|-heal|p2a: Politoed|321/321 slp|[silent]
+|-heal|p2a: Politoed|321/321 slp|[silent]
+|-heal|p2a: Politoed|321/321 slp|[silent]
+|-status|p2a: Politoed|slp|[from] move: Rest
+|
+|-weather|RainDance|[upkeep]
+|turn|6
+|
+|split
+|switch|p1a: Ninetales|Ninetales, F|287/287
+|switch|p1a: Ninetales|Ninetales, F|287/287
+|switch|p1a: Ninetales|Ninetales, F|287/287
+|switch|p1a: Ninetales|Ninetales, F|287/287
+|-weather|SunnyDay
+|cant|p2a: Politoed|slp
+|
+|-weather|SunnyDay|[upkeep]
+|turn|7
+|
+|move|p1a: Ninetales|Flamethrower|p2a: Politoed
+|debug|randBW(100) = 14
+|debug|randBW(16) = 11
+|debug|Sunny Day fire boost
+|debug|randBW(16) = 2
+|-resisted|p2a: Politoed
+|split
+|-damage|p2a: Politoed|313/321 slp
+|-damage|p2a: Politoed|313/321 slp
+|-damage|p2a: Politoed|313/321 slp
+|-damage|p2a: Politoed|313/321 slp
+|debug|randBW(100) = 92
+|cant|p2a: Politoed|slp
+|
+|-weather|SunnyDay|[upkeep]
+|turn|8
+|
+|move|p1a: Ninetales|Flamethrower|p2a: Politoed
+|debug|randBW(100) = 36
+|debug|randBW(16) = 8
+|debug|Sunny Day fire boost
+|debug|randBW(16) = 1
+|-resisted|p2a: Politoed
+|split
+|-damage|p2a: Politoed|305/321 slp
+|-damage|p2a: Politoed|305/321 slp
+|-damage|p2a: Politoed|305/321 slp
+|-damage|p2a: Politoed|305/321 slp
+|debug|randBW(100) = 0
+|debug|move failed because it did nothing
+|-curestatus|p2a: Politoed|slp
+|move|p2a: Politoed|Refresh|p2a: Politoed
+|
+|-weather|SunnyDay|[upkeep]
+|turn|9
+|
+|split
+|switch|p2a: Gengar-Mega|Gengar-Mega, M|261/261
+|switch|p2a: Gengar-Mega|Gengar-Mega, M|261/261
+|switch|p2a: Gengar-Mega|Gengar-Mega, M|261/261
+|switch|p2a: Gengar-Mega|Gengar-Mega, M|261/261
+|-formechange|p2a: Gengar-Mega|Gengar-Mega
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+
+TypeError: Object p2a: Gengar-Mega has no method 'Trap'
+    at Tools.exports.BattleAbilities.shadowtag.onModifyPokemon (/Users/IcyVines/Desktop/Pokemon-Showdown/data/abilities.js:2350:13)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:2046:38)
+    at BattlePokemon.update (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:421:15)
+    at Tools.Battle.update (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:1720:31)
+    at Tools.Battle.makeRequest (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:2247:8)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:158:13)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+TypeError: Object p2a: Alakazam has no method 'Trap'
+    at Tools.exports.BattleAbilities.shadowtag.onModifyPokemon (/Users/IcyVines/Desktop/Pokemon-Showdown/data/abilities.js:2350:13)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:2046:38)
+    at BattlePokemon.update (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:421:15)
+    at Tools.Battle.switchIn (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:2410:11)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3320:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3409:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3487:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3469:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:3813:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:144:12)
+
+Additional information:
+message = battle-customgame-90|choose|p1|switch 2|7
+currentRequest = move
+
+Log:
+|player|p1|asldfnjkasdf|265
+|player|p2|askfbhjasf|266
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Politoed, F
+|poke|p1|Ninetales, F
+|poke|p2|Politoed, M
+|poke|p2|Parasect, F
+|poke|p2|Alakazam, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Ninetales|Ninetales, F|287/287
+|switch|p1a: Ninetales|Ninetales, F|287/287
+|switch|p1a: Ninetales|Ninetales, F|287/287
+|switch|p1a: Ninetales|Ninetales, F|287/287
+|split
+|switch|p2a: Parasect|Parasect, F|261/261
+|switch|p2a: Parasect|Parasect, F|261/261
+|switch|p2a: Parasect|Parasect, F|261/261
+|switch|p2a: Parasect|Parasect, F|261/261
+|-weather|SunnyDay
+|turn|1
+|
+|move|p1a: Ninetales|Flamethrower|p2a: Parasect
+|debug|randBW(100) = 72
+|debug|randBW(16) = 1
+|debug|Sunny Day fire boost
+|debug|randBW(16) = 7
+|-supereffective|p2a: Parasect
+|split
+|-damage|p2a: Parasect|17/261
+|-damage|p2a: Parasect|17/261
+|-damage|p2a: Parasect|17/261
+|-damage|p2a: Parasect|17/261
+|debug|randBW(100) = 8
+|-status|p2a: Parasect|brn
+|move|p2a: Parasect|Synthesis|p2a: Parasect
+|split
+|-heal|p2a: Parasect|191/261 brn
+|-heal|p2a: Parasect|191/261 brn
+|-heal|p2a: Parasect|191/261 brn
+|-heal|p2a: Parasect|191/261 brn
+|
+|-weather|SunnyDay|[upkeep]
+|split
+|-damage|p2a: Parasect|159/261 brn|[from] brn
+|-damage|p2a: Parasect|159/261 brn|[from] brn
+|-damage|p2a: Parasect|159/261 brn|[from] brn
+|-damage|p2a: Parasect|159/261 brn|[from] brn
+|turn|2
+|
+|move|p1a: Ninetales|Flamethrower|p2a: Parasect
+|debug|randBW(100) = 50
+|debug|randBW(16) = 14
+|debug|Sunny Day fire boost
+|debug|randBW(16) = 14
+|-supereffective|p2a: Parasect
+|split
+|-damage|p2a: Parasect|0 fnt
+|-damage|p2a: Parasect|0 fnt
+|-damage|p2a: Parasect|0 fnt
+|-damage|p2a: Parasect|0 fnt
+|debug|randBW(100) = 16
+|faint|p2a: Parasect
+|
+|-weather|SunnyDay|[upkeep]
+|
+|split
+|switch|p2a: Politoed|Politoed, M|321/321
+|switch|p2a: Politoed|Politoed, M|321/321
+|switch|p2a: Politoed|Politoed, M|321/321
+|switch|p2a: Politoed|Politoed, M|321/321
+|turn|3
+|
+|move|p1a: Ninetales|Flamethrower|p2a: Politoed
+|debug|randBW(100) = 46
+|debug|randBW(16) = 5
+|debug|Sunny Day fire boost
+|debug|randBW(16) = 10
+|-resisted|p2a: Politoed
+|split
+|-damage|p2a: Politoed|295/321
+|-damage|p2a: Politoed|295/321
+|-damage|p2a: Politoed|295/321
+|-damage|p2a: Politoed|295/321
+|debug|randBW(100) = 30
+|move|p2a: Politoed|Refresh|p2a: Politoed
+|
+|-weather|SunnyDay|[upkeep]
+|turn|4
+|
+|move|p1a: Ninetales|Flamethrower|p2a: Politoed
+|debug|randBW(100) = 27
+|debug|randBW(16) = 1
+|debug|Sunny Day fire boost
+|debug|randBW(16) = 12
+|-resisted|p2a: Politoed
+|split
+|-damage|p2a: Politoed|270/321
+|-damage|p2a: Politoed|270/321
+|-damage|p2a: Politoed|270/321
+|-damage|p2a: Politoed|270/321
+|debug|randBW(100) = 83
+|move|p2a: Politoed|Refresh|p2a: Politoed
+|
+|-weather|SunnyDay|[upkeep]
+|turn|5
+|
+|split
+|switch|p1a: Politoed|Politoed, F|321/321
+|switch|p1a: Politoed|Politoed, F|321/321
+|switch|p1a: Politoed|Politoed, F|321/321
+|switch|p1a: Politoed|Politoed, F|321/321
+|-weather|RainDance
+|split
+|switch|p2a: Alakazam|Alakazam, M|251/251
+|switch|p2a: Alakazam|Alakazam, M|251/251
+|switch|p2a: Alakazam|Alakazam, M|251/251
+|switch|p2a: Alakazam|Alakazam, M|251/251
+
+TypeError: Object p2a: Alakazam has no method 'Trap'
+    at Tools.exports.BattleAbilities.shadowtag.onModifyPokemon (/Users/IcyVines/Desktop/Pokemon-Showdown/data/abilities.js:2350:13)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:2046:38)
+    at BattlePokemon.update (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:421:15)
+    at Tools.Battle.update (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:1720:31)
+    at Tools.Battle.makeRequest (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:2247:8)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Showdown/battle-engine.js:158:13)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+    at Pipe.channel.onread (child_process.js:345:11)
+
+Error: channel closed
+    at ChildProcess.target.send (child_process.js:402:26)
+    at Simulator.send (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/simulator.js:118:16)
+    at new Simulator (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/simulator.js:92:8)
+    at Object.exports.create (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/simulator.js:330:9)
+    at new BattleRoom (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/rooms.js:535:27)
+    at newRoom (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/rooms.js:1523:19)
+    at GlobalRoom.addRoom (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/rooms.js:481:10)
+    at GlobalRoom.startBattle (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/rooms.js:469:18)
+    at User.acceptChallengeFrom (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/users.js:1210:16)
+    at /Users/IcyVines/Desktop/Pokemon-Showdown-Client/commands.js:1619:21
