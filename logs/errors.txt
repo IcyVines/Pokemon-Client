@@ -381,3 +381,154 @@ Error: channel closed
     at GlobalRoom.startBattle (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/rooms.js:469:18)
     at User.acceptChallengeFrom (/Users/IcyVines/Desktop/Pokemon-Showdown-Client/users.js:1210:16)
     at /Users/IcyVines/Desktop/Pokemon-Showdown-Client/commands.js:1619:21
+
+ReferenceError: move is not defined
+    at Tools.exports.BattleAbilities.unsheathed.onBasePower (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:3535:7)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.getDamage (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2844:20)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:355:18)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+
+Additional information:
+message = battle-customgame-508|choose|p2|move Earthquake|9
+currentRequest = move
+
+Log:
+|player|p1|IcyVines|266
+|player|p2|Brendan0207|99
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Azurill, F
+|poke|p1|Flareon, F
+|poke|p1|Espeon, F
+|poke|p1|Typhlosion, F
+|poke|p1|Leafeon, F
+|poke|p1|Glaceon, F
+|poke|p2|Dragonite, F
+|poke|p2|Lucario, M, shiny
+|poke|p2|Alakazam, M, shiny
+|teampreview
+|
+|start
+|split
+|switch|p1a: Espeon|Espeon, F|282/282
+|switch|p1a: Espeon|Espeon, F|282/282
+|switch|p1a: Espeon|Espeon, F|282/282
+|switch|p1a: Espeon|Espeon, F|282/282
+|split
+|switch|p2a: Everything else Ra|Alakazam, M, shiny|251/251
+|switch|p2a: Everything else Ra|Alakazam, M, shiny|251/251
+|switch|p2a: Everything else Ra|Alakazam, M, shiny|251/251
+|switch|p2a: Everything else Ra|Alakazam, M, shiny|251/251
+|turn|1
+|
+|-formechange|p2a: Everything else Ra|Alakazam-Mega
+|message|Alakazam has Mega Evolved into Mega Alakazam!
+|-ability|p2a: Everything else Ra|Applied Knowledge|[from] ability: Trace|[of] p1a: Espeon
+|move|p2a: Everything else Ra|Psyshock|p1a: Espeon
+|debug|randBW(100) = 4
+|debug|randBW(16) = 9
+|debug|randBW(16) = 15
+|-resisted|p1a: Espeon
+|split
+|-damage|p1a: Espeon|166/282
+|-damage|p1a: Espeon|166/282
+|-damage|p1a: Espeon|166/282
+|-damage|p1a: Espeon|166/282
+|move|p1a: Espeon|Signal Beam|p2a: Everything else Ra
+|debug|randBW(100) = 67
+|debug|randBW(16) = 6
+|debug|randBW(16) = 0
+|-supereffective|p2a: Everything else Ra
+|split
+|-damage|p2a: Everything else Ra|43/251
+|-damage|p2a: Everything else Ra|43/251
+|-damage|p2a: Everything else Ra|43/251
+|-damage|p2a: Everything else Ra|43/251
+|debug|randBW(100) = 97
+|
+|turn|2
+|
+|move|p2a: Everything else Ra|Psyshock|p1a: Espeon
+|debug|randBW(100) = 46
+|debug|randBW(16) = 4
+|debug|randBW(16) = 15
+|-resisted|p1a: Espeon
+|split
+|-damage|p1a: Espeon|50/282
+|-damage|p1a: Espeon|50/282
+|-damage|p1a: Espeon|50/282
+|-damage|p1a: Espeon|50/282
+|move|p1a: Espeon|Signal Beam|p2a: Everything else Ra
+|debug|randBW(100) = 9
+|debug|randBW(16) = 14
+|debug|randBW(16) = 1
+|-supereffective|p2a: Everything else Ra
+|split
+|-damage|p2a: Everything else Ra|0 fnt
+|-damage|p2a: Everything else Ra|0 fnt
+|-damage|p2a: Everything else Ra|0 fnt
+|-damage|p2a: Everything else Ra|0 fnt
+|debug|randBW(100) = 97
+|faint|p2a: Everything else Ra
+|-boost|p1a: Espeon|spa|1|[from] ability: Applied Knowledge
+|
+|
+|split
+|switch|p2a: Fairy Rape|Lucario, M, shiny|281/281
+|switch|p2a: Fairy Rape|Lucario, M, shiny|281/281
+|switch|p2a: Fairy Rape|Lucario, M, shiny|281/281
+|switch|p2a: Fairy Rape|Lucario, M, shiny|281/281
+|turn|3
+|
+|move|p1a: Espeon|Hidden Power|p2a: Fairy Rape
+|debug|randBW(100) = 13
+|debug|randBW(16) = 11
+|debug|randBW(16) = 4
+|-supereffective|p2a: Fairy Rape
+|split
+|-damage|p2a: Fairy Rape|0 fnt
+|-damage|p2a: Fairy Rape|0 fnt
+|-damage|p2a: Fairy Rape|0 fnt
+|-damage|p2a: Fairy Rape|0 fnt
+|faint|p2a: Fairy Rape
+|-boost|p1a: Espeon|spa|1|[from] ability: Applied Knowledge
+|
+|
+|split
+|switch|p2a: Most things Rape|Dragonite, F|386/386
+|switch|p2a: Most things Rape|Dragonite, F|386/386
+|switch|p2a: Most things Rape|Dragonite, F|386/386
+|switch|p2a: Most things Rape|Dragonite, F|386/386
+|turn|4
+|
+|move|p2a: Most things Rape|Dragoon|p1a: Espeon
+|debug|randBW(100) = 64
+|debug|randBW(16) = 0
+|-crit|p1a: Espeon
+|debug|randBW(16) = 9
+|split
+|-damage|p1a: Espeon|0 fnt
+|-damage|p1a: Espeon|0 fnt
+|-damage|p1a: Espeon|0 fnt
+|-damage|p1a: Espeon|0 fnt
+|faint|p1a: Espeon
+|
+|
+|split
+|switch|p1a: Leafeon|Leafeon, F|282/282
+|switch|p1a: Leafeon|Leafeon, F|282/282
+|switch|p1a: Leafeon|Leafeon, F|282/282
+|switch|p1a: Leafeon|Leafeon, F|282/282
+|turn|5
+|
+|move|p1a: Leafeon|Leaf Blade|p2a: Most things Rape
+|debug|randBW(100) = 33
+|debug|randBW(8) = 1

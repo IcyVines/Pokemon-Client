@@ -3528,6 +3528,7 @@ exports.BattleAbilities = {
 		num: 127
 	},
 	"unsheathed": {
+		inherit: true,
 		desc: "This Pokemon's cutting moves do 1.5x damage.",
 		shortDesc: "This Pokemon's cutting moves do 1.5x damage.",
 		onBasePowerPriority: 8,
