@@ -1,0 +1,5 @@
+[
+{"title":"Lobby","autojoin":true,"auth":{"icyvines":"#"}},
+{"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true},
+{"title":"Friends","isPrivate":true,"auth":{"sirdanman":"#"}}
+]

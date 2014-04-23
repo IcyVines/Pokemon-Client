@@ -3532,8 +3532,9 @@ exports.BattleAbilities = {
 		desc: "This Pokemon's cutting moves do 1.5x damage.",
 		shortDesc: "This Pokemon's cutting moves do 1.5x damage.",
 		onBasePowerPriority: 8,
-		onBasePower: function(atk){
-			if(atk.isSword){
+		onBasePower: function(atk, attacker, defender, move){
+			if(move.isSword){
+				this.debug('Unsheathed boost');
 				return this.chainModify(1.5);
 			}
 		},
