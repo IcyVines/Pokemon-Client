@@ -532,3 +532,122 @@ Log:
 |move|p1a: Leafeon|Leaf Blade|p2a: Most things Rape
 |debug|randBW(100) = 33
 |debug|randBW(8) = 1
+
+ReferenceError: move is not defined
+    at Tools.exports.BattleAbilities.unsheathed.onBasePower (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:3536:7)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.getDamage (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2844:20)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:355:18)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+
+Additional information:
+message = battle-customgame-518|choose|p1|move Haze|2
+currentRequest = move
+
+Log:
+|player|p1|SirDanMan|1
+|player|p2|IcyVines|266
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Abra, M
+|poke|p1|Kadabra, M
+|poke|p1|Alakazam, F
+|poke|p1|Magikarp, F
+|poke|p1|Dragonite, F
+|poke|p2|Flareon, M
+|poke|p2|Leafeon, M
+|poke|p2|Leafeon, F
+|poke|p2|Dragonite, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|split
+|switch|p2a: Leafeon|Leafeon, M|282/282
+|switch|p2a: Leafeon|Leafeon, M|282/282
+|switch|p2a: Leafeon|Leafeon, M|282/282
+|switch|p2a: Leafeon|Leafeon, M|282/282
+|turn|1
+|
+|move|p2a: Leafeon|Leaf Blade|p1a: Dragonite
+|debug|randBW(100) = 28
+|debug|randBW(8) = 0
+
+ReferenceError: move is not defined
+    at Tools.exports.BattleAbilities.unsheathed.onBasePower (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:3536:7)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.getDamage (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2844:20)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:355:18)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+
+Additional information:
+message = battle-customgame-518|choose|p1|move Recover|5
+currentRequest = move
+
+Log:
+|player|p1|SirDanMan|1
+|player|p2|IcyVines|266
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Abra, M
+|poke|p1|Kadabra, M
+|poke|p1|Alakazam, F
+|poke|p1|Magikarp, F
+|poke|p1|Dragonite, F
+|poke|p2|Flareon, M
+|poke|p2|Leafeon, M
+|poke|p2|Leafeon, F
+|poke|p2|Dragonite, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|split
+|switch|p2a: Leafeon|Leafeon, M|282/282
+|switch|p2a: Leafeon|Leafeon, M|282/282
+|switch|p2a: Leafeon|Leafeon, M|282/282
+|switch|p2a: Leafeon|Leafeon, M|282/282
+|turn|1
+|
+|move|p2a: Leafeon|Leaf Blade|p1a: Dragonite
+|debug|randBW(100) = 28
+|debug|randBW(8) = 0
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|debug|p2: Leafeon INCONSISTENT STATE, ALREADY MOVED: leafblade
+|move|p1a: Dragonite|Haze|p1a: Dragonite|[from]Unsheathed
+|-clearallboost
+|debug|p1: Dragonite INCONSISTENT STATE, ALREADY MOVED: haze
+|
+|turn|2
+|
+|move|p2a: Leafeon|Synthesis|p2a: Leafeon|[from]Unsheathed
+|move|p1a: Dragonite|Heal Bell|p1a: Dragonite|[from]Unsheathed
+|-cureteam|p1a: Dragonite|[from] move: HealBell
+|
+|turn|3
+|
+|move|p2a: Leafeon|Aerial Ace|p1a: Dragonite|[from]Unsheathed
+|debug|randBW(16) = 14

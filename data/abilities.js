@@ -3533,7 +3533,7 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon's cutting moves do 1.5x damage.",
 		onBasePowerPriority: 8,
 		onBasePower: function(atk){
-			if(move.isSword){
+			if(atk.isSword){
 				return this.chainModify(1.5);
 			}
 		},
