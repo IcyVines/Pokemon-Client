@@ -3530,7 +3530,6 @@ exports.BattlePokedex = {
         abilities: {
             0: "Flash Fire",
             1: "Guts",
-            2: "Moxie",
             H: "Underdog"
         },
         heightm: 0.9,
