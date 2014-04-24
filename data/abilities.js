@@ -350,7 +350,7 @@ exports.BattleAbilities = {
 	},
 	"butterflyeffect": {
 		desc: "Attacks/Special Attacks with 50 or less base power raise a random stat by 1 stage, have a 50% chance to raise another stat, and have a 25% chance to raise a third.",
-		shortDesc: "",
+		shortDesc: "Moves with 50 or less base power have a chance to boost three random stats.",
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			if (atk && atk <= 50){
