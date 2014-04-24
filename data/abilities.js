@@ -69,8 +69,8 @@ exports.BattleAbilities = {
 		num: -6
 	},
 	"adaptability": {
-		desc: "This Pokemon's attacks that receive STAB (Same Type Attack Bonus) are increased from 50% to 100%.",
-		shortDesc: "This Pokemon's same-type attack bonus (STAB) is increased from 1.5x to 2x.",
+		desc: "This Pokemon's attacks that receive STAB (Same Type Attack Bonus) are increased from 50% to 80%.",
+		shortDesc: "This Pokemon's same-type attack bonus (STAB) is increased from 1.5x to 1.8x.",
 		onModifyMove: function(move) {
 			move.stab = 1.8;
 		},
@@ -80,11 +80,16 @@ exports.BattleAbilities = {
 		num: 91
 	},
 	"advancedartillery": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "Pokemon's ball and bomb moves do 1.5x damage.",
+		shortDesc: "Pokemon's ball and bomb moves do 1.5x damage.",
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if(move && move.isBullet && move.id in {focusblast:1, acidspray:1}){
+				return this.chainModify(1.5);
+			}
+		},
+		id: "advancedartillery",
+		name: "Advanced Artillery",
 		rating: 3,
 		num: -6
 	},
@@ -124,11 +129,16 @@ exports.BattleAbilities = {
 		gen: 6
 	},
 	"aggravation": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "When this Pokemon's health goes below half, Attack, Special Attack, and Speed are raised by one stage each.",
+		shortDesc: "Attack, Sp. Attack, and Speed are raised when health goes below half.",
+		onAfterDamage: function(damage, target, source, move){
+			if(target.hp + damage > target.maxhp/2){
+				this.boost({atk: 1, spa:1, spe:1});
+				this.debug('Aggravation boost');
+			}
+		},
+		id: "aggravation",
+		name: "Aggravation",
 		rating: 3,
 		num: -6
 	},
@@ -212,7 +222,7 @@ exports.BattleAbilities = {
 		num: -6
 	},
 	"arenatrap": {
-		desc: "When this Pokemon enters the field, its opponents cannot switch or flee the battle unless they are part Flying-type, have the Levitate ability, are holding Shed Shell, or they use the moves Baton Pass or U-Turn. Flying-type and Levitate Pokemon cannot escape if they are holding Iron Ball or Gravity is in effect. Levitate Pokemon also cannot escape if their ability is disabled through other means, such as Skill Swap or Gastro Acid.",
+		desc: "When this Pokemon enters the field, its opponents cannot switch or flee the battle unless they are part Flying-type, have the Levitate ability, are holding Shed Shell, or they use the moves Baton Pass or U-Turn. Flying-type and Levitate Pokemon cannot escape if they are holding Iron Ball or Gravity is in effect. Levitate Pokemon also cannot escape if their ability is disabled through other means, such as Skill Swap or Gastro Acid. This Pokemon cannot leave the battle normally.",
 		shortDesc: "Prevents foes from switching out normally unless they have immunity to Ground.",
 		onFoeModifyPokemon: function(pokemon) {
 			if (pokemon.runImmunity('Ground', false)) {
@@ -339,11 +349,50 @@ exports.BattleAbilities = {
 		gen: 6
 	},
 	"butterflyeffect": {
-		desc: "",
+		desc: "Attacks/Special Attacks with 50 or less base power raise a random stat by 1 stage, have a 50% chance to raise another stat, and have a 25% chance to raise a third.",
 		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if (atk && atk <= 50){
+				var stats = [], i = '';
+				for (var i in pokemon.boosts) {
+					if (pokemon.boosts[i] < 6) {
+						stats.push(i);
+					}
+				}
+				if (stats.length) {
+					i = stats[this.random(stats.length)];
+					this.boost({i:1});
+				}
+				var r = Math.random(100);
+				if(r < 50){
+					stats = [];
+					for (var i in pokemon.boosts) {
+						if (pokemon.boosts[i] < 6) {
+							stats.push(i);
+						}
+					}
+					if (stats.length) {
+						i = stats[this.random(stats.length)];
+						this.boost(i:1);
+					}
+					if(r < 25){
+						stats = [];
+						for (var i in pokemon.boosts) {
+							if (pokemon.boosts[i] < 6) {
+								stats.push(i);
+							}
+						}
+						if (stats.length) {
+							i = stats[this.random(stats.length)];
+							this.boost({i:1});
+						}
+					}
+				}
+			}
+		},
+		id: "butterflyeffect",
+		name: "Butterfly Effect",
 		rating: 3,
 		num: -6
 	},
@@ -553,9 +602,9 @@ exports.BattleAbilities = {
 		onTryHit: function(target, source, move) {
 			if (target !== source && move.type === 'Water') {
 				move.accuracy = true;
-				this.add('-immune', target, '[msg]');
+				//this.add('-immune', target, '[msg]');
 				this.boost({spd:1, def:1, spe:-1});
-				return null;
+				//return null;
 			}
 		},
 		name: "Damp",
@@ -679,7 +728,7 @@ exports.BattleAbilities = {
 		num: 88
 	},
 	"drizzle": {
-		desc: "When this Pokemon enters the battlefield, the weather becomes Rain Dance (for 5 turns normally, or 8 turns while holding Damp Rock).",
+		desc: "When this Pokemon enters the battlefield, the weather becomes Rain Dance for 8 turns.",
 		shortDesc: "On switch-in, the weather becomes Rain Dance.",
 		onStart: function(source) {
 			this.setWeather('raindance');
@@ -691,7 +740,7 @@ exports.BattleAbilities = {
 		num: 2
 	},
 	"drought": {
-		desc: "When this Pokemon enters the battlefield, the weather becomes Sunny Day (for 5 turns normally, or 8 turns while holding Heat Rock).",
+		desc: "When this Pokemon enters the battlefield, the weather becomes Sunny Day for 8 turns.",
 		shortDesc: "On switch-in, the weather becomes Sunny Day.",
 		onStart: function(source) {
 			this.setWeather('sunnyday');
@@ -757,9 +806,20 @@ exports.BattleAbilities = {
 		num: 27
 	},
 	"entrancing": {
-		desc: "",
-		shortDesc: "",
-		//functions
+		desc: "Opposing Pokemon of the opposite gender do 0.75x damage.",
+		shortDesc: "Opposing Pokemon of the opposite gender do 0.75x damage.",
+		onModifyAtkPriority: 6,
+		onSourceModifyAtk: function(atk, attacker, defender, move) {
+			if(attacker.gender && defender.gender && attacker.gender != defender.gender){
+				return this.chainModify(0.75);
+			}
+		},
+		onModifySpaPriority: 6,
+		onSourceModifySpa: function(atk, attacker, defender, move) {
+			if(attacker.gender && defender.gender && attacker.gender != defender.gender){
+				return this.chainModify(0.75);
+			}
+		},
 		id: "entrancing",
 		name: "Entrancing",
 		rating: 3,
@@ -1052,11 +1112,11 @@ exports.BattleAbilities = {
 		num: 119
 	},
 	"frostbite": {
-		desc: "",
-		shortDesc: "",
+		desc: "All physical attacks have an added 10% chance to freeze the opposing Pokemon.",
+		shortDesc: "Physical attacks have an added 10% chance to freeze.",
 		//functions
-		id: "",
-		name: "",
+		id: "frostbite",
+		name: "Frostbite",
 		rating: 3,
 		num: -6
 	},
@@ -1163,7 +1223,7 @@ exports.BattleAbilities = {
 	},
 	"guardian": {
 		desc: "This Pokemon receives half damage from Poison, Dark, Steel, and Bug-type attacks.",
-		shortDesc: "This Pokemon receives half damage from Poison, Dark, Steel, and Bug-type attacks.",
+		shortDesc: "This Pokemon resists Poison, Dark, Steel, and Bug moves.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Poison' || move.type === 'Dark' || move.type === 'Steel' || move.type === 'Bug') {
@@ -1476,7 +1536,7 @@ exports.BattleAbilities = {
 				}
 			}
 				return null;
-			},
+		},
 		id: "intenseflames",
 		name: "Intense Flames",
 		rating: 3,
@@ -1576,11 +1636,19 @@ exports.BattleAbilities = {
 		num: 103
 	},
 	"laststand": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "This Pokemon has a 25% chance to survive a fatal hit. If it does, Attack and Special Attack are raised by one stage.",
+		shortDesc: "This Pokemon can survive a fatal hit.",
+		onDamage: function(damage, target, source, effect) {
+			if (effect && effect.effectType === 'Move' && damage >= target.hp) {
+				if(Math.random(100) < 25){
+					return target.hp - 1;
+					this.boost({atk:1, spa:1});
+					this.debug('Last Stand Boost');
+				}
+			}
+		},
+		id: "laststand",
+		name: "Last Stand",
 		rating: 3,
 		num: -6
 	},
@@ -2125,11 +2193,11 @@ exports.BattleAbilities = {
 		num: 20
 	},
 	"passive-aggressive": {
-		desc: "",
-		shortDesc: "",
+		desc: "Effect chance 2.5x, but damage is 0.66x.",
+		shortDesc: "Effect chance 2.5x, but damage is 0.66x.",
 		//functions
-		id: "",
-		name: "",
+		id: "passive-aggressive",
+		name: "Passive-Aggressive",
 		rating: 3,
 		num: -6
 	},
@@ -2160,11 +2228,23 @@ exports.BattleAbilities = {
 		gen: 6
 	},
 	"permeate": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "This Pokemon goes through all screens, subs, and protection moves with 1.5x attack, but loses 10% accuracy.",
+		shortDesc: "Pokemon's attacks go through protection with 1.5x attack and 10% accuracy.",
+		//Hit through everything implemented in moves.js
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if(attacker.removeVolatile('permeate')){
+					return this.chainModify(1.5);
+			}
+		},
+		onAccuracyPriority: 10,
+		onAccuracy: function(accuracy, target, source, move){
+			if(source.removeVolatile('permeate')){
+					return accuracy * 0.9;
+			}
+		},
+		id: "permeate",
+		name: "Permeate",
 		rating: 3,
 		num: -6
 	},
@@ -2304,11 +2384,16 @@ exports.BattleAbilities = {
 		num: 143
 	},
 	"powersurge": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "Pokemon's two turn charge moves do 1.5x damage.",
+		shortDesc: "Pokemon's two turn charge moves do 1.5x damage.",
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if(move && (move.isTwoTurnMove || move.shortDesc == 'User cannot move next turn.')){
+				return this.chainModify(1.5);
+			}
+		},
+		id: "powersurge",
+		name: "Power Surge",
 		rating: 3,
 		num: -6
 	},
@@ -2341,11 +2426,15 @@ exports.BattleAbilities = {
 		num: 46
 	},
 	"prioritize": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "Pokemon's moves with base power of 60 or less gain +1 priority.",
+		shortDesc: "Moves with base power of 60 or less gain priority",
+		onModifyPriority: function(priority, pokemon, target, move){
+			if (move && move.basePower <= 60){
+				return priority + 1;
+			}
+		},
+		id: "prioritize",
+		name: "Prioritize",
 		rating: 3,
 		num: -6
 	},
@@ -2367,8 +2456,8 @@ exports.BattleAbilities = {
 		gen: 6
 	},
 	"purepower": {
-		desc: "This Pokemon's Attack stat is doubled. Note that this is the Attack stat itself, not the base Attack stat of its species.",
-		shortDesc: "This Pokemon's Attack is doubled.",
+		desc: "This Pokemon's Attack stat is 80% higher. Note that this is the Attack stat itself, not the base Attack stat of its species.",
+		shortDesc: "This Pokemon's Attack is 80% higher.",
 		onModifyAtkPriority: 5,
 		onModifyAtk: function(atk) {
 			return this.chainModify(1.8);
@@ -2392,11 +2481,11 @@ exports.BattleAbilities = {
 		num: 95
 	},
 	"quicksand": {
-		desc: "",
-		shortDesc: "",
+		desc: "Attacks by this Pokemon have a 50% chance to lower opposing Pokemon's Speed by one stage.",
+		shortDesc: "Attacks have a 50% chance to lower foe's speed.",
 		//functions
-		id: "",
-		name: "",
+		id: "quicksand",
+		name: "Quick Sand",
 		rating: 3,
 		num: -6
 	},
@@ -2414,20 +2503,26 @@ exports.BattleAbilities = {
 		num: 44
 	},
 	"rapidfire": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "Multi-hit moves have priority.",
+		shortDesc: "Multi-hit moves have priority.",
+		onModifyPriority: function(priority, pokemon, target, move) {
+			if (move && move.multihit) return priority + 1;
+		},
+		id: "rapidfire",
+		name: "Rapid Fire",
 		rating: 3,
 		num: -6
 	},
 	"rapidgrowth": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "At the end of the turn, this Pokemon regains 10% health.",
+		shortDesc: "At the end of the turn, this Pokemon regains 10% health.",
+		onResidualOrder: 5,
+		onResidualSubOrder: 1,
+		onResidual: function(pokemon) {
+			this.heal(pokemon.maxhp/10);
+		},
+		id: "rapidgrowth",
+		name: "Rapid Growth",
 		rating: 3,
 		num: -6
 	},
@@ -2582,7 +2677,7 @@ exports.BattleAbilities = {
 		num: 146
 	},
 	"sandstream": {
-		desc: "When this Pokemon enters the battlefield, the weather becomes Sandstorm (for 5 turns normally, or 8 turns while holding Smooth Rock).",
+		desc: "When this Pokemon enters the battlefield, the weather becomes Sandstorm for 8 turns.",
 		shortDesc: "On switch-in, the weather becomes Sandstorm.",
 		onStart: function(source) {
 			this.setWeather('sandstorm');
@@ -2641,8 +2736,8 @@ exports.BattleAbilities = {
 		num: 113
 	},
 	"serenegrace": {
-		desc: "This Pokemon's moves have their secondary effect chance doubled. For example, if this Pokemon uses Ice Beam, it will have a 20% chance to freeze its target.",
-		shortDesc: "This Pokemon's moves have their secondary effect chance doubled.",
+		desc: "This Pokemon's moves have their secondary effect chance multiplied by 1.75. For example, if this Pokemon uses Ice Beam, it will have a 20% chance to freeze its target.",
+		shortDesc: "This Pokemon's moves have their secondary effect chance multiplied by 1.75.",
 		onModifyMove: function(move) {
 			if (move.secondaries) {
 				this.debug('doubling secondary chance');
@@ -2657,8 +2752,8 @@ exports.BattleAbilities = {
 		num: 32
 	},
 	"shadowtag": {
-		desc: "When this Pokemon enters the field, its non-Ghost-type opponents cannot switch or flee the battle unless they have the same ability, are holding Shed Shell, or they use the moves Baton Pass or U-Turn.",
-		shortDesc: "Prevents foes from switching out normally unless they also have this Ability.",
+		desc: "When this Pokemon enters the field, its non-Ghost-type opponents cannot switch or flee the battle unless they have the same ability, are holding Shed Shell, or they use the moves Baton Pass or U-Turn. This Pokemon cannot leave the battle normally.",
+		shortDesc: "Prevents foes from switching out normally.",
 		onFoeModifyPokemon: function(pokemon) {
 			if (pokemon.ability !== 'shadowtag') {
 				pokemon.tryTrap();
@@ -2755,7 +2850,7 @@ exports.BattleAbilities = {
 	},
 	"skeptic": {
 		desc: "This Pokemon receives half damage from Fairy, Dragon, Ghost, and Psychic-type attacks.",
-		shortDesc: "This Pokemon receives half damage from Fairy, Dragon, Ghost, and Psychic-type attacks.",
+		shortDesc: "This Pokemon resists Fairy, Dragon, Ghost, and Psychic moves.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Fairy' || move.type === 'Dragon' || move.type === 'Ghost' || move.type === 'Psychic') {
@@ -2856,7 +2951,7 @@ exports.BattleAbilities = {
 		num: 81
 	},
 	"snowwarning": {
-		desc: "When this Pokemon enters the battlefield, the weather becomes Hail (for 5 turns normally, or 8 turns while holding Icy Rock).",
+		desc: "When this Pokemon enters the battlefield, the weather becomes Hail for 8 turns.",
 		shortDesc: "On switch-in, the weather becomes Hail.",
 		onStart: function(source) {
 			this.setWeather('hail');
@@ -3244,7 +3339,7 @@ exports.BattleAbilities = {
 	},
 	"terracotta": {
 		desc: "This Pokemon receives half damage from Ground, Rock, Grass, and Water-type attacks.",
-		shortDesc: "This Pokemon receives half damage from Ground, Rock, Grass, and Water-type attacks.",
+		shortDesc: "This Pokemon resists Ground, Rock, Grass, and Water moves.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Ground' || move.type === 'Rock' || move.type === 'Grass' || move.type === 'Water') {
@@ -3269,7 +3364,26 @@ exports.BattleAbilities = {
 		shortDesc: "On switch-in, terrain is set up related to the Pokemon's first type.",
 		onModifyAtkPriority: 6,
 		onStart: function(pokemon){
-
+			//var types = {'Grass', 'Ice', 'Fairy', 'Electric', 'Fire', 'Dragon', 'Poison'};
+			var types = pokemon.getTypes();
+			switch(types[0]){
+				case 'Grass': this.setWeather('grassyterrain');
+				break;
+				case 'Fairy': this.setWeather('mistyterrain');
+				break;
+				case 'Electric': this.setWeather('electricterrain');
+				break;
+				case 'Fire':
+				break;
+				case 'Ice':
+				break;
+				case 'Dragon':
+				break;
+				case 'Poison':
+				break;
+				default:
+				break;
+			}
 		},
 		id: "terraformer",
 		name: "Terraformer",
@@ -3278,7 +3392,7 @@ exports.BattleAbilities = {
 	},
 	"thickfat": {
 		desc: "This Pokemon receives half damage from Ice, Fire, Electric, Flying, and Fighting-type attacks.",
-		shortDesc: "This Pokemon receives half damage from Fire, Ice, Electric, Flying, and Fighting-type attacks.",
+		shortDesc: "This Pokemon resists Fire, Ice, Electric, Flying, and Fighting moves.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Electric' || move.type === 'Flying' || move.type === 'Fighting') {
@@ -3299,20 +3413,47 @@ exports.BattleAbilities = {
 		num: 47
 	},
 	"thrillseeker": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "This Pokemon's recoil moves have priority, but give 200% recoil damage.",
+		shortDesc: "This Pokemon's recoil moves have priority, but give 200% recoil damage.",
+		onModifyPriority: function(priority, pokemon, target, move) {
+			if (move && (move.recoil || move.hasCustomRecoil)) return priority + 1;
+		},
+		onModifyMove: function(move, pokemon){
+			if(move && move.recoil){
+				move.recoil[0] *= 2;
+			}
+		},
+		onMoveFail: function(target, source, move) {
+			if(move && move.hasCustomRecoil){
+				this.damage(source.maxhp, source, source, move.name);
+			}
+		},
+		id: "thrillseeker",
+		name: "Thrill Seeker",
 		rating: 3,
 		num: -6
 	},
 	"tidal": {
-		desc: "",
-		shortDesc: "",
-		//functions
-		id: "",
-		name: "",
+		desc: "This Pokemon's Water and Ice type moves do 1.5x damage every other turn starting on switch-in, and 0.66x the others.",
+		shortDesc: "This Pokemon's Water and Ice moves fluctuate in power.",
+		onStart: function(pokemon){
+			pokemon.addVolatile('tidal');
+		},
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			var power = 0.66;
+			if(pokemon.removeVolatile('tidal')){
+				power = 1.5;
+			} else {
+				pokemon.addVolatile('tidal');
+			}
+			if(move.type == 'Water' || move.type == 'Ice'){
+				this.debug('Tidal power shift: ' + power + 'x'	);
+				return this.chainModify(power);
+			}
+		},
+		id: "tidal",
+		name: "Tidal",
 		rating: 3,
 		num: -6
 	},

@@ -4,3 +4,5 @@
 [2014-04-23T01:09:12.400Z] (lobby) SirDanMan was promoted to Administrator by IcyVines.
 [2014-04-23T01:16:52.035Z] (lobby) (SirDanMan was demoted to Moderator by IcyVines.)
 [2014-04-23T01:45:23.403Z] (lobby) IcyVines was appointed Room Owner by IcyVines.
+[2014-04-23T02:09:56.857Z] (lobby) IcyVines globally declared (chat level) Fuck you, Dan
+[2014-04-23T02:10:19.209Z] (lobby) IcyVines globally declared Lol

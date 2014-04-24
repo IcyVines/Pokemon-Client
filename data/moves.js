@@ -2133,6 +2133,10 @@ exports.BattleMovedex = {
 					return;
 				}
 				if (move && (move.target === 'self' || move.category !== 'Status')) return;
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				this.add('-activate', target, 'Crafty Shield');
 				return null;
 			}
@@ -7044,6 +7048,10 @@ exports.BattleMovedex = {
 					return;
 				}
 				if (move && (move.category === 'Status' || move.isNotProtectable)) return;
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				this.add('-activate', target, 'Protect');
 				var lockedmove = source.getVolatile('lockedmove');
 				if (lockedmove) {
@@ -7343,11 +7351,15 @@ exports.BattleMovedex = {
 			},
 			onFoeModifyDamage: function(damage, source, target, move) {
 				if (this.getCategory(move) === 'Special' && target.side === this.effectData.target) {
-					if (!move.crit && source.ability !== 'infiltrator') {
+					if (!move.crit && (source.ability !== 'infiltrator' || source.ability !== 'permeate') {
 						this.debug('Light Screen weaken');
 						if (source.side.active.length > 1) return this.chainModify(0.66);
 						return this.chainModify(0.5);
 					}
+					if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				}
 			},
 			onStart: function(side) {
@@ -7846,6 +7858,10 @@ exports.BattleMovedex = {
 					return;
 				}
 				if (move && (move.target === 'self' || move.category === 'Status')) return;
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				this.add('-activate', target, 'Mat Block', move.name);
 				var lockedmove = source.getVolatile('lockedmove');
 				if (lockedmove) {
@@ -9721,6 +9737,10 @@ exports.BattleMovedex = {
 					return;
 				}
 				if (move && (move.target === 'self' || move.isNotProtectable)) return;
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				this.add('-activate', target, 'Protect');
 				var lockedmove = source.getVolatile('lockedmove');
 				if (lockedmove) {
@@ -10057,6 +10077,10 @@ exports.BattleMovedex = {
 				if (effect && (effect.id === 'feint' || effect.priority <= 0 || effect.target === 'self')) {
 					return;
 				}
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				this.add('-activate', target, 'Quick Guard');
 				var lockedmove = source.getVolatile('lockedmove');
 				if (lockedmove) {
@@ -10346,11 +10370,15 @@ exports.BattleMovedex = {
 			},
 			onFoeModifyDamage: function(damage, source, target, move) {
 				if (this.getCategory(move) === 'Physical' && target.side === this.effectData.target) {
-					if (!move.crit && source.ability !== 'infiltrator') {
+					if (!move.crit && (source.ability !== 'infiltrator' || source.ability !== 'permeate')) {
 						this.debug('Reflect weaken');
 						if (source.side.active.length > 1) return this.chainModify(0.66);
 						return this.chainModify(0.5);
 					}
+					if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				}
 			},
 			onStart: function(side) {
@@ -11028,15 +11056,23 @@ exports.BattleMovedex = {
 				return 5;
 			},
 			onSetStatus: function(status, target, source, effect) {
-				if (source && source !== target && source.ability !== 'infiltrator' || (effect && effect.id === 'toxicspikes')) {
+				if (source && source !== target && source.ability !== 'infiltrator' || source.ability !== 'permeate' || (effect && effect.id === 'toxicspikes')) {
 					this.debug('interrupting setStatus');
 					return false;
 				}
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 			},
 			onTryConfusion: function(target, source, effect) {
-				if (source && source !== target && source.ability !== 'infiltrator') {
+				if (source && source !== target && source.ability !== 'infiltrator' || source.ability !== 'permeate') {
 					this.debug('interrupting addVolatile');
 					return false;
+				}
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
 				}
 			},
 			onTryHit: function(target, source, move) {
@@ -12240,6 +12276,10 @@ exports.BattleMovedex = {
 					return;
 				}
 				if (move && (move.target === 'self' || move.id === 'suckerpunch')) return;
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				this.add('-activate', target, 'move: Protect');
 				if (move.isContact) {
 					this.damage(source.maxhp/8, source, target);
@@ -12922,6 +12962,10 @@ exports.BattleMovedex = {
 					return;
 				}
 				if (move.notSubBlocked || (source.ability === 'infiltrator' || move.isSoundBased) && this.gen >= 6) {
+					return;
+				}
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
 					return;
 				}
 				if (move.category === 'Status') {
@@ -14644,6 +14688,10 @@ exports.BattleMovedex = {
 			onTryHit: function(target, source, effect) {
 				// Wide Guard blocks damaging spread moves
 				if (effect && (effect.category === 'Status' || (effect.target !== 'allAdjacent' && effect.target !== 'allAdjacentFoes'))) {
+					return;
+				}
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
 					return;
 				}
 				this.add('-activate', target, 'Wide Guard');
