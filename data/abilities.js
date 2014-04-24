@@ -374,7 +374,7 @@ exports.BattleAbilities = {
 					}
 					if (stats.length) {
 						i = stats[this.random(stats.length)];
-						this.boost(i:1);
+						this.boost({i:1});
 					}
 					if(r < 25){
 						stats = [];

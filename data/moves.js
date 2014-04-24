@@ -7351,7 +7351,7 @@ exports.BattleMovedex = {
 			},
 			onFoeModifyDamage: function(damage, source, target, move) {
 				if (this.getCategory(move) === 'Special' && target.side === this.effectData.target) {
-					if (!move.crit && (source.ability !== 'infiltrator' || source.ability !== 'permeate') {
+					if (!move.crit && (source.ability !== 'infiltrator' || source.ability !== 'permeate')) {
 						this.debug('Light Screen weaken');
 						if (source.side.active.length > 1) return this.chainModify(0.66);
 						return this.chainModify(0.5);
@@ -10378,7 +10378,7 @@ exports.BattleMovedex = {
 					if(source.ability === 'permeate'){
 					source.addVolatile('permeate');
 					return;
-				}
+					}
 				}
 			},
 			onStart: function(side) {
@@ -11056,7 +11056,7 @@ exports.BattleMovedex = {
 				return 5;
 			},
 			onSetStatus: function(status, target, source, effect) {
-				if (source && source !== target && source.ability !== 'infiltrator' || source.ability !== 'permeate' || (effect && effect.id === 'toxicspikes')) {
+				if (source && source !== target && (source.ability !== 'infiltrator' || source.ability !== 'permeate') || (effect && effect.id === 'toxicspikes')) {
 					this.debug('interrupting setStatus');
 					return false;
 				}
@@ -11066,7 +11066,7 @@ exports.BattleMovedex = {
 				}
 			},
 			onTryConfusion: function(target, source, effect) {
-				if (source && source !== target && source.ability !== 'infiltrator' || source.ability !== 'permeate') {
+				if (source && source !== target && (source.ability !== 'infiltrator' || source.ability !== 'permeate')) {
 					this.debug('interrupting addVolatile');
 					return false;
 				}
