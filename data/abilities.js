@@ -2192,11 +2192,11 @@ exports.BattleAbilities = {
 		rating: 1,
 		num: 20
 	},
-	"passive-aggressive": {
+	"passiveaggressive": {
 		desc: "Effect chance 2.5x, but damage is 0.66x.",
 		shortDesc: "Effect chance 2.5x, but damage is 0.66x.",
 		//functions
-		id: "passive-aggressive",
+		id: "passiveaggressive",
 		name: "Passive-Aggressive",
 		rating: 3,
 		num: -6

@@ -667,3 +667,11 @@ user = icyvines
 ip = 127.0.0.1
 roomid = staff
 message = staff|!data Passive-Aggressive
+
+undefined
+
+Additional information:
+user = icyvines
+ip = 96.242.217.238
+roomid = 
+message = |!data passive-aggress
