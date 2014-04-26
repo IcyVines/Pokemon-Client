@@ -675,3 +675,1414 @@ user = icyvines
 ip = 96.242.217.238
 roomid = 
 message = |!data passive-aggress
+
+TypeError: Cannot read property 'length' of undefined
+    at Tools.module.exports.Tools.getEffectiveness (/Users/IcyVines/Desktop/Pokemon-Client/tools.js:140:30)
+    at Tools.exports.BattleAbilities.fightingspirit.onBasePower (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:866:18)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.getDamage (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2844:20)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:355:18)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+
+Additional information:
+message = battle-customgame-551|choose|p2|move Hidden Power Flying|31
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|2
+|player|p2|IcyVines|266
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Charizard, M, shiny
+|poke|p1|Talonflame, M, shiny
+|poke|p1|Aegislash, M, shiny
+|poke|p1|Galvantula, M, shiny
+|poke|p1|Carbink
+|poke|p1|Lucario, M
+|poke|p2|Donphan, M
+|poke|p2|Heracross, M
+|poke|p2|Gliscor, F
+|poke|p2|Ferrothorn, M
+|poke|p2|Octillery, M
+|poke|p2|Sableye, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|split
+|switch|p2a: Donphan|Donphan, M|320/320
+|switch|p2a: Donphan|Donphan, M|320/320
+|switch|p2a: Donphan|Donphan, M|320/320
+|switch|p2a: Donphan|Donphan, M|320/320
+|turn|1
+|
+|move|p1a: Carbink|Rest|p1a: Carbink
+|-fail|p1a: Carbink
+|debug|move failed because it did nothing
+|move|p2a: Donphan|Bubble Beam|p1a: Carbink
+|debug|randBW(100) = 94
+|debug|randBW(16) = 12
+|debug|randBW(16) = 1
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|264/304
+|-damage|p1a: Carbink|264/304
+|-damage|p1a: Carbink|264/304
+|-damage|p1a: Carbink|264/304
+|debug|randBW(100) = 71
+|
+|split
+|-heal|p1a: Carbink|283/304|[from] item: Leftovers
+|-heal|p1a: Carbink|283/304|[from] item: Leftovers
+|-heal|p1a: Carbink|283/304|[from] item: Leftovers
+|-heal|p1a: Carbink|283/304|[from] item: Leftovers
+|-activate|p2a: Donphan|item: Flame Orb
+|-status|p2a: Donphan|brn|[from] item: Flame Orb
+|turn|2
+|
+|move|p2a: Donphan|Bubble Beam|p1a: Carbink
+|debug|randBW(100) = 90
+|debug|randBW(16) = 6
+|debug|randBW(16) = 13
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|231/304
+|-damage|p1a: Carbink|231/304
+|-damage|p1a: Carbink|231/304
+|-damage|p1a: Carbink|231/304
+|debug|randBW(100) = 95
+|move|p1a: Carbink|Rest|p1a: Carbink
+|-status|p1a: Carbink|slp
+|debug|randBW(2,5) = 2
+|split
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-status|p1a: Carbink|slp|[from] move: Rest
+|
+|split
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|turn|3
+|
+|cant|p1a: Carbink|slp
+|move|p2a: Donphan|Bubble Beam|p1a: Carbink
+|debug|randBW(100) = 24
+|debug|randBW(16) = 10
+|debug|randBW(16) = 2
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|246/304 slp
+|-damage|p1a: Carbink|246/304 slp
+|-damage|p1a: Carbink|246/304 slp
+|-damage|p1a: Carbink|246/304 slp
+|debug|randBW(100) = 61
+|
+|split
+|-heal|p1a: Carbink|265/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|265/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|265/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|265/304 slp|[from] item: Leftovers
+|split
+|-damage|p2a: Donphan|240/320 brn|[from] brn
+|-damage|p2a: Donphan|240/320 brn|[from] brn
+|-damage|p2a: Donphan|240/320 brn|[from] brn
+|-damage|p2a: Donphan|240/320 brn|[from] brn
+|turn|4
+|
+|move|p2a: Donphan|Earth Power|p1a: Carbink
+|debug|randBW(100) = 39
+|debug|randBW(16) = 14
+|debug|randBW(16) = 7
+|split
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|debug|randBW(100) = 45
+|cant|p1a: Carbink|slp
+|
+|split
+|-heal|p1a: Carbink|226/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|226/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|226/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|226/304 slp|[from] item: Leftovers
+|split
+|-damage|p2a: Donphan|200/320 brn|[from] brn
+|-damage|p2a: Donphan|200/320 brn|[from] brn
+|-damage|p2a: Donphan|200/320 brn|[from] brn
+|-damage|p2a: Donphan|200/320 brn|[from] brn
+|turn|5
+|
+|move|p2a: Donphan|Recover|p2a: Donphan
+|split
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-curestatus|p1a: Carbink|slp
+|move|p1a: Carbink|Rest|p1a: Carbink
+|-status|p1a: Carbink|slp
+|debug|randBW(2,5) = 3
+|split
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-status|p1a: Carbink|slp|[from] move: Rest
+|
+|split
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|turn|6
+|
+|split
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|cant|p1a: Carbink|slp
+|
+|turn|7
+|
+|move|p2a: Gliscor|Metal Claw|p1a: Carbink
+|debug|randBW(100) = 16
+|debug|randBW(16) = 7
+|debug|Guardian weaken
+|debug|randBW(16) = 5
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|244/304 slp
+|-damage|p1a: Carbink|244/304 slp
+|-damage|p1a: Carbink|244/304 slp
+|-damage|p1a: Carbink|244/304 slp
+|debug|randBW(100) = 94
+|cant|p1a: Carbink|slp
+|
+|split
+|-heal|p1a: Carbink|263/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|263/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|263/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|263/304 slp|[from] item: Leftovers
+|turn|8
+|
+|move|p2a: Gliscor|Metal Claw|p1a: Carbink
+|debug|randBW(100) = 50
+|debug|randBW(16) = 12
+|debug|Guardian weaken
+|debug|randBW(16) = 8
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|debug|randBW(100) = 62
+|-curestatus|p1a: Carbink|slp
+|move|p1a: Carbink|Recover|p1a: Carbink
+|split
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|
+|turn|9
+|
+|move|p2a: Gliscor|Poison Tail|p1a: Carbink
+|debug|randBW(100) = 6
+|debug|randBW(8) = 3
+|debug|Guardian weaken
+|debug|randBW(16) = 0
+|split
+|-damage|p1a: Carbink|288/304
+|-damage|p1a: Carbink|288/304
+|-damage|p1a: Carbink|288/304
+|-damage|p1a: Carbink|288/304
+|debug|randBW(100) = 31
+|move|p1a: Carbink|Skill Swap|p2a: Gliscor
+|-activate|p1a: Carbink|move: Skill Swap|Prioritize|Guardian|[of] p2a: Gliscor
+|
+|split
+|-heal|p1a: Carbink|304/304|[from] item: Leftovers
+|-heal|p1a: Carbink|304/304|[from] item: Leftovers
+|-heal|p1a: Carbink|304/304|[from] item: Leftovers
+|-heal|p1a: Carbink|304/304|[from] item: Leftovers
+|turn|10
+|
+|move|p1a: Carbink|Recover|p1a: Carbink
+|-fail|p1a: Carbink
+|debug|heal interrupted
+|move|p2a: Gliscor|Metal Claw|p1a: Carbink
+|debug|randBW(100) = 73
+|debug|randBW(16) = 1
+|debug|randBW(16) = 12
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|200/304
+|-damage|p1a: Carbink|200/304
+|-damage|p1a: Carbink|200/304
+|-damage|p1a: Carbink|200/304
+|debug|randBW(100) = 31
+|
+|split
+|-heal|p1a: Carbink|219/304|[from] item: Leftovers
+|-heal|p1a: Carbink|219/304|[from] item: Leftovers
+|-heal|p1a: Carbink|219/304|[from] item: Leftovers
+|-heal|p1a: Carbink|219/304|[from] item: Leftovers
+|turn|11
+|
+|move|p1a: Carbink|Recover|p1a: Carbink
+|split
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|move|p2a: Gliscor|Poison Tail|p1a: Carbink
+|debug|randBW(100) = 81
+|debug|randBW(8) = 0
+|-crit|p1a: Carbink
+|debug|randBW(16) = 4
+|split
+|-damage|p1a: Carbink|261/304
+|-damage|p1a: Carbink|261/304
+|-damage|p1a: Carbink|261/304
+|-damage|p1a: Carbink|261/304
+|debug|randBW(100) = 95
+|
+|split
+|-heal|p1a: Carbink|280/304|[from] item: Leftovers
+|-heal|p1a: Carbink|280/304|[from] item: Leftovers
+|-heal|p1a: Carbink|280/304|[from] item: Leftovers
+|-heal|p1a: Carbink|280/304|[from] item: Leftovers
+|turn|12
+|
+|move|p1a: Carbink|Recover|p1a: Carbink
+|split
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|move|p2a: Gliscor|Poison Tail|p1a: Carbink
+|debug|randBW(100) = 22
+|debug|randBW(8) = 4
+|debug|randBW(16) = 9
+|split
+|-damage|p1a: Carbink|277/304
+|-damage|p1a: Carbink|277/304
+|-damage|p1a: Carbink|277/304
+|-damage|p1a: Carbink|277/304
+|debug|randBW(100) = 60
+|
+|split
+|-heal|p1a: Carbink|296/304|[from] item: Leftovers
+|-heal|p1a: Carbink|296/304|[from] item: Leftovers
+|-heal|p1a: Carbink|296/304|[from] item: Leftovers
+|-heal|p1a: Carbink|296/304|[from] item: Leftovers
+|turn|13
+|
+|move|p1a: Carbink|Skill Swap|p2a: Gliscor
+|-activate|p1a: Carbink|move: Skill Swap|Guardian|Prioritize|[of] p2a: Gliscor
+|move|p2a: Gliscor|Bulldoze|p1a: Carbink
+|debug|randBW(100) = 82
+|debug|randBW(16) = 7
+|debug|randBW(16) = 6
+|split
+|-damage|p1a: Carbink|248/304
+|-damage|p1a: Carbink|248/304
+|-damage|p1a: Carbink|248/304
+|-damage|p1a: Carbink|248/304
+|debug|randBW(100) = 99
+|-unboost|p1a: Carbink|spe|1
+|
+|split
+|-heal|p1a: Carbink|267/304|[from] item: Leftovers
+|-heal|p1a: Carbink|267/304|[from] item: Leftovers
+|-heal|p1a: Carbink|267/304|[from] item: Leftovers
+|-heal|p1a: Carbink|267/304|[from] item: Leftovers
+|turn|14
+|
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|split
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|
+|turn|15
+|
+|move|p1a: Galvantula|Bug Buzz|p2a: Ferrothorn
+|debug|randBW(100) = 58
+|debug|randBW(16) = 2
+|debug|randBW(16) = 0
+|split
+|-damage|p2a: Ferrothorn|264/351
+|-damage|p2a: Ferrothorn|264/351
+|-damage|p2a: Ferrothorn|264/351
+|-damage|p2a: Ferrothorn|264/351
+|debug|randBW(100) = 56
+|move|p2a: Ferrothorn|Reflect|p2a: Ferrothorn
+|-sidestart|p2: IcyVines|Reflect
+|
+|split
+|-heal|p2a: Ferrothorn|299/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|299/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|299/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|299/351|[from] ability: Rapid Growth
+|split
+|-heal|p2a: Ferrothorn|320/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|320/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|320/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|320/351|[from] item: Leftovers
+|turn|16
+|
+|move|p1a: Galvantula|Cross Poison|p2a: Ferrothorn
+|debug|randBW(100) = 70
+|debug|randBW(8) = 6
+|debug|randBW(16) = 3
+|-supereffective|p2a: Ferrothorn
+|debug|Reflect weaken
+|split
+|-damage|p2a: Ferrothorn|288/351
+|-damage|p2a: Ferrothorn|288/351
+|-damage|p2a: Ferrothorn|288/351
+|-damage|p2a: Ferrothorn|288/351
+|debug|randBW(100) = 39
+|move|p2a: Ferrothorn|Light Screen|p2a: Ferrothorn
+|-sidestart|p2: IcyVines|move: Light Screen
+|
+|split
+|-heal|p2a: Ferrothorn|323/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|323/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|323/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|323/351|[from] ability: Rapid Growth
+|split
+|-heal|p2a: Ferrothorn|344/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|344/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|344/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|344/351|[from] item: Leftovers
+|turn|17
+|
+|split
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|move|p1a: Galvantula|Cross Poison|p2a: Gliscor
+|debug|randBW(100) = 52
+|debug|randBW(8) = 5
+|debug|randBW(16) = 9
+|-resisted|p2a: Gliscor
+|debug|Reflect weaken
+|split
+|-damage|p2a: Gliscor|282/291
+|-damage|p2a: Gliscor|282/291
+|-damage|p2a: Gliscor|282/291
+|-damage|p2a: Gliscor|282/291
+|debug|randBW(100) = 29
+|
+|split
+|-heal|p2a: Gliscor|291/291|[from] item: Leftovers
+|-heal|p2a: Gliscor|291/291|[from] item: Leftovers
+|-heal|p2a: Gliscor|291/291|[from] item: Leftovers
+|-heal|p2a: Gliscor|291/291|[from] item: Leftovers
+|turn|18
+|
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, M|344/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|344/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|344/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|344/351
+|
+|split
+|-heal|p2a: Ferrothorn|351/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|351/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|351/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|351/351|[from] ability: Rapid Growth
+|turn|19
+|
+|move|p1a: Charizard|Fire Punch|p2a: Ferrothorn
+|debug|randBW(100) = 15
+|debug|randBW(16) = 10
+|debug|randBW(16) = 3
+|-supereffective|p2a: Ferrothorn
+|debug|Reflect weaken
+|split
+|-damage|p2a: Ferrothorn|243/351
+|-damage|p2a: Ferrothorn|243/351
+|-damage|p2a: Ferrothorn|243/351
+|-damage|p2a: Ferrothorn|243/351
+|debug|randBW(100) = 98
+|move|p2a: Ferrothorn|Reflect|p2a: Ferrothorn
+|-fail|p2a: Ferrothorn
+|debug|move failed because it did nothing
+|
+|split
+|-heal|p2a: Ferrothorn|278/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|278/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|278/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|278/351|[from] ability: Rapid Growth
+|split
+|-heal|p2a: Ferrothorn|299/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|299/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|299/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|299/351|[from] item: Leftovers
+|-sideend|p2: IcyVines|Reflect
+|turn|20
+|
+|split
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 66
+|debug|randBW(16) = 4
+|debug|randBW(16) = 14
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|246/291
+|-damage|p2a: Octillery|246/291
+|-damage|p2a: Octillery|246/291
+|-damage|p2a: Octillery|246/291
+|debug|randBW(100) = 82
+|
+|split
+|-heal|p2a: Octillery|264/291|[from] item: Leftovers
+|-heal|p2a: Octillery|264/291|[from] item: Leftovers
+|-heal|p2a: Octillery|264/291|[from] item: Leftovers
+|-heal|p2a: Octillery|264/291|[from] item: Leftovers
+|-sideend|p2: IcyVines|move: Light Screen
+|turn|21
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 80
+|debug|randBW(16) = 9
+|debug|randBW(16) = 4
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|213/291
+|-damage|p2a: Octillery|213/291
+|-damage|p2a: Octillery|213/291
+|-damage|p2a: Octillery|213/291
+|debug|randBW(100) = 0
+|-status|p2a: Octillery|brn
+|move|p2a: Octillery|Octazooka|p1a: Charizard
+|-immune|p1a: Charizard|[msg]
+|
+|split
+|-heal|p2a: Octillery|231/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|231/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|231/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|231/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|195/291 brn|[from] brn
+|-damage|p2a: Octillery|195/291 brn|[from] brn
+|-damage|p2a: Octillery|195/291 brn|[from] brn
+|-damage|p2a: Octillery|195/291 brn|[from] brn
+|turn|22
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 27
+|debug|randBW(16) = 1
+|debug|randBW(16) = 6
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|146/291 brn
+|-damage|p2a: Octillery|146/291 brn
+|-damage|p2a: Octillery|146/291 brn
+|-damage|p2a: Octillery|146/291 brn
+|debug|randBW(100) = 18
+|move|p2a: Octillery|Sludge Bomb|p1a: Charizard
+|
+|split
+|-heal|p2a: Octillery|164/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|164/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|164/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|164/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|128/291 brn|[from] brn
+|-damage|p2a: Octillery|128/291 brn|[from] brn
+|-damage|p2a: Octillery|128/291 brn|[from] brn
+|-damage|p2a: Octillery|128/291 brn|[from] brn
+|turn|23
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 11
+|debug|randBW(16) = 1
+|debug|randBW(16) = 6
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|79/291 brn
+|-damage|p2a: Octillery|79/291 brn
+|-damage|p2a: Octillery|79/291 brn
+|-damage|p2a: Octillery|79/291 brn
+|debug|randBW(100) = 98
+|move|p2a: Octillery|Bullet Seed|p1a: Charizard
+|
+|split
+|-heal|p2a: Octillery|97/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|97/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|97/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|97/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|61/291 brn|[from] brn
+|-damage|p2a: Octillery|61/291 brn|[from] brn
+|-damage|p2a: Octillery|61/291 brn|[from] brn
+|-damage|p2a: Octillery|61/291 brn|[from] brn
+|turn|24
+|
+|split
+|switch|p1a: Carbink|Carbink|267/304
+|switch|p1a: Carbink|Carbink|267/304
+|switch|p1a: Carbink|Carbink|267/304
+|switch|p1a: Carbink|Carbink|267/304
+|move|p2a: Octillery|Sludge Bomb|p1a: Carbink
+|debug|randBW(100) = 77
+|debug|randBW(16) = 4
+|debug|Guardian weaken
+|debug|randBW(16) = 9
+|split
+|-damage|p1a: Carbink|247/304
+|-damage|p1a: Carbink|247/304
+|-damage|p1a: Carbink|247/304
+|-damage|p1a: Carbink|247/304
+|debug|randBW(100) = 84
+|
+|split
+|-heal|p1a: Carbink|266/304|[from] item: Leftovers
+|-heal|p1a: Carbink|266/304|[from] item: Leftovers
+|-heal|p1a: Carbink|266/304|[from] item: Leftovers
+|-heal|p1a: Carbink|266/304|[from] item: Leftovers
+|split
+|-heal|p2a: Octillery|79/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|79/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|79/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|79/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|43/291 brn|[from] brn
+|-damage|p2a: Octillery|43/291 brn|[from] brn
+|-damage|p2a: Octillery|43/291 brn|[from] brn
+|-damage|p2a: Octillery|43/291 brn|[from] brn
+|turn|25
+|
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|move|p2a: Octillery|Sludge Bomb|p1a: Charizard
+|
+|split
+|-heal|p2a: Octillery|61/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|61/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|61/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|61/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|25/291 brn|[from] brn
+|-damage|p2a: Octillery|25/291 brn|[from] brn
+|-damage|p2a: Octillery|25/291 brn|[from] brn
+|-damage|p2a: Octillery|25/291 brn|[from] brn
+|turn|26
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 67
+|debug|randBW(16) = 7
+|debug|randBW(16) = 10
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|0 fnt
+|-damage|p2a: Octillery|0 fnt
+|-damage|p2a: Octillery|0 fnt
+|-damage|p2a: Octillery|0 fnt
+|debug|randBW(100) = 75
+|faint|p2a: Octillery
+|
+|
+|split
+|switch|p2a: Donphan|Donphan, M|280/320 brn
+|switch|p2a: Donphan|Donphan, M|280/320 brn
+|switch|p2a: Donphan|Donphan, M|280/320 brn
+|switch|p2a: Donphan|Donphan, M|280/320 brn
+|turn|27
+|
+|move|p1a: Charizard|Fire Punch|p2a: Donphan
+|debug|randBW(100) = 66
+|debug|randBW(16) = 10
+|debug|randBW(16) = 3
+|split
+|-damage|p2a: Donphan|211/320 brn
+|-damage|p2a: Donphan|211/320 brn
+|-damage|p2a: Donphan|211/320 brn
+|-damage|p2a: Donphan|211/320 brn
+|debug|randBW(100) = 74
+|move|p2a: Donphan|Hidden Power|p1a: Charizard
+|
+|split
+|-damage|p2a: Donphan|171/320 brn|[from] brn
+|-damage|p2a: Donphan|171/320 brn|[from] brn
+|-damage|p2a: Donphan|171/320 brn|[from] brn
+|-damage|p2a: Donphan|171/320 brn|[from] brn
+|turn|28
+|
+|split
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|move|p2a: Donphan|Recover|p2a: Donphan
+|split
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|
+|split
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|turn|29
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Donphan
+|debug|randBW(16) = 9
+
+TypeError: Cannot read property 'length' of undefined
+    at Tools.module.exports.Tools.getEffectiveness (/Users/IcyVines/Desktop/Pokemon-Client/tools.js:140:30)
+    at Tools.exports.BattleAbilities.fightingspirit.onBasePower (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:866:18)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.getDamage (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2844:20)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:355:18)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+
+Additional information:
+message = battle-customgame-551|choose|p2|move Reflect|33
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|2
+|player|p2|IcyVines|266
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Charizard, M, shiny
+|poke|p1|Talonflame, M, shiny
+|poke|p1|Aegislash, M, shiny
+|poke|p1|Galvantula, M, shiny
+|poke|p1|Carbink
+|poke|p1|Lucario, M
+|poke|p2|Donphan, M
+|poke|p2|Heracross, M
+|poke|p2|Gliscor, F
+|poke|p2|Ferrothorn, M
+|poke|p2|Octillery, M
+|poke|p2|Sableye, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|split
+|switch|p2a: Donphan|Donphan, M|320/320
+|switch|p2a: Donphan|Donphan, M|320/320
+|switch|p2a: Donphan|Donphan, M|320/320
+|switch|p2a: Donphan|Donphan, M|320/320
+|turn|1
+|
+|move|p1a: Carbink|Rest|p1a: Carbink
+|-fail|p1a: Carbink
+|debug|move failed because it did nothing
+|move|p2a: Donphan|Bubble Beam|p1a: Carbink
+|debug|randBW(100) = 94
+|debug|randBW(16) = 12
+|debug|randBW(16) = 1
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|264/304
+|-damage|p1a: Carbink|264/304
+|-damage|p1a: Carbink|264/304
+|-damage|p1a: Carbink|264/304
+|debug|randBW(100) = 71
+|
+|split
+|-heal|p1a: Carbink|283/304|[from] item: Leftovers
+|-heal|p1a: Carbink|283/304|[from] item: Leftovers
+|-heal|p1a: Carbink|283/304|[from] item: Leftovers
+|-heal|p1a: Carbink|283/304|[from] item: Leftovers
+|-activate|p2a: Donphan|item: Flame Orb
+|-status|p2a: Donphan|brn|[from] item: Flame Orb
+|turn|2
+|
+|move|p2a: Donphan|Bubble Beam|p1a: Carbink
+|debug|randBW(100) = 90
+|debug|randBW(16) = 6
+|debug|randBW(16) = 13
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|231/304
+|-damage|p1a: Carbink|231/304
+|-damage|p1a: Carbink|231/304
+|-damage|p1a: Carbink|231/304
+|debug|randBW(100) = 95
+|move|p1a: Carbink|Rest|p1a: Carbink
+|-status|p1a: Carbink|slp
+|debug|randBW(2,5) = 2
+|split
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-status|p1a: Carbink|slp|[from] move: Rest
+|
+|split
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|turn|3
+|
+|cant|p1a: Carbink|slp
+|move|p2a: Donphan|Bubble Beam|p1a: Carbink
+|debug|randBW(100) = 24
+|debug|randBW(16) = 10
+|debug|randBW(16) = 2
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|246/304 slp
+|-damage|p1a: Carbink|246/304 slp
+|-damage|p1a: Carbink|246/304 slp
+|-damage|p1a: Carbink|246/304 slp
+|debug|randBW(100) = 61
+|
+|split
+|-heal|p1a: Carbink|265/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|265/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|265/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|265/304 slp|[from] item: Leftovers
+|split
+|-damage|p2a: Donphan|240/320 brn|[from] brn
+|-damage|p2a: Donphan|240/320 brn|[from] brn
+|-damage|p2a: Donphan|240/320 brn|[from] brn
+|-damage|p2a: Donphan|240/320 brn|[from] brn
+|turn|4
+|
+|move|p2a: Donphan|Earth Power|p1a: Carbink
+|debug|randBW(100) = 39
+|debug|randBW(16) = 14
+|debug|randBW(16) = 7
+|split
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|debug|randBW(100) = 45
+|cant|p1a: Carbink|slp
+|
+|split
+|-heal|p1a: Carbink|226/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|226/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|226/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|226/304 slp|[from] item: Leftovers
+|split
+|-damage|p2a: Donphan|200/320 brn|[from] brn
+|-damage|p2a: Donphan|200/320 brn|[from] brn
+|-damage|p2a: Donphan|200/320 brn|[from] brn
+|-damage|p2a: Donphan|200/320 brn|[from] brn
+|turn|5
+|
+|move|p2a: Donphan|Recover|p2a: Donphan
+|split
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-curestatus|p1a: Carbink|slp
+|move|p1a: Carbink|Rest|p1a: Carbink
+|-status|p1a: Carbink|slp
+|debug|randBW(2,5) = 3
+|split
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-heal|p1a: Carbink|304/304 slp|[silent]
+|-status|p1a: Carbink|slp|[from] move: Rest
+|
+|split
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|turn|6
+|
+|split
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|cant|p1a: Carbink|slp
+|
+|turn|7
+|
+|move|p2a: Gliscor|Metal Claw|p1a: Carbink
+|debug|randBW(100) = 16
+|debug|randBW(16) = 7
+|debug|Guardian weaken
+|debug|randBW(16) = 5
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|244/304 slp
+|-damage|p1a: Carbink|244/304 slp
+|-damage|p1a: Carbink|244/304 slp
+|-damage|p1a: Carbink|244/304 slp
+|debug|randBW(100) = 94
+|cant|p1a: Carbink|slp
+|
+|split
+|-heal|p1a: Carbink|263/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|263/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|263/304 slp|[from] item: Leftovers
+|-heal|p1a: Carbink|263/304 slp|[from] item: Leftovers
+|turn|8
+|
+|move|p2a: Gliscor|Metal Claw|p1a: Carbink
+|debug|randBW(100) = 50
+|debug|randBW(16) = 12
+|debug|Guardian weaken
+|debug|randBW(16) = 8
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|-damage|p1a: Carbink|207/304 slp
+|debug|randBW(100) = 62
+|-curestatus|p1a: Carbink|slp
+|move|p1a: Carbink|Recover|p1a: Carbink
+|split
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|
+|turn|9
+|
+|move|p2a: Gliscor|Poison Tail|p1a: Carbink
+|debug|randBW(100) = 6
+|debug|randBW(8) = 3
+|debug|Guardian weaken
+|debug|randBW(16) = 0
+|split
+|-damage|p1a: Carbink|288/304
+|-damage|p1a: Carbink|288/304
+|-damage|p1a: Carbink|288/304
+|-damage|p1a: Carbink|288/304
+|debug|randBW(100) = 31
+|move|p1a: Carbink|Skill Swap|p2a: Gliscor
+|-activate|p1a: Carbink|move: Skill Swap|Prioritize|Guardian|[of] p2a: Gliscor
+|
+|split
+|-heal|p1a: Carbink|304/304|[from] item: Leftovers
+|-heal|p1a: Carbink|304/304|[from] item: Leftovers
+|-heal|p1a: Carbink|304/304|[from] item: Leftovers
+|-heal|p1a: Carbink|304/304|[from] item: Leftovers
+|turn|10
+|
+|move|p1a: Carbink|Recover|p1a: Carbink
+|-fail|p1a: Carbink
+|debug|heal interrupted
+|move|p2a: Gliscor|Metal Claw|p1a: Carbink
+|debug|randBW(100) = 73
+|debug|randBW(16) = 1
+|debug|randBW(16) = 12
+|-supereffective|p1a: Carbink
+|split
+|-damage|p1a: Carbink|200/304
+|-damage|p1a: Carbink|200/304
+|-damage|p1a: Carbink|200/304
+|-damage|p1a: Carbink|200/304
+|debug|randBW(100) = 31
+|
+|split
+|-heal|p1a: Carbink|219/304|[from] item: Leftovers
+|-heal|p1a: Carbink|219/304|[from] item: Leftovers
+|-heal|p1a: Carbink|219/304|[from] item: Leftovers
+|-heal|p1a: Carbink|219/304|[from] item: Leftovers
+|turn|11
+|
+|move|p1a: Carbink|Recover|p1a: Carbink
+|split
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|move|p2a: Gliscor|Poison Tail|p1a: Carbink
+|debug|randBW(100) = 81
+|debug|randBW(8) = 0
+|-crit|p1a: Carbink
+|debug|randBW(16) = 4
+|split
+|-damage|p1a: Carbink|261/304
+|-damage|p1a: Carbink|261/304
+|-damage|p1a: Carbink|261/304
+|-damage|p1a: Carbink|261/304
+|debug|randBW(100) = 95
+|
+|split
+|-heal|p1a: Carbink|280/304|[from] item: Leftovers
+|-heal|p1a: Carbink|280/304|[from] item: Leftovers
+|-heal|p1a: Carbink|280/304|[from] item: Leftovers
+|-heal|p1a: Carbink|280/304|[from] item: Leftovers
+|turn|12
+|
+|move|p1a: Carbink|Recover|p1a: Carbink
+|split
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|-heal|p1a: Carbink|304/304
+|move|p2a: Gliscor|Poison Tail|p1a: Carbink
+|debug|randBW(100) = 22
+|debug|randBW(8) = 4
+|debug|randBW(16) = 9
+|split
+|-damage|p1a: Carbink|277/304
+|-damage|p1a: Carbink|277/304
+|-damage|p1a: Carbink|277/304
+|-damage|p1a: Carbink|277/304
+|debug|randBW(100) = 60
+|
+|split
+|-heal|p1a: Carbink|296/304|[from] item: Leftovers
+|-heal|p1a: Carbink|296/304|[from] item: Leftovers
+|-heal|p1a: Carbink|296/304|[from] item: Leftovers
+|-heal|p1a: Carbink|296/304|[from] item: Leftovers
+|turn|13
+|
+|move|p1a: Carbink|Skill Swap|p2a: Gliscor
+|-activate|p1a: Carbink|move: Skill Swap|Guardian|Prioritize|[of] p2a: Gliscor
+|move|p2a: Gliscor|Bulldoze|p1a: Carbink
+|debug|randBW(100) = 82
+|debug|randBW(16) = 7
+|debug|randBW(16) = 6
+|split
+|-damage|p1a: Carbink|248/304
+|-damage|p1a: Carbink|248/304
+|-damage|p1a: Carbink|248/304
+|-damage|p1a: Carbink|248/304
+|debug|randBW(100) = 99
+|-unboost|p1a: Carbink|spe|1
+|
+|split
+|-heal|p1a: Carbink|267/304|[from] item: Leftovers
+|-heal|p1a: Carbink|267/304|[from] item: Leftovers
+|-heal|p1a: Carbink|267/304|[from] item: Leftovers
+|-heal|p1a: Carbink|267/304|[from] item: Leftovers
+|turn|14
+|
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|split
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|
+|turn|15
+|
+|move|p1a: Galvantula|Bug Buzz|p2a: Ferrothorn
+|debug|randBW(100) = 58
+|debug|randBW(16) = 2
+|debug|randBW(16) = 0
+|split
+|-damage|p2a: Ferrothorn|264/351
+|-damage|p2a: Ferrothorn|264/351
+|-damage|p2a: Ferrothorn|264/351
+|-damage|p2a: Ferrothorn|264/351
+|debug|randBW(100) = 56
+|move|p2a: Ferrothorn|Reflect|p2a: Ferrothorn
+|-sidestart|p2: IcyVines|Reflect
+|
+|split
+|-heal|p2a: Ferrothorn|299/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|299/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|299/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|299/351|[from] ability: Rapid Growth
+|split
+|-heal|p2a: Ferrothorn|320/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|320/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|320/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|320/351|[from] item: Leftovers
+|turn|16
+|
+|move|p1a: Galvantula|Cross Poison|p2a: Ferrothorn
+|debug|randBW(100) = 70
+|debug|randBW(8) = 6
+|debug|randBW(16) = 3
+|-supereffective|p2a: Ferrothorn
+|debug|Reflect weaken
+|split
+|-damage|p2a: Ferrothorn|288/351
+|-damage|p2a: Ferrothorn|288/351
+|-damage|p2a: Ferrothorn|288/351
+|-damage|p2a: Ferrothorn|288/351
+|debug|randBW(100) = 39
+|move|p2a: Ferrothorn|Light Screen|p2a: Ferrothorn
+|-sidestart|p2: IcyVines|move: Light Screen
+|
+|split
+|-heal|p2a: Ferrothorn|323/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|323/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|323/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|323/351|[from] ability: Rapid Growth
+|split
+|-heal|p2a: Ferrothorn|344/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|344/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|344/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|344/351|[from] item: Leftovers
+|turn|17
+|
+|split
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|switch|p2a: Gliscor|Gliscor, F|291/291
+|move|p1a: Galvantula|Cross Poison|p2a: Gliscor
+|debug|randBW(100) = 52
+|debug|randBW(8) = 5
+|debug|randBW(16) = 9
+|-resisted|p2a: Gliscor
+|debug|Reflect weaken
+|split
+|-damage|p2a: Gliscor|282/291
+|-damage|p2a: Gliscor|282/291
+|-damage|p2a: Gliscor|282/291
+|-damage|p2a: Gliscor|282/291
+|debug|randBW(100) = 29
+|
+|split
+|-heal|p2a: Gliscor|291/291|[from] item: Leftovers
+|-heal|p2a: Gliscor|291/291|[from] item: Leftovers
+|-heal|p2a: Gliscor|291/291|[from] item: Leftovers
+|-heal|p2a: Gliscor|291/291|[from] item: Leftovers
+|turn|18
+|
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, M|344/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|344/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|344/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|344/351
+|
+|split
+|-heal|p2a: Ferrothorn|351/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|351/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|351/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|351/351|[from] ability: Rapid Growth
+|turn|19
+|
+|move|p1a: Charizard|Fire Punch|p2a: Ferrothorn
+|debug|randBW(100) = 15
+|debug|randBW(16) = 10
+|debug|randBW(16) = 3
+|-supereffective|p2a: Ferrothorn
+|debug|Reflect weaken
+|split
+|-damage|p2a: Ferrothorn|243/351
+|-damage|p2a: Ferrothorn|243/351
+|-damage|p2a: Ferrothorn|243/351
+|-damage|p2a: Ferrothorn|243/351
+|debug|randBW(100) = 98
+|move|p2a: Ferrothorn|Reflect|p2a: Ferrothorn
+|-fail|p2a: Ferrothorn
+|debug|move failed because it did nothing
+|
+|split
+|-heal|p2a: Ferrothorn|278/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|278/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|278/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|278/351|[from] ability: Rapid Growth
+|split
+|-heal|p2a: Ferrothorn|299/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|299/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|299/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|299/351|[from] item: Leftovers
+|-sideend|p2: IcyVines|Reflect
+|turn|20
+|
+|split
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 66
+|debug|randBW(16) = 4
+|debug|randBW(16) = 14
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|246/291
+|-damage|p2a: Octillery|246/291
+|-damage|p2a: Octillery|246/291
+|-damage|p2a: Octillery|246/291
+|debug|randBW(100) = 82
+|
+|split
+|-heal|p2a: Octillery|264/291|[from] item: Leftovers
+|-heal|p2a: Octillery|264/291|[from] item: Leftovers
+|-heal|p2a: Octillery|264/291|[from] item: Leftovers
+|-heal|p2a: Octillery|264/291|[from] item: Leftovers
+|-sideend|p2: IcyVines|move: Light Screen
+|turn|21
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 80
+|debug|randBW(16) = 9
+|debug|randBW(16) = 4
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|213/291
+|-damage|p2a: Octillery|213/291
+|-damage|p2a: Octillery|213/291
+|-damage|p2a: Octillery|213/291
+|debug|randBW(100) = 0
+|-status|p2a: Octillery|brn
+|move|p2a: Octillery|Octazooka|p1a: Charizard
+|-immune|p1a: Charizard|[msg]
+|
+|split
+|-heal|p2a: Octillery|231/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|231/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|231/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|231/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|195/291 brn|[from] brn
+|-damage|p2a: Octillery|195/291 brn|[from] brn
+|-damage|p2a: Octillery|195/291 brn|[from] brn
+|-damage|p2a: Octillery|195/291 brn|[from] brn
+|turn|22
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 27
+|debug|randBW(16) = 1
+|debug|randBW(16) = 6
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|146/291 brn
+|-damage|p2a: Octillery|146/291 brn
+|-damage|p2a: Octillery|146/291 brn
+|-damage|p2a: Octillery|146/291 brn
+|debug|randBW(100) = 18
+|move|p2a: Octillery|Sludge Bomb|p1a: Charizard
+|
+|split
+|-heal|p2a: Octillery|164/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|164/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|164/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|164/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|128/291 brn|[from] brn
+|-damage|p2a: Octillery|128/291 brn|[from] brn
+|-damage|p2a: Octillery|128/291 brn|[from] brn
+|-damage|p2a: Octillery|128/291 brn|[from] brn
+|turn|23
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 11
+|debug|randBW(16) = 1
+|debug|randBW(16) = 6
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|79/291 brn
+|-damage|p2a: Octillery|79/291 brn
+|-damage|p2a: Octillery|79/291 brn
+|-damage|p2a: Octillery|79/291 brn
+|debug|randBW(100) = 98
+|move|p2a: Octillery|Bullet Seed|p1a: Charizard
+|
+|split
+|-heal|p2a: Octillery|97/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|97/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|97/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|97/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|61/291 brn|[from] brn
+|-damage|p2a: Octillery|61/291 brn|[from] brn
+|-damage|p2a: Octillery|61/291 brn|[from] brn
+|-damage|p2a: Octillery|61/291 brn|[from] brn
+|turn|24
+|
+|split
+|switch|p1a: Carbink|Carbink|267/304
+|switch|p1a: Carbink|Carbink|267/304
+|switch|p1a: Carbink|Carbink|267/304
+|switch|p1a: Carbink|Carbink|267/304
+|move|p2a: Octillery|Sludge Bomb|p1a: Carbink
+|debug|randBW(100) = 77
+|debug|randBW(16) = 4
+|debug|Guardian weaken
+|debug|randBW(16) = 9
+|split
+|-damage|p1a: Carbink|247/304
+|-damage|p1a: Carbink|247/304
+|-damage|p1a: Carbink|247/304
+|-damage|p1a: Carbink|247/304
+|debug|randBW(100) = 84
+|
+|split
+|-heal|p1a: Carbink|266/304|[from] item: Leftovers
+|-heal|p1a: Carbink|266/304|[from] item: Leftovers
+|-heal|p1a: Carbink|266/304|[from] item: Leftovers
+|-heal|p1a: Carbink|266/304|[from] item: Leftovers
+|split
+|-heal|p2a: Octillery|79/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|79/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|79/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|79/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|43/291 brn|[from] brn
+|-damage|p2a: Octillery|43/291 brn|[from] brn
+|-damage|p2a: Octillery|43/291 brn|[from] brn
+|-damage|p2a: Octillery|43/291 brn|[from] brn
+|turn|25
+|
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|move|p2a: Octillery|Sludge Bomb|p1a: Charizard
+|
+|split
+|-heal|p2a: Octillery|61/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|61/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|61/291 brn|[from] item: Leftovers
+|-heal|p2a: Octillery|61/291 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Octillery|25/291 brn|[from] brn
+|-damage|p2a: Octillery|25/291 brn|[from] brn
+|-damage|p2a: Octillery|25/291 brn|[from] brn
+|-damage|p2a: Octillery|25/291 brn|[from] brn
+|turn|26
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery
+|debug|randBW(100) = 67
+|debug|randBW(16) = 7
+|debug|randBW(16) = 10
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|0 fnt
+|-damage|p2a: Octillery|0 fnt
+|-damage|p2a: Octillery|0 fnt
+|-damage|p2a: Octillery|0 fnt
+|debug|randBW(100) = 75
+|faint|p2a: Octillery
+|
+|
+|split
+|switch|p2a: Donphan|Donphan, M|280/320 brn
+|switch|p2a: Donphan|Donphan, M|280/320 brn
+|switch|p2a: Donphan|Donphan, M|280/320 brn
+|switch|p2a: Donphan|Donphan, M|280/320 brn
+|turn|27
+|
+|move|p1a: Charizard|Fire Punch|p2a: Donphan
+|debug|randBW(100) = 66
+|debug|randBW(16) = 10
+|debug|randBW(16) = 3
+|split
+|-damage|p2a: Donphan|211/320 brn
+|-damage|p2a: Donphan|211/320 brn
+|-damage|p2a: Donphan|211/320 brn
+|-damage|p2a: Donphan|211/320 brn
+|debug|randBW(100) = 74
+|move|p2a: Donphan|Hidden Power|p1a: Charizard
+|
+|split
+|-damage|p2a: Donphan|171/320 brn|[from] brn
+|-damage|p2a: Donphan|171/320 brn|[from] brn
+|-damage|p2a: Donphan|171/320 brn|[from] brn
+|-damage|p2a: Donphan|171/320 brn|[from] brn
+|turn|28
+|
+|split
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|move|p2a: Donphan|Recover|p2a: Donphan
+|split
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|-heal|p2a: Donphan|320/320 brn
+|
+|split
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|-damage|p2a: Donphan|280/320 brn|[from] brn
+|turn|29
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Donphan
+|debug|randBW(16) = 9
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, M|299/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|299/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|299/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|299/351
+|debug|p1: Lucario INCONSISTENT STATE, ALREADY MOVED: aurasphere
+|
+|split
+|-heal|p2a: Ferrothorn|334/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|334/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|334/351|[from] ability: Rapid Growth
+|-heal|p2a: Ferrothorn|334/351|[from] ability: Rapid Growth
+|split
+|-heal|p2a: Ferrothorn|351/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|351/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|351/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|351/351|[from] item: Leftovers
+|turn|30
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Ferrothorn|[from]Fighting Spirit
+|debug|randBW(16) = 5

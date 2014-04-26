@@ -58,7 +58,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onBasePowerPriority: 8,
-		onBasePower: function(move, attacker, defender){
+		onBasePower: function(atk, attacker, defender, move){
 			if(move.type === 'Poison' && defender.hasType('Steel')){
 				return this.chainModify(2.0);
 			}
@@ -84,7 +84,8 @@ exports.BattleAbilities = {
 		shortDesc: "Pokemon's ball and bomb moves do 1.5x damage.",
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
-			if(move && move.isBullet && move.id in {focusblast:1, acidspray:1}){
+			if(move && move.isBullet && !(move.id in {focusblast:1}){
+				this.debug("Advanced Artillery Boost");
 				return this.chainModify(1.5);
 			}
 		},
@@ -694,8 +695,10 @@ exports.BattleAbilities = {
 			var spa = attacker.getStat('spa', false, true);
 			var spaDef = defender.getStat('spa', false, true);
 			if (atk && atkDef && atk < atkDef && move.category === 'Physical') {
+				this.debug("Dethrone Attack Boost");
 				return this.chainModify(1.5);
 			} else if (spa && spaDef && spa < spaDef && move.category === 'Special') {
+				this.debug("Dethrone Special Attack Boost");
 				return this.chainModify(1.5);
 			}
 		},
@@ -858,14 +861,13 @@ exports.BattleAbilities = {
 		shortDesc: "If the opposing Pokemon has a type advantage, moves have 50% more power.",
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender){
+			this.debug("Fighting Spirit Started");
 			var defTypes = defender.getTypes();
-			var atkTypes = attacker.getTypes();
 			var eff = 0;
 			for(var i in defTypes){
-				for(var j in atkTypes){
-					eff += this.getEffectiveness(i, j);
-				}
+				eff += this.getEffectiveness(i, attacker);
 				if(eff && eff > 0){
+					this.debug("Fighting Spirit Boost");
 					return this.chainModify(1.5);
 				}
 				eff = 0;
@@ -1521,21 +1523,21 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon is immune to Water and removes hazards when hit with Water.",
 		onTryHit: function(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-					this.add('-immune', target, '[msg]');
+				this.add('-immune', target, '[msg]');
+				var sideConditions = {reflect:1, lightscreen:1, safeguard:1, spikes:1, toxicspikes:1, stealthrock:1, stickyweb:1};
+				for (var i in sideConditions) {
+					if (target.side.removeSideCondition(i)) {
+						this.add('-sideend', target.side, this.getEffect(i).name, '[from] ability: Intense Flames', '[of] '+target);
+					}
 				}
-			var sideConditions = {reflect:1, lightscreen:1, safeguard:1, spikes:1, toxicspikes:1, stealthrock:1, stickyweb:1};
-			for (var i in sideConditions) {
-				if (target.side.removeSideCondition(i)) {
-					this.add('-sideend', target.side, this.getEffect(i).name, '[from] ability: Intense Flames', '[of] '+target);
+				for (var i in sideConditions) {
+					if (i === 'reflect' || i === 'lightscreen') continue;
+					if (source.side.removeSideCondition(i)) {
+						this.add('-sideend', source.side, this.getEffect(i).name, '[from] ability: Intense Flames', '[of] '+source);
+					}
 				}
-			}
-			for (var i in sideConditions) {
-				if (i === 'reflect' || i === 'lightscreen') continue;
-				if (source.side.removeSideCondition(i)) {
-					this.add('-sideend', source.side, this.getEffect(i).name, '[from] ability: Intense Flames', '[of] '+source);
-				}
-			}
 				return null;
+			}
 		},
 		id: "intenseflames",
 		name: "Intense Flames",
@@ -2234,13 +2236,15 @@ exports.BattleAbilities = {
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			if(attacker.removeVolatile('permeate')){
-					return this.chainModify(1.5);
+				this.debug("Permeate Boost");
+				return this.chainModify(1.5);
 			}
 		},
 		onAccuracyPriority: 10,
 		onAccuracy: function(accuracy, target, source, move){
 			if(source.removeVolatile('permeate')){
-					return accuracy * 0.9;
+				this.debug("Permeate Accuracy Drop");
+				return accuracy * 0.5;
 			}
 		},
 		id: "permeate",

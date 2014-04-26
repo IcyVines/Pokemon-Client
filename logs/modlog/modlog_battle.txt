@@ -3,3 +3,4 @@
 [2014-04-23T01:42:06.266Z] (battle-customgame-529) IcyVines forced a tie.
 [2014-04-23T01:42:35.983Z] (battle-customgame-529) SirDanMan forced a tie.
 [2014-04-23T01:42:59.896Z] (battle-customgame-529) IcyVines globally declared (chat level) Dan fails
+[2014-04-26T02:20:46.201Z] (battle-customgame-551) IcyVines forced a win for icyvines.

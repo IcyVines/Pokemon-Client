@@ -7350,16 +7350,16 @@ exports.BattleMovedex = {
 				return 5;
 			},
 			onFoeModifyDamage: function(damage, source, target, move) {
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				if (this.getCategory(move) === 'Special' && target.side === this.effectData.target) {
-					if (!move.crit && (source.ability !== 'infiltrator' || source.ability !== 'permeate')) {
+					if (!move.crit && source.ability !== 'infiltrator') {
 						this.debug('Light Screen weaken');
 						if (source.side.active.length > 1) return this.chainModify(0.66);
 						return this.chainModify(0.5);
 					}
-					if(source.ability === 'permeate'){
-					source.addVolatile('permeate');
-					return;
-				}
 				}
 			},
 			onStart: function(side) {
@@ -10369,15 +10369,15 @@ exports.BattleMovedex = {
 				return 5;
 			},
 			onFoeModifyDamage: function(damage, source, target, move) {
+				if(source.ability === 'permeate'){
+					source.addVolatile('permeate');
+					return;
+				}
 				if (this.getCategory(move) === 'Physical' && target.side === this.effectData.target) {
-					if (!move.crit && (source.ability !== 'infiltrator' || source.ability !== 'permeate')) {
+					if (!move.crit && source.ability !== 'infiltrator') {
 						this.debug('Reflect weaken');
 						if (source.side.active.length > 1) return this.chainModify(0.66);
 						return this.chainModify(0.5);
-					}
-					if(source.ability === 'permeate'){
-					source.addVolatile('permeate');
-					return;
 					}
 				}
 			},
