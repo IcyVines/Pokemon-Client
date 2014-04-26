@@ -356,40 +356,43 @@ exports.BattleAbilities = {
 		onBasePower: function(atk, pokemon, defender, move){
 			if (atk && atk <= 50){
 				this.debug("Butterfly Effect 1");
-				var stats = [], x = '';
+				var stats = [], i = '';
+				var boost = {};
 				for (var i in pokemon.boosts) {
 					if (pokemon.boosts[i] < 6) {
 						stats.push(i);
 					}
 				}
 				if (stats.length) {
-					x = stats[this.random(stats.length)];
-					this.boost({x:1});
+					i = stats[this.random(stats.length)];
+					this.boost(boost[i]);
 				}
 				var r = Math.random()*100;
 				if(r < 50){
 					this.debug("Butterfly Effect 2");
 					stats = [];
+					boost = {};
 					for (var i in pokemon.boosts) {
 						if (pokemon.boosts[i] < 6) {
 							stats.push(i);
 						}
 					}
 					if (stats.length) {
-						x = stats[this.random(stats.length)];
-						this.boost({x:1});
+						i = stats[this.random(stats.length)];
+						this.boost(boost[i]);
 					}
 					if(r < 25){
 						this.debug("Butterfly Effect 3");
 						stats = [];
+						boost = {};
 						for (var i in pokemon.boosts) {
 							if (pokemon.boosts[i] < 6) {
 								stats.push(i);
 							}
 						}
 						if (stats.length) {
-							x = stats[this.random(stats.length)];
-							this.boost({x:1});
+							i = stats[this.random(stats.length)];
+							this.boost(boost[i]);
 						}
 					}
 				}
@@ -565,16 +568,17 @@ exports.BattleAbilities = {
 			var sideConditions = {reflect:1, lightscreen:1, safeguard:1, spikes:1, toxicspikes:1, stealthrock:1, stickyweb:1};
 			for (var i in sideConditions) {
 				if (pokemon.side.removeSideCondition(i)) {
-					this.add('-sideend', pokemon.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+target);
+					this.add('-sideend', pokemon.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+pokemon);
 				}
 			}
+			this.debug("Removed target side (Cyclone)");
 			var foe = pokemon.side.foe;
 			for (var i in sideConditions) {
 				if (foe.side.removeSideCondition(i)) {
-					this.add('-sideend', source.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+source);
+					this.add('-sideend', foe.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+foe);
 				}
 			}
-				return null;
+			this.debug("Removed foe side (Cyclone)");
 		},
 		id: "cyclone",
 		name: "Cyclone",
@@ -817,12 +821,14 @@ exports.BattleAbilities = {
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if(attacker.gender && defender.gender && attacker.gender != defender.gender){
+				this.debug("Weakened hit (Entrancing)");
 				return this.chainModify(0.75);
 			}
 		},
 		onModifySpaPriority: 6,
 		onSourceModifySpa: function(atk, attacker, defender, move) {
 			if(attacker.gender && defender.gender && attacker.gender != defender.gender){
+				this.debug("Weakened hit (Entrancing)");
 				return this.chainModify(0.75);
 			}
 		},
@@ -863,11 +869,12 @@ exports.BattleAbilities = {
 		desc: "If the opposing Pokemon has an overall type advantage, this Pokemon's moves gain a 50% boost.",
 		shortDesc: "If the opposing Pokemon has a type advantage, moves have 50% more power.",
 		onBasePowerPriority: 8,
-		onBasePower: function(atk, attacker, defender){
+		onBasePower: function(atk, attacker, defender, move){
 			this.debug("Fighting Spirit Started");
 			var defTypes = defender.getTypes();
 			var eff = 0;
 			for(var i in defTypes){
+				this.debug("Checking effectiveness (Fighting Spirit)");
 				eff += this.getEffectiveness(i, attacker);
 				if(eff && eff > 0){
 					this.debug("Fighting Spirit Boost");
@@ -1526,6 +1533,7 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon is immune to Water and removes hazards when hit with Water.",
 		onTryHit: function(target, source, move) {
 			if (target !== source && move.type === 'Water') {
+				this.debug("Hit by water (Intense Flames)");
 				this.add('-immune', target, '[msg]');
 				var sideConditions = {reflect:1, lightscreen:1, safeguard:1, spikes:1, toxicspikes:1, stealthrock:1, stickyweb:1};
 				for (var i in sideConditions) {
@@ -1533,12 +1541,14 @@ exports.BattleAbilities = {
 						this.add('-sideend', target.side, this.getEffect(i).name, '[from] ability: Intense Flames', '[of] '+target);
 					}
 				}
+				this.debug("Removed target's side (Unwavering)");
 				for (var i in sideConditions) {
 					if (i === 'reflect' || i === 'lightscreen') continue;
 					if (source.side.removeSideCondition(i)) {
 						this.add('-sideend', source.side, this.getEffect(i).name, '[from] ability: Intense Flames', '[of] '+source);
 					}
 				}
+				this.debug("Passed removal");
 				return null;
 			}
 		},
@@ -3697,9 +3707,12 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon is healed 1/4 by Flying; Pokemon is immune to Flying-type moves.",
 		onTryHit: function(target, source, move) {
 			if (target !== source && move.type === 'Flying') {
+				this.debug("Hit by flying (Unwavering)");
 				if (!this.heal(target.maxhp/4)) {
 					this.add('-immune', target, '[msg]');
+					this.debug("Hit by flying heal (Unwavering)");
 				}
+				this.debug("returning null (Unwavering)");
 				return null;
 			}
 		},

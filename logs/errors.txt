@@ -4139,3 +4139,538 @@ Log:
 |debug|natural immunity
 |debug|randBW(100) = 55
 |debug|randBW(16) = 7
+
+ReferenceError: target is not defined
+    at Tools.exports.BattleAbilities.cyclone.onStart (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:568:100)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1843:37)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3330:10)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3817:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+
+Additional information:
+message = battle-customgame-573|choose|p2|move Waterfall|11
+currentRequest = move
+
+Log:
+|player|p1|SirDanMan|216
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Typhlosion, M
+|poke|p1|Typhlosion, F
+|poke|p1|Butterfree, F
+|poke|p1|Dragonite, M
+|poke|p1|Meganium, M
+|poke|p1|Blissey, F
+|poke|p2|Feraligatr, F
+|poke|p2|Smeargle, M
+|poke|p2|Galvantula, M
+|poke|p2|Ferrothorn, M
+|poke|p2|Octillery, F
+|poke|p2|Sylveon, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|split
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|turn|1
+|
+|move|p2a: Smeargle|Stealth Rock|p1a: Butterfree
+|-sidestart|p1: SirDanMan|move: Stealth Rock
+|move|p1a: Butterfree|Gust|p2a: Smeargle
+|debug|randBW(100) = 21
+|debug|randBW(16) = 15
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 2
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|randBW(16) = 12
+|split
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|
+|split
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|turn|2
+|
+|move|p2a: Smeargle|Rain Dance|p2a: Smeargle
+|-weather|RainDance
+|move|p1a: Butterfree|Gust|p2a: Smeargle
+|debug|randBW(100) = 57
+|debug|randBW(16) = 8
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 4
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|randBW(16) = 0
+|split
+|-damage|p2a: Smeargle|102/251
+|-damage|p2a: Smeargle|102/251
+|-damage|p2a: Smeargle|102/251
+|-damage|p2a: Smeargle|102/251
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|117/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|117/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|117/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|117/251|[from] item: Leftovers
+|turn|3
+|
+|move|p2a: Smeargle|Recover|p2a: Smeargle
+|split
+|-heal|p2a: Smeargle|243/251
+|-heal|p2a: Smeargle|243/251
+|-heal|p2a: Smeargle|243/251
+|-heal|p2a: Smeargle|243/251
+|move|p1a: Butterfree|Gust|p2a: Smeargle
+|debug|randBW(100) = 11
+|debug|randBW(16) = 6
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 4
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|randBW(16) = 0
+|split
+|-damage|p2a: Smeargle|155/251
+|-damage|p2a: Smeargle|155/251
+|-damage|p2a: Smeargle|155/251
+|-damage|p2a: Smeargle|155/251
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|170/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|170/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|170/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|170/251|[from] item: Leftovers
+|turn|4
+|
+|move|p2a: Smeargle|Recover|p2a: Smeargle
+|split
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|move|p1a: Butterfree|Gust|p2a: Smeargle
+|debug|randBW(100) = 87
+|debug|randBW(16) = 1
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 4
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|Butterfly Effect 2
+|debug|randBW(7) = 4
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|randBW(16) = 13
+|split
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|turn|5
+|
+|move|p2a: Smeargle|Recover|p2a: Smeargle
+|split
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|move|p1a: Butterfree|Energy Ball|p2a: Smeargle
+|debug|randBW(100) = 42
+|debug|randBW(16) = 5
+|debug|randBW(16) = 15
+|split
+|-damage|p2a: Smeargle|140/251
+|-damage|p2a: Smeargle|140/251
+|-damage|p2a: Smeargle|140/251
+|-damage|p2a: Smeargle|140/251
+|debug|randBW(100) = 35
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|155/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|155/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|155/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|155/251|[from] item: Leftovers
+|turn|6
+|
+|move|p2a: Smeargle|Rain Dance|p2a: Smeargle
+|-fail|p2a: Smeargle
+|debug|move failed because it did nothing
+|move|p1a: Butterfree|Energy Ball|p2a: Smeargle
+|debug|randBW(100) = 45
+|debug|randBW(16) = 5
+|debug|randBW(16) = 4
+|split
+|-damage|p2a: Smeargle|30/251
+|-damage|p2a: Smeargle|30/251
+|-damage|p2a: Smeargle|30/251
+|-damage|p2a: Smeargle|30/251
+|debug|randBW(100) = 52
+|
+|-weather|none
+|split
+|-heal|p2a: Smeargle|45/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|45/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|45/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|45/251|[from] item: Leftovers
+|turn|7
+|
+|move|p2a: Smeargle|Rain Dance|p2a: Smeargle
+|-weather|RainDance
+|move|p1a: Butterfree|Energy Ball|p2a: Smeargle
+|debug|randBW(100) = 8
+|debug|randBW(16) = 10
+|debug|randBW(16) = 8
+|-boost|p2a: Smeargle|atk|1|[from] ability: Last Stand
+|-boost|p2a: Smeargle|spa|1|[from] ability: Last Stand
+|debug|Last Stand Boost
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|debug|randBW(100) = 44
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|8
+|
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|move|p1a: Butterfree|Energy Ball|p2a: Smeargle
+|debug|randBW(100) = 54
+|debug|randBW(16) = 15
+|debug|randBW(16) = 14
+|split
+|-damage|p2a: Smeargle|0 fnt
+|-damage|p2a: Smeargle|0 fnt
+|-damage|p2a: Smeargle|0 fnt
+|-damage|p2a: Smeargle|0 fnt
+|debug|randBW(100) = 10
+|faint|p2a: Smeargle
+|
+|-weather|RainDance|[upkeep]
+|
+|split
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|turn|9
+|
+|split
+|switch|p1a: Dragonite|Dragonite, M|323/323
+|switch|p1a: Dragonite|Dragonite, M|323/323
+|switch|p1a: Dragonite|Dragonite, M|323/323
+|switch|p1a: Dragonite|Dragonite, M|323/323
+|split
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+
+TypeError: Cannot call method 'removeSideCondition' of undefined
+    at Tools.exports.BattleAbilities.cyclone.onStart (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:573:18)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1843:37)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3330:10)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3817:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+
+Additional information:
+message = battle-customgame-573|choose|p2|move Substitute|13
+currentRequest = move
+
+Log:
+|player|p1|SirDanMan|216
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Typhlosion, M
+|poke|p1|Typhlosion, F
+|poke|p1|Butterfree, F
+|poke|p1|Dragonite, M
+|poke|p1|Meganium, M
+|poke|p1|Blissey, F
+|poke|p2|Feraligatr, F
+|poke|p2|Smeargle, M
+|poke|p2|Galvantula, M
+|poke|p2|Ferrothorn, M
+|poke|p2|Octillery, F
+|poke|p2|Sylveon, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|split
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|turn|1
+|
+|move|p2a: Smeargle|Stealth Rock|p1a: Butterfree
+|-sidestart|p1: SirDanMan|move: Stealth Rock
+|move|p1a: Butterfree|Gust|p2a: Smeargle
+|debug|randBW(100) = 21
+|debug|randBW(16) = 15
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 2
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|randBW(16) = 12
+|split
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|
+|split
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|turn|2
+|
+|move|p2a: Smeargle|Rain Dance|p2a: Smeargle
+|-weather|RainDance
+|move|p1a: Butterfree|Gust|p2a: Smeargle
+|debug|randBW(100) = 57
+|debug|randBW(16) = 8
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 4
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|randBW(16) = 0
+|split
+|-damage|p2a: Smeargle|102/251
+|-damage|p2a: Smeargle|102/251
+|-damage|p2a: Smeargle|102/251
+|-damage|p2a: Smeargle|102/251
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|117/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|117/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|117/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|117/251|[from] item: Leftovers
+|turn|3
+|
+|move|p2a: Smeargle|Recover|p2a: Smeargle
+|split
+|-heal|p2a: Smeargle|243/251
+|-heal|p2a: Smeargle|243/251
+|-heal|p2a: Smeargle|243/251
+|-heal|p2a: Smeargle|243/251
+|move|p1a: Butterfree|Gust|p2a: Smeargle
+|debug|randBW(100) = 11
+|debug|randBW(16) = 6
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 4
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|randBW(16) = 0
+|split
+|-damage|p2a: Smeargle|155/251
+|-damage|p2a: Smeargle|155/251
+|-damage|p2a: Smeargle|155/251
+|-damage|p2a: Smeargle|155/251
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|170/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|170/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|170/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|170/251|[from] item: Leftovers
+|turn|4
+|
+|move|p2a: Smeargle|Recover|p2a: Smeargle
+|split
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|move|p1a: Butterfree|Gust|p2a: Smeargle
+|debug|randBW(100) = 87
+|debug|randBW(16) = 1
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 4
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|Butterfly Effect 2
+|debug|randBW(7) = 4
+|-boost|p1a: Butterfree|x|1|[from] ability: Butterfly Effect
+|debug|randBW(16) = 13
+|split
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|-damage|p2a: Smeargle|175/251
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|190/251|[from] item: Leftovers
+|turn|5
+|
+|move|p2a: Smeargle|Recover|p2a: Smeargle
+|split
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|-heal|p2a: Smeargle|251/251
+|move|p1a: Butterfree|Energy Ball|p2a: Smeargle
+|debug|randBW(100) = 42
+|debug|randBW(16) = 5
+|debug|randBW(16) = 15
+|split
+|-damage|p2a: Smeargle|140/251
+|-damage|p2a: Smeargle|140/251
+|-damage|p2a: Smeargle|140/251
+|-damage|p2a: Smeargle|140/251
+|debug|randBW(100) = 35
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|155/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|155/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|155/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|155/251|[from] item: Leftovers
+|turn|6
+|
+|move|p2a: Smeargle|Rain Dance|p2a: Smeargle
+|-fail|p2a: Smeargle
+|debug|move failed because it did nothing
+|move|p1a: Butterfree|Energy Ball|p2a: Smeargle
+|debug|randBW(100) = 45
+|debug|randBW(16) = 5
+|debug|randBW(16) = 4
+|split
+|-damage|p2a: Smeargle|30/251
+|-damage|p2a: Smeargle|30/251
+|-damage|p2a: Smeargle|30/251
+|-damage|p2a: Smeargle|30/251
+|debug|randBW(100) = 52
+|
+|-weather|none
+|split
+|-heal|p2a: Smeargle|45/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|45/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|45/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|45/251|[from] item: Leftovers
+|turn|7
+|
+|move|p2a: Smeargle|Rain Dance|p2a: Smeargle
+|-weather|RainDance
+|move|p1a: Butterfree|Energy Ball|p2a: Smeargle
+|debug|randBW(100) = 8
+|debug|randBW(16) = 10
+|debug|randBW(16) = 8
+|-boost|p2a: Smeargle|atk|1|[from] ability: Last Stand
+|-boost|p2a: Smeargle|spa|1|[from] ability: Last Stand
+|debug|Last Stand Boost
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|debug|randBW(100) = 44
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|8
+|
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|move|p1a: Butterfree|Energy Ball|p2a: Smeargle
+|debug|randBW(100) = 54
+|debug|randBW(16) = 15
+|debug|randBW(16) = 14
+|split
+|-damage|p2a: Smeargle|0 fnt
+|-damage|p2a: Smeargle|0 fnt
+|-damage|p2a: Smeargle|0 fnt
+|-damage|p2a: Smeargle|0 fnt
+|debug|randBW(100) = 10
+|faint|p2a: Smeargle
+|
+|-weather|RainDance|[upkeep]
+|
+|split
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|turn|9
+|
+|split
+|switch|p1a: Dragonite|Dragonite, M|323/323
+|switch|p1a: Dragonite|Dragonite, M|323/323
+|switch|p1a: Dragonite|Dragonite, M|323/323
+|switch|p1a: Dragonite|Dragonite, M|323/323
+|split
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|split
+|switch|p1a: Typhlosion|Typhlosion, F|301/301
+|switch|p1a: Typhlosion|Typhlosion, F|301/301
+|switch|p1a: Typhlosion|Typhlosion, F|301/301
+|switch|p1a: Typhlosion|Typhlosion, F|301/301
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, M|351/351
+|
+|-weather|RainDance|[upkeep]
+|turn|10
+|
+|split
+|switch|p1a: Dragonite|Dragonite, M|243/323
+|switch|p1a: Dragonite|Dragonite, M|243/323
+|switch|p1a: Dragonite|Dragonite, M|243/323
+|switch|p1a: Dragonite|Dragonite, M|243/323
