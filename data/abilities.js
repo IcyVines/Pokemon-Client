@@ -84,7 +84,7 @@ exports.BattleAbilities = {
 		shortDesc: "Pokemon's ball and bomb moves do 1.5x damage.",
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
-			if(move && move.isBullet && !(move.id in {focusblast:1}){
+			if(move && move.isBullet && !(move.id in {focusblast:1})){
 				this.debug("Advanced Artillery Boost");
 				return this.chainModify(1.5);
 			}
