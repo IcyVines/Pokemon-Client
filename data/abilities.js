@@ -365,7 +365,8 @@ exports.BattleAbilities = {
 				}
 				if (stats.length) {
 					i = stats[this.random(stats.length)];
-					this.boost(boost[i]);
+					boost[i] += 1;
+					this.boost(boost);
 				}
 				var r = Math.random()*100;
 				if(r < 50){
@@ -379,7 +380,8 @@ exports.BattleAbilities = {
 					}
 					if (stats.length) {
 						i = stats[this.random(stats.length)];
-						this.boost(boost[i]);
+						boost[i] += 1;
+						this.boost(boost);
 					}
 					if(r < 25){
 						this.debug("Butterfly Effect 3");
@@ -392,7 +394,8 @@ exports.BattleAbilities = {
 						}
 						if (stats.length) {
 							i = stats[this.random(stats.length)];
-							this.boost(boost[i]);
+							boost[i] += 1;
+							this.boost(boost);
 						}
 					}
 				}
@@ -572,7 +575,7 @@ exports.BattleAbilities = {
 				}
 			}
 			this.debug("Removed target side (Cyclone)");
-			var foe = pokemon.side.foe;
+			var foe = pokemon.side.foe.active[pokemon.side.foe.active.length-1-pokemon.position];
 			for (var i in sideConditions) {
 				if (foe.side.removeSideCondition(i)) {
 					this.add('-sideend', foe.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+foe);
@@ -820,14 +823,14 @@ exports.BattleAbilities = {
 		shortDesc: "Opposing Pokemon of the opposite gender do 0.75x damage.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
-			if(attacker.gender && defender.gender && attacker.gender != defender.gender){
+			if(attacker.gender && defender.gender && attacker.gender !== defender.gender){
 				this.debug("Weakened hit (Entrancing)");
 				return this.chainModify(0.75);
 			}
 		},
 		onModifySpaPriority: 6,
 		onSourceModifySpa: function(atk, attacker, defender, move) {
-			if(attacker.gender && defender.gender && attacker.gender != defender.gender){
+			if(attacker.gender && defender.gender && attacker.gender !== defender.gender){
 				this.debug("Weakened hit (Entrancing)");
 				return this.chainModify(0.75);
 			}

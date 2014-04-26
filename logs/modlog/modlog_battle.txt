@@ -7,3 +7,4 @@
 [2014-04-26T21:50:54.771Z] (battle-customgame-573) IcyVines forced a win for icyvines.
 [2014-04-26T21:51:03.951Z] (battle-customgame-573) IcyVines forced a win for icyvines.
 [2014-04-26T21:51:13.860Z] (battle-customgame-573) SirDanMan forced a tie.
+[2014-04-26T22:30:03.167Z] (battle-customgame-584) IcyVines forced a win for sirdanman.

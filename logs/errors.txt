@@ -4674,3 +4674,522 @@ Log:
 |switch|p1a: Dragonite|Dragonite, M|243/323
 |switch|p1a: Dragonite|Dragonite, M|243/323
 |switch|p1a: Dragonite|Dragonite, M|243/323
+
+TypeError: Cannot call method 'removeSideCondition' of undefined
+    at Tools.exports.BattleAbilities.cyclone.onStart (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:577:18)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1843:37)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3330:10)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3817:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+
+Additional information:
+message = battle-customgame-584|choose|p2|move Energy Ball|26
+currentRequest = move
+
+Log:
+|player|p1|SirDanMan|216
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Typhlosion, M
+|poke|p1|Typhlosion, F
+|poke|p1|Butterfree, F
+|poke|p1|Dragonite, F
+|poke|p1|Meganium, M
+|poke|p1|Blissey, F
+|poke|p2|Feraligatr, M
+|poke|p2|Smeargle, M
+|poke|p2|Galvantula, F
+|poke|p2|Ferrothorn, F
+|poke|p2|Octillery, M
+|poke|p2|Sylveon, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|split
+|switch|p2a: Sylveon|Sylveon, F|404/404
+|switch|p2a: Sylveon|Sylveon, F|404/404
+|switch|p2a: Sylveon|Sylveon, F|404/404
+|switch|p2a: Sylveon|Sylveon, F|404/404
+|turn|1
+|
+|move|p1a: Typhlosion|Flamethrower|p2a: Sylveon
+|debug|randBW(100) = 16
+|debug|randBW(16) = 12
+|debug|randBW(16) = 3
+|split
+|-damage|p2a: Sylveon|319/404
+|-damage|p2a: Sylveon|319/404
+|-damage|p2a: Sylveon|319/404
+|-damage|p2a: Sylveon|319/404
+|debug|randBW(100) = 10
+|move|p2a: Sylveon|Recover|p2a: Sylveon
+|split
+|-heal|p2a: Sylveon|404/404
+|-heal|p2a: Sylveon|404/404
+|-heal|p2a: Sylveon|404/404
+|-heal|p2a: Sylveon|404/404
+|
+|turn|2
+|
+|split
+|switch|p1a: Typhlosion|Typhlosion, F|301/301
+|switch|p1a: Typhlosion|Typhlosion, F|301/301
+|switch|p1a: Typhlosion|Typhlosion, F|301/301
+|switch|p1a: Typhlosion|Typhlosion, F|301/301
+|move|p2a: Sylveon|Heal Bell|p2a: Sylveon
+|-cureteam|p2a: Sylveon|[from] move: HealBell
+|
+|turn|3
+|
+|move|p1a: Typhlosion|Flamethrower|p2a: Sylveon
+|debug|randBW(100) = 93
+|debug|randBW(16) = 15
+|debug|randBW(16) = 7
+|split
+|-damage|p2a: Sylveon|323/404
+|-damage|p2a: Sylveon|323/404
+|-damage|p2a: Sylveon|323/404
+|-damage|p2a: Sylveon|323/404
+|debug|randBW(100) = 2
+|-status|p2a: Sylveon|brn
+|move|p2a: Sylveon|Recover|p2a: Sylveon
+|split
+|-heal|p2a: Sylveon|404/404 brn
+|-heal|p2a: Sylveon|404/404 brn
+|-heal|p2a: Sylveon|404/404 brn
+|-heal|p2a: Sylveon|404/404 brn
+|
+|split
+|-damage|p2a: Sylveon|354/404 brn|[from] brn
+|-damage|p2a: Sylveon|354/404 brn|[from] brn
+|-damage|p2a: Sylveon|354/404 brn|[from] brn
+|-damage|p2a: Sylveon|354/404 brn|[from] brn
+|turn|4
+|
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|move|p1a: Typhlosion|Recover|p1a: Typhlosion
+|-fail|p1a: Typhlosion
+|debug|heal interrupted
+|
+|turn|5
+|
+|move|p1a: Typhlosion|Earthquake|p2a: Ferrothorn
+|debug|randBW(100) = 96
+|debug|randBW(16) = 15
+|debug|randBW(16) = 2
+|split
+|-damage|p2a: Ferrothorn|293/351
+|-damage|p2a: Ferrothorn|293/351
+|-damage|p2a: Ferrothorn|293/351
+|-damage|p2a: Ferrothorn|293/351
+|move|p2a: Ferrothorn|Air Slash|p1a: Typhlosion
+|debug|Hit by flying (Unwavering)
+|-immune|p1a: Typhlosion|[msg]
+|debug|Hit by flying heal (Unwavering)
+|debug|returning null (Unwavering)
+|
+|split
+|-heal|p2a: Ferrothorn|314/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|314/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|314/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|314/351|[from] item: Leftovers
+|turn|6
+|
+|split
+|switch|p2a: Sylveon|Sylveon, F|354/404 brn
+|switch|p2a: Sylveon|Sylveon, F|354/404 brn
+|switch|p2a: Sylveon|Sylveon, F|354/404 brn
+|switch|p2a: Sylveon|Sylveon, F|354/404 brn
+|move|p1a: Typhlosion|Recover|p1a: Typhlosion
+|-fail|p1a: Typhlosion
+|debug|heal interrupted
+|
+|split
+|-heal|p2a: Sylveon|379/404 brn|[from] item: Leftovers
+|-heal|p2a: Sylveon|379/404 brn|[from] item: Leftovers
+|-heal|p2a: Sylveon|379/404 brn|[from] item: Leftovers
+|-heal|p2a: Sylveon|379/404 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Sylveon|329/404 brn|[from] brn
+|-damage|p2a: Sylveon|329/404 brn|[from] brn
+|-damage|p2a: Sylveon|329/404 brn|[from] brn
+|-damage|p2a: Sylveon|329/404 brn|[from] brn
+|turn|7
+|
+|move|p1a: Typhlosion|Flamethrower|p2a: Sylveon
+|debug|randBW(100) = 94
+|debug|randBW(16) = 11
+|debug|randBW(16) = 11
+|split
+|-damage|p2a: Sylveon|251/404 brn
+|-damage|p2a: Sylveon|251/404 brn
+|-damage|p2a: Sylveon|251/404 brn
+|-damage|p2a: Sylveon|251/404 brn
+|debug|randBW(100) = 44
+|move|p2a: Sylveon|Shadow Ball|p1a: Typhlosion
+|debug|randBW(100) = 93
+|debug|randBW(16) = 1
+|debug|randBW(16) = 6
+|split
+|-damage|p1a: Typhlosion|222/301
+|-damage|p1a: Typhlosion|222/301
+|-damage|p1a: Typhlosion|222/301
+|-damage|p1a: Typhlosion|222/301
+|debug|randBW(100) = 34
+|
+|split
+|-heal|p1a: Typhlosion|240/301|[from] item: Leftovers
+|-heal|p1a: Typhlosion|240/301|[from] item: Leftovers
+|-heal|p1a: Typhlosion|240/301|[from] item: Leftovers
+|-heal|p1a: Typhlosion|240/301|[from] item: Leftovers
+|split
+|-heal|p2a: Sylveon|276/404 brn|[from] item: Leftovers
+|-heal|p2a: Sylveon|276/404 brn|[from] item: Leftovers
+|-heal|p2a: Sylveon|276/404 brn|[from] item: Leftovers
+|-heal|p2a: Sylveon|276/404 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Sylveon|226/404 brn|[from] brn
+|-damage|p2a: Sylveon|226/404 brn|[from] brn
+|-damage|p2a: Sylveon|226/404 brn|[from] brn
+|-damage|p2a: Sylveon|226/404 brn|[from] brn
+|turn|8
+|
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, F|314/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|314/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|314/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|314/351
+|move|p1a: Typhlosion|Earthquake|p2a: Ferrothorn
+|debug|randBW(100) = 86
+|debug|randBW(16) = 7
+|debug|randBW(16) = 13
+|split
+|-damage|p2a: Ferrothorn|262/351
+|-damage|p2a: Ferrothorn|262/351
+|-damage|p2a: Ferrothorn|262/351
+|-damage|p2a: Ferrothorn|262/351
+|
+|split
+|-heal|p1a: Typhlosion|258/301|[from] item: Leftovers
+|-heal|p1a: Typhlosion|258/301|[from] item: Leftovers
+|-heal|p1a: Typhlosion|258/301|[from] item: Leftovers
+|-heal|p1a: Typhlosion|258/301|[from] item: Leftovers
+|split
+|-heal|p2a: Ferrothorn|283/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|283/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|283/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|283/351|[from] item: Leftovers
+|turn|9
+|
+|move|p1a: Typhlosion|Earthquake|p2a: Ferrothorn
+|debug|randBW(100) = 89
+|debug|randBW(16) = 3
+|debug|randBW(16) = 11
+|split
+|-damage|p2a: Ferrothorn|230/351
+|-damage|p2a: Ferrothorn|230/351
+|-damage|p2a: Ferrothorn|230/351
+|-damage|p2a: Ferrothorn|230/351
+|move|p2a: Ferrothorn|Air Slash|p1a: Typhlosion
+|debug|Hit by flying (Unwavering)
+|split
+|-heal|p1a: Typhlosion|301/301|[from] ability: Unwavering|[of] p2a: Ferrothorn
+|-heal|p1a: Typhlosion|301/301|[from] ability: Unwavering|[of] p2a: Ferrothorn
+|-heal|p1a: Typhlosion|301/301|[from] ability: Unwavering|[of] p2a: Ferrothorn
+|-heal|p1a: Typhlosion|301/301|[from] ability: Unwavering|[of] p2a: Ferrothorn
+|debug|returning null (Unwavering)
+|
+|split
+|-heal|p2a: Ferrothorn|251/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|251/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|251/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|251/351|[from] item: Leftovers
+|turn|10
+|
+|move|p1a: Typhlosion|Earthquake|p2a: Ferrothorn
+|debug|randBW(100) = 12
+|debug|randBW(16) = 2
+|debug|randBW(16) = 6
+|split
+|-damage|p2a: Ferrothorn|195/351
+|-damage|p2a: Ferrothorn|195/351
+|-damage|p2a: Ferrothorn|195/351
+|-damage|p2a: Ferrothorn|195/351
+|move|p2a: Ferrothorn|Substitute|p2a: Ferrothorn
+|-start|p2a: Ferrothorn|Substitute
+|split
+|-damage|p2a: Ferrothorn|108/351
+|-damage|p2a: Ferrothorn|108/351
+|-damage|p2a: Ferrothorn|108/351
+|-damage|p2a: Ferrothorn|108/351
+|
+|split
+|-heal|p2a: Ferrothorn|129/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|129/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|129/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|129/351|[from] item: Leftovers
+|turn|11
+|
+|move|p1a: Typhlosion|Earthquake|p2a: Ferrothorn
+|debug|randBW(100) = 72
+|debug|randBW(16) = 9
+|debug|randBW(16) = 3
+|-activate|p2a: Ferrothorn|Substitute|[damage]
+|move|p2a: Ferrothorn|Air Slash|p1a: Typhlosion
+|debug|Hit by flying (Unwavering)
+|-immune|p1a: Typhlosion|[msg]
+|debug|Hit by flying heal (Unwavering)
+|debug|returning null (Unwavering)
+|
+|split
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|turn|12
+|
+|move|p1a: Typhlosion|Earthquake|p2a: Ferrothorn
+|debug|randBW(100) = 79
+|debug|randBW(16) = 6
+|debug|randBW(16) = 8
+|-end|p2a: Ferrothorn|Substitute
+|move|p2a: Ferrothorn|Air Slash|p1a: Typhlosion
+|debug|Hit by flying (Unwavering)
+|-immune|p1a: Typhlosion|[msg]
+|debug|Hit by flying heal (Unwavering)
+|debug|returning null (Unwavering)
+|
+|split
+|-heal|p2a: Ferrothorn|171/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|171/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|171/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|171/351|[from] item: Leftovers
+|turn|13
+|
+|move|p1a: Typhlosion|Earthquake|p2a: Ferrothorn
+|debug|randBW(100) = 44
+|debug|randBW(16) = 4
+|debug|randBW(16) = 10
+|split
+|-damage|p2a: Ferrothorn|117/351
+|-damage|p2a: Ferrothorn|117/351
+|-damage|p2a: Ferrothorn|117/351
+|-damage|p2a: Ferrothorn|117/351
+|move|p2a: Ferrothorn|Light Screen|p2a: Ferrothorn
+|-sidestart|p2: IcyVines|move: Light Screen
+|
+|split
+|-heal|p2a: Ferrothorn|138/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|138/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|138/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|138/351|[from] item: Leftovers
+|turn|14
+|
+|split
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|move|p2a: Ferrothorn|Light Screen|p2a: Ferrothorn
+|-fail|p2a: Ferrothorn
+|debug|move failed because it did nothing
+|
+|split
+|-heal|p2a: Ferrothorn|159/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|159/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|159/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|159/351|[from] item: Leftovers
+|turn|15
+|
+|move|p1a: Typhlosion|Recover|p1a: Typhlosion
+|-fail|p1a: Typhlosion
+|debug|heal interrupted
+|move|p2a: Ferrothorn|Light Screen|p2a: Ferrothorn
+|-fail|p2a: Ferrothorn
+|debug|move failed because it did nothing
+|
+|split
+|-heal|p2a: Ferrothorn|180/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|180/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|180/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|180/351|[from] item: Leftovers
+|turn|16
+|
+|move|p1a: Typhlosion|Earthquake|p2a: Ferrothorn
+|debug|randBW(100) = 36
+|debug|randBW(16) = 0
+|-crit|p2a: Ferrothorn
+|debug|randBW(16) = 4
+|split
+|-damage|p2a: Ferrothorn|94/351
+|-damage|p2a: Ferrothorn|94/351
+|-damage|p2a: Ferrothorn|94/351
+|-damage|p2a: Ferrothorn|94/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|move|p2a: Ferrothorn|Air Slash|p1a: Typhlosion
+|debug|randBW(100) = 83
+|debug|randBW(16) = 10
+|debug|randBW(16) = 9
+|-supereffective|p1a: Typhlosion
+|split
+|-damage|p1a: Typhlosion|179/301
+|-damage|p1a: Typhlosion|179/301
+|-damage|p1a: Typhlosion|179/301
+|-damage|p1a: Typhlosion|179/301
+|debug|randBW(100) = 27
+|
+|split
+|-heal|p1a: Typhlosion|197/301|[from] item: Leftovers
+|-heal|p1a: Typhlosion|197/301|[from] item: Leftovers
+|-heal|p1a: Typhlosion|197/301|[from] item: Leftovers
+|-heal|p1a: Typhlosion|197/301|[from] item: Leftovers
+|split
+|-heal|p2a: Ferrothorn|115/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|115/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|115/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|115/351|[from] item: Leftovers
+|turn|17
+|
+|split
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|move|p1a: Typhlosion|Recover|p1a: Typhlosion
+|split
+|-heal|p1a: Typhlosion|301/301
+|-heal|p1a: Typhlosion|301/301
+|-heal|p1a: Typhlosion|301/301
+|-heal|p1a: Typhlosion|301/301
+|
+|-sideend|p2: IcyVines|move: Light Screen
+|turn|18
+|
+|move|p1a: Typhlosion|Recover|p1a: Typhlosion
+|-fail|p1a: Typhlosion
+|debug|heal interrupted
+|move|p2a: Smeargle|Stealth Rock|p1a: Typhlosion
+|-sidestart|p1: SirDanMan|move: Stealth Rock
+|
+|turn|19
+|
+|split
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|move|p1a: Typhlosion|Recover|p1a: Typhlosion
+|-fail|p1a: Typhlosion
+|debug|heal interrupted
+|
+|turn|20
+|
+|move|p1a: Typhlosion|Recover|p1a: Typhlosion
+|-fail|p1a: Typhlosion
+|debug|heal interrupted
+|move|p2a: Octillery|Octazooka|p1a: Typhlosion
+|debug|Hit by water (Intense Flames)
+|-immune|p1a: Typhlosion|[msg]
+|-sideend|p1: SirDanMan|Stealth Rock|[from] ability: Intense Flames|[of] p1a: Typhlosion
+|debug|Removed target's side (Unwavering)
+|debug|Passed removal
+|
+|turn|21
+|
+|split
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|switch|p1a: Butterfree|Butterfree, F|324/324
+|split
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|switch|p2a: Smeargle|Smeargle, M|251/251
+|
+|turn|22
+|
+|move|p2a: Smeargle|Rain Dance|p2a: Smeargle
+|-weather|RainDance
+|move|p1a: Butterfree|Confusion|p2a: Smeargle
+|debug|randBW(100) = 39
+|debug|randBW(16) = 7
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 4
+|debug|Butterfly Effect 2
+|debug|randBW(7) = 2
+|debug|randBW(16) = 14
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|125/251
+|-damage|p2a: Smeargle|125/251
+|-damage|p2a: Smeargle|125/251
+|-damage|p2a: Smeargle|125/251
+|debug|randBW(100) = 86
+|
+|-weather|RainDance|[upkeep]
+|split
+|-heal|p2a: Smeargle|140/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|140/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|140/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|140/251|[from] item: Leftovers
+|turn|23
+|
+|move|p2a: Smeargle|Stealth Rock|p1a: Butterfree
+|-sidestart|p1: SirDanMan|move: Stealth Rock
+|move|p1a: Butterfree|Confusion|p2a: Smeargle
+|debug|randBW(100) = 72
+|debug|randBW(16) = 7
+|debug|Butterfly Effect 1
+|debug|randBW(7) = 3
+|debug|randBW(16) = 0
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|0 fnt
+|-damage|p2a: Smeargle|0 fnt
+|-damage|p2a: Smeargle|0 fnt
+|-damage|p2a: Smeargle|0 fnt
+|debug|randBW(100) = 72
+|faint|p2a: Smeargle
+|
+|-weather|RainDance|[upkeep]
+|
+|split
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|turn|24
+|
+|split
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|switch|p1a: Dragonite|Dragonite, F|323/323
+|split
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-damage|p1a: Dragonite|243/323|[from] Stealth Rock
+|-sideend|p1: SirDanMan|Stealth Rock|[from] ability: Cyclone|[of] p1a: Dragonite
+|debug|Removed target side (Cyclone)
