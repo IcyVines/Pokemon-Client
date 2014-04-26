@@ -2086,3 +2086,2056 @@ Log:
 |
 |move|p1a: Lucario|Aura Sphere|p2a: Ferrothorn|[from]Fighting Spirit
 |debug|randBW(16) = 5
+
+ReferenceError: pokemon is not defined
+    at Tools.exports.BattleAbilities.butterflyeffect.onBasePower (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:359:19)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.getDamage (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2844:20)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:355:18)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+
+Additional information:
+message = battle-customgame-562|choose|p1|move Smack Down|2
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|266
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Charizard, M, shiny
+|poke|p1|Talonflame, M, shiny
+|poke|p1|Aegislash, M, shiny
+|poke|p1|Galvantula, M, shiny
+|poke|p1|Carbink
+|poke|p1|Lucario, M
+|poke|p2|Feraligatr, F
+|poke|p2|Smeargle, F
+|poke|p2|Galvantula, M
+|poke|p2|Ferrothorn, F
+|poke|p2|Octillery, M
+|poke|p2|Sableye, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|split
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|turn|1
+|
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|move|p1a: Carbink|Smack Down|p2a: Smeargle
+|debug|randBW(100) = 67
+|debug|randBW(16) = 8
+
+ReferenceError: pokemon is not defined
+    at Tools.exports.BattleAbilities.tidal.onBasePower (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:3449:7)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.getDamage (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2844:20)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:355:18)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+
+Additional information:
+message = battle-customgame-562|choose|p2|move Shadow Claw|20
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|266
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Charizard, M, shiny
+|poke|p1|Talonflame, M, shiny
+|poke|p1|Aegislash, M, shiny
+|poke|p1|Galvantula, M, shiny
+|poke|p1|Carbink
+|poke|p1|Lucario, M
+|poke|p2|Feraligatr, F
+|poke|p2|Smeargle, F
+|poke|p2|Galvantula, M
+|poke|p2|Ferrothorn, F
+|poke|p2|Octillery, M
+|poke|p2|Sableye, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|split
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|turn|1
+|
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|move|p1a: Carbink|Smack Down|p2a: Smeargle
+|debug|randBW(100) = 67
+|debug|randBW(16) = 8
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|debug|p2: Smeargle INCONSISTENT STATE, ALREADY MOVED: healbell
+|debug|p1: Carbink INCONSISTENT STATE, ALREADY MOVED: smackdown
+|
+|turn|2
+|
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|move|p1a: Carbink|Dazzling Gleam|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(100) = 14
+|debug|randBW(16) = 15
+|debug|randBW(16) = 9
+|-resisted|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|201/251
+|-damage|p2a: Smeargle|201/251
+|-damage|p2a: Smeargle|201/251
+|-damage|p2a: Smeargle|201/251
+|
+|split
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|turn|3
+|
+|split
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|turn|4
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(16) = 9
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 15
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|5
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(16) = 0
+|debug|Fighting Spirit Started
+|-crit|p2a: Smeargle
+|debug|randBW(16) = 4
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|move|p2a: Smeargle|Recover|p2a: Smeargle|[from]Butterfly Effect
+|split
+|-heal|p2a: Smeargle|127/251
+|-heal|p2a: Smeargle|127/251
+|-heal|p2a: Smeargle|127/251
+|-heal|p2a: Smeargle|127/251
+|
+|split
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|turn|6
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(16) = 13
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 4
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|7
+|
+|move|p1a: Lucario|Flash Cannon|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(100) = 29
+|debug|randBW(16) = 13
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 2
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|debug|randBW(100) = 57
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|8
+|
+|split
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|move|p1a: Lucario|Aura Sphere|p2a: Galvantula|[from]Butterfly Effect
+|debug|randBW(16) = 12
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 2
+|split
+|-damage|p2a: Galvantula|112/281
+|-damage|p2a: Galvantula|112/281
+|-damage|p2a: Galvantula|112/281
+|-damage|p2a: Galvantula|112/281
+|
+|split
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|turn|9
+|
+|move|p2a: Galvantula|Heal Bell|p2a: Galvantula|[from]Butterfly Effect
+|-cureteam|p2a: Galvantula|[from] move: HealBell
+|move|p1a: Lucario|Aura Sphere|p2a: Galvantula|[from]Butterfly Effect
+|debug|randBW(16) = 7
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 11
+|split
+|-damage|p2a: Galvantula|1/281
+|-damage|p2a: Galvantula|1/281
+|-damage|p2a: Galvantula|1/281
+|-damage|p2a: Galvantula|1/281
+|
+|split
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|turn|10
+|
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|split
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|
+|turn|11
+|
+|move|p1a: Galvantula|Cross Poison|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|randBW(100) = 45
+|debug|randBW(8) = 6
+|debug|randBW(16) = 0
+|-supereffective|p2a: Ferrothorn
+|split
+|-damage|p2a: Ferrothorn|197/351
+|-damage|p2a: Ferrothorn|197/351
+|-damage|p2a: Ferrothorn|197/351
+|-damage|p2a: Ferrothorn|197/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|debug|randBW(100) = 89
+|move|p2a: Ferrothorn|Light Screen|p2a: Ferrothorn|[from]Butterfly Effect
+|-sidestart|p2: IcyVines|move: Light Screen
+|
+|split
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|turn|12
+|
+|split
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Reflect|p2a: Ferrothorn|[from]Butterfly Effect
+|-sidestart|p2: IcyVines|Reflect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|turn|13
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Protect|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|-singleturn|p2a: Ferrothorn|Protect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Aegislash|Hidden Power|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 48
+|debug|randBW(16) = 2
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|Permeate Boost
+|debug|randBW(16) = 5
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|-damage|p2a: Ferrothorn|209/351
+|-damage|p2a: Ferrothorn|209/351
+|-damage|p2a: Ferrothorn|209/351
+|-damage|p2a: Ferrothorn|209/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|turn|14
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Aegislash|Shadow Sneak|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 98
+|debug|randBW(16) = 5
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|Permeate Boost
+|debug|randBW(16) = 12
+|-resisted|p2a: Ferrothorn
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|-damage|p2a: Ferrothorn|213/351
+|-damage|p2a: Ferrothorn|213/351
+|-damage|p2a: Ferrothorn|213/351
+|-damage|p2a: Ferrothorn|213/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Substitute|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|-start|p2a: Ferrothorn|Substitute
+|split
+|-damage|p2a: Ferrothorn|126/351
+|-damage|p2a: Ferrothorn|126/351
+|-damage|p2a: Ferrothorn|126/351
+|-damage|p2a: Ferrothorn|126/351
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|turn|15
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Protect|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|sub bypass: self hit
+|-singleturn|p2a: Ferrothorn|Protect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Aegislash|Shadow Sneak|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 28
+|debug|randBW(16) = 8
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|Permeate Boost
+|debug|randBW(16) = 9
+|-resisted|p2a: Ferrothorn
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|-damage|p2a: Ferrothorn|129/351
+|-damage|p2a: Ferrothorn|129/351
+|-damage|p2a: Ferrothorn|129/351
+|-damage|p2a: Ferrothorn|129/351
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-sideend|p2: IcyVines|move: Light Screen
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|turn|16
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|
+|-sideend|p2: IcyVines|Reflect
+|turn|17
+|
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Butterfly Effect
+|debug|randBW(100) = 45
+|debug|randBW(16) = 7
+|debug|randBW(16) = 11
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|274/310
+|-damage|p2a: Feraligatr|274/310
+|-damage|p2a: Feraligatr|274/310
+|-damage|p2a: Feraligatr|274/310
+|debug|randBW(100) = 29
+|move|p2a: Feraligatr|Waterfall|p1a: Charizard|[from]Butterfly Effect
+|-immune|p1a: Charizard|[msg]
+|
+|split
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|turn|18
+|
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Butterfly Effect
+|debug|randBW(100) = 30
+|debug|randBW(16) = 8
+|debug|randBW(16) = 11
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|257/310
+|-damage|p2a: Feraligatr|257/310
+|-damage|p2a: Feraligatr|257/310
+|-damage|p2a: Feraligatr|257/310
+|debug|randBW(100) = 75
+|move|p2a: Feraligatr|Shadow Claw|p1a: Charizard|[from]Butterfly Effect
+|debug|randBW(100) = 97
+|debug|randBW(8) = 7
+
+ReferenceError: pokemon is not defined
+    at Tools.exports.BattleAbilities.tidal.onBasePower (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:3449:7)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.getDamage (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2844:20)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:355:18)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+
+Additional information:
+message = battle-customgame-562|choose|p2|move Ice Punch|22
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|266
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Charizard, M, shiny
+|poke|p1|Talonflame, M, shiny
+|poke|p1|Aegislash, M, shiny
+|poke|p1|Galvantula, M, shiny
+|poke|p1|Carbink
+|poke|p1|Lucario, M
+|poke|p2|Feraligatr, F
+|poke|p2|Smeargle, F
+|poke|p2|Galvantula, M
+|poke|p2|Ferrothorn, F
+|poke|p2|Octillery, M
+|poke|p2|Sableye, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|split
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|turn|1
+|
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|move|p1a: Carbink|Smack Down|p2a: Smeargle
+|debug|randBW(100) = 67
+|debug|randBW(16) = 8
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|debug|p2: Smeargle INCONSISTENT STATE, ALREADY MOVED: healbell
+|debug|p1: Carbink INCONSISTENT STATE, ALREADY MOVED: smackdown
+|
+|turn|2
+|
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|move|p1a: Carbink|Dazzling Gleam|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(100) = 14
+|debug|randBW(16) = 15
+|debug|randBW(16) = 9
+|-resisted|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|201/251
+|-damage|p2a: Smeargle|201/251
+|-damage|p2a: Smeargle|201/251
+|-damage|p2a: Smeargle|201/251
+|
+|split
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|turn|3
+|
+|split
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|turn|4
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(16) = 9
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 15
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|5
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(16) = 0
+|debug|Fighting Spirit Started
+|-crit|p2a: Smeargle
+|debug|randBW(16) = 4
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|move|p2a: Smeargle|Recover|p2a: Smeargle|[from]Butterfly Effect
+|split
+|-heal|p2a: Smeargle|127/251
+|-heal|p2a: Smeargle|127/251
+|-heal|p2a: Smeargle|127/251
+|-heal|p2a: Smeargle|127/251
+|
+|split
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|turn|6
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(16) = 13
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 4
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|7
+|
+|move|p1a: Lucario|Flash Cannon|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(100) = 29
+|debug|randBW(16) = 13
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 2
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|debug|randBW(100) = 57
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|8
+|
+|split
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|move|p1a: Lucario|Aura Sphere|p2a: Galvantula|[from]Butterfly Effect
+|debug|randBW(16) = 12
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 2
+|split
+|-damage|p2a: Galvantula|112/281
+|-damage|p2a: Galvantula|112/281
+|-damage|p2a: Galvantula|112/281
+|-damage|p2a: Galvantula|112/281
+|
+|split
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|turn|9
+|
+|move|p2a: Galvantula|Heal Bell|p2a: Galvantula|[from]Butterfly Effect
+|-cureteam|p2a: Galvantula|[from] move: HealBell
+|move|p1a: Lucario|Aura Sphere|p2a: Galvantula|[from]Butterfly Effect
+|debug|randBW(16) = 7
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 11
+|split
+|-damage|p2a: Galvantula|1/281
+|-damage|p2a: Galvantula|1/281
+|-damage|p2a: Galvantula|1/281
+|-damage|p2a: Galvantula|1/281
+|
+|split
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|turn|10
+|
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|split
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|
+|turn|11
+|
+|move|p1a: Galvantula|Cross Poison|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|randBW(100) = 45
+|debug|randBW(8) = 6
+|debug|randBW(16) = 0
+|-supereffective|p2a: Ferrothorn
+|split
+|-damage|p2a: Ferrothorn|197/351
+|-damage|p2a: Ferrothorn|197/351
+|-damage|p2a: Ferrothorn|197/351
+|-damage|p2a: Ferrothorn|197/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|debug|randBW(100) = 89
+|move|p2a: Ferrothorn|Light Screen|p2a: Ferrothorn|[from]Butterfly Effect
+|-sidestart|p2: IcyVines|move: Light Screen
+|
+|split
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|turn|12
+|
+|split
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Reflect|p2a: Ferrothorn|[from]Butterfly Effect
+|-sidestart|p2: IcyVines|Reflect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|turn|13
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Protect|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|-singleturn|p2a: Ferrothorn|Protect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Aegislash|Hidden Power|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 48
+|debug|randBW(16) = 2
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|Permeate Boost
+|debug|randBW(16) = 5
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|-damage|p2a: Ferrothorn|209/351
+|-damage|p2a: Ferrothorn|209/351
+|-damage|p2a: Ferrothorn|209/351
+|-damage|p2a: Ferrothorn|209/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|turn|14
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Aegislash|Shadow Sneak|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 98
+|debug|randBW(16) = 5
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|Permeate Boost
+|debug|randBW(16) = 12
+|-resisted|p2a: Ferrothorn
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|-damage|p2a: Ferrothorn|213/351
+|-damage|p2a: Ferrothorn|213/351
+|-damage|p2a: Ferrothorn|213/351
+|-damage|p2a: Ferrothorn|213/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Substitute|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|-start|p2a: Ferrothorn|Substitute
+|split
+|-damage|p2a: Ferrothorn|126/351
+|-damage|p2a: Ferrothorn|126/351
+|-damage|p2a: Ferrothorn|126/351
+|-damage|p2a: Ferrothorn|126/351
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|turn|15
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Protect|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|sub bypass: self hit
+|-singleturn|p2a: Ferrothorn|Protect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Aegislash|Shadow Sneak|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 28
+|debug|randBW(16) = 8
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|Permeate Boost
+|debug|randBW(16) = 9
+|-resisted|p2a: Ferrothorn
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|-damage|p2a: Ferrothorn|129/351
+|-damage|p2a: Ferrothorn|129/351
+|-damage|p2a: Ferrothorn|129/351
+|-damage|p2a: Ferrothorn|129/351
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-sideend|p2: IcyVines|move: Light Screen
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|turn|16
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|
+|-sideend|p2: IcyVines|Reflect
+|turn|17
+|
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Butterfly Effect
+|debug|randBW(100) = 45
+|debug|randBW(16) = 7
+|debug|randBW(16) = 11
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|274/310
+|-damage|p2a: Feraligatr|274/310
+|-damage|p2a: Feraligatr|274/310
+|-damage|p2a: Feraligatr|274/310
+|debug|randBW(100) = 29
+|move|p2a: Feraligatr|Waterfall|p1a: Charizard|[from]Butterfly Effect
+|-immune|p1a: Charizard|[msg]
+|
+|split
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|turn|18
+|
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Butterfly Effect
+|debug|randBW(100) = 30
+|debug|randBW(16) = 8
+|debug|randBW(16) = 11
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|257/310
+|-damage|p2a: Feraligatr|257/310
+|-damage|p2a: Feraligatr|257/310
+|-damage|p2a: Feraligatr|257/310
+|debug|randBW(100) = 75
+|move|p2a: Feraligatr|Shadow Claw|p1a: Charizard|[from]Butterfly Effect
+|debug|randBW(100) = 97
+|debug|randBW(8) = 7
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|debug|p1: Charizard INCONSISTENT STATE, ALREADY MOVED: firepunch
+|debug|p2: Feraligatr INCONSISTENT STATE, ALREADY MOVED: shadowclaw
+|
+|split
+|-heal|p2a: Feraligatr|276/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|276/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|276/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|276/310|[from] item: Leftovers
+|turn|19
+|
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Tidal
+|debug|randBW(100) = 54
+|debug|randBW(16) = 14
+|debug|randBW(16) = 2
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|236/310
+|-damage|p2a: Feraligatr|236/310
+|-damage|p2a: Feraligatr|236/310
+|-damage|p2a: Feraligatr|236/310
+|debug|randBW(100) = 68
+|move|p2a: Feraligatr|Ice Punch|p1a: Charizard|[from]Tidal
+|debug|randBW(100) = 53
+|debug|randBW(16) = 14
+
+ReferenceError: pokemon is not defined
+    at Tools.exports.BattleAbilities.butterflyeffect.onBasePower (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:359:19)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.getDamage (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2844:20)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:355:18)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+
+Additional information:
+message = battle-customgame-562|choose|p1|move Smack Down|31
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|266
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Charizard, M, shiny
+|poke|p1|Talonflame, M, shiny
+|poke|p1|Aegislash, M, shiny
+|poke|p1|Galvantula, M, shiny
+|poke|p1|Carbink
+|poke|p1|Lucario, M
+|poke|p2|Feraligatr, F
+|poke|p2|Smeargle, F
+|poke|p2|Galvantula, M
+|poke|p2|Ferrothorn, F
+|poke|p2|Octillery, M
+|poke|p2|Sableye, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|split
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|switch|p2a: Smeargle|Smeargle, F|251/251
+|turn|1
+|
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|move|p1a: Carbink|Smack Down|p2a: Smeargle
+|debug|randBW(100) = 67
+|debug|randBW(16) = 8
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|debug|p2: Smeargle INCONSISTENT STATE, ALREADY MOVED: healbell
+|debug|p1: Carbink INCONSISTENT STATE, ALREADY MOVED: smackdown
+|
+|turn|2
+|
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|move|p1a: Carbink|Dazzling Gleam|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(100) = 14
+|debug|randBW(16) = 15
+|debug|randBW(16) = 9
+|-resisted|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|201/251
+|-damage|p2a: Smeargle|201/251
+|-damage|p2a: Smeargle|201/251
+|-damage|p2a: Smeargle|201/251
+|
+|split
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|216/251|[from] item: Leftovers
+|turn|3
+|
+|split
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|switch|p1a: Lucario|Lucario, M|281/281
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|231/251|[from] item: Leftovers
+|turn|4
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(16) = 9
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 15
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|5
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(16) = 0
+|debug|Fighting Spirit Started
+|-crit|p2a: Smeargle
+|debug|randBW(16) = 4
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|move|p2a: Smeargle|Recover|p2a: Smeargle|[from]Butterfly Effect
+|split
+|-heal|p2a: Smeargle|127/251
+|-heal|p2a: Smeargle|127/251
+|-heal|p2a: Smeargle|127/251
+|-heal|p2a: Smeargle|127/251
+|
+|split
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|142/251|[from] item: Leftovers
+|turn|6
+|
+|move|p1a: Lucario|Aura Sphere|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(16) = 13
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 4
+|-supereffective|p2a: Smeargle
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|7
+|
+|move|p1a: Lucario|Flash Cannon|p2a: Smeargle|[from]Butterfly Effect
+|debug|randBW(100) = 29
+|debug|randBW(16) = 13
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 2
+|split
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|-damage|p2a: Smeargle|1/251
+|debug|randBW(100) = 57
+|move|p2a: Smeargle|Heal Bell|p2a: Smeargle|[from]Butterfly Effect
+|-cureteam|p2a: Smeargle|[from] move: HealBell
+|
+|split
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|-heal|p2a: Smeargle|16/251|[from] item: Leftovers
+|turn|8
+|
+|split
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|switch|p2a: Galvantula|Galvantula, M|281/281
+|move|p1a: Lucario|Aura Sphere|p2a: Galvantula|[from]Butterfly Effect
+|debug|randBW(16) = 12
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 2
+|split
+|-damage|p2a: Galvantula|112/281
+|-damage|p2a: Galvantula|112/281
+|-damage|p2a: Galvantula|112/281
+|-damage|p2a: Galvantula|112/281
+|
+|split
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|129/281|[from] item: Leftovers
+|turn|9
+|
+|move|p2a: Galvantula|Heal Bell|p2a: Galvantula|[from]Butterfly Effect
+|-cureteam|p2a: Galvantula|[from] move: HealBell
+|move|p1a: Lucario|Aura Sphere|p2a: Galvantula|[from]Butterfly Effect
+|debug|randBW(16) = 7
+|debug|Fighting Spirit Started
+|debug|randBW(16) = 11
+|split
+|-damage|p2a: Galvantula|1/281
+|-damage|p2a: Galvantula|1/281
+|-damage|p2a: Galvantula|1/281
+|-damage|p2a: Galvantula|1/281
+|
+|split
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|-heal|p2a: Galvantula|18/281|[from] item: Leftovers
+|turn|10
+|
+|split
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|switch|p2a: Ferrothorn|Ferrothorn, F|351/351
+|split
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|
+|turn|11
+|
+|move|p1a: Galvantula|Cross Poison|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|randBW(100) = 45
+|debug|randBW(8) = 6
+|debug|randBW(16) = 0
+|-supereffective|p2a: Ferrothorn
+|split
+|-damage|p2a: Ferrothorn|197/351
+|-damage|p2a: Ferrothorn|197/351
+|-damage|p2a: Ferrothorn|197/351
+|-damage|p2a: Ferrothorn|197/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|debug|randBW(100) = 89
+|move|p2a: Ferrothorn|Light Screen|p2a: Ferrothorn|[from]Butterfly Effect
+|-sidestart|p2: IcyVines|move: Light Screen
+|
+|split
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|218/351|[from] item: Leftovers
+|turn|12
+|
+|split
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|switch|p1a: Aegislash|Aegislash, M, shiny|324/324
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Reflect|p2a: Ferrothorn|[from]Butterfly Effect
+|-sidestart|p2: IcyVines|Reflect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|239/351|[from] item: Leftovers
+|turn|13
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Protect|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|-singleturn|p2a: Ferrothorn|Protect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Aegislash|Hidden Power|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 48
+|debug|randBW(16) = 2
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|Permeate Boost
+|debug|randBW(16) = 5
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|-damage|p2a: Ferrothorn|209/351
+|-damage|p2a: Ferrothorn|209/351
+|-damage|p2a: Ferrothorn|209/351
+|-damage|p2a: Ferrothorn|209/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|230/351|[from] item: Leftovers
+|turn|14
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Aegislash|Shadow Sneak|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 98
+|debug|randBW(16) = 5
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|Permeate Boost
+|debug|randBW(16) = 12
+|-resisted|p2a: Ferrothorn
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|-damage|p2a: Ferrothorn|213/351
+|-damage|p2a: Ferrothorn|213/351
+|-damage|p2a: Ferrothorn|213/351
+|-damage|p2a: Ferrothorn|213/351
+|-boost|p2a: Ferrothorn|atk|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spa|1|[from] ability: Aggravation
+|-boost|p2a: Ferrothorn|spe|1|[from] ability: Aggravation
+|debug|Aggravation boost
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Substitute|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|-start|p2a: Ferrothorn|Substitute
+|split
+|-damage|p2a: Ferrothorn|126/351
+|-damage|p2a: Ferrothorn|126/351
+|-damage|p2a: Ferrothorn|126/351
+|-damage|p2a: Ferrothorn|126/351
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|147/351|[from] item: Leftovers
+|turn|15
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Ferrothorn|Protect|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|sub bypass: self hit
+|-singleturn|p2a: Ferrothorn|Protect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Aegislash|Shadow Sneak|p2a: Ferrothorn|[from]Butterfly Effect
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 28
+|debug|randBW(16) = 8
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|Permeate Boost
+|debug|randBW(16) = 9
+|-resisted|p2a: Ferrothorn
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|-damage|p2a: Ferrothorn|129/351
+|-damage|p2a: Ferrothorn|129/351
+|-damage|p2a: Ferrothorn|129/351
+|-damage|p2a: Ferrothorn|129/351
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-heal|p2a: Ferrothorn|150/351|[from] item: Leftovers
+|-sideend|p2: IcyVines|move: Light Screen
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|turn|16
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|switch|p2a: Feraligatr|Feraligatr, F|310/310
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|switch|p1a: Charizard|Charizard, M, shiny|360/360
+|
+|-sideend|p2: IcyVines|Reflect
+|turn|17
+|
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Butterfly Effect
+|debug|randBW(100) = 45
+|debug|randBW(16) = 7
+|debug|randBW(16) = 11
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|274/310
+|-damage|p2a: Feraligatr|274/310
+|-damage|p2a: Feraligatr|274/310
+|-damage|p2a: Feraligatr|274/310
+|debug|randBW(100) = 29
+|move|p2a: Feraligatr|Waterfall|p1a: Charizard|[from]Butterfly Effect
+|-immune|p1a: Charizard|[msg]
+|
+|split
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|293/310|[from] item: Leftovers
+|turn|18
+|
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Butterfly Effect
+|debug|randBW(100) = 30
+|debug|randBW(16) = 8
+|debug|randBW(16) = 11
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|257/310
+|-damage|p2a: Feraligatr|257/310
+|-damage|p2a: Feraligatr|257/310
+|-damage|p2a: Feraligatr|257/310
+|debug|randBW(100) = 75
+|move|p2a: Feraligatr|Shadow Claw|p1a: Charizard|[from]Butterfly Effect
+|debug|randBW(100) = 97
+|debug|randBW(8) = 7
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|debug|p1: Charizard INCONSISTENT STATE, ALREADY MOVED: firepunch
+|debug|p2: Feraligatr INCONSISTENT STATE, ALREADY MOVED: shadowclaw
+|
+|split
+|-heal|p2a: Feraligatr|276/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|276/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|276/310|[from] item: Leftovers
+|-heal|p2a: Feraligatr|276/310|[from] item: Leftovers
+|turn|19
+|
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Tidal
+|debug|randBW(100) = 54
+|debug|randBW(16) = 14
+|debug|randBW(16) = 2
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|236/310
+|-damage|p2a: Feraligatr|236/310
+|-damage|p2a: Feraligatr|236/310
+|-damage|p2a: Feraligatr|236/310
+|debug|randBW(100) = 68
+|move|p2a: Feraligatr|Ice Punch|p1a: Charizard|[from]Tidal
+|debug|randBW(100) = 53
+|debug|randBW(16) = 14
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|split
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|switch|p2a: Octillery|Octillery, M|291/291
+|debug|p1: Charizard INCONSISTENT STATE, ALREADY MOVED: firepunch
+|
+|turn|20
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery|[from]Tidal
+|debug|randBW(100) = 87
+|debug|randBW(16) = 7
+|debug|randBW(16) = 3
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|240/291
+|-damage|p2a: Octillery|240/291
+|-damage|p2a: Octillery|240/291
+|-damage|p2a: Octillery|240/291
+|debug|randBW(100) = 80
+|move|p2a: Octillery|Sludge Bomb|p1a: Charizard|[from]Tidal
+|debug|randBW(100) = 63
+|debug|randBW(16) = 12
+|debug|Advanced Artillery Boost
+|debug|randBW(16) = 13
+|split
+|-damage|p1a: Charizard|269/360
+|-damage|p1a: Charizard|269/360
+|-damage|p1a: Charizard|269/360
+|-damage|p1a: Charizard|269/360
+|debug|randBW(100) = 90
+|
+|split
+|-heal|p2a: Octillery|258/291|[from] item: Leftovers
+|-heal|p2a: Octillery|258/291|[from] item: Leftovers
+|-heal|p2a: Octillery|258/291|[from] item: Leftovers
+|-heal|p2a: Octillery|258/291|[from] item: Leftovers
+|turn|21
+|
+|move|p1a: Charizard|Fire Punch|p2a: Octillery|[from]Tidal
+|debug|randBW(100) = 79
+|debug|randBW(16) = 6
+|debug|randBW(16) = 10
+|-resisted|p2a: Octillery
+|split
+|-damage|p2a: Octillery|211/291
+|-damage|p2a: Octillery|211/291
+|-damage|p2a: Octillery|211/291
+|-damage|p2a: Octillery|211/291
+|debug|randBW(100) = 50
+|move|p2a: Octillery|Energy Ball|p1a: Charizard|[from]Tidal
+|debug|randBW(100) = 97
+|debug|randBW(16) = 14
+|debug|Advanced Artillery Boost
+|debug|randBW(16) = 4
+|-resisted|p1a: Charizard
+|split
+|-damage|p1a: Charizard|244/360
+|-damage|p1a: Charizard|244/360
+|-damage|p1a: Charizard|244/360
+|-damage|p1a: Charizard|244/360
+|debug|randBW(100) = 50
+|
+|split
+|-heal|p2a: Octillery|229/291|[from] item: Leftovers
+|-heal|p2a: Octillery|229/291|[from] item: Leftovers
+|-heal|p2a: Octillery|229/291|[from] item: Leftovers
+|-heal|p2a: Octillery|229/291|[from] item: Leftovers
+|turn|22
+|
+|move|p1a: Charizard|Power-Up Punch|p2a: Octillery|[from]Tidal
+|debug|randBW(100) = 15
+|debug|randBW(16) = 1
+|debug|randBW(16) = 3
+|split
+|-damage|p2a: Octillery|193/291
+|-damage|p2a: Octillery|193/291
+|-damage|p2a: Octillery|193/291
+|-damage|p2a: Octillery|193/291
+|debug|randBW(100) = 67
+|-boost|p1a: Charizard|atk|1
+|move|p2a: Octillery|Bullet Seed|p1a: Charizard|[from]Tidal
+|debug|randBW(100) = 36
+|debug|randBW(6) = 5
+|debug|randBW(16) = 14
+|debug|Advanced Artillery Boost
+|debug|randBW(16) = 12
+|-resisted|p1a: Charizard
+|split
+|-damage|p1a: Charizard|235/360
+|-damage|p1a: Charizard|235/360
+|-damage|p1a: Charizard|235/360
+|-damage|p1a: Charizard|235/360
+|debug|randBW(16) = 0
+|debug|Advanced Artillery Boost
+|-crit|p1a: Charizard
+|debug|randBW(16) = 12
+|-resisted|p1a: Charizard
+|split
+|-damage|p1a: Charizard|222/360
+|-damage|p1a: Charizard|222/360
+|-damage|p1a: Charizard|222/360
+|-damage|p1a: Charizard|222/360
+|debug|randBW(16) = 0
+|debug|Advanced Artillery Boost
+|-crit|p1a: Charizard
+|debug|randBW(16) = 5
+|-resisted|p1a: Charizard
+|split
+|-damage|p1a: Charizard|208/360
+|-damage|p1a: Charizard|208/360
+|-damage|p1a: Charizard|208/360
+|-damage|p1a: Charizard|208/360
+|debug|randBW(16) = 10
+|debug|Advanced Artillery Boost
+|debug|randBW(16) = 14
+|-resisted|p1a: Charizard
+|split
+|-damage|p1a: Charizard|200/360
+|-damage|p1a: Charizard|200/360
+|-damage|p1a: Charizard|200/360
+|-damage|p1a: Charizard|200/360
+|debug|randBW(16) = 5
+|debug|Advanced Artillery Boost
+|debug|randBW(16) = 13
+|-resisted|p1a: Charizard
+|split
+|-damage|p1a: Charizard|192/360
+|-damage|p1a: Charizard|192/360
+|-damage|p1a: Charizard|192/360
+|-damage|p1a: Charizard|192/360
+|-hitcount|p1a: Charizard|5
+|
+|split
+|-heal|p2a: Octillery|211/291|[from] item: Leftovers
+|-heal|p2a: Octillery|211/291|[from] item: Leftovers
+|-heal|p2a: Octillery|211/291|[from] item: Leftovers
+|-heal|p2a: Octillery|211/291|[from] item: Leftovers
+|turn|23
+|
+|split
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|switch|p1a: Galvantula|Galvantula, M, shiny|344/344
+|split
+|switch|p2a: Sableye|Sableye, M|304/304
+|switch|p2a: Sableye|Sableye, M|304/304
+|switch|p2a: Sableye|Sableye, M|304/304
+|switch|p2a: Sableye|Sableye, M|304/304
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|turn|24
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Galvantula|Cross Poison|p2a: Sableye|[from]Tidal
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 68
+|debug|randBW(8) = 2
+|debug|randBW(16) = 9
+|-resisted|p2a: Sableye
+|split
+|-damage|p2a: Sableye|292/304
+|-damage|p2a: Sableye|292/304
+|-damage|p2a: Sableye|292/304
+|-damage|p2a: Sableye|292/304
+|debug|randBW(100) = 30
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Sableye|Brick Break|p1a: Galvantula|[from]Tidal
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 51
+|debug|randBW(16) = 6
+|debug|Dethrone Attack Boost
+|debug|randBW(16) = 1
+|split
+|-damage|p1a: Galvantula|255/344
+|-damage|p1a: Galvantula|255/344
+|-damage|p1a: Galvantula|255/344
+|-damage|p1a: Galvantula|255/344
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p1a: Galvantula|276/344|[from] item: Leftovers
+|-heal|p1a: Galvantula|276/344|[from] item: Leftovers
+|-heal|p1a: Galvantula|276/344|[from] item: Leftovers
+|-heal|p1a: Galvantula|276/344|[from] item: Leftovers
+|split
+|-heal|p2a: Sableye|304/304|[from] item: Leftovers
+|-heal|p2a: Sableye|304/304|[from] item: Leftovers
+|-heal|p2a: Sableye|304/304|[from] item: Leftovers
+|-heal|p2a: Sableye|304/304|[from] item: Leftovers
+|turn|25
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Galvantula|Cross Poison|p2a: Sableye|[from]Tidal
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 38
+|debug|randBW(8) = 2
+|debug|randBW(16) = 1
+|-resisted|p2a: Sableye
+|split
+|-damage|p2a: Sableye|291/304
+|-damage|p2a: Sableye|291/304
+|-damage|p2a: Sableye|291/304
+|-damage|p2a: Sableye|291/304
+|debug|randBW(100) = 96
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Sableye|Shadow Ball|p1a: Galvantula|[from]Tidal
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 70
+|debug|randBW(16) = 10
+|debug|Dethrone Special Attack Boost
+|debug|randBW(16) = 10
+|split
+|-damage|p1a: Galvantula|129/344
+|-damage|p1a: Galvantula|129/344
+|-damage|p1a: Galvantula|129/344
+|-damage|p1a: Galvantula|129/344
+|debug|randBW(100) = 99
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p1a: Galvantula|150/344|[from] item: Leftovers
+|-heal|p1a: Galvantula|150/344|[from] item: Leftovers
+|-heal|p1a: Galvantula|150/344|[from] item: Leftovers
+|-heal|p1a: Galvantula|150/344|[from] item: Leftovers
+|split
+|-heal|p2a: Sableye|304/304|[from] item: Leftovers
+|-heal|p2a: Sableye|304/304|[from] item: Leftovers
+|-heal|p2a: Sableye|304/304|[from] item: Leftovers
+|-heal|p2a: Sableye|304/304|[from] item: Leftovers
+|turn|26
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|switch|p1a: Carbink|Carbink|304/304
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p2a: Sableye|Shadow Ball|p1a: Carbink|[from]Tidal
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 96
+|debug|randBW(16) = 9
+|debug|randBW(16) = 10
+|split
+|-damage|p1a: Carbink|268/304
+|-damage|p1a: Carbink|268/304
+|-damage|p1a: Carbink|268/304
+|-damage|p1a: Carbink|268/304
+|debug|randBW(100) = 19
+|-unboost|p1a: Carbink|spd|1
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|split
+|-heal|p1a: Carbink|287/304|[from] item: Leftovers
+|-heal|p1a: Carbink|287/304|[from] item: Leftovers
+|-heal|p1a: Carbink|287/304|[from] item: Leftovers
+|-heal|p1a: Carbink|287/304|[from] item: Leftovers
+|turn|27
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|move|p1a: Carbink|Smack Down|p2a: Sableye|[from]Tidal
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|debug|randBW(100) = 55
+|debug|randBW(16) = 7

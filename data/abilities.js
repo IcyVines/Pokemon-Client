@@ -133,7 +133,7 @@ exports.BattleAbilities = {
 		desc: "When this Pokemon's health goes below half, Attack, Special Attack, and Speed are raised by one stage each.",
 		shortDesc: "Attack, Sp. Attack, and Speed are raised when health goes below half.",
 		onAfterDamage: function(damage, target, source, move){
-			if(target.hp + damage > target.maxhp/2){
+			if(target.hp < target.maxhp/2 && target.hp + damage > target.maxhp/2){
 				this.boost({atk: 1, spa:1, spe:1});
 				this.debug('Aggravation boost');
 			}
@@ -353,20 +353,22 @@ exports.BattleAbilities = {
 		desc: "Attacks/Special Attacks with 50 or less base power raise a random stat by 1 stage, have a 50% chance to raise another stat, and have a 25% chance to raise a third.",
 		shortDesc: "Moves with 50 or less base power have a chance to boost three random stats.",
 		onBasePowerPriority: 8,
-		onBasePower: function(atk, attacker, defender, move){
+		onBasePower: function(atk, pokemon, defender, move){
 			if (atk && atk <= 50){
-				var stats = [], i = '';
+				this.debug("Butterfly Effect 1");
+				var stats = [], x = '';
 				for (var i in pokemon.boosts) {
 					if (pokemon.boosts[i] < 6) {
 						stats.push(i);
 					}
 				}
 				if (stats.length) {
-					i = stats[this.random(stats.length)];
-					this.boost({i:1});
+					x = stats[this.random(stats.length)];
+					this.boost({x:1});
 				}
-				var r = Math.random(100);
+				var r = Math.random()*100;
 				if(r < 50){
+					this.debug("Butterfly Effect 2");
 					stats = [];
 					for (var i in pokemon.boosts) {
 						if (pokemon.boosts[i] < 6) {
@@ -374,10 +376,11 @@ exports.BattleAbilities = {
 						}
 					}
 					if (stats.length) {
-						i = stats[this.random(stats.length)];
-						this.boost({i:1});
+						x = stats[this.random(stats.length)];
+						this.boost({x:1});
 					}
 					if(r < 25){
+						this.debug("Butterfly Effect 3");
 						stats = [];
 						for (var i in pokemon.boosts) {
 							if (pokemon.boosts[i] < 6) {
@@ -385,8 +388,8 @@ exports.BattleAbilities = {
 							}
 						}
 						if (stats.length) {
-							i = stats[this.random(stats.length)];
-							this.boost({i:1});
+							x = stats[this.random(stats.length)];
+							this.boost({x:1});
 						}
 					}
 				}
@@ -1642,10 +1645,10 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon can survive a fatal hit.",
 		onDamage: function(damage, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && damage >= target.hp) {
-				if(Math.random(100) < 25){
-					return target.hp - 1;
+				if(Math.random()*100 < 25){
 					this.boost({atk:1, spa:1});
 					this.debug('Last Stand Boost');
+					return target.hp - 1;
 				}
 			}
 		},
@@ -3446,13 +3449,13 @@ exports.BattleAbilities = {
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			var power = 0.66;
-			if(pokemon.removeVolatile('tidal')){
+			if(attacker.removeVolatile('tidal')){
 				power = 1.5;
 			} else {
-				pokemon.addVolatile('tidal');
+				attacker.addVolatile('tidal');
 			}
 			if(move.type == 'Water' || move.type == 'Ice'){
-				this.debug('Tidal power shift: ' + power + 'x'	);
+				this.debug('Tidal power shift');
 				return this.chainModify(power);
 			}
 		},
