@@ -365,7 +365,7 @@ exports.BattleAbilities = {
 				}
 				if (stats.length) {
 					i = stats[this.random(stats.length)];
-					boost[i] += 1;
+					boost[i] = 1;
 					this.boost(boost);
 				}
 				var r = Math.random()*100;
@@ -373,28 +373,30 @@ exports.BattleAbilities = {
 					this.debug("Butterfly Effect 2");
 					stats = [];
 					boost = {};
-					for (var i in pokemon.boosts) {
-						if (pokemon.boosts[i] < 6) {
-							stats.push(i);
+					var j = '';
+					for (var j in pokemon.boosts) {
+						if (pokemon.boosts[j] < 6) {
+							stats.push(j);
 						}
 					}
 					if (stats.length) {
-						i = stats[this.random(stats.length)];
-						boost[i] += 1;
+						j = stats[this.random(stats.length)];
+						boost[j] = 1;
 						this.boost(boost);
 					}
 					if(r < 25){
 						this.debug("Butterfly Effect 3");
 						stats = [];
 						boost = {};
-						for (var i in pokemon.boosts) {
-							if (pokemon.boosts[i] < 6) {
-								stats.push(i);
+						var k = '';
+						for (var k in pokemon.boosts) {
+							if (pokemon.boosts[k] < 6) {
+								stats.push(k);
 							}
 						}
 						if (stats.length) {
-							i = stats[this.random(stats.length)];
-							boost[i] += 1;
+							k = stats[this.random(stats.length)];
+							boost[k] = 1;
 							this.boost(boost);
 						}
 					}
@@ -823,14 +825,18 @@ exports.BattleAbilities = {
 		shortDesc: "Opposing Pokemon of the opposite gender do 0.75x damage.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
-			if(attacker.gender && defender.gender && attacker.gender !== defender.gender){
+			if(attacker.gender && defender.gender && attacker.gender === defender.gender){
+				return;
+			} else {
 				this.debug("Weakened hit (Entrancing)");
 				return this.chainModify(0.75);
 			}
 		},
-		onModifySpaPriority: 6,
+		onModifySpaPriority: 5,
 		onSourceModifySpa: function(atk, attacker, defender, move) {
-			if(attacker.gender && defender.gender && attacker.gender !== defender.gender){
+			if(attacker.gender && defender.gender && attacker.gender === defender.gender){
+				return;
+			} else {
 				this.debug("Weakened hit (Entrancing)");
 				return this.chainModify(0.75);
 			}
@@ -878,7 +884,7 @@ exports.BattleAbilities = {
 			var eff = 0;
 			for(var i in defTypes){
 				this.debug("Checking effectiveness (Fighting Spirit)");
-				eff += this.getEffectiveness(i, attacker);
+				eff = this.getEffectiveness(i, attacker);
 				if(eff && eff > 0){
 					this.debug("Fighting Spirit Boost");
 					return this.chainModify(1.5);
