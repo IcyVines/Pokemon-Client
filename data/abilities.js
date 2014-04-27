@@ -885,9 +885,9 @@ exports.BattleAbilities = {
 			var defTypes = defender.getTypes();
 			var eff = 0;
 			this.debug('defTypes: ' + defTypes);
-			for(var i in defTypes){
-				this.debug("Checking effectiveness (Fighting Spirit): " + i + ", " + eff);
-				eff = this.getEffectiveness(i, attacker);
+			for(var i = 0; i < defTypes.length; i++){
+				this.debug("Checking effectiveness (Fighting Spirit): " + defTypes[i] + ", " + eff);
+				eff = this.getEffectiveness(defTypes[i], attacker);
 				if(eff && eff > 0){
 					this.debug("Fighting Spirit Boost");
 					return this.chainModify(1.5);
