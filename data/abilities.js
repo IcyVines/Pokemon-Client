@@ -359,7 +359,7 @@ exports.BattleAbilities = {
 				var stats = [], i = '';
 				var boost = {};
 				for (var i in pokemon.boosts) {
-					if (pokemon.boosts[i] < 6) {
+					if (pokemon.boosts[i] < 6 && !(i in {accuracy:1, evasion:1})) {
 						this.debug('Stat name: ' + i);
 						stats.push(i);
 					}
@@ -376,7 +376,7 @@ exports.BattleAbilities = {
 					boost = {};
 					var j = '';
 					for (var j in pokemon.boosts) {
-						if (pokemon.boosts[j] < 6) {
+						if (pokemon.boosts[j] < 6 && !(i in {accuracy:1, evasion:1})) {
 							stats.push(j);
 						}
 					}
@@ -391,7 +391,7 @@ exports.BattleAbilities = {
 						boost = {};
 						var k = '';
 						for (var k in pokemon.boosts) {
-							if (pokemon.boosts[k] < 6) {
+							if (pokemon.boosts[k] < 6 && !(i in {accuracy:1, evasion:1})) {
 								stats.push(k);
 							}
 						}
@@ -882,7 +882,7 @@ exports.BattleAbilities = {
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			this.debug("Fighting Spirit Started");
-			var defTypes = defender.getTypes();
+			var defTypes = defender.getTypes;
 			var eff = 0;
 			for(var i in defTypes){
 				eff = this.getEffectiveness(i, attacker);
