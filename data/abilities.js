@@ -883,17 +883,19 @@ exports.BattleAbilities = {
 		onBasePower: function(atk, attacker, defender, move){
 			this.debug("Fighting Spirit Started");
 			var defTypes = defender.getTypes();
-			var eff = 0;
+			var eff = 0, amount = 1;
 			this.debug('defTypes: ' + defTypes);
 			for(var i = 0; i < defTypes.length; i++){
-				this.debug("Checking effectiveness (Fighting Spirit): " + defTypes[i] + ", " + eff);
+				this.debug("Checking effectiveness (Fighting Spirit)");
 				eff = this.getEffectiveness(defTypes[i], attacker);
+				this.debug("" + defTypes[i] + ", " + eff);
 				if(eff && eff > 0){
 					this.debug("Fighting Spirit Boost");
-					return this.chainModify(1.5);
+					amount += 0.5;
 				}
 				eff = 0;
 			}
+			return this.chainModify(amount);
 		},
 		id: "fightingspirit",
 		name: "Fighting Spirit",
