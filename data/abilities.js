@@ -882,7 +882,7 @@ exports.BattleAbilities = {
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			this.debug("Fighting Spirit Started");
-			var defTypes = defender.getTypes;
+			var defTypes = defender.getTypes();
 			var eff = 0;
 			this.debug('defTypes: ' + defTypes);
 			for(var i in defTypes){
