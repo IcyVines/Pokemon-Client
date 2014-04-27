@@ -360,6 +360,7 @@ exports.BattleAbilities = {
 				var boost = {};
 				for (var i in pokemon.boosts) {
 					if (pokemon.boosts[i] < 6) {
+						this.debug('Stat name: ' + i);
 						stats.push(i);
 					}
 				}
@@ -584,6 +585,7 @@ exports.BattleAbilities = {
 				}
 			}
 			this.debug("Removed foe side (Cyclone)");
+			this.setWeather('');
 		},
 		id: "cyclone",
 		name: "Cyclone",
@@ -825,20 +827,20 @@ exports.BattleAbilities = {
 		shortDesc: "Opposing Pokemon of the opposite gender do 0.75x damage.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
-			if(attacker.gender && defender.gender && attacker.gender === defender.gender){
-				return;
-			} else {
-				this.debug("Weakened hit (Entrancing)");
-				return this.chainModify(0.75);
+			if(attacker.gender && defender.gender){
+				if(attacker.gender !== defender.gender){
+					this.debug("Weakened hit (Entrancing)");
+					return this.chainModify(0.75);
+				}
 			}
 		},
-		onModifySpaPriority: 5,
-		onSourceModifySpa: function(atk, attacker, defender, move) {
-			if(attacker.gender && defender.gender && attacker.gender === defender.gender){
-				return;
-			} else {
-				this.debug("Weakened hit (Entrancing)");
-				return this.chainModify(0.75);
+		onModifySpAPriority: 5,
+		onSourceModifySpA: function(atk, attacker, defender, move) {
+			if(attacker.gender && defender.gender){
+				if(attacker.gender !== defender.gender){
+					this.debug("Weakened hit (Entrancing)");
+					return this.chainModify(0.75);
+				}
 			}
 		},
 		id: "entrancing",
@@ -883,8 +885,8 @@ exports.BattleAbilities = {
 			var defTypes = defender.getTypes();
 			var eff = 0;
 			for(var i in defTypes){
-				this.debug("Checking effectiveness (Fighting Spirit)");
 				eff = this.getEffectiveness(i, attacker);
+				this.debug("Checking effectiveness (Fighting Spirit): " + i + ", " + eff);
 				if(eff && eff > 0){
 					this.debug("Fighting Spirit Boost");
 					return this.chainModify(1.5);
