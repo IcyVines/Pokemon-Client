@@ -9548,7 +9548,7 @@ exports.BattleMovedex = {
 				}
 			},
 			status: 'brn'
-		}
+		},
 		target: "normal",
 		type: "Flying"
 	},
