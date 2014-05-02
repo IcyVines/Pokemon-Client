@@ -1029,6 +1029,25 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Fire"
 	},
+	"blight": {
+		num: 613,
+		accuracy: 90,
+		basePower: 40,
+		category: "Special",
+		desc: "Deals damage to one adjacent target. Poisons. Priority +1.",
+		shortDesc: "Usually goes first. 5% chance to poison.",
+		id: "blight",
+		isViable: true,
+		name: "Blight",
+		pp: 10,
+		priority: 1,
+		secondary: {
+			chance: 5,
+			volatileStatus: 'psn',
+		},
+		target: "normal",
+		type: "Poison"
+	},
 	"blizzard": {
 		num: 59,
 		accuracy: 70,
@@ -1199,6 +1218,24 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "allAdjacent",
 		type: "Normal"
+	},
+	"boomerang": {
+		num: 619,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target. If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by another party member. The user does not switch out if there are no unfainted party members, or if the target switched out using an Eject Button. Makes contact.",
+		shortDesc: "User switches out after damaging the target.",
+		id: "boomerang",
+		isViable: true,
+		name: "Boomerang",
+		pp: 20,
+		priority: 0,
+		isContact: true,
+		selfSwitch: true,
+		secondary: false,
+		target: "normal",
+		type: "Flying"
 	},
 	"bounce": {
 		num: 340,
@@ -1546,6 +1583,22 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "allAdjacentFoes",
 		type: "Normal"
+	},
+	"cast": {
+		num: 609,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		desc: "Deals damage to one adjacent target. Priority +2.",
+		shortDesc: "Nearly always goes first.",
+		id: "cast",
+		isViable: true,
+		name: "Cast",
+		pp: 20,
+		priority: 2,
+		secondary: false,
+		target: "normal",
+		type: "Psychic"
 	},
 	"celebrate": {
 		num: -6,
@@ -2902,6 +2955,27 @@ exports.BattleMovedex = {
 		target: "self",
 		type: "Dragon"
 	},
+	"dragonfang": {
+		num: 620,
+		accuracy: 95,
+		basePower: 65,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target with a 20% chance to flinch it. Makes contact.",
+		shortDesc: "20% chance to flinch.",
+		id: "dragonfang",
+		isViable: true,
+		name: "Dragon Fang",
+		pp: 15,
+		priority: 0,
+		isContact: true,
+		isBiteAttack: true,
+		secondary: {
+				chance: 20,
+				volatileStatus: 'flinch'
+		},
+		target: "normal",
+		type: "Fire"
+	},
 	"dragonpulse": {
 		num: 406,
 		accuracy: 100,
@@ -3871,6 +3945,56 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Fire"
 	},
+	"fieryterrain": {
+		num: 700,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "For five turns, Pokemon on the ground lose 1/16 of their HP each turn. Their Fire-type moves are powered up by 50%.",
+		shortDesc: "If on ground, lose HP + Fire moves stronger.",
+		id: "fieryterrain",
+		name: "Fiery Terrain",
+		pp: 10,
+		priority: 0,
+		terrain: 'fieryterrain',
+		effect: {
+			duration: 5,
+			onBasePower: function(basePower, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.runImmunity('Ground')) {
+					this.debug('fiery terrain boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onSetStatus: function(status, target, source, effect) {
+				if ((status.id === 'slp' || status.id === 'frz') && target.runImmunity('Ground')) {
+					this.debug('Interrupting sleep/freeze from Fiery Terrain');
+					return false;
+				}
+			},
+			onStart: function(target, source) {
+				this.add('-fieldstart', 'move: Fiery Terrain');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual: function(battle) {
+				this.debug('onResidual battle');
+				for (var s in battle.sides) {
+					for (var p in battle.sides[s].active) {
+						if (battle.sides[s].active[p].runImmunity('Ground') && (battle.sides[s].active[p].type !== 'Fire' || battle.sides[s].active[p].type !== 'Dragon')) {
+							this.debug('PokÃ©mon is grounded, damage through Fiery Terrain.');
+							this.damage(battle.sides[s].active[p].maxhp / 16, battle.sides[s].active[p], battle.sides[s].active[p]);
+						}
+					}
+				}
+			},
+			onEnd: function() {
+				this.add('-fieldend', 'move: Fiery Terrain');
+			}
+		},
+		secondary: false,
+		target: "all",
+		type: "Grass"
+	},
 	"finalgambit": {
 		num: 515,
 		accuracy: 100,
@@ -4179,6 +4303,25 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 10,
 			status: 'brn'
+		},
+		target: "normal",
+		type: "Fire"
+	},
+	"flare": {
+		num: 615,
+		accuracy: 95,
+		basePower: 40,
+		category: "Special",
+		desc: "Deals damage to one adjacent target. Burns. Priority +1.",
+		shortDesc: "Usually goes first. 5% chance to burn.",
+		id: "flare",
+		isViable: true,
+		name: "Flare",
+		pp: 20,
+		priority: 1,
+		secondary: {
+			chance: 5,
+			volatileStatus: 'brn',
 		},
 		target: "normal",
 		type: "Fire"
@@ -5059,6 +5202,26 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Normal"
 	},
+	"glitter": {
+		num: 610,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		desc: "Deals damage to one adjacent target. Priority +1.",
+		shortDesc: "Usually goes first.",
+		id: "glitter",
+		isViable: true,
+		name: "Glitter",
+		pp: 10,
+		priority: 1,
+		isContact: true,
+		secondary: {
+			chance: 5,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Fairy"
+	},
 	"grassknot": {
 		num: 447,
 		accuracy: 100,
@@ -5197,6 +5360,12 @@ exports.BattleMovedex = {
 			onBasePower: function(basePower, attacker, defender, move) {
 				if (move.type === 'Grass' && attacker.runImmunity('Ground')) {
 					this.debug('grassy terrain boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpe: function(spe, pokemon){
+				if(pokemon.type == 'Bug' && pokemon.runImmunity('Ground')){
+					this.debug('grassy terrain bug boost');
 					return this.chainModify(1.5);
 				}
 			},
@@ -6941,6 +7110,22 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Steel"
 	},
+	"jolt": {
+		num: 607,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		desc: "Deals damage to one adjacent target. Priority +2.",
+		shortDesc: "Nearly always goes first.",
+		id: "jolt",
+		isViable: true,
+		name: "Jolt",
+		pp: 20,
+		priority: 2,
+		secondary: false,
+		target: "normal",
+		type: "Electric"
+	},
 	"judgment": {
 		num: 449,
 		accuracy: 100,
@@ -8455,6 +8640,9 @@ exports.BattleMovedex = {
 				if (move.type === 'Dragon' && defender.runImmunity('Ground')) {
 					this.debug('misty terrain weaken');
 					return this.chainModify(0.5);
+				} else if (move.type === 'Ghost' && defender.runImmunity('Ground')){
+					this.debug('misty terrain strengthen');
+					return this.chainModify(1.5);
 				}
 			},
 			onStart: function(side) {
@@ -9280,6 +9468,151 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Bug"
 	},
+	"eternalhaunting": {
+		num: 621,
+		accuracy: true,
+		basePower: 20,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "eternalhaunting",
+		name: "Eternal Haunting",
+		pp: 10,
+		priority: 0,
+		multihit: [2,5],
+		secondary: false,
+		target: "normal",
+		type: "Ghost"
+	},
+	"flutter": {
+		num: 622,
+		accuracy: true,
+		basePower: 25,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "flutter",
+		name: "Flutter",
+		pp: 20,
+		priority: 0,
+		multihit: [2,5],
+		isContact: true,
+		secondary: false,
+		target: "normal",
+		type: "Fairy"
+	},
+	"swoopingdive": {
+		num: 623,
+		accuracy: true,
+		basePower: 25,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "swoopingdive",
+		name: "Swooping Dive",
+		pp: 25,
+		priority: 0,
+		multihit: [2,5],
+		isContact: true,
+		secondary: false,
+		target: "normal",
+		type: "Flying"
+	},
+	"fireworks": {
+		num: 624,
+		accuracy: 85,
+		basePower: 20,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "fireworks",
+		name: "Fireworks",
+		pp: 20,
+		priority: 0,
+		multihit: [2,5],
+		effect: {
+			duration: 1,
+			onStart: function() {
+				this.effectData.hit = 1;
+			},
+			onRestart: function() {
+				this.effectData.hit++;
+			}
+		},
+		secondary: {
+			chance: function(){
+				if(this.effectData.hit == 1){
+					return 0;
+				} else {
+					return 5;
+				}
+			},
+			status: 'brn'
+		}
+		target: "normal",
+		type: "Flying"
+	},
+	"venommortar": {
+		num: 625,
+		accuracy: 90,
+		basePower: 25,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "venommortar",
+		name: "Venom Mortar",
+		pp: 10,
+		priority: 0,
+		multihit: [3,3],
+		secondary: false,
+		target: "normal",
+		type: "Flying"
+	},
+	"shadowgrenades": {
+		num: 626,
+		accuracy: true,
+		basePower: 25,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "shadowgrenades",
+		name: "Shadow Grenades",
+		pp: 25,
+		priority: 0,
+		multihit: [2,5],
+		secondary: false,
+		target: "normal",
+		type: "Flying"
+	},
+	"machineburst": {
+		num: 627,
+		accuracy: 80,
+		basePower: 30,
+		basePowerCallback: function(pokemon) {
+			pokemon.addVolatile('machineburst');
+			return 10 * pokemon.volatiles['machineburst'].hit + 20;
+		},
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits three times. The base power increases to 40 for the second hit and 50 for the third. If any of the hits misses the target, the attack ends. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits.",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
+		id: "machineburst",
+		name: "Machine Burst",
+		pp: 20,
+		priority: 0,
+		multihit: [3,3],
+		effect: {
+			duration: 1,
+			onStart: function() {
+				this.effectData.hit = 1;
+			},
+			onRestart: function() {
+				this.effectData.hit++;
+			}
+		},
+		secondary: false,
+		target: "normal",
+		type: "Fighting"
+	},
 	"playnice": {
 		num: 589,
 		accuracy: true,
@@ -9342,6 +9675,50 @@ exports.BattleMovedex = {
 		},
 		secondary: false,
 		target: "any",
+		type: "Flying"
+	},
+	"plummet": {
+		num: 617,
+		accuracy: 90,
+		basePower: 50,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target. Makes contact. Priority +2.",
+		shortDesc: "Nearly always goes first.",
+		id: "plummet",
+		isViable: true,
+		name: "Plummet",
+		pp: 10,
+		priority: 2,
+		isContact: true,
+		effect: {
+			duration: 1,
+			onStart: function(pokemon) {
+				for (var i=0, l=pokemon.typesData.length; i<l; i++) {
+					if (pokemon.typesData[i].type === 'Flying') {
+						pokemon.typesData[i].suppressed = true;
+						break;
+					}
+				}
+			},
+			onModifyPokemon: function(pokemon) {
+				for (var i=0, l=pokemon.typesData.length; i<l; i++) {
+					if (pokemon.typesData[i].type === 'Flying') {
+						pokemon.typesData[i].suppressed = true;
+						break;
+					}
+				}
+			},
+			onEnd: function(pokemon) {
+				for (var i=0, l=pokemon.typesData.length; i<l; i++) {
+					if (pokemon.typesData[i].type === 'Flying') {
+						pokemon.typesData[i].suppressed = false;
+						break;
+					}
+				}
+			}
+		},
+		secondary: false,
+		target: "normal",
 		type: "Flying"
 	},
 	"poisonfang": {
@@ -10000,6 +10377,22 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "normal",
 		type: "Dark"
+	},
+	"quake": {
+		num: 614,
+		accuracy: 100,
+		basePower: 50,
+		category: "Special",
+		desc: "Deals damage to one adjacent target. Priority +1.",
+		shortDesc: "Usually goes first.",
+		id: "quake",
+		isViable: true,
+		name: "Quake",
+		pp: 10,
+		priority: 1,
+		secondary: false,
+		target: "normal",
+		type: "Ground"
 	},
 	"quash": {
 		num: 511,
@@ -10677,6 +11070,23 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Normal"
 	},
+	"rockit": {
+		num: 612,
+		accuracy: 100,
+		basePower: 50,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target. Makes contact. Priority +1.",
+		shortDesc: "Usually goes first.",
+		id: "rockit",
+		isViable: true,
+		name: "Rock it",
+		pp: 20,
+		priority: 1,
+		isContact: true,
+		secondary: false,
+		target: "normal",
+		type: "Rock"
+	},
 	"rockpolish": {
 		num: 397,
 		accuracy: true,
@@ -11163,6 +11573,24 @@ exports.BattleMovedex = {
 		},
 		target: "normal",
 		type: "Water"
+	},
+	"scapegoat": {
+		num: 618,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target. If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by another party member. The user does not switch out if there are no unfainted party members, or if the target switched out using an Eject Button. Makes contact.",
+		shortDesc: "User switches out after damaging the target.",
+		id: "scapegoat",
+		isViable: true,
+		name: "Scapegoat",
+		pp: 20,
+		priority: 0,
+		isContact: true,
+		selfSwitch: true,
+		secondary: false,
+		target: "normal",
+		type: "Dark"
 	},
 	"scaryface": {
 		num: 184,
@@ -11684,6 +12112,23 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "normal",
 		type: "Normal"
+	},
+	"skewer": {
+		num: 611,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target. Makes contact. Priority +2.",
+		shortDesc: "Nearly always goes first.",
+		id: "skewer",
+		isViable: true,
+		name: "Skewer",
+		pp: 20,
+		priority: 2,
+		isContact: true,
+		secondary: false,
+		target: "normal",
+		type: "Bug"
 	},
 	"skillswap": {
 		num: 285,
@@ -13441,6 +13886,25 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "normal",
 		type: "Normal"
+	},
+	"tangle": {
+		num: 608,
+		accuracy: 90,
+		basePower: 60,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target. Flinches. Priority +1.",
+		shortDesc: "Usually goes first. 5% chance to flinch.",
+		id: "tangle",
+		isViable: true,
+		name: "Tangle",
+		pp: 10,
+		priority: 1,
+		secondary: {
+			chance: 5,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Grass"
 	},
 	"taunt": {
 		num: 269,

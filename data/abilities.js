@@ -355,6 +355,11 @@ exports.BattleAbilities = {
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, pokemon, defender, move){
 			if (atk && atk <= 50){
+				pokemon.addVolatile('butterflyeffect');
+			}
+		},
+		onUpdate: function(pokemon){
+			if(pokemon.removeVolatile('butterflyeffect')){
 				this.debug("Butterfly Effect 1");
 				var stats = [], i = '';
 				var boost = {};
@@ -376,7 +381,7 @@ exports.BattleAbilities = {
 					boost = {};
 					var j = '';
 					for (var j in pokemon.boosts) {
-						if (pokemon.boosts[j] < 6 && !(i in {accuracy:1, evasion:1})) {
+						if (pokemon.boosts[j] < 6 && !(j in {accuracy:1, evasion:1})) {
 							stats.push(j);
 						}
 					}
@@ -391,7 +396,7 @@ exports.BattleAbilities = {
 						boost = {};
 						var k = '';
 						for (var k in pokemon.boosts) {
-							if (pokemon.boosts[k] < 6 && !(i in {accuracy:1, evasion:1})) {
+							if (pokemon.boosts[k] < 6 && !(k in {accuracy:1, evasion:1})) {
 								stats.push(k);
 							}
 						}
@@ -404,6 +409,60 @@ exports.BattleAbilities = {
 				}
 			}
 		},
+		/*onHit: function(target, pokemon, move) {
+			if (target && target !== pokemon && move && pokemon.ability === 'butterflyeffect') {
+				var atk = move.basePower;
+				if (atk && atk <= 50){
+					this.debug("Butterfly Effect 1");
+					var stats = [], i = '';
+					var boost = {};
+					for (var i in pokemon.boosts) {
+						if (pokemon.boosts[i] < 6 && !(i in {accuracy:1, evasion:1})) {
+							this.debug('Stat name: ' + i);
+							stats.push(i);
+						}
+					}
+					if (stats.length) {
+						i = stats[this.random(stats.length)];
+						boost[i] = 1;
+						pokemon.boosts[i] += 1;
+					}
+					var r = Math.random()*100;
+					if(r < 50){
+						this.debug("Butterfly Effect 2");
+						stats = [];
+						boost = {};
+						var j = '';
+						for (var j in pokemon.boosts) {
+							if (pokemon.boosts[j] < 6 && !(j in {accuracy:1, evasion:1})) {
+								stats.push(j);
+							}
+						}
+						if (stats.length) {
+							j = stats[this.random(stats.length)];
+							boost[j] = 1;
+							this.boost(boost);
+						}
+						if(r < 25){
+							this.debug("Butterfly Effect 3");
+							stats = [];
+							boost = {};
+							var k = '';
+							for (var k in pokemon.boosts) {
+								if (pokemon.boosts[k] < 6 && !(k in {accuracy:1, evasion:1})) {
+									stats.push(k);
+								}
+							}
+							if (stats.length) {
+								k = stats[this.random(stats.length)];
+								boost[k] = 1;
+								this.boost(boost);
+							}
+						}
+					}
+				}
+			}
+		},*/
 		id: "butterflyeffect",
 		name: "Butterfly Effect",
 		rating: 3,
@@ -895,6 +954,7 @@ exports.BattleAbilities = {
 				}
 				eff = 0;
 			}
+			this.debug("FS Boost: " + amount);
 			return this.chainModify(amount);
 		},
 		id: "fightingspirit",

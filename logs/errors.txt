@@ -5193,3 +5193,129 @@ Log:
 |-damage|p1a: Dragonite|243/323|[from] Stealth Rock
 |-sideend|p1: SirDanMan|Stealth Rock|[from] ability: Cyclone|[of] p1a: Dragonite
 |debug|Removed target side (Cyclone)
+
+TypeError: Object p2a: Typhlosion has no method 'boost'
+    at Tools.exports.BattleAbilities.butterflyeffect.onHit (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:423:15)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1843:37)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:457:41)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+
+Additional information:
+message = battle-customgame-706|choose|p1|move Recover|2
+currentRequest = move
+
+Log:
+|player|p1|asdfnasdf|265
+|player|p2|IcyVines|170
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Blissey, F
+|poke|p2|Azurill, F
+|poke|p2|Flareon, F
+|poke|p2|Espeon, F
+|poke|p2|Typhlosion, M
+|poke|p2|Meganium, M
+|poke|p2|Glaceon, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Blissey|Blissey, F|714/714
+|switch|p1a: Blissey|Blissey, F|714/714
+|switch|p1a: Blissey|Blissey, F|714/714
+|switch|p1a: Blissey|Blissey, F|714/714
+|split
+|switch|p2a: Typhlosion|Typhlosion, M|302/302
+|switch|p2a: Typhlosion|Typhlosion, M|302/302
+|switch|p2a: Typhlosion|Typhlosion, M|302/302
+|switch|p2a: Typhlosion|Typhlosion, M|302/302
+|-item|p2a: Typhlosion|Air Balloon
+|turn|1
+|
+|move|p2a: Typhlosion|Ember|p1a: Blissey
+|debug|randBW(100) = 34
+|debug|randBW(16) = 1
+|debug|randBW(16) = 3
+|split
+|-damage|p1a: Blissey|669/714
+|-damage|p1a: Blissey|669/714
+|-damage|p1a: Blissey|669/714
+|-damage|p1a: Blissey|669/714
+|debug|Butterfly Effect 1
+|debug|Stat name: atk
+|debug|Stat name: def
+|debug|Stat name: spa
+|debug|Stat name: spd
+|debug|Stat name: spe
+|debug|randBW(5) = 3
+
+TypeError: Cannot call method 'boost' of undefined
+    at Tools.exports.BattleAbilities.butterflyeffect.onHit (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:423:20)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1843:37)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:457:41)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+
+Additional information:
+message = battle-customgame-708|choose|p1|move Recover|2
+currentRequest = move
+
+Log:
+|player|p1|asdfnasdf|265
+|player|p2|IcyVines|170
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Blissey, F
+|poke|p2|Azurill, F
+|poke|p2|Flareon, M
+|poke|p2|Espeon, F
+|poke|p2|Typhlosion, F
+|poke|p2|Meganium, M
+|poke|p2|Glaceon, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Blissey|Blissey, F|714/714
+|switch|p1a: Blissey|Blissey, F|714/714
+|switch|p1a: Blissey|Blissey, F|714/714
+|switch|p1a: Blissey|Blissey, F|714/714
+|split
+|switch|p2a: Typhlosion|Typhlosion, F|302/302
+|switch|p2a: Typhlosion|Typhlosion, F|302/302
+|switch|p2a: Typhlosion|Typhlosion, F|302/302
+|switch|p2a: Typhlosion|Typhlosion, F|302/302
+|-item|p2a: Typhlosion|Air Balloon
+|turn|1
+|
+|move|p2a: Typhlosion|Ember|p1a: Blissey
+|debug|randBW(100) = 44
+|debug|randBW(16) = 5
+|debug|randBW(16) = 6
+|split
+|-damage|p1a: Blissey|671/714
+|-damage|p1a: Blissey|671/714
+|-damage|p1a: Blissey|671/714
+|-damage|p1a: Blissey|671/714
+|debug|Butterfly Effect 1
+|debug|Stat name: atk
+|debug|Stat name: def
+|debug|Stat name: spa
+|debug|Stat name: spd
+|debug|Stat name: spe
+|debug|randBW(5) = 3
