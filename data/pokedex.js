@@ -393,18 +393,19 @@ exports.BattlePokedex = {
     butterfree: {
         num: 12,
         species: "Butterfree",
-        types: ["Bug", "Flying"],
+        types: ["Bug", "Psychic"],
         baseStats: {
             hp: 60,
             atk: 45,
-            def: 50,
-            spa: 90,
-            spd: 80,
-            spe: 70
+            def: 65,
+            spa: 110,
+            spd: 100,
+            spe: 100
         },
         abilities: {
             0: "Compound Eyes",
-            H: "Tinted Lens"
+            1: "Tinted Lens",
+            H: "Butterfly Effect"
         },
         heightm: 1.1,
         weightkg: 32,
@@ -3877,6 +3878,7 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Inner Focus",
+            1: "Cyclone",
             H: "Multiscale"
         },
         heightm: 2.2,
@@ -7688,12 +7690,12 @@ exports.BattlePokedex = {
             F: 0.75
         },
         baseStats: {
-            hp: 90,
+            hp: 95,
             atk: 45,
-            def: 70,
-            spa: 30,
-            spd: 70,
-            spe: 50
+            def: 80,
+            spa: 50,
+            spd: 80,
+            spe: 65
         },
         abilities: {
             0: "Thick Fat",

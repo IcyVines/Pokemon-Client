@@ -2974,7 +2974,7 @@ exports.BattleMovedex = {
 				volatileStatus: 'flinch'
 		},
 		target: "normal",
-		type: "Fire"
+		type: "Dragon"
 	},
 	"dragonpulse": {
 		num: 406,
@@ -9486,7 +9486,7 @@ exports.BattleMovedex = {
 	},
 	"flutter": {
 		num: 622,
-		accuracy: true,
+		accuracy: 95,
 		basePower: 25,
 		category: "Physical",
 		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
@@ -9503,7 +9503,7 @@ exports.BattleMovedex = {
 	},
 	"swoopingdive": {
 		num: 623,
-		accuracy: true,
+		accuracy: 90,
 		basePower: 25,
 		category: "Physical",
 		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
@@ -9524,7 +9524,7 @@ exports.BattleMovedex = {
 		basePower: 20,
 		category: "Physical",
 		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn.",
+		shortDesc: "Hits 2-5 times in one turn. Each hit can burn.",
 		id: "fireworks",
 		name: "Fireworks",
 		pp: 20,
@@ -9550,39 +9550,51 @@ exports.BattleMovedex = {
 			status: 'brn'
 		},
 		target: "normal",
-		type: "Flying"
+		type: "Fire"
 	},
 	"venommortar": {
 		num: 625,
 		accuracy: 90,
-		basePower: 25,
+		basePower: 30,
 		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn.",
+		desc: "Deals damage to one adjacent target and hits three times. Has a 5% chance to poison on each hit.",
+		shortDesc: "Hits 3 times. Each hit can miss, but can poison.",
 		id: "venommortar",
 		name: "Venom Mortar",
 		pp: 10,
 		priority: 0,
 		multihit: [3,3],
-		secondary: false,
+		secondary: {
+			chance: 5,
+			status: 'psn'
+		},
 		target: "normal",
-		type: "Flying"
+		type: "Poison"
 	},
 	"shadowgrenades": {
 		num: 626,
-		accuracy: true,
-		basePower: 25,
+		accuracy: 90,
+		basePower: 20,
 		category: "Physical",
 		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
 		shortDesc: "Hits 2-5 times in one turn.",
 		id: "shadowgrenades",
 		name: "Shadow Grenades",
-		pp: 25,
+		pp: 10,
 		priority: 0,
 		multihit: [2,5],
-		secondary: false,
+		secondary: {
+			chance: function(){
+				if(this.effectData.hit == 5){
+					return 50;
+				} else {
+					return 0;
+				}
+			},
+			status: 'slp'
+		},
 		target: "normal",
-		type: "Flying"
+		type: "Dark"
 	},
 	"machineburst": {
 		num: 627,
@@ -9611,7 +9623,57 @@ exports.BattleMovedex = {
 		},
 		secondary: false,
 		target: "normal",
-		type: "Fighting"
+		type: "Steel"
+	},
+	"psyspike": {
+		num: 628,
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn. 5th can confuse.",
+		id: "psyspike",
+		name: "Psyspike",
+		pp: 15,
+		priority: 0,
+		multihit: [2,5],
+		secondary: {
+			chance: function(){
+				if(this.effectData.hit == 5){
+					return 50;
+				} else {
+					return 0;
+				}
+			},
+			status: 'confusion'
+		},
+		target: "normal",
+		type: "Psychic"
+	},
+	"sparklerburns": {
+		num: 629,
+		accuracy: 100,
+		basePower: 20,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn. 5th can paralyze.",
+		id: "sparklerburns",
+		name: "Sparkler Burns",
+		pp: 30,
+		priority: 0,
+		multihit: [2,5],
+		secondary: {
+			chance: function(){
+				if(this.effectData.hit == 5){
+					return 50;
+				} else {
+					return 0;
+				}
+			},
+			status: 'par'
+		},
+		target: "normal",
+		type: "Electric"
 	},
 	"playnice": {
 		num: 589,
