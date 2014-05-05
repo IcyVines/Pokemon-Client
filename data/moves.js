@@ -9638,7 +9638,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		multihit: [2,5],
 		secondary: {
-			chance: function(){
+			chance: new function(){
 				if(this.effectData.hit == 5){
 					return 50;
 				} else {
