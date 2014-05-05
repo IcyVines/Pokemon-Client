@@ -9638,11 +9638,13 @@ exports.BattleMovedex = {
 		priority: 0,
 		multihit: [2,5],
 		secondary: {
-			chance: function(){
-				if(this.effectData.hit == 5){
-					return 50;
-				} else {
-					return 0;
+			chance: {
+				function(){
+					if(this.effectData.hit < 5){
+						return 0;
+					} else {
+						return 50;
+					}
 				}
 			},
 			status: 'confusion'
@@ -9672,6 +9674,13 @@ exports.BattleMovedex = {
 		priority: 0,
 		multihit: [2,5],
 		secondary: {
+			function(){
+				if(this.effectData.hit < 5){
+					chance: 0;
+				} else {
+					chance: 50;
+				}
+			},
 			status: 'par'
 		},
 		effect: {
@@ -9681,11 +9690,6 @@ exports.BattleMovedex = {
 			},
 			onRestart: function() {
 				this.effectData.hit++;
-				if(this.effectData.hit < 5){
-					this.effectData.secondary.chance = 0;
-				} else {
-					this.effectData.secondary.chance = 50;
-				}
 			}
 		},
 		target: "normal",
