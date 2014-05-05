@@ -9638,7 +9638,7 @@ exports.BattleMovedex = {
 		priority: 0,
 		multihit: [2,5],
 		secondary: {
-			chance: new function(){
+			chance: function(){
 				if(this.effectData.hit == 5){
 					return 50;
 				} else {
@@ -9646,6 +9646,15 @@ exports.BattleMovedex = {
 				}
 			},
 			status: 'confusion'
+		},
+		effect: {
+			duration: 1,
+			onStart: function() {
+				this.effectData.hit = 1;
+			},
+			onRestart: function() {
+				this.effectData.hit++;
+			}
 		},
 		target: "normal",
 		type: "Psychic"
@@ -9671,6 +9680,15 @@ exports.BattleMovedex = {
 				}
 			},
 			status: 'par'
+		},
+		effect: {
+			duration: 1,
+			onStart: function() {
+				this.effectData.hit = 1;
+			},
+			onRestart: function() {
+				this.effectData.hit++;
+			}
 		},
 		target: "normal",
 		type: "Electric"

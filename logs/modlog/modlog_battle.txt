@@ -11,3 +11,5 @@
 [2014-04-27T02:06:15.438Z] (battle-customgame-607) IcyVines forced a win for brendan0207.
 [2014-04-27T02:15:49.825Z] (battle-customgame-608) IcyVines forced a tie.
 [2014-04-27T03:10:48.694Z] (battle-customgame-685) SirDanMan forced a tie.
+[2014-05-05T23:43:40.547Z] (battle-customgame-729) SirDanMan forced a tie.
+[2014-05-05T23:43:40.757Z] (battle-customgame-729) IcyVines forced a tie.
