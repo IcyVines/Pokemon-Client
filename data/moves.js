@@ -9672,13 +9672,6 @@ exports.BattleMovedex = {
 		priority: 0,
 		multihit: [2,5],
 		secondary: {
-			chance: function(){
-				if(this.effectData.hit == 5){
-					return 50;
-				} else {
-					return 0;
-				}
-			},
 			status: 'par'
 		},
 		effect: {
@@ -9688,6 +9681,11 @@ exports.BattleMovedex = {
 			},
 			onRestart: function() {
 				this.effectData.hit++;
+				if(this.effectData.hit < 5){
+					this.effectData.secondary.chance = 0;
+				} else {
+					this.effectData.secondary.chance = 50;
+				}
 			}
 		},
 		target: "normal",
