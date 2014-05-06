@@ -9629,6 +9629,12 @@ exports.BattleMovedex = {
 		num: 628,
 		accuracy: 100,
 		basePower: 20,
+		basePowerCallback: function(pokemon, target, move) {
+			pokemon.addVolatile('psyspike');
+			if (pokemon.volatiles['psyspike'].hit == 5){
+				move.secondary = {chance: 50, status: 'confusion'};
+			}
+		},
 		category: "Physical",
 		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
 		shortDesc: "Hits 2-5 times in one turn. 5th can confuse.",
@@ -9637,18 +9643,7 @@ exports.BattleMovedex = {
 		pp: 15,
 		priority: 0,
 		multihit: [2,5],
-		secondary: {
-			chance: {
-				function(){
-					if(this.effectData.hit < 5){
-						return 0;
-					} else {
-						return 50;
-					}
-				}
-			},
-			status: 'confusion'
-		},
+		secondary: false,
 		effect: {
 			duration: 1,
 			onStart: function() {
@@ -9673,16 +9668,7 @@ exports.BattleMovedex = {
 		pp: 30,
 		priority: 0,
 		multihit: [2,5],
-		secondary: {
-			function(){
-				if(this.effectData.hit < 5){
-					chance: 0;
-				} else {
-					chance: 50;
-				}
-			},
-			status: 'par'
-		},
+		secondary: false,
 		effect: {
 			duration: 1,
 			onStart: function() {
@@ -9690,6 +9676,9 @@ exports.BattleMovedex = {
 			},
 			onRestart: function() {
 				this.effectData.hit++;
+				if(this.effectData.hit == 5){
+					this.effectData.secondary = {chance: 50, status: 'par'};
+				}
 			}
 		},
 		target: "normal",
