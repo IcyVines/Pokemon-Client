@@ -9678,10 +9678,14 @@ exports.BattleMovedex = {
 				this.effectData.hit++;
 			},
 			onModifyMove: function(move) {
+				this.debug("in modify move section");
+				this.debug("" + this.effectData.hit);
 				if (!move || this.effectData.hit < 5) return;
+				this.debug("got past move and data check")
 				if (!move.secondaries) {
 					move.secondaries = [];
 				}
+				this.debug("adding secondaries");
 				move.secondaries.push({
 					chance: 50,
 					status: 'par'
