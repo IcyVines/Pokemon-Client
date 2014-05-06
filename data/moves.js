@@ -9671,7 +9671,8 @@ exports.BattleMovedex = {
 		onModifyMove: function(move, pokemon, target) {
 			pokemon.addVolatile('sparklerburns');
 			this.debug("in modify move section");
-			if (!move || pokemon.volatiles['sparklerburns'].hit < 5) return;
+			this.debug("" + pokemon.volatiles['sparklerburns'].hit)
+			if (!move || pokemon.volatiles['sparklerburns'].hit < 4) return;
 			this.debug("got past move and data check")
 			if (!move.secondaries) {
 				move.secondaries = [];
