@@ -9532,7 +9532,7 @@ exports.BattleMovedex = {
 		},
 		category: "Physical",
 		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn. Each hit can burn.",
+		shortDesc: "Hits 2-5 times in one turn. Each subsequent hit can burn.",
 		id: "fireworks",
 		name: "Fireworks",
 		pp: 20,
@@ -9557,7 +9557,7 @@ exports.BattleMovedex = {
 	},
 	"venommortar": {
 		num: 625,
-		accuracy: 90,
+		accuracy: 85,
 		basePower: 30,
 		category: "Physical",
 		desc: "Deals damage to one adjacent target and hits three times. Has a 5% chance to poison on each hit.",
@@ -9593,8 +9593,8 @@ exports.BattleMovedex = {
 			return 20;
 		},
 		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn.",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times. The final hit has a 50% chance to put the target to sleep.",
+		shortDesc: "Hits 2-5 times in one turn. 5th hit can put the target to sleep.",
 		id: "shadowgrenades",
 		name: "Shadow Grenades",
 		pp: 10,
@@ -9644,7 +9644,7 @@ exports.BattleMovedex = {
 	},
 	"psyspike": {
 		num: 628,
-		accuracy: 100,
+		accuracy: 95,
 		basePower: 20,
 		basePowerCallback: function(pokemon, target, move) {
 			pokemon.addVolatile('sparklerburns');
@@ -9661,8 +9661,8 @@ exports.BattleMovedex = {
 			return 20;
 		},
 		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn. 5th can confuse.",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times. The last hit has a 50% chance to confuse.",
+		shortDesc: "Hits 2-5 times in one turn. 5th hit can confuse.",
 		id: "psyspike",
 		name: "Psyspike",
 		pp: 15,
@@ -9683,7 +9683,7 @@ exports.BattleMovedex = {
 	},
 	"sparklerburns": {
 		num: 629,
-		accuracy: 100,
+		accuracy: 95,
 		basePower: 20,
 		basePowerCallback: function(pokemon, target, move) {
 			pokemon.addVolatile('sparklerburns');
@@ -9700,8 +9700,8 @@ exports.BattleMovedex = {
 			return 20;
 		},
 		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn. 5th can paralyze.",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times. The last hit has a 50% chance to paralyze.",
+		shortDesc: "Hits 2-5 times in one turn. 5th hit can paralyze.",
 		id: "sparklerburns",
 		name: "Sparkler Burns",
 		pp: 30,

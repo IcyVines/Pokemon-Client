@@ -354,11 +354,14 @@ exports.BattleAbilities = {
 		shortDesc: "Moves with 50 or less base power have a chance to boost three random stats.",
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, pokemon, defender, move){
-			if (atk && atk <= 50 && move && !move.multihit){
+			if (pokemon.removeVolatile('butterflyeffect')) 
 				pokemon.addVolatile('butterflyeffect');
-			}
+			else if (atk && atk <= 50 && move)
+				pokemon.addVolatile('butterflyeffect');
 		},
-		onUpdate: function(pokemon){
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual: function(pokemon){
 			if(pokemon.removeVolatile('butterflyeffect')){
 				this.debug("Butterfly Effect 1");
 				var stats = [], i = '';
