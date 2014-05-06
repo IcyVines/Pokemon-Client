@@ -9678,7 +9678,7 @@ exports.BattleMovedex = {
 				this.effectData.hit++;
 			},
 			onModifyMove: function(move) {
-				if (!move || move.effectData.hit < 5) return;
+				if (!move || this.effectData.hit < 5) return;
 				if (!move.secondaries) {
 					move.secondaries = [];
 				}
