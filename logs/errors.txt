@@ -5319,3 +5319,63 @@ Log:
 |debug|Stat name: spd
 |debug|Stat name: spe
 |debug|randBW(5) = 3
+
+TypeError: Cannot read property 'hit' of null
+    at Tools.exports.BattleMovedex.sparklerburns.onModifyMove (/Users/IcyVines/Desktop/Pokemon-Client/data/moves.js:9673:35)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1843:37)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:62:8)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3248:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3817:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+
+Additional information:
+message = battle-customgame-804|choose|p2|move Sparkler Burns|2
+currentRequest = move
+
+Log:
+|player|p1|SirDanMan|216
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Typhlosion, M
+|poke|p1|Typhlosion, F
+|poke|p1|Butterfree, M
+|poke|p1|Dragonite, F
+|poke|p1|Meganium, F
+|poke|p1|Blissey, F
+|poke|p2|Dragonite, F
+|poke|p2|Gliscor, F
+|poke|p2|Ferrothorn, F
+|poke|p2|Heracross, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|switch|p1a: Typhlosion|Typhlosion, M|301/301
+|split
+|switch|p2a: Heracross|Heracross, M|364/364
+|switch|p2a: Heracross|Heracross, M|364/364
+|switch|p2a: Heracross|Heracross, M|364/364
+|switch|p2a: Heracross|Heracross, M|364/364
+|turn|1
+|
+|move|p1a: Typhlosion|Eruption|p2a: Heracross
+|debug|randBW(100) = 74
+|debug|randBW(16) = 9
+|debug|randBW(16) = 10
+|-supereffective|p2a: Heracross
+|split
+|-damage|p2a: Heracross|14/364
+|-damage|p2a: Heracross|14/364
+|-damage|p2a: Heracross|14/364
+|-damage|p2a: Heracross|14/364
+|debug|in modify move section

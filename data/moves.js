@@ -9669,9 +9669,9 @@ exports.BattleMovedex = {
 		priority: 0,
 		multihit: [2,5],
 		onModifyMove: function(move, pokemon, target) {
+			pokemon.addVolatile('sparklerburns');
 			this.debug("in modify move section");
-			this.debug("" + this.effectData.hit);
-			if (!move || this.effectData.hit < 5) return;
+			if (!move || pokemon.volatiles['sparklerburns'].hit < 5) return;
 			this.debug("got past move and data check")
 			if (!move.secondaries) {
 				move.secondaries = [];
