@@ -9668,6 +9668,20 @@ exports.BattleMovedex = {
 		pp: 30,
 		priority: 0,
 		multihit: [2,5],
+		onModifyMove: function(move, pokemon, target) {
+			this.debug("in modify move section");
+			this.debug("" + this.effectData.hit);
+			if (!move || this.effectData.hit < 5) return;
+			this.debug("got past move and data check")
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			this.debug("adding secondaries");
+			move.secondaries.push({
+				chance: 50,
+				status: 'par'
+			});
+		},
 		secondary: false,
 		effect: {
 			duration: 1,
@@ -9676,20 +9690,6 @@ exports.BattleMovedex = {
 			},
 			onRestart: function() {
 				this.effectData.hit++;
-			},
-			onModifyMove: function(move) {
-				this.debug("in modify move section");
-				this.debug("" + this.effectData.hit);
-				if (!move || this.effectData.hit < 5) return;
-				this.debug("got past move and data check")
-				if (!move.secondaries) {
-					move.secondaries = [];
-				}
-				this.debug("adding secondaries");
-				move.secondaries.push({
-					chance: 50,
-					status: 'par'
-				});
 			},
 		},
 		target: "normal",
