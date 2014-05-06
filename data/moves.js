@@ -9676,8 +9676,10 @@ exports.BattleMovedex = {
 			},
 			onRestart: function() {
 				this.effectData.hit++;
+			},
+			onFoeAfterDamage: function(pokemon, target){
 				if(this.effectData.hit == 5){
-					this.effectData.secondary = {chance: 50, status: 'par'};
+					target.addVolatile('par');
 				}
 			}
 		},
