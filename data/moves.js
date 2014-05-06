@@ -9538,7 +9538,7 @@ exports.BattleMovedex = {
 		pp: 20,
 		priority: 0,
 		multihit: [2,5],
-		secondary: false;
+		secondary: false,
 		effect: {
 			duration: 1,
 			onStart: function() {
@@ -9600,7 +9600,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		multihit: [2,5],
-		secondary: false;
+		secondary: false,
 		effect: {
 			duration: 1,
 			onStart: function() {
