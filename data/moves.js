@@ -9523,8 +9523,8 @@ exports.BattleMovedex = {
 		accuracy: 85,
 		basePower: 20,
 		basePowerCallback: function(pokemon, target, move) {
-			pokemon.addVolatile('sparklerburns');
-			if (pokemon.volatiles['sparklerburns'].hit == 1){
+			pokemon.addVolatile('fireworks');
+			if (pokemon.volatiles['fireworks'].hit == 1){
 				this.debug("removing secondaries");
 				move.secondaries = false;
 			}
@@ -9579,8 +9579,8 @@ exports.BattleMovedex = {
 		accuracy: 90,
 		basePower: 20,
 		basePowerCallback: function(pokemon, target, move) {
-			pokemon.addVolatile('sparklerburns');
-			if (pokemon.volatiles['sparklerburns'].hit == 5){
+			pokemon.addVolatile('shadowgrenades');
+			if (pokemon.volatiles['shadowgrenades'].hit == 5){
 				if (!move.secondaries) {
 					move.secondaries = [];
 				}
@@ -9647,8 +9647,8 @@ exports.BattleMovedex = {
 		accuracy: 95,
 		basePower: 20,
 		basePowerCallback: function(pokemon, target, move) {
-			pokemon.addVolatile('sparklerburns');
-			if (pokemon.volatiles['sparklerburns'].hit == 5){
+			pokemon.addVolatile('psyspike');
+			if (pokemon.volatiles['psyspike'].hit == 5){
 				if (!move.secondaries) {
 					move.secondaries = [];
 				}
