@@ -9660,6 +9660,20 @@ exports.BattleMovedex = {
 		num: 629,
 		accuracy: 100,
 		basePower: 20,
+		basePowerCallback: function(pokemon, target, move) {
+				pokemon.addVolatile('sparklerburns');
+				this.debug("in modify move section");
+				if (!move || pokemon.volatiles['sparklerburns'].hit < 5) return;
+				this.debug("got past move and data check")
+				if (!move.secondaries) {
+					move.secondaries = [];
+				}
+				this.debug("adding secondaries");
+				move.secondaries.push({
+					chance: 50,
+					status: 'par'
+				});
+		},
 		category: "Physical",
 		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
 		shortDesc: "Hits 2-5 times in one turn. 5th can paralyze.",
@@ -9676,20 +9690,6 @@ exports.BattleMovedex = {
 			},
 			onRestart: function() {
 				this.effectData.hit++;
-			},
-			onModifyMove: function(move, pokemon, target) {
-				pokemon.addVolatile('sparklerburns');
-				this.debug("in modify move section");
-				if (!move || pokemon.volatiles['sparklerburns'].hit < 5) return;
-				this.debug("got past move and data check")
-				if (!move.secondaries) {
-					move.secondaries = [];
-				}
-				this.debug("adding secondaries");
-				move.secondaries.push({
-					chance: 50,
-					status: 'par'
-				});
 			}
 		},
 		target: "normal",
