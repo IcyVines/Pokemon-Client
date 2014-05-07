@@ -371,7 +371,7 @@ exports.BattleAbilities = {
 					}
 				}
 				if (stats.length) {
-					this.add('-message', 'Even the smallest of actions can grow..');
+					this.add('-message', 'Even the smallest of actions can grow...');
 					i = stats[this.random(stats.length)];
 					boost[i] = 1;
 					this.boost(boost);
@@ -387,7 +387,7 @@ exports.BattleAbilities = {
 						}
 					}
 					if (stats.length) {
-						this.add('-message', 'And grow larger..');
+						this.add('-message', 'And grow larger...');
 						j = stats[this.random(stats.length)];
 						boost[j] = 1;
 						this.boost(boost);
@@ -402,7 +402,7 @@ exports.BattleAbilities = {
 							}
 						}
 						if (stats.length) {
-							this.add('-message', 'Until they become deadly');
+							this.add('-message', 'Until they become deadly.');
 							k = stats[this.random(stats.length)];
 							boost[k] = 1;
 							this.boost(boost);

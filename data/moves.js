@@ -9537,8 +9537,12 @@ exports.BattleMovedex = {
 		name: "Fireworks",
 		pp: 20,
 		priority: 0,
+		isBullet: true,
 		multihit: [2,5],
-		secondary: false,
+		secondary: {
+			chance: 5,
+			status: 'brn'
+		},
 		effect: {
 			duration: 1,
 			onStart: function() {
@@ -9566,6 +9570,7 @@ exports.BattleMovedex = {
 		name: "Venom Mortar",
 		pp: 10,
 		priority: 0,
+		isBullet: true,
 		multihit: [3,3],
 		secondary: {
 			chance: 5,
@@ -9599,6 +9604,7 @@ exports.BattleMovedex = {
 		name: "Shadow Grenades",
 		pp: 10,
 		priority: 0,
+		isBullet: true,
 		multihit: [2,5],
 		secondary: false,
 		effect: {
@@ -9628,6 +9634,7 @@ exports.BattleMovedex = {
 		name: "Machine Burst",
 		pp: 20,
 		priority: 0,
+		isBullet: true,
 		multihit: [3,3],
 		effect: {
 			duration: 1,
@@ -11189,6 +11196,7 @@ exports.BattleMovedex = {
 		name: "Rock it",
 		pp: 20,
 		priority: 1,
+		isPunchAttack: true,
 		isContact: true,
 		secondary: false,
 		target: "normal",
@@ -12233,6 +12241,7 @@ exports.BattleMovedex = {
 		pp: 20,
 		priority: 2,
 		isContact: true,
+		isSword: true,
 		secondary: false,
 		target: "normal",
 		type: "Bug"

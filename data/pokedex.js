@@ -163,21 +163,22 @@ exports.BattlePokedex = {
     charizard: {
         num: 6,
         species: "Charizard",
-        types: ["Fire", "Flying"],
+        types: ["Fire", "Dragon"],
         genderRatio: {
             M: 0.875,
             F: 0.125
         },
         baseStats: {
-            hp: 78,
-            atk: 84,
-            def: 78,
-            spa: 109,
+            hp: 80,
+            atk: 90,
+            def: 80,
+            spa: 110,
             spd: 85,
             spe: 100
         },
         abilities: {
             0: "Blaze",
+            1: "Unwavering",
             H: "Solar Power"
         },
         heightm: 1.7,
@@ -1536,11 +1537,11 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 90,
-            atk: 110,
-            def: 80,
-            spa: 100,
-            spd: 80,
-            spe: 95
+            atk: 120,
+            def: 90,
+            spa: 110,
+            spd: 90,
+            spe: 100
         },
         abilities: {
             0: "Intimidate",
@@ -1803,15 +1804,15 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 90,
             atk: 130,
-            def: 80,
+            def: 85,
             spa: 65,
             spd: 85,
-            spe: 55
+            spe: 60
         },
         abilities: {
             0: "Guts",
             1: "No Guard",
-            H: "Steadfast"
+            H: "Fighting Spirit"
         },
         heightm: 1.6,
         weightkg: 130,
@@ -3894,16 +3895,17 @@ exports.BattlePokedex = {
         types: ["Psychic"],
         gender: "N",
         baseStats: {
-            hp: 106,
-            atk: 110,
+            hp: 90,
+            atk: 100,
             def: 90,
-            spa: 154,
+            spa: 150,
             spd: 90,
-            spe: 130
+            spe: 120
         },
         abilities: {
             0: "Pressure",
-            H: "Unnerve"
+            1: "Unnerve",
+            H: "Mind Break"
         },
         heightm: 2,
         weightkg: 122,
@@ -3919,12 +3921,12 @@ exports.BattlePokedex = {
         formeLetter: "M",
         types: ["Psychic", "Fighting"],
         baseStats: {
-            hp: 106,
-            atk: 190,
+            hp: 90,
+            atk: 180,
             def: 100,
-            spa: 154,
+            spa: 110,
             spd: 100,
-            spe: 130
+            spe: 110
         },
         abilities: {
             0: "Steadfast"
@@ -3942,12 +3944,12 @@ exports.BattlePokedex = {
         formeLetter: "M",
         types: ["Psychic"],
         baseStats: {
-            hp: 106,
-            atk: 150,
-            def: 70,
-            spa: 194,
+            hp: 90,
+            atk: 90,
+            def: 80,
+            spa: 180,
             spd: 120,
-            spe: 140
+            spe: 130
         },
         abilities: {
             0: "Insomnia"
@@ -4041,13 +4043,14 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 80,
             atk: 80,
-            def: 105,
+            def: 100,
             spa: 85,
-            spd: 105,
-            spe: 80
+            spd: 100,
+            spe: 85
         },
         abilities: {
             0: "Overgrow",
+            1: "Leaf Guard",
             H: "Full Bloom"
         },
         heightm: 1.8,
@@ -4119,14 +4122,15 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 80,
-            atk: 85,
+            atk: 80,
             def: 80,
             spa: 110,
             spd: 85,
-            spe: 100
+            spe: 105
         },
         abilities: {
             0: "Blaze",
+            1: "Intense Flames",
             H: "Drought"
         },
         heightm: 1.7,
@@ -4200,12 +4204,13 @@ exports.BattlePokedex = {
             hp: 85,
             atk: 105,
             def: 100,
-            spa: 79,
-            spd: 83,
-            spe: 78
+            spa: 80,
+            spd: 85,
+            spe: 85
         },
         abilities: {
             0: "Torrent",
+            1: "Tough Claws",
             H: "Sheer Force"
         },
         heightm: 2.3,
@@ -5543,7 +5548,7 @@ exports.BattlePokedex = {
         species: "Shuckle",
         types: ["Bug", "Rock"],
         baseStats: {
-            hp: 20,
+            hp: 40,
             atk: 10,
             def: 230,
             spa: 10,
@@ -5553,7 +5558,7 @@ exports.BattlePokedex = {
         abilities: {
             0: "Sturdy",
             1: "Gluttony",
-            H: "Contrary"
+            H: "Immunity"
         },
         heightm: 0.6,
         weightkg: 20.5,
@@ -5566,14 +5571,14 @@ exports.BattlePokedex = {
         types: ["Bug", "Fighting"],
         baseStats: {
             hp: 80,
-            atk: 125,
-            def: 75,
+            atk: 140,
+            def: 90,
             spa: 40,
-            spd: 95,
-            spe: 85
+            spd: 100,
+            spe: 90
         },
         abilities: {
-            0: "Swarm",
+            0: "Rapid Fire",
             1: "Guts",
             H: "Moxie"
         },
@@ -5941,16 +5946,16 @@ exports.BattlePokedex = {
         types: ["Dark", "Fire"],
         baseStats: {
             hp: 75,
-            atk: 90,
-            def: 50,
-            spa: 110,
+            atk: 100,
+            def: 60,
+            spa: 120,
             spd: 80,
-            spe: 95
+            spe: 105
         },
         abilities: {
-            0: "Early Bird",
+            0: "Insomnia",
             1: "Flash Fire",
-            H: "Unnerve"
+            H: "Aggravation"
         },
         heightm: 1.4,
         weightkg: 35,
@@ -5969,7 +5974,7 @@ exports.BattlePokedex = {
         types: ["Dark", "Fire"],
         baseStats: {
             hp: 75,
-            atk: 90,
+            atk: 100,
             def: 90,
             spa: 140,
             spd: 90,
@@ -6045,7 +6050,8 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Sturdy",
-            H: "Sand Veil"
+            1: "Sand Veil",
+            H: "Thrill Seeker"
         },
         heightm: 1.1,
         weightkg: 120,
@@ -6334,7 +6340,8 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Pressure",
-            H: "Flash Fire"
+            1: "Flash Fire",
+            H: "Intense Flames"
         },
         heightm: 2.1,
         weightkg: 198,
@@ -6586,14 +6593,15 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 70,
-            atk: 85,
+            atk: 105,
             def: 65,
-            spa: 105,
+            spa: 95,
             spd: 85,
             spe: 120
         },
         abilities: {
             0: "Overgrow",
+            1: "Skeptic",
             H: "Protean"
         },
         heightm: 1.7,
@@ -7286,17 +7294,17 @@ exports.BattlePokedex = {
         species: "Gardevoir",
         types: ["Psychic", "Fairy"],
         baseStats: {
-            hp: 68,
-            atk: 65,
-            def: 65,
-            spa: 125,
-            spd: 115,
-            spe: 80
+            hp: 70,
+            atk: 70,
+            def: 70,
+            spa: 130,
+            spd: 130,
+            spe: 90
         },
         abilities: {
             0: "Synchronize",
             1: "Trace",
-            H: "Telepathy"
+            H: "Entrancing"
         },
         heightm: 1.6,
         weightkg: 48.4,
@@ -7690,12 +7698,12 @@ exports.BattlePokedex = {
             F: 0.75
         },
         baseStats: {
-            hp: 95,
-            atk: 45,
+            hp: 90,
+            atk: 40,
             def: 80,
             spa: 50,
             spd: 80,
-            spe: 65
+            spe: 100
         },
         abilities: {
             0: "Thick Fat",
@@ -7907,11 +7915,11 @@ exports.BattlePokedex = {
         species: "Aggron",
         types: ["Steel", "Rock"],
         baseStats: {
-            hp: 70,
+            hp: 80,
             atk: 110,
             def: 180,
             spa: 60,
-            spd: 60,
+            spd: 70,
             spe: 50
         },
         abilities: {
@@ -8285,13 +8293,14 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 70,
             atk: 120,
-            def: 40,
+            def: 60,
             spa: 95,
-            spd: 40,
-            spe: 95
+            spd: 55,
+            spe: 90
         },
         abilities: {
             0: "Rough Skin",
+            1: "Aggravation",
             H: "Speed Boost"
         },
         heightm: 1.8,
@@ -9298,15 +9307,15 @@ exports.BattlePokedex = {
         species: "Absol",
         types: ["Dark"],
         baseStats: {
-            hp: 65,
+            hp: 75,
             atk: 130,
-            def: 60,
-            spa: 75,
-            spd: 60,
-            spe: 75
+            def: 70,
+            spa: 80,
+            spd: 70,
+            spe: 85
         },
         abilities: {
-            0: "Pressure",
+            0: "Guardian",
             1: "Super Luck",
             H: "Justified"
         },
@@ -9731,7 +9740,8 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Clear Body",
-            H: "Light Metal"
+            1: "Light Metal",
+            H: "Filter"
         },
         heightm: 1.6,
         weightkg: 550,
@@ -10302,16 +10312,17 @@ exports.BattlePokedex = {
             F: 0.125
         },
         baseStats: {
-            hp: 84,
-            atk: 86,
-            def: 88,
-            spa: 111,
-            spd: 101,
-            spe: 60
+            hp: 85,
+            atk: 85,
+            def: 90,
+            spa: 115,
+            spd: 100,
+            spe: 65
         },
         abilities: {
             0: "Torrent",
-            H: "Defiant"
+            1: "Defiant",
+            H: "Mold Breaker"
         },
         heightm: 1.7,
         weightkg: 84.5,
@@ -10369,17 +10380,18 @@ exports.BattlePokedex = {
     staraptor: {
         num: 398,
         species: "Staraptor",
-        types: ["Normal", "Flying"],
+        types: ["Flying"],
         baseStats: {
             hp: 85,
-            atk: 120,
+            atk: 125,
             def: 70,
             spa: 50,
-            spd: 60,
+            spd: 70,
             spe: 100
         },
         abilities: {
             0: "Intimidate",
+            1: "Cyclone",
             H: "Reckless"
         },
         heightm: 1.2,
@@ -10532,19 +10544,19 @@ exports.BattlePokedex = {
     luxray: {
         num: 405,
         species: "Luxray",
-        types: ["Electric"],
+        types: ["Electric", "Dark"],
         baseStats: {
             hp: 80,
-            atk: 120,
-            def: 79,
-            spa: 95,
-            spd: 79,
-            spe: 70
+            atk: 125,
+            def: 80,
+            spa: 90,
+            spd: 80,
+            spe: 95
         },
         abilities: {
-            0: "Rivalry",
+            0: "Guts",
             1: "Intimidate",
-            H: "Guts"
+            H: "Strong Jaw"
         },
         heightm: 1.4,
         weightkg: 42,
@@ -11681,8 +11693,8 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 70,
-            atk: 110,
-            def: 70,
+            atk: 115,
+            def: 80,
             spa: 115,
             spd: 70,
             spe: 90
@@ -11690,7 +11702,7 @@ exports.BattlePokedex = {
         abilities: {
             0: "Steadfast",
             1: "Inner Focus",
-            H: "Justified"
+            H: "Last Stand"
         },
         heightm: 1.2,
         weightkg: 54,
@@ -11706,14 +11718,14 @@ exports.BattlePokedex = {
         baseSpecies: "Lucario",
         forme: "Mega",
         formeLetter: "M",
-        types: ["Fighting", "Steel"],
+        types: ["Fighting", "Dragon"],
         baseStats: {
             hp: 70,
-            atk: 145,
-            def: 88,
-            spa: 140,
-            spd: 70,
-            spe: 112
+            atk: 135,
+            def: 95,
+            spa: 130,
+            spd: 80,
+            spe: 110
         },
         abilities: {
             0: "Adaptability"
@@ -11799,7 +11811,7 @@ exports.BattlePokedex = {
         types: ["Poison", "Dark"],
         baseStats: {
             hp: 70,
-            atk: 90,
+            atk: 100,
             def: 110,
             spa: 60,
             spd: 75,
@@ -11808,7 +11820,7 @@ exports.BattlePokedex = {
         abilities: {
             0: "Battle Armor",
             1: "Sniper",
-            H: "Keen Eye"
+            H: "Tough Claws"
         },
         heightm: 1.3,
         weightkg: 61.5,
@@ -12104,14 +12116,14 @@ exports.BattlePokedex = {
         types: ["Ground", "Rock"],
         baseStats: {
             hp: 115,
-            atk: 140,
+            atk: 145,
             def: 130,
             spa: 55,
             spd: 55,
             spe: 40
         },
         abilities: {
-            0: "Lightningrod",
+            0: "Sand Force",
             1: "Solid Rock",
             H: "Reckless"
         },
@@ -12150,22 +12162,23 @@ exports.BattlePokedex = {
     electivire: {
         num: 466,
         species: "Electivire",
-        types: ["Electric"],
+        types: ["Electric", "Fighting"],
         genderRatio: {
             M: 0.75,
             F: 0.25
         },
         baseStats: {
             hp: 75,
-            atk: 123,
-            def: 67,
+            atk: 120,
+            def: 70,
             spa: 95,
             spd: 85,
             spe: 95
         },
         abilities: {
             0: "Motor Drive",
-            H: "Vital Spirit"
+            1: "Vital Spirit",
+            H: "Iron Fist"
         },
         heightm: 1.8,
         weightkg: 138.6,
@@ -12185,14 +12198,15 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 75,
             atk: 95,
-            def: 67,
-            spa: 125,
+            def: 65,
+            spa: 135,
             spd: 95,
-            spe: 83
+            spe: 85
         },
         abilities: {
             0: "Flame Body",
-            H: "Vital Spirit"
+            1: "Advanced Artillery",
+            H: "Mega Launcher"
         },
         heightm: 1.6,
         weightkg: 68,
@@ -12390,16 +12404,17 @@ exports.BattlePokedex = {
         types: ["Psychic", "Fighting"],
         gender: "M",
         baseStats: {
-            hp: 68,
-            atk: 125,
-            def: 65,
-            spa: 65,
-            spd: 115,
-            spe: 80
+            hp: 70,
+            atk: 130,
+            def: 80,
+            spa: 70,
+            spd: 120,
+            spe: 90
         },
         abilities: {
             0: "Steadfast",
-            H: "Justified"
+            1: "Justified",
+            H: "Unsheathed"
         },
         heightm: 1.6,
         weightkg: 52,
@@ -12889,10 +12904,10 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 70,
             atk: 90,
-            def: 90,
-            spa: 135,
-            spd: 90,
-            spe: 125
+            def: 80,
+            spa: 130,
+            spd: 85,
+            spe: 120
         },
         abilities: {
             0: "Bad Dreams"
@@ -13467,12 +13482,13 @@ exports.BattlePokedex = {
             hp: 75,
             atk: 75,
             def: 95,
-            spa: 75,
+            spa: 80,
             spd: 95,
-            spe: 113
+            spe: 115
         },
         abilities: {
             0: "Overgrow",
+            1: "Dethrone",
             H: "Contrary"
         },
         heightm: 3.3,
@@ -13617,22 +13633,23 @@ exports.BattlePokedex = {
     samurott: {
         num: 503,
         species: "Samurott",
-        types: ["Water"],
+        types: ["Water", "Fighting"],
         genderRatio: {
             M: 0.875,
             F: 0.125
         },
         baseStats: {
             hp: 95,
-            atk: 100,
-            def: 85,
-            spa: 108,
-            spd: 70,
-            spe: 70
+            atk: 110,
+            def: 80,
+            spa: 110,
+            spd: 75,
+            spe: 75
         },
         abilities: {
             0: "Torrent",
-            H: "Shell Armor"
+            1: "Fighting Spirit"
+            H: "Adaptability"
         },
         heightm: 1.5,
         weightkg: 94.6,
@@ -14382,9 +14399,9 @@ exports.BattlePokedex = {
             F: 0.25
         },
         baseStats: {
-            hp: 105,
-            atk: 140,
-            def: 95,
+            hp: 110,
+            atk: 145,
+            def: 100,
             spa: 55,
             spd: 65,
             spe: 45
@@ -15532,13 +15549,13 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 110,
             atk: 65,
-            def: 75,
+            def: 80,
             spa: 125,
-            spd: 85,
+            spd: 90,
             spe: 30
         },
         abilities: {
-            0: "Overcoat",
+            0: "Tricky",
             1: "Magic Guard",
             H: "Regenerator"
         },
@@ -16235,13 +16252,13 @@ exports.BattlePokedex = {
             atk: 55,
             def: 90,
             spa: 145,
-            spd: 90,
+            spd: 100,
             spe: 80
         },
         abilities: {
             0: "Flash Fire",
-            1: "Flame Body",
-            H: "Infiltrator"
+            1: "Unwavering",
+            H: "Shadow Tag"
         },
         heightm: 1,
         weightkg: 34.3,
@@ -16833,17 +16850,19 @@ exports.BattlePokedex = {
     hydreigon: {
         num: 635,
         species: "Hydreigon",
-        types: ["Dark", "Dragon"],
+        types: ["Dragon", "Dark"],
         baseStats: {
-            hp: 92,
-            atk: 105,
-            def: 90,
-            spa: 125,
-            spd: 90,
-            spe: 98
+            hp: 90,
+            atk: 115,
+            def: 85,
+            spa: 110,
+            spd: 85,
+            spe: 100
         },
         abilities: {
-            0: "Levitate"
+            0: "Levitate",
+            1: "Strong Jaw",
+            H: "Advanced Artillery"
         },
         heightm: 1.8,
         weightkg: 160,
@@ -17223,15 +17242,17 @@ exports.BattlePokedex = {
         types: ["Water", "Fighting"],
         gender: "N",
         baseStats: {
-            hp: 91,
-            atk: 72,
+            hp: 90,
+            atk: 95,
             def: 90,
-            spa: 129,
+            spa: 125,
             spd: 90,
-            spe: 108
+            spe: 110
         },
         abilities: {
             0: "Justified"
+            1: "Guardian"
+            H: "Unsheathed"
         },
         heightm: 1.4,
         weightkg: 48.5,
@@ -17491,15 +17512,16 @@ exports.BattlePokedex = {
             F: 0.125
         },
         baseStats: {
-            hp: 88,
-            atk: 107,
-            def: 122,
-            spa: 74,
+            hp: 90,
+            atk: 110,
+            def: 125,
+            spa: 70,
             spd: 75,
-            spe: 64
+            spe: 65
         },
         abilities: {
             0: "Overgrow",
+            1: "Last Stand",
             H: "Bulletproof"
         },
         heightm: 1.6,
@@ -17958,19 +17980,20 @@ exports.BattlePokedex = {
     florges: {
         num: 671,
         species: "Florges",
-        types: ["Fairy"],
+        types: ["Fairy", "Grass"],
         gender: "F",
         baseStats: {
-            hp: 78,
+            hp: 80,
             atk: 65,
-            def: 68,
-            spa: 112,
-            spd: 154,
+            def: 75,
+            spa: 115,
+            spd: 155,
             spe: 75
         },
         abilities: {
             0: "Flower Veil",
-            H: "Symbiosis"
+            1: "Symbiosis",
+            H: "Guardian"
         },
         heightm: 1.1,
         weightkg: 10,
@@ -18720,12 +18743,12 @@ exports.BattlePokedex = {
         species: "Hawlucha",
         types: ["Fighting", "Flying"],
         baseStats: {
-            hp: 78,
-            atk: 92,
-            def: 75,
-            spa: 74,
-            spd: 63,
-            spe: 118
+            hp: 80,
+            atk: 100,
+            def: 80,
+            spa: 70,
+            spd: 65,
+            spe: 125
         },
         abilities: {
             0: "Limber",
@@ -18765,15 +18788,16 @@ exports.BattlePokedex = {
         types: ["Rock", "Fairy"],
         gender: "N",
         baseStats: {
-            hp: 50,
-            atk: 50,
+            hp: 60,
+            atk: 60,
             def: 150,
-            spa: 50,
+            spa: 60,
             spd: 150,
-            spe: 50
+            spe: 60
         },
         abilities: {
             0: "Clear Body",
+            1: "Tricky",
             H: "Sturdy"
         },
         heightm: 0.3,
@@ -18904,14 +18928,14 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 85,
             atk: 110,
-            def: 76,
-            spa: 65,
-            spd: 82,
-            spe: 56
+            def: 85,
+            spa: 75,
+            spd: 90,
+            spe: 55
         },
         abilities: {
             0: "Natural Cure",
-            1: "Frisk",
+            1: "Bad Dreams",
             H: "Harvest"
         },
         heightm: 1.5,
