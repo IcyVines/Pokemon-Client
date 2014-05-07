@@ -13648,7 +13648,7 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Torrent",
-            1: "Fighting Spirit"
+            1: "Fighting Spirit",
             H: "Adaptability"
         },
         heightm: 1.5,
@@ -17250,8 +17250,8 @@ exports.BattlePokedex = {
             spe: 110
         },
         abilities: {
-            0: "Justified"
-            1: "Guardian"
+            0: "Justified",
+            1: "Guardian",
             H: "Unsheathed"
         },
         heightm: 1.4,
