@@ -5819,3 +5819,96 @@ Log:
 |turn|12
 |
 |-message|Wind blasts across the field.
+
+TypeError: Cannot read property 'side' of undefined
+    at Tools.exports.BattleAbilities.cyclone.onBeforeSwitchIn (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:591:12)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.switchIn (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2391:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3324:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3817:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+
+Additional information:
+message = battle-customgame-925|choose|p2|switch 3|5
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|102
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Charizard, M, shiny
+|poke|p1|Talonflame, M, shiny
+|poke|p1|Aegislash, M, shiny
+|poke|p1|Trevenant, M, shiny
+|poke|p1|Carbink
+|poke|p1|Lucario, M
+|poke|p2|Feraligatr, F
+|poke|p2|Sceptile, M
+|poke|p2|Dragonite, M
+|poke|p2|Meganium, M
+|poke|p2|Serperior, F
+|poke|p2|Samurott, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|split
+|switch|p2a: Serperior|Serperior, F|291/291
+|switch|p2a: Serperior|Serperior, F|291/291
+|switch|p2a: Serperior|Serperior, F|291/291
+|switch|p2a: Serperior|Serperior, F|291/291
+|turn|1
+|
+|-formechange|p1a: Charizard|Charizard-Mega-X
+|message|Charizard has Mega Evolved into Mega Charizard!
+|move|p2a: Serperior|Outrage|p1a: Charizard
+|debug|randBW(100) = 55
+|debug|randBW(16) = 9
+|debug|randBW(16) = 10
+|-supereffective|p1a: Charizard
+|split
+|-damage|p1a: Charizard|0 fnt
+|-damage|p1a: Charizard|0 fnt
+|-damage|p1a: Charizard|0 fnt
+|-damage|p1a: Charizard|0 fnt
+|debug|randBW(2,4) = 2
+|split
+|-damage|p2a: Serperior|262/291|[from] item: Life Orb
+|-damage|p2a: Serperior|262/291|[from] item: Life Orb
+|-damage|p2a: Serperior|262/291|[from] item: Life Orb
+|-damage|p2a: Serperior|262/291|[from] item: Life Orb
+|faint|p1a: Charizard
+|-message|Charizard has been dethroned!
+|
+|
+|split
+|switch|p1a: Carbink|Carbink|324/324
+|switch|p1a: Carbink|Carbink|324/324
+|switch|p1a: Carbink|Carbink|324/324
+|switch|p1a: Carbink|Carbink|324/324
+|-fieldstart|move: Trick Room|[of] p1a: Carbink
+|turn|2
+|
+|move|p1a: Carbink|Reflect|p1a: Carbink
+|-sidestart|p1: Brendan0207|Reflect
+|move|p2a: Serperior|Outrage|p1a: Carbink
+|debug|natural immunity
+|-immune|p1a: Carbink|[msg]
+|
+|-end|p2a: Serperior|rampage
+|-start|p2a: Serperior|confusion
+|debug|randBW(2,6) = 3
+|turn|3
+|
+|-message|Wind blasts across the field.

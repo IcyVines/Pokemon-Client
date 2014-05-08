@@ -578,7 +578,7 @@ exports.BattleAbilities = {
 	"cyclone": {
 		desc: "On switch-in, this Pokemon removes all hazards, as well as Rain, Hail, and Sandstorm.",
 		shortDesc: "On switch-in, hazards, rain, hail, and sandstorm are removed.",
-		onBeforeSwitchIn: function(pokemon){
+		onStart: function(pokemon){
 			this.add('-message', 'Wind blasts across the field.');
 			var sideConditions = {reflect:1, lightscreen:1, safeguard:1, spikes:1, toxicspikes:1, stealthrock:1, stickyweb:1};
 			for (var i in sideConditions) {
@@ -592,9 +592,9 @@ exports.BattleAbilities = {
 					this.add('-sideend', foe.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+foe);
 				}
 			}
-			/*if(this.isWeather('raindance') || this.isWeather('sandstorm') || this.isWeather('hail')){
+			if(this.isWeather('raindance') || this.isWeather('sandstorm') || this.isWeather('hail')){
 				this.weatherData.duration = 0;
-			}*/
+			}
 		},
 		id: "cyclone",
 		name: "Cyclone",
@@ -3487,14 +3487,21 @@ exports.BattleAbilities = {
 		onStart: function(pokemon){
 			pokemon.addVolatile('tidal');
 		},
+		onBeforeMove: function(pokemon, target, move) {
+			if (pokemon.volatiles['tidal']) {
+				this.add('-message', 'Water rises on the field.');
+			} else {
+				this.add('-message', 'Water recedes from the field.');
+			}
+			pokemon.addVolatile('truant');
+		},
+		onBeforeMovePriority: 99,
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			var power = 0.66;
 			if(attacker.removeVolatile('tidal')){
-				this.add('-message', 'Water rises on the field.');
 				power = 1.5;
 			} else {
-				this.add('-message', 'Water recedes from the field.');
 				attacker.addVolatile('tidal');
 			}
 			if(move.type == 'Water' || move.type == 'Ice'){
