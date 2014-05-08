@@ -2228,6 +2228,7 @@ exports.BattleMovedex = {
 		name: "Cross Poison",
 		pp: 20,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		secondary: {
 			chance: 10,
@@ -2929,6 +2930,7 @@ exports.BattleMovedex = {
 		name: "Dragon Claw",
 		pp: 15,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		secondary: false,
 		target: "normal",
@@ -3662,6 +3664,23 @@ exports.BattleMovedex = {
 		target: "allAdjacentFoes",
 		type: "Fire"
 	},
+	"eternalhaunting": {
+		num: 621,
+		accuracy: true,
+		basePower: 20,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "eternalhaunting",
+		name: "Eternal Haunting",
+		pp: 10,
+		priority: 0,
+		isViable: true,
+		multihit: [2,5],
+		secondary: false,
+		target: "normal",
+		type: "Ghost"
+	},
 	"explosion": {
 		num: 153,
 		accuracy: 100,
@@ -3848,6 +3867,7 @@ exports.BattleMovedex = {
 		name: "False Swipe",
 		pp: 40,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		noFaint: true,
 		secondary: false,
@@ -3908,6 +3928,7 @@ exports.BattleMovedex = {
 		name: "Fell Stinger",
 		pp: 25,
 		priority: 0,
+		isSword: true,
 		onHit: function(target, pokemon) {
 			pokemon.addVolatile('fellstinger');
 		},
@@ -3957,6 +3978,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		terrain: 'fieryterrain',
+		isViable: true,
 		effect: {
 			duration: 5,
 			onBasePower: function(basePower, attacker, defender, move) {
@@ -3980,8 +4002,8 @@ exports.BattleMovedex = {
 				this.debug('onResidual battle');
 				for (var s in battle.sides) {
 					for (var p in battle.sides[s].active) {
-						if (battle.sides[s].active[p].runImmunity('Ground') && (battle.sides[s].active[p].type !== 'Fire' || battle.sides[s].active[p].type !== 'Dragon')) {
-							this.debug('PokÃ©mon is grounded, damage through Fiery Terrain.');
+						if (battle.sides[s].active[p].runImmunity('Ground') && (!battle.sides[s].active[p].hasType('Fire') || !battle.sides[s].active[p].hasType('Dragon'))) {
+							this.debug('Pokémon is grounded, damage through Fiery Terrain.');
 							this.damage(battle.sides[s].active[p].maxhp / 16, battle.sides[s].active[p], battle.sides[s].active[p]);
 						}
 					}
@@ -3993,7 +4015,7 @@ exports.BattleMovedex = {
 		},
 		secondary: false,
 		target: "all",
-		type: "Grass"
+		type: "Fire"
 	},
 	"finalgambit": {
 		num: 515,
@@ -4163,6 +4185,48 @@ exports.BattleMovedex = {
 		priority: 0,
 		volatileStatus: 'partiallytrapped',
 		secondary: false,
+		target: "normal",
+		type: "Fire"
+	},
+	"fireworks": {
+		num: 624,
+		accuracy: 85,
+		basePower: 20,
+		basePowerCallback: function(pokemon, target, move) {
+			pokemon.addVolatile('fireworks');
+			if (pokemon.volatiles['fireworks'].hit == 1){
+				this.debug("removing secondaries");
+				move.secondaries = false;
+			}
+			return 20;
+		},
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn. Each subsequent hit can burn.",
+		id: "fireworks",
+		name: "Fireworks",
+		pp: 20,
+		priority: 0,
+		isViable: true,
+		isBullet: true,
+		multihit: [2,5],
+		secondary: {
+			chance: 5,
+			status: 'brn'
+		},
+		effect: {
+			duration: 1,
+			onStart: function() {
+				this.effectData.hit = 1;
+			},
+			onRestart: function() {
+				this.effectData.hit++;
+			}
+		},
+		secondary: {
+			chance: 5,
+			status: 'brn'
+		},
 		target: "normal",
 		type: "Fire"
 	},
@@ -4486,6 +4550,24 @@ exports.BattleMovedex = {
 		},
 		secondary: false,
 		target: "all",
+		type: "Fairy"
+	},
+	"flutter": {
+		num: 622,
+		accuracy: 95,
+		basePower: 25,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "flutter",
+		name: "Flutter",
+		pp: 20,
+		priority: 0,
+		isViable: true,
+		multihit: [2,5],
+		isContact: true,
+		secondary: false,
+		target: "normal",
 		type: "Fairy"
 	},
 	"fly": {
@@ -4945,6 +5027,7 @@ exports.BattleMovedex = {
 		name: "Fury Swipes",
 		pp: 15,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		multihit: [2,5],
 		secondary: false,
@@ -5355,6 +5438,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		terrain: 'grassyterrain',
+		isViable: true,
 		effect: {
 			duration: 5,
 			onBasePower: function(basePower, attacker, defender, move) {
@@ -6483,6 +6567,7 @@ exports.BattleMovedex = {
 		name: "Horn Attack",
 		pp: 25,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		secondary: false,
 		target: "normal",
@@ -6517,6 +6602,7 @@ exports.BattleMovedex = {
 		name: "Horn Leech",
 		pp: 10,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		drain: [1,2],
 		secondary: false,
@@ -6868,6 +6954,7 @@ exports.BattleMovedex = {
 		name: "Icicle Spear",
 		pp: 30,
 		priority: 0,
+		isSword: true,
 		multihit: [2,5],
 		secondary: false,
 		target: "normal",
@@ -7755,6 +7842,37 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Psychic"
 	},
+	"machineburst": {
+		num: 627,
+		accuracy: 80,
+		basePower: 30,
+		basePowerCallback: function(pokemon) {
+			pokemon.addVolatile('machineburst');
+			return 10 * pokemon.volatiles['machineburst'].hit + 20;
+		},
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits three times. The base power increases to 40 for the second hit and 50 for the third. If any of the hits misses the target, the attack ends. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits.",
+		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
+		id: "machineburst",
+		name: "Machine Burst",
+		pp: 20,
+		priority: 0,
+		isBullet: true,
+		isViable: true,
+		multihit: [3,3],
+		effect: {
+			duration: 1,
+			onStart: function() {
+				this.effectData.hit = 1;
+			},
+			onRestart: function() {
+				this.effectData.hit++;
+			}
+		},
+		secondary: false,
+		target: "normal",
+		type: "Steel"
+	},
 	"machpunch": {
 		num: 183,
 		accuracy: 100,
@@ -8204,6 +8322,7 @@ exports.BattleMovedex = {
 		name: "Megahorn",
 		pp: 10,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		secondary: false,
 		target: "normal",
@@ -8263,6 +8382,7 @@ exports.BattleMovedex = {
 		name: "Metal Claw",
 		pp: 35,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		secondary: {
 			chance: 10,
@@ -8620,6 +8740,7 @@ exports.BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		terrain: 'mistyterrain',
+		isViable: true,
 		effect: {
 			duration: 5,
 			onSetStatus: function(status, target, source, effect) {
@@ -9463,269 +9584,12 @@ exports.BattleMovedex = {
 		name: "Pin Missile",
 		pp: 20,
 		priority: 0,
+		isSword: true,
+		isViable: true,
 		multihit: [2,5],
 		secondary: false,
 		target: "normal",
 		type: "Bug"
-	},
-	"eternalhaunting": {
-		num: 621,
-		accuracy: true,
-		basePower: 20,
-		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn.",
-		id: "eternalhaunting",
-		name: "Eternal Haunting",
-		pp: 10,
-		priority: 0,
-		multihit: [2,5],
-		secondary: false,
-		target: "normal",
-		type: "Ghost"
-	},
-	"flutter": {
-		num: 622,
-		accuracy: 95,
-		basePower: 25,
-		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn.",
-		id: "flutter",
-		name: "Flutter",
-		pp: 20,
-		priority: 0,
-		multihit: [2,5],
-		isContact: true,
-		secondary: false,
-		target: "normal",
-		type: "Fairy"
-	},
-	"swoopingdive": {
-		num: 623,
-		accuracy: 90,
-		basePower: 25,
-		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn.",
-		id: "swoopingdive",
-		name: "Swooping Dive",
-		pp: 25,
-		priority: 0,
-		multihit: [2,5],
-		isContact: true,
-		secondary: false,
-		target: "normal",
-		type: "Flying"
-	},
-	"fireworks": {
-		num: 624,
-		accuracy: 85,
-		basePower: 20,
-		basePowerCallback: function(pokemon, target, move) {
-			pokemon.addVolatile('fireworks');
-			if (pokemon.volatiles['fireworks'].hit == 1){
-				this.debug("removing secondaries");
-				move.secondaries = false;
-			}
-			return 20;
-		},
-		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
-		shortDesc: "Hits 2-5 times in one turn. Each subsequent hit can burn.",
-		id: "fireworks",
-		name: "Fireworks",
-		pp: 20,
-		priority: 0,
-		isBullet: true,
-		multihit: [2,5],
-		secondary: {
-			chance: 5,
-			status: 'brn'
-		},
-		effect: {
-			duration: 1,
-			onStart: function() {
-				this.effectData.hit = 1;
-			},
-			onRestart: function() {
-				this.effectData.hit++;
-			}
-		},
-		secondary: {
-			chance: 5,
-			status: 'brn'
-		},
-		target: "normal",
-		type: "Fire"
-	},
-	"venommortar": {
-		num: 625,
-		accuracy: 85,
-		basePower: 30,
-		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits three times. Has a 5% chance to poison on each hit.",
-		shortDesc: "Hits 3 times. Each hit can miss, but can poison.",
-		id: "venommortar",
-		name: "Venom Mortar",
-		pp: 10,
-		priority: 0,
-		isBullet: true,
-		multihit: [3,3],
-		secondary: {
-			chance: 5,
-			status: 'psn'
-		},
-		target: "normal",
-		type: "Poison"
-	},
-	"shadowgrenades": {
-		num: 626,
-		accuracy: 90,
-		basePower: 20,
-		basePowerCallback: function(pokemon, target, move) {
-			pokemon.addVolatile('shadowgrenades');
-			if (pokemon.volatiles['shadowgrenades'].hit == 5){
-				if (!move.secondaries) {
-					move.secondaries = [];
-				}
-				this.debug("adding secondaries");
-				move.secondaries.push({
-					chance: 50,
-					status: 'slp'
-				});
-			}
-			return 20;
-		},
-		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times. The final hit has a 50% chance to put the target to sleep.",
-		shortDesc: "Hits 2-5 times in one turn. 5th hit can put the target to sleep.",
-		id: "shadowgrenades",
-		name: "Shadow Grenades",
-		pp: 10,
-		priority: 0,
-		isBullet: true,
-		multihit: [2,5],
-		secondary: false,
-		effect: {
-			duration: 1,
-			onStart: function() {
-				this.effectData.hit = 1;
-			},
-			onRestart: function() {
-				this.effectData.hit++;
-			}
-		},
-		target: "normal",
-		type: "Dark"
-	},
-	"machineburst": {
-		num: 627,
-		accuracy: 80,
-		basePower: 30,
-		basePowerCallback: function(pokemon) {
-			pokemon.addVolatile('machineburst');
-			return 10 * pokemon.volatiles['machineburst'].hit + 20;
-		},
-		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits three times. The base power increases to 40 for the second hit and 50 for the third. If any of the hits misses the target, the attack ends. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits.",
-		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
-		id: "machineburst",
-		name: "Machine Burst",
-		pp: 20,
-		priority: 0,
-		isBullet: true,
-		multihit: [3,3],
-		effect: {
-			duration: 1,
-			onStart: function() {
-				this.effectData.hit = 1;
-			},
-			onRestart: function() {
-				this.effectData.hit++;
-			}
-		},
-		secondary: false,
-		target: "normal",
-		type: "Steel"
-	},
-	"psyspike": {
-		num: 628,
-		accuracy: 95,
-		basePower: 20,
-		basePowerCallback: function(pokemon, target, move) {
-			pokemon.addVolatile('psyspike');
-			if (pokemon.volatiles['psyspike'].hit == 5){
-				if (!move.secondaries) {
-					move.secondaries = [];
-				}
-				this.debug("adding secondaries");
-				move.secondaries.push({
-					chance: 50,
-					status: 'confusion'
-				});
-			}
-			return 20;
-		},
-		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times. The last hit has a 50% chance to confuse.",
-		shortDesc: "Hits 2-5 times in one turn. 5th hit can confuse.",
-		id: "psyspike",
-		name: "Psyspike",
-		pp: 15,
-		priority: 0,
-		multihit: [2,5],
-		secondary: false,
-		effect: {
-			duration: 1,
-			onStart: function() {
-				this.effectData.hit = 1;
-			},
-			onRestart: function() {
-				this.effectData.hit++;
-			}
-		},
-		target: "normal",
-		type: "Psychic"
-	},
-	"sparklerburns": {
-		num: 629,
-		accuracy: 95,
-		basePower: 20,
-		basePowerCallback: function(pokemon, target, move) {
-			pokemon.addVolatile('sparklerburns');
-			if (pokemon.volatiles['sparklerburns'].hit == 5){
-				if (!move.secondaries) {
-					move.secondaries = [];
-				}
-				this.debug("adding secondaries");
-				move.secondaries.push({
-					chance: 50,
-					status: 'par'
-				});
-			}
-			return 20;
-		},
-		category: "Physical",
-		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times. The last hit has a 50% chance to paralyze.",
-		shortDesc: "Hits 2-5 times in one turn. 5th hit can paralyze.",
-		id: "sparklerburns",
-		name: "Sparkler Burns",
-		pp: 30,
-		priority: 0,
-		multihit: [2,5],
-		secondary: false,
-		effect: {
-			duration: 1,
-			onStart: function() {
-				this.effectData.hit = 1;
-			},
-			onRestart: function() {
-				this.effectData.hit++;
-			}
-		},
-		target: "normal",
-		type: "Electric"
 	},
 	"playnice": {
 		num: 589,
@@ -9922,6 +9786,7 @@ exports.BattleMovedex = {
 		name: "Poison Sting",
 		pp: 35,
 		priority: 0,
+		isSword: true,
 		secondary: {
 			chance: 30,
 			status: 'psn'
@@ -10386,6 +10251,47 @@ exports.BattleMovedex = {
 		pp: 10,
 		priority: 0,
 		secondary: false,
+		target: "normal",
+		type: "Psychic"
+	},
+	"psyspike": {
+		num: 628,
+		accuracy: 95,
+		basePower: 20,
+		basePowerCallback: function(pokemon, target, move) {
+			pokemon.addVolatile('psyspike');
+			if (pokemon.volatiles['psyspike'].hit == 5){
+				if (!move.secondaries) {
+					move.secondaries = [];
+				}
+				this.debug("adding secondaries");
+				move.secondaries.push({
+					chance: 50,
+					status: 'confusion'
+				});
+			}
+			return 20;
+		},
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times. The last hit has a 50% chance to confuse.",
+		shortDesc: "Hits 2-5 times in one turn. 5th hit can confuse.",
+		id: "psyspike",
+		name: "Psyspike",
+		pp: 15,
+		priority: 0,
+		isSword: true,
+		isViable: true,
+		multihit: [2,5],
+		secondary: false,
+		effect: {
+			duration: 1,
+			onStart: function() {
+				this.effectData.hit = 1;
+			},
+			onRestart: function() {
+				this.effectData.hit++;
+			}
+		},
 		target: "normal",
 		type: "Psychic"
 	},
@@ -11922,6 +11828,7 @@ exports.BattleMovedex = {
 		name: "Shadow Claw",
 		pp: 15,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		critRatio: 2,
 		secondary: false,
@@ -11968,6 +11875,47 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "normal",
 		type: "Ghost"
+	},
+	"shadowgrenades": {
+		num: 626,
+		accuracy: 90,
+		basePower: 20,
+		basePowerCallback: function(pokemon, target, move) {
+			pokemon.addVolatile('shadowgrenades');
+			if (pokemon.volatiles['shadowgrenades'].hit == 5){
+				if (!move.secondaries) {
+					move.secondaries = [];
+				}
+				this.debug("adding secondaries");
+				move.secondaries.push({
+					chance: 50,
+					status: 'slp'
+				});
+			}
+			return 20;
+		},
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times. The final hit has a 50% chance to put the target to sleep.",
+		shortDesc: "Hits 2-5 times in one turn. 5th hit can put the target to sleep.",
+		id: "shadowgrenades",
+		name: "Shadow Grenades",
+		pp: 10,
+		priority: 0,
+		isBullet: true,
+		isViable: true,
+		multihit: [2,5],
+		secondary: false,
+		effect: {
+			duration: 1,
+			onStart: function() {
+				this.effectData.hit = 1;
+			},
+			onRestart: function() {
+				this.effectData.hit++;
+			}
+		},
+		target: "normal",
+		type: "Dark"
 	},
 	"shadowpunch": {
 		num: 325,
@@ -12983,6 +12931,46 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Electric"
 	},
+	"sparklerburns": {
+		num: 629,
+		accuracy: 95,
+		basePower: 20,
+		basePowerCallback: function(pokemon, target, move) {
+			pokemon.addVolatile('sparklerburns');
+			if (pokemon.volatiles['sparklerburns'].hit == 5){
+				if (!move.secondaries) {
+					move.secondaries = [];
+				}
+				this.debug("adding secondaries");
+				move.secondaries.push({
+					chance: 50,
+					status: 'par'
+				});
+			}
+			return 20;
+		},
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times. The last hit has a 50% chance to paralyze.",
+		shortDesc: "Hits 2-5 times in one turn. 5th hit can paralyze.",
+		id: "sparklerburns",
+		name: "Sparkler Burns",
+		pp: 30,
+		priority: 0,
+		isViable: true,
+		multihit: [2,5],
+		secondary: false,
+		effect: {
+			duration: 1,
+			onStart: function() {
+				this.effectData.hit = 1;
+			},
+			onRestart: function() {
+				this.effectData.hit++;
+			}
+		},
+		target: "normal",
+		type: "Electric"
+	},
 	"spiderweb": {
 		num: 169,
 		accuracy: true,
@@ -13191,6 +13179,7 @@ exports.BattleMovedex = {
 		name: "Steel Wing",
 		pp: 25,
 		priority: 0,
+		isSword: true,
 		isContact: true,
 		secondary: {
 			chance: 10,
@@ -13815,6 +13804,24 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "normal",
 		type: "Dark"
+	},
+	"swoopingdive": {
+		num: 623,
+		accuracy: 90,
+		basePower: 25,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits two to five times. Has a 1/3 chance to hit two or three times, and a 1/6 chance to hit four or five times. If one of the hits breaks the target's Substitute, it will take damage for the remaining hits. If the user has the Ability Skill Link, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn.",
+		id: "swoopingdive",
+		name: "Swooping Dive",
+		pp: 25,
+		priority: 0,
+		isViable: true,
+		multihit: [2,5],
+		isContact: true,
+		secondary: false,
+		target: "normal",
+		type: "Flying"
 	},
 	"swordsdance": {
 		num: 14,
@@ -14689,6 +14696,7 @@ exports.BattleMovedex = {
 		name: "Twineedle",
 		pp: 20,
 		priority: 0,
+		isSword: true,
 		multihit: [2,2],
 		secondary: {
 			chance: 20,
@@ -14853,6 +14861,27 @@ exports.BattleMovedex = {
 			return false;
 		},
 		secondary: false,
+		target: "normal",
+		type: "Poison"
+	},
+	"venommortar": {
+		num: 625,
+		accuracy: 85,
+		basePower: 30,
+		category: "Physical",
+		desc: "Deals damage to one adjacent target and hits three times. Has a 5% chance to poison on each hit.",
+		shortDesc: "Hits 3 times. Each hit can miss, but can poison.",
+		id: "venommortar",
+		name: "Venom Mortar",
+		pp: 10,
+		priority: 0,
+		isViable: true,
+		isBullet: true,
+		multihit: [3,3],
+		secondary: {
+			chance: 5,
+			status: 'psn'
+		},
 		target: "normal",
 		type: "Poison"
 	},
@@ -15167,6 +15196,7 @@ exports.BattleMovedex = {
 		name: "Water Shuriken",
 		pp: 20,
 		priority: 1,
+		isSword: true,
 		multihit: [2,5],
 		secondary: false,
 		target: "normal",

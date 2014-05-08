@@ -60,6 +60,7 @@ exports.BattleAbilities = {
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			if(move.type === 'Poison' && defender.hasType('Steel')){
+				this.add('-message', attacker.name + '\'s poison burns through the metal.');
 				return this.chainModify(2.0);
 			}
 		},
@@ -135,7 +136,7 @@ exports.BattleAbilities = {
 		onAfterDamage: function(damage, target, source, move){
 			if(target.hp < target.maxhp/2 && target.hp + damage > target.maxhp/2){
 				this.boost({atk: 1, spa:1, spe:1});
-				this.debug('Aggravation boost');
+				this.add('-message', target.name + ' isn\'t taking this battle lightly anymore!');
 			}
 		},
 		id: "aggravation",
@@ -577,22 +578,23 @@ exports.BattleAbilities = {
 	"cyclone": {
 		desc: "On switch-in, this Pokemon removes all hazards, as well as Rain, Hail, and Sandstorm.",
 		shortDesc: "On switch-in, hazards, rain, hail, and sandstorm are removed.",
-		onStart: function(pokemon){
+		onBeforeSwitchIn: function(pokemon){
+			this.add('-message', 'Wind blasts across the field.');
 			var sideConditions = {reflect:1, lightscreen:1, safeguard:1, spikes:1, toxicspikes:1, stealthrock:1, stickyweb:1};
 			for (var i in sideConditions) {
 				if (pokemon.side.removeSideCondition(i)) {
 					this.add('-sideend', pokemon.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+pokemon);
 				}
 			}
-			this.debug("Removed target side (Cyclone)");
 			var foe = pokemon.side.foe.active[pokemon.side.foe.active.length-1-pokemon.position];
 			for (var i in sideConditions) {
 				if (foe.side.removeSideCondition(i)) {
 					this.add('-sideend', foe.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+foe);
 				}
 			}
-			this.debug("Removed foe side (Cyclone)");
-			this.setWeather('');
+			if(this.isWeather('raindance') || this.isWeather('sandstorm') || this.isWeather('hail')){
+				this.weatherData.duration = 0;
+			}
 		},
 		id: "cyclone",
 		name: "Cyclone",
@@ -709,6 +711,11 @@ exports.BattleAbilities = {
 	"dethrone": {
 		desc: "If the opposing Pokemon has a higher Attack or Special Attack stat, this Pokemon gains 1.5x Attack or Special Attack, respectively.",
 		shortDesc: "This Pokemon gains 1.5x Attack or Special Attack if its foe has higher attack stats.",
+		onSourceFaint: function(target, source, effect) {
+			if (effect && effect.effectType === 'Move' && target.removeVolatile('dethrone')) {
+				this.add('-message', source.name + ' has been dethroned!');
+			}
+		},
 		onBasePowerPriority: 8,
 		onBasePower: function(basePower, attacker, defender, move) {
 			var atk = attacker.getStat('atk', false, true);
@@ -716,12 +723,13 @@ exports.BattleAbilities = {
 			var spa = attacker.getStat('spa', false, true);
 			var spaDef = defender.getStat('spa', false, true);
 			if (atk && atkDef && atk < atkDef && move.category === 'Physical') {
-				this.debug("Dethrone Attack Boost");
+				attacker.addVolatile('dethrone');
 				return this.chainModify(1.5);
 			} else if (spa && spaDef && spa < spaDef && move.category === 'Special') {
-				this.debug("Dethrone Special Attack Boost");
+				attacker.addVolatile('dethrone');
 				return this.chainModify(1.5);
 			}
+			attacker.removeVolatile('dethrone');
 		},
 		id: "dethrone",
 		name: "Dethrone",
@@ -836,7 +844,7 @@ exports.BattleAbilities = {
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if(attacker.gender && defender.gender){
 				if(attacker.gender !== defender.gender){
-					this.debug("Weakened hit (Entrancing)");
+					this.add('-message', attacker.name + ' attacks with care.');
 					return this.chainModify(0.75);
 				}
 			}
@@ -845,7 +853,7 @@ exports.BattleAbilities = {
 		onSourceModifySpA: function(atk, attacker, defender, move) {
 			if(attacker.gender && defender.gender){
 				if(attacker.gender !== defender.gender){
-					this.debug("Weakened hit (Entrancing)");
+					this.add('-message', attacker.name + ' attacks with care.');
 					return this.chainModify(0.75);
 				}
 			}
@@ -888,21 +896,19 @@ exports.BattleAbilities = {
 		shortDesc: "If the opposing Pokemon has a type advantage, moves have 50% more power.",
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
-			this.debug("Fighting Spirit Started");
 			var defTypes = defender.getTypes();
 			var eff = 0, amount = 1;
-			this.debug('defTypes: ' + defTypes);
 			for(var i = 0; i < defTypes.length; i++){
-				this.debug("Checking effectiveness (Fighting Spirit)");
 				eff = this.getEffectiveness(defTypes[i], attacker);
 				this.debug("" + defTypes[i] + ", " + eff);
 				if(eff && eff > 0){
-					this.debug("Fighting Spirit Boost");
 					amount += 0.5;
 				}
 				eff = 0;
 			}
-			this.debug("FS Boost: " + amount);
+			if(amount > 1){
+				this.add('-message', attacker.name + ' attacks with all of its spirit!');
+			}
 			return this.chainModify(amount);
 		},
 		id: "fightingspirit",
@@ -1160,28 +1166,31 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon is immune to certain status and has 1.5x defenses in some weather.",
 		onUpdate: function(pokemon) {
 			if (pokemon.status === 'slp' || pokemon.status === 'par') {
-				this.debug('Immunity');
 				pokemon.cureStatus();
+			}
+		},
+		onWeather: function(target, source, effect) {
+			if (effect.id === 'sunnyday'){
+				this.add('-message', pokemon.name + ' blooms from the sunlight!');
+			} else if (effect.id === 'raindance'){
+				this.add('-message', pokemon.name + ' soaks up rainwater!');
 			}
 		},
 		onImmunity: function(type, pokemon) {
 			if (type === 'slp' || type === 'par') {
-				this.debug('Immunity');
+				this.add('-immune', target, '[msg]');
 				return false;
 			}
 		},
 		onModifyDefPriority: 6,
 		onModifyDef: function(pokemon) {
 			if (this.isWeather('sunnyday')) {
-				this.debug('Defense Boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 6,
 		onModifySpD: function(pokemon) {
 			if (this.isWeather('raindance')) {
-				this.debug('Special Defense Boost');
-				this.add('-immune', target, '[msg]');
 				return this.chainModify(1.5);
 			}
 		},
@@ -1261,14 +1270,12 @@ exports.BattleAbilities = {
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Poison' || move.type === 'Dark' || move.type === 'Steel' || move.type === 'Bug') {
-				this.debug('Guardian weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onSourceModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Poison' || move.type === 'Dark' || move.type === 'Steel' || move.type === 'Bug') {
-				this.debug('Guardian weaken');
 				return this.chainModify(0.5);
 			}
 		},
@@ -1555,22 +1562,20 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon is immune to Water and removes hazards when hit with Water.",
 		onTryHit: function(target, source, move) {
 			if (target !== source && move.type === 'Water') {
-				this.debug("Hit by water (Intense Flames)");
 				this.add('-immune', target, '[msg]');
+				this.add('-message', target.name + '\'s flames vaporized the attack.');
 				var sideConditions = {reflect:1, lightscreen:1, safeguard:1, spikes:1, toxicspikes:1, stealthrock:1, stickyweb:1};
 				for (var i in sideConditions) {
 					if (target.side.removeSideCondition(i)) {
 						this.add('-sideend', target.side, this.getEffect(i).name, '[from] ability: Intense Flames', '[of] '+target);
 					}
 				}
-				this.debug("Removed target's side (Unwavering)");
 				for (var i in sideConditions) {
 					if (i === 'reflect' || i === 'lightscreen') continue;
 					if (source.side.removeSideCondition(i)) {
 						this.add('-sideend', source.side, this.getEffect(i).name, '[from] ability: Intense Flames', '[of] '+source);
 					}
 				}
-				this.debug("Passed removal");
 				return null;
 			}
 		},
@@ -2270,17 +2275,21 @@ exports.BattleAbilities = {
 		//Hit through everything implemented in moves.js
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
-			if(attacker.removeVolatile('permeate')){
-				this.debug("Permeate Boost");
+			if(attacker.volatiles['permeate']){
+				this.add('-message', attacker.name + ' isn\'t phased ')
 				return this.chainModify(1.5);
 			}
 		},
 		onAccuracyPriority: 10,
 		onAccuracy: function(accuracy, target, source, move){
-			if(source.removeVolatile('permeate')){
-				this.debug("Permeate Accuracy Drop");
+			if(source.volatiles['permeate']){
 				return accuracy * 0.5;
 			}
+		},
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual: function(pokemon) {
+			pokemon.removeVolatile('permeate');
 		},
 		id: "permeate",
 		name: "Permeate",
@@ -2558,6 +2567,7 @@ exports.BattleAbilities = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 1,
 		onResidual: function(pokemon) {
+			this.add('-message', pokemon.name + ' grows bigger.')
 			this.heal(pokemon.maxhp/10);
 		},
 		id: "rapidgrowth",
@@ -2893,14 +2903,14 @@ exports.BattleAbilities = {
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Fairy' || move.type === 'Dragon' || move.type === 'Ghost' || move.type === 'Psychic') {
-				this.debug('Skeptic weaken');
+				this.add('-message', defender.name + ' refuses to believe in \'magic\'');
 				return this.chainModify(0.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onSourceModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Fairy' || move.type === 'Dragon' || move.type === 'Ghost' || move.type === 'Psychic') {
-				this.debug('Skeptic weaken');
+				this.add('-message', defender.name + ' refuses to believe in \'magic\'');
 				return this.chainModify(0.5);
 			}
 		},
@@ -3412,7 +3422,7 @@ exports.BattleAbilities = {
 				break;
 				case 'Electric': this.setWeather('electricterrain');
 				break;
-				case 'Fire':
+				case 'Fire': this.setWeather('fieryterrain');
 				break;
 				case 'Ice':
 				break;
@@ -3423,6 +3433,7 @@ exports.BattleAbilities = {
 				default:
 				break;
 			}
+			this.add('-message', pokemon.name + ' affects the environment.');
 		},
 		id: "terraformer",
 		name: "Terraformer",
@@ -3435,14 +3446,12 @@ exports.BattleAbilities = {
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Electric' || move.type === 'Flying' || move.type === 'Fighting') {
-				this.debug('Thick Fat weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onSourceModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Electric' || move.type === 'Flying' || move.type === 'Fighting') {
-				this.debug('Thick Fat weaken');
 				return this.chainModify(0.5);
 			}
 		},
@@ -3482,12 +3491,13 @@ exports.BattleAbilities = {
 		onBasePower: function(atk, attacker, defender, move){
 			var power = 0.66;
 			if(attacker.removeVolatile('tidal')){
+				this.add('-message', 'Water rises on the field.');
 				power = 1.5;
 			} else {
+				this.add('-message', 'Water recedes from the field.');
 				attacker.addVolatile('tidal');
 			}
 			if(move.type == 'Water' || move.type == 'Ice'){
-				this.debug('Tidal power shift');
 				return this.chainModify(power);
 			}
 		},
@@ -3709,13 +3719,12 @@ exports.BattleAbilities = {
 	},
 	"unsheathed": {
 		inherit: true,
-		desc: "This Pokemon's cutting moves do 1.5x damage.",
-		shortDesc: "This Pokemon's cutting moves do 1.5x damage.",
+		desc: "This Pokemon's slashing and stabbing moves do 1.3x damage.",
+		shortDesc: "This Pokemon's slashing and stabbing moves do 1.3x damage.",
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			if(move.isSword){
-				this.debug('Unsheathed boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.3);
 			}
 		},
 		id: "unsheathed",
@@ -3729,12 +3738,10 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon is healed 1/4 by Flying; Pokemon is immune to Flying-type moves.",
 		onTryHit: function(target, source, move) {
 			if (target !== source && move.type === 'Flying') {
-				this.debug("Hit by flying (Unwavering)");
+				this.add('-message', target.name + '\'s flames grew larger!');
 				if (!this.heal(target.maxhp/4)) {
 					this.add('-immune', target, '[msg]');
-					this.debug("Hit by flying heal (Unwavering)");
 				}
-				this.debug("returning null (Unwavering)");
 				return null;
 			}
 		},
