@@ -592,9 +592,9 @@ exports.BattleAbilities = {
 					this.add('-sideend', foe.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+foe);
 				}
 			}
-			if(this.isWeather('raindance') || this.isWeather('sandstorm') || this.isWeather('hail')){
+			/*if(this.isWeather('raindance') || this.isWeather('sandstorm') || this.isWeather('hail')){
 				this.weatherData.duration = 0;
-			}
+			}*/
 		},
 		id: "cyclone",
 		name: "Cyclone",
@@ -712,8 +712,8 @@ exports.BattleAbilities = {
 		desc: "If the opposing Pokemon has a higher Attack or Special Attack stat, this Pokemon gains 1.5x Attack or Special Attack, respectively.",
 		shortDesc: "This Pokemon gains 1.5x Attack or Special Attack if its foe has higher attack stats.",
 		onSourceFaint: function(target, source, effect) {
-			if (effect && effect.effectType === 'Move' && target.removeVolatile('dethrone')) {
-				this.add('-message', source.name + ' has been dethroned!');
+			if (effect && effect.effectType === 'Move' && source.removeVolatile('dethrone')) {
+				this.add('-message', target.name + ' has been dethroned!');
 			}
 		},
 		onBasePowerPriority: 8,
@@ -1171,9 +1171,9 @@ exports.BattleAbilities = {
 		},
 		onWeather: function(target, source, effect) {
 			if (effect.id === 'sunnyday'){
-				this.add('-message', pokemon.name + ' blooms from the sunlight!');
+				this.add('-message', target.name + ' blooms from the sunlight!');
 			} else if (effect.id === 'raindance'){
-				this.add('-message', pokemon.name + ' soaks up rainwater!');
+				this.add('-message', target.name + ' soaks up rainwater!');
 			}
 		},
 		onImmunity: function(type, pokemon) {
@@ -2903,14 +2903,14 @@ exports.BattleAbilities = {
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Fairy' || move.type === 'Dragon' || move.type === 'Ghost' || move.type === 'Psychic') {
-				this.add('-message', defender.name + ' refuses to believe in \'magic\'');
+				this.add('-message', defender.name + ' refuses to believe in \'magic\'.');
 				return this.chainModify(0.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onSourceModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Fairy' || move.type === 'Dragon' || move.type === 'Ghost' || move.type === 'Psychic') {
-				this.add('-message', defender.name + ' refuses to believe in \'magic\'');
+				this.add('-message', defender.name + ' refuses to believe in \'magic\'.');
 				return this.chainModify(0.5);
 			}
 		},

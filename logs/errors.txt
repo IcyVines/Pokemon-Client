@@ -5418,3 +5418,404 @@ Log:
 |switch|p2a: Flareon|Flareon, F|344/344
 |switch|p2a: Flareon|Flareon, F|344/344
 |switch|p2a: Flareon|Flareon, F|344/344
+
+ReferenceError: pokemon is not defined
+    at Tools.exports.BattleAbilities.fullbloom.onWeather (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:1174:26)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.eachEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1777:10)
+    at Tools.exports.BattleStatuses.sunnyday.onResidual (/Users/IcyVines/Desktop/Pokemon-Client/data/statuses.js:407:9)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1843:37)
+    at Tools.Battle.residualEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1795:9)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3340:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+
+Additional information:
+message = battle-customgame-915|choose|p1|move Dragoon|5
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|1
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Charizard, M, shiny
+|poke|p1|Talonflame, M, shiny
+|poke|p1|Aegislash, M, shiny
+|poke|p1|Trevenant, M, shiny
+|poke|p1|Carbink
+|poke|p1|Lucario, M
+|poke|p2|Feraligatr, F
+|poke|p2|Sceptile, F
+|poke|p2|Dragonite, M
+|poke|p2|Meganium, M
+|poke|p2|Serperior, M
+|poke|p2|Samurott, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|split
+|switch|p2a: Sceptile|Sceptile, F|344/344
+|switch|p2a: Sceptile|Sceptile, F|344/344
+|switch|p2a: Sceptile|Sceptile, F|344/344
+|switch|p2a: Sceptile|Sceptile, F|344/344
+|turn|1
+|
+|-formechange|p1a: Charizard|Charizard-Mega-X
+|message|Charizard has Mega Evolved into Mega Charizard!
+|move|p1a: Charizard|Dragoon|p2a: Sceptile
+|debug|randBW(100) = 3
+|debug|randBW(16) = 0
+|-message|Sceptile refuses to believe in 'magic'
+|-crit|p2a: Sceptile
+|debug|randBW(16) = 7
+|split
+|-damage|p2a: Sceptile|190/344
+|-damage|p2a: Sceptile|190/344
+|-damage|p2a: Sceptile|190/344
+|-damage|p2a: Sceptile|190/344
+|move|p2a: Sceptile|Synthesis|p2a: Sceptile
+|split
+|-heal|p2a: Sceptile|344/344
+|-heal|p2a: Sceptile|344/344
+|-heal|p2a: Sceptile|344/344
+|-heal|p2a: Sceptile|344/344
+|
+|turn|2
+|
+|move|p2a: Sceptile|Synthesis|p2a: Sceptile
+|move|p1a: Charizard|Dragon Claw|p2a: Sceptile
+|debug|randBW(100) = 8
+|debug|randBW(16) = 9
+|-message|Sceptile refuses to believe in 'magic'
+|debug|randBW(16) = 15
+|split
+|-damage|p2a: Sceptile|220/344
+|-damage|p2a: Sceptile|220/344
+|-damage|p2a: Sceptile|220/344
+|-damage|p2a: Sceptile|220/344
+|
+|split
+|-heal|p2a: Sceptile|241/344|[from] item: Leftovers
+|-heal|p2a: Sceptile|241/344|[from] item: Leftovers
+|-heal|p2a: Sceptile|241/344|[from] item: Leftovers
+|-heal|p2a: Sceptile|241/344|[from] item: Leftovers
+|turn|3
+|
+|split
+|switch|p2a: Meganium|Meganium, M|364/364
+|switch|p2a: Meganium|Meganium, M|364/364
+|switch|p2a: Meganium|Meganium, M|364/364
+|switch|p2a: Meganium|Meganium, M|364/364
+|move|p1a: Charizard|Dragoon|p2a: Meganium
+|debug|natural immunity
+|-immune|p2a: Meganium|[msg]
+|
+|turn|4
+|
+|move|p1a: Charizard|Dragoon|p2a: Meganium
+|debug|natural immunity
+|-immune|p2a: Meganium|[msg]
+|move|p2a: Meganium|Sunny Day|p2a: Meganium
+|-weather|SunnyDay
+|
+|-weather|SunnyDay|[upkeep]
+
+TypeError: Cannot read property 'side' of undefined
+    at Tools.exports.BattleAbilities.cyclone.onBeforeSwitchIn (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:591:12)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2046:38)
+    at Tools.Battle.switchIn (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2391:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3324:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3817:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+
+Additional information:
+message = battle-customgame-915|choose|p2|switch 3|16
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|1
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Charizard, M, shiny
+|poke|p1|Talonflame, M, shiny
+|poke|p1|Aegislash, M, shiny
+|poke|p1|Trevenant, M, shiny
+|poke|p1|Carbink
+|poke|p1|Lucario, M
+|poke|p2|Feraligatr, F
+|poke|p2|Sceptile, F
+|poke|p2|Dragonite, M
+|poke|p2|Meganium, M
+|poke|p2|Serperior, M
+|poke|p2|Samurott, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|switch|p1a: Charizard|Charizard, M, shiny|302/302
+|split
+|switch|p2a: Sceptile|Sceptile, F|344/344
+|switch|p2a: Sceptile|Sceptile, F|344/344
+|switch|p2a: Sceptile|Sceptile, F|344/344
+|switch|p2a: Sceptile|Sceptile, F|344/344
+|turn|1
+|
+|-formechange|p1a: Charizard|Charizard-Mega-X
+|message|Charizard has Mega Evolved into Mega Charizard!
+|move|p1a: Charizard|Dragoon|p2a: Sceptile
+|debug|randBW(100) = 3
+|debug|randBW(16) = 0
+|-message|Sceptile refuses to believe in 'magic'
+|-crit|p2a: Sceptile
+|debug|randBW(16) = 7
+|split
+|-damage|p2a: Sceptile|190/344
+|-damage|p2a: Sceptile|190/344
+|-damage|p2a: Sceptile|190/344
+|-damage|p2a: Sceptile|190/344
+|move|p2a: Sceptile|Synthesis|p2a: Sceptile
+|split
+|-heal|p2a: Sceptile|344/344
+|-heal|p2a: Sceptile|344/344
+|-heal|p2a: Sceptile|344/344
+|-heal|p2a: Sceptile|344/344
+|
+|turn|2
+|
+|move|p2a: Sceptile|Synthesis|p2a: Sceptile
+|move|p1a: Charizard|Dragon Claw|p2a: Sceptile
+|debug|randBW(100) = 8
+|debug|randBW(16) = 9
+|-message|Sceptile refuses to believe in 'magic'
+|debug|randBW(16) = 15
+|split
+|-damage|p2a: Sceptile|220/344
+|-damage|p2a: Sceptile|220/344
+|-damage|p2a: Sceptile|220/344
+|-damage|p2a: Sceptile|220/344
+|
+|split
+|-heal|p2a: Sceptile|241/344|[from] item: Leftovers
+|-heal|p2a: Sceptile|241/344|[from] item: Leftovers
+|-heal|p2a: Sceptile|241/344|[from] item: Leftovers
+|-heal|p2a: Sceptile|241/344|[from] item: Leftovers
+|turn|3
+|
+|split
+|switch|p2a: Meganium|Meganium, M|364/364
+|switch|p2a: Meganium|Meganium, M|364/364
+|switch|p2a: Meganium|Meganium, M|364/364
+|switch|p2a: Meganium|Meganium, M|364/364
+|move|p1a: Charizard|Dragoon|p2a: Meganium
+|debug|natural immunity
+|-immune|p2a: Meganium|[msg]
+|
+|turn|4
+|
+|move|p1a: Charizard|Dragoon|p2a: Meganium
+|debug|natural immunity
+|-immune|p2a: Meganium|[msg]
+|move|p2a: Meganium|Sunny Day|p2a: Meganium
+|-weather|SunnyDay
+|
+|-weather|SunnyDay|[upkeep]
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|split
+|switch|p2a: Feraligatr|Feraligatr, F|374/374
+|switch|p2a: Feraligatr|Feraligatr, F|374/374
+|switch|p2a: Feraligatr|Feraligatr, F|374/374
+|switch|p2a: Feraligatr|Feraligatr, F|374/374
+|debug|p1: Charizard INCONSISTENT STATE, ALREADY MOVED: dragoon
+|turn|5
+|
+|move|p2a: Feraligatr|Aqua Jet|p1a: Charizard|[from]Full Bloom
+|debug|randBW(100) = 0
+|debug|randBW(16) = 3
+|-message|Water rises on the field.
+|debug|Sunny Day water suppress
+|debug|randBW(16) = 15
+|split
+|-damage|p1a: Charizard|269/302
+|-damage|p1a: Charizard|269/302
+|-damage|p1a: Charizard|269/302
+|-damage|p1a: Charizard|269/302
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Full Bloom
+|debug|randBW(100) = 6
+|debug|randBW(16) = 11
+|debug|Sunny Day fire boost
+|debug|randBW(16) = 2
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|233/374
+|-damage|p2a: Feraligatr|233/374
+|-damage|p2a: Feraligatr|233/374
+|-damage|p2a: Feraligatr|233/374
+|debug|randBW(100) = 59
+|
+|-weather|SunnyDay|[upkeep]
+|split
+|-heal|p2a: Feraligatr|256/374|[from] item: Leftovers
+|-heal|p2a: Feraligatr|256/374|[from] item: Leftovers
+|-heal|p2a: Feraligatr|256/374|[from] item: Leftovers
+|-heal|p2a: Feraligatr|256/374|[from] item: Leftovers
+|turn|6
+|
+|move|p2a: Feraligatr|Aqua Jet|p1a: Charizard|[from]Full Bloom
+|debug|randBW(100) = 22
+|debug|randBW(16) = 14
+|-message|Water recedes from the field.
+|debug|Sunny Day water suppress
+|debug|randBW(16) = 13
+|split
+|-damage|p1a: Charizard|254/302
+|-damage|p1a: Charizard|254/302
+|-damage|p1a: Charizard|254/302
+|-damage|p1a: Charizard|254/302
+|move|p1a: Charizard|Fire Punch|p2a: Feraligatr|[from]Full Bloom
+|debug|randBW(100) = 0
+|debug|randBW(16) = 5
+|debug|Sunny Day fire boost
+|debug|randBW(16) = 1
+|-resisted|p2a: Feraligatr
+|split
+|-damage|p2a: Feraligatr|113/374
+|-damage|p2a: Feraligatr|113/374
+|-damage|p2a: Feraligatr|113/374
+|-damage|p2a: Feraligatr|113/374
+|debug|randBW(100) = 7
+|-status|p2a: Feraligatr|brn
+|
+|-weather|SunnyDay|[upkeep]
+|split
+|-heal|p2a: Feraligatr|136/374 brn|[from] item: Leftovers
+|-heal|p2a: Feraligatr|136/374 brn|[from] item: Leftovers
+|-heal|p2a: Feraligatr|136/374 brn|[from] item: Leftovers
+|-heal|p2a: Feraligatr|136/374 brn|[from] item: Leftovers
+|split
+|-damage|p2a: Feraligatr|90/374 brn|[from] brn
+|-damage|p2a: Feraligatr|90/374 brn|[from] brn
+|-damage|p2a: Feraligatr|90/374 brn|[from] brn
+|-damage|p2a: Feraligatr|90/374 brn|[from] brn
+|turn|7
+|
+|move|p1a: Charizard|Earthquake|p2a: Feraligatr|[from]Full Bloom
+|debug|randBW(100) = 32
+|debug|randBW(16) = 10
+|debug|randBW(16) = 15
+|split
+|-damage|p2a: Feraligatr|0 fnt
+|-damage|p2a: Feraligatr|0 fnt
+|-damage|p2a: Feraligatr|0 fnt
+|-damage|p2a: Feraligatr|0 fnt
+|faint|p2a: Feraligatr
+|
+|-weather|SunnyDay|[upkeep]
+|
+|split
+|switch|p2a: Serperior|Serperior, M|291/291
+|switch|p2a: Serperior|Serperior, M|291/291
+|switch|p2a: Serperior|Serperior, M|291/291
+|switch|p2a: Serperior|Serperior, M|291/291
+|turn|8
+|
+|move|p2a: Serperior|Outrage|p1a: Charizard|[from]Full Bloom
+|debug|randBW(100) = 66
+|debug|randBW(16) = 10
+|debug|randBW(16) = 10
+|-supereffective|p1a: Charizard
+|split
+|-damage|p1a: Charizard|0 fnt
+|-damage|p1a: Charizard|0 fnt
+|-damage|p1a: Charizard|0 fnt
+|-damage|p1a: Charizard|0 fnt
+|debug|randBW(2,4) = 3
+|split
+|-damage|p2a: Serperior|262/291|[from] item: Life Orb
+|-damage|p2a: Serperior|262/291|[from] item: Life Orb
+|-damage|p2a: Serperior|262/291|[from] item: Life Orb
+|-damage|p2a: Serperior|262/291|[from] item: Life Orb
+|faint|p1a: Charizard
+|
+|-weather|none
+|
+|split
+|switch|p1a: Trevenant|Trevenant, M, shiny|374/374
+|switch|p1a: Trevenant|Trevenant, M, shiny|374/374
+|switch|p1a: Trevenant|Trevenant, M, shiny|374/374
+|switch|p1a: Trevenant|Trevenant, M, shiny|374/374
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|turn|9
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|
+|debug|natural immunity
+|debug|natural immunity
+|debug|natural immunity
+|split
+|switch|p1a: Carbink|Carbink|324/324
+|switch|p1a: Carbink|Carbink|324/324
+|switch|p1a: Carbink|Carbink|324/324
+|switch|p1a: Carbink|Carbink|324/324
+|-fieldstart|move: Trick Room|[of] p1a: Carbink
+|move|p2a: Serperior|Outrage|p1a: Carbink|[from]Full Bloom
+|debug|natural immunity
+|-immune|p1a: Carbink|[msg]
+|
+|turn|10
+|
+|split
+|switch|p2a: Samurott|Samurott, M|394/394
+|switch|p2a: Samurott|Samurott, M|394/394
+|switch|p2a: Samurott|Samurott, M|394/394
+|switch|p2a: Samurott|Samurott, M|394/394
+|move|p1a: Carbink|Light Screen|p1a: Carbink|[from]Full Bloom
+|-sidestart|p1: Brendan0207|move: Light Screen
+|
+|turn|11
+|
+|move|p2a: Samurott|Skewer|p1a: Carbink|[from]Full Bloom
+|debug|randBW(100) = 74
+|debug|randBW(16) = 9
+|debug|Rock, -1
+|debug|Fairy, 1
+|-message|Samurott attacks with all of its spirit!
+|debug|randBW(16) = 6
+|split
+|-damage|p1a: Carbink|249/324
+|-damage|p1a: Carbink|249/324
+|-damage|p1a: Carbink|249/324
+|-damage|p1a: Carbink|249/324
+|move|p1a: Carbink|Reflect|p1a: Carbink|[from]Full Bloom
+|-sidestart|p1: Brendan0207|Reflect
+|
+|split
+|-heal|p1a: Carbink|269/324|[from] item: Leftovers
+|-heal|p1a: Carbink|269/324|[from] item: Leftovers
+|-heal|p1a: Carbink|269/324|[from] item: Leftovers
+|-heal|p1a: Carbink|269/324|[from] item: Leftovers
+|turn|12
+|
+|-message|Wind blasts across the field.
