@@ -4031,7 +4031,7 @@ exports.BattleMovedex = {
 				}
 			},
 			onUpdate: function(pokemon) {
-				if (this.isWeather('raindance','sandstorm')) {
+				if (this.isWeather(['raindance','sandstorm'])) {
 					this.clearTerrain();
 				}
 			},
@@ -5496,12 +5496,12 @@ exports.BattleMovedex = {
 					for (var p in battle.sides[s].active) {
 						var pokemon = battle.sides[s].active[p];
 						if (pokemon.runImmunity('Ground')) {
-							if (this.isWeather('sunnyday','raindance') && pokemon.hasType('Grass')){
+							if (this.isWeather(['sunnyday','raindance']) && pokemon.hasType('Grass')){
 								this.debug('Pokemon is grounded and Grass type in rain/sun, healing through Grassy Terrain.')
-								this.heal(pokemon.maxhp/8, pokemon, pokemon);
+								this.heal(pokemon.maxhp / 8, pokemon, pokemon);
 							} else {
 								this.debug('PokÃ©mon is grounded, healing through Grassy Terrain.');
-								this.heal(battle.sides[s].active[p].maxhp / 16, battle.sides[s].active[p], battle.sides[s].active[p]);
+								this.heal(pokemon.maxhp / 16, pokemon, pokemon);
 							}
 						}
 					}
@@ -11556,7 +11556,7 @@ exports.BattleMovedex = {
 				return 5;
 			},
 			onBasePower: function(basePower, attacker, defender, move) {
-				if (move.type in ['Dragon','Fighting'] && attacker.runImmunity('Ground')) {
+				if ((move.type === 'Dragon' || move.type === 'Fighting') && attacker.runImmunity('Ground')) {
 					this.debug('royal terrain boost');
 					return this.chainModify(1.5);
 				}
@@ -11571,7 +11571,7 @@ exports.BattleMovedex = {
 				this.add('-fieldstart', 'move: Royal Terrain');
 			},
 			onImmunity: function(type, pokemon) {
-				if (type in ['sandstorm','hail'] && !pokemon.hasType('Dragon') && !pokemon.hasType('Fighting')) return false;
+				if ((type === 'sandstorm' || type === 'hail') && (pokemon.hasType('Dragon') || pokemon.hasType('Fighting'))) return false;
 			},
 			onEnd: function() {
 				this.add('-fieldend', 'move: Royal Terrain');
@@ -12751,7 +12751,7 @@ exports.BattleMovedex = {
 				return 5;
 			},
 			onBasePower: function(basePower, attacker, defender, move) {
-				if (move.type in ['Ice','Water'] && attacker.runImmunity('Ground')) {
+				if ((move.type === 'Ice' || move.type === 'Water') && attacker.runImmunity('Ground')) {
 					this.debug('slushy terrain boost');
 					return this.chainModify(1.5);
 				}
@@ -12778,12 +12778,12 @@ exports.BattleMovedex = {
 					for (var p in battle.sides[s].active) {
 						var pokemon = battle.sides[s].active[p];
 						if (pokemon.runImmunity('Ground')) {
-							if (pokemon.hasType('Ice') && this.isWeather('hail','raindance')) {
+							if (pokemon.hasType('Ice') && this.isWeather(['hail','raindance'])) {
 								this.debug('Pokémon is grounded and ice type in rain or hail, heal through Slushy Terrain.');
-								this.heal(pokemon.maxhp / 16);
+								this.heal(pokemon.maxhp / 16, pokemon, pokemon);
 							} else if (pokemon.hasType('Water') && this.isWeather('raindance')) {
 								this.debug('Pokémon is grounded and water type in rain, heal through Slushy Terrain.');
-								this.heal(pokemon.maxhp / 16);
+								this.heal(pokemon.maxhp / 16, pokemon, pokemon);
 							}
 						}
 					}
