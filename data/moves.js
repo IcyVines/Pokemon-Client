@@ -3312,7 +3312,7 @@ exports.BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "For five turns, Pokemon on the ground cannot fall asleep. Their Electric-type moves are powered up by 50%.",
+		desc: "For five turns, Pokemon on the ground cannot fall asleep. Their Electric-type moves are powered up by 50%. Grounded Steel-type Pokemon gain a 25% speed boost.",
 		shortDesc: "If on ground, can't sleep + Electric moves stronger.",
 		id: "electricterrain",
 		name: "Electric Terrain",
@@ -3321,10 +3321,22 @@ exports.BattleMovedex = {
 		terrain: 'electricterrain',
 		effect: {
 			duration: 5,
+			durationCallback: function(target, source, effect) {
+			if (source && source.ability === 'terraformer') {
+					return 6;
+				}
+				return 5;
+			},
 			onSetStatus: function(status, target, source, effect) {
 				if (status.id === 'slp' && target.runImmunity('Ground')) {
 					this.debug('Interrupting sleep from Electric Terrain');
 					return false;
+				}
+			},
+			onModifySpe: function(spe, pokemon){
+				if(pokemon.hasType('Steel')){
+					this.debug('electric terrain steel speed boost');
+					return this.chainModify(1.25);
 				}
 			},
 			onBasePower: function(basePower, attacker, defender, move) {
@@ -3971,7 +3983,7 @@ exports.BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "For five turns, Pokemon on the ground lose 1/16 of their HP each turn. Their Fire-type moves are powered up by 50%.",
+		desc: "For five turns, non Fire and Dragon-type Pokemon on the ground lose 1/16, or 1/8 in sun, of their HP each turn. Fire-type moves are powered up by 50%. Grounded Pokemon cannot be frozen or put to sleep. Rain and Sandstorm remove the terrain.",
 		shortDesc: "If on ground, lose HP + Fire moves stronger.",
 		id: "fieryterrain",
 		name: "Fiery Terrain",
@@ -3981,6 +3993,12 @@ exports.BattleMovedex = {
 		isViable: true,
 		effect: {
 			duration: 5,
+			durationCallback: function(target, source, effect) {
+			if (source && source.ability === 'terraformer') {
+					return 6;
+				}
+				return 5;
+			},
 			onBasePower: function(basePower, attacker, defender, move) {
 				if (move.type === 'Fire' && attacker.runImmunity('Ground')) {
 					this.debug('fiery terrain boost');
@@ -4000,13 +4018,21 @@ exports.BattleMovedex = {
 			onResidualSubOrder: 2,
 			onResidual: function(battle) {
 				this.debug('onResidual battle');
+				var damagePercent = 16;
+				if(this.isWeather('sunnyday')) damagePercent = 8;
 				for (var s in battle.sides) {
 					for (var p in battle.sides[s].active) {
-						if (battle.sides[s].active[p].runImmunity('Ground') && (!battle.sides[s].active[p].hasType('Fire') || !battle.sides[s].active[p].hasType('Dragon'))) {
+						var pokemon = battle.sides[s].active[p];
+						if (pokemon.runImmunity('Ground') && (!pokemon.hasType('Fire') && !pokemon.hasType('Dragon'))) {
 							this.debug('Pokémon is grounded, damage through Fiery Terrain.');
-							this.damage(battle.sides[s].active[p].maxhp / 16, battle.sides[s].active[p], battle.sides[s].active[p]);
+							this.damage(pokemon.maxhp / damagePercent, pokemon, pokemon);
 						}
 					}
+				}
+			},
+			onUpdate: function(pokemon) {
+				if (this.isWeather('raindance','sandstorm')) {
+					this.clearTerrain();
 				}
 			},
 			onEnd: function() {
@@ -5431,7 +5457,7 @@ exports.BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "For five turns, Pokemon on the ground restore 1/16 of their HP each turn. Their Grass-type moves are powered up by 50%.",
+		desc: "For five turns, Pokemon on the ground restore 1/16 of their HP each turn. Their Grass-type moves are powered up by 50%. Bug-type Pokemon receive a 25% speed boost. In Sun or Rain, grounded Grass-type Pokemon gain 1/8 instead of 1/16 of their max HP each turn.",
 		shortDesc: "If on ground, restore HP + Grass moves stronger.",
 		id: "grassyterrain",
 		name: "Grassy Terrain",
@@ -5441,6 +5467,12 @@ exports.BattleMovedex = {
 		isViable: true,
 		effect: {
 			duration: 5,
+			durationCallback: function(target, source, effect) {
+			if (source && source.ability === 'terraformer') {
+					return 6;
+				}
+				return 5;
+			},
 			onBasePower: function(basePower, attacker, defender, move) {
 				if (move.type === 'Grass' && attacker.runImmunity('Ground')) {
 					this.debug('grassy terrain boost');
@@ -5448,9 +5480,9 @@ exports.BattleMovedex = {
 				}
 			},
 			onModifySpe: function(spe, pokemon){
-				if(pokemon.type == 'Bug' && pokemon.runImmunity('Ground')){
-					this.debug('grassy terrain bug boost');
-					return this.chainModify(1.5);
+				if(pokemon.hasType('Bug') && pokemon.runImmunity('Ground')){
+					this.debug('grassy terrain bug speed boost');
+					return this.chainModify(1.25);
 				}
 			},
 			onStart: function(target, source) {
@@ -5462,9 +5494,15 @@ exports.BattleMovedex = {
 				this.debug('onResidual battle');
 				for (var s in battle.sides) {
 					for (var p in battle.sides[s].active) {
-						if (battle.sides[s].active[p].runImmunity('Ground')) {
-							this.debug('PokÃ©mon is grounded, healing through Grassy Terrain.');
-							this.heal(battle.sides[s].active[p].maxhp / 16, battle.sides[s].active[p], battle.sides[s].active[p]);
+						var pokemon = battle.sides[s].active[p];
+						if (pokemon.runImmunity('Ground')) {
+							if (this.isWeather('sunnyday','raindance') && pokemon.hasType('Grass')){
+								this.debug('Pokemon is grounded and Grass type in rain/sun, healing through Grassy Terrain.')
+								this.heal(pokemon.maxhp/8, pokemon, pokemon);
+							} else {
+								this.debug('PokÃ©mon is grounded, healing through Grassy Terrain.');
+								this.heal(battle.sides[s].active[p].maxhp / 16, battle.sides[s].active[p], battle.sides[s].active[p]);
+							}
 						}
 					}
 				}
@@ -7961,13 +7999,13 @@ exports.BattleMovedex = {
 		},
 		effect: {
 			duration: 5,
-			/*durationCallback: function(target, source, effect) {
+			durationCallback: function(target, source, effect) {
 				// Persistent isn't updated for BW moves
-				if (source && source.ability === 'Persistent') {
-					return 7;
+				if (source && source.ability === 'magician') {
+					return 6;
 				}
 				return 5;
-			},*/
+			},
 			onStart: function(target, source) {
 				this.add('-fieldstart', 'move: Magic Room', '[of] '+source);
 			},
@@ -8128,6 +8166,64 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "allAdjacent",
 		type: "Ground"
+	},
+	"marshyterrain": {
+		num: 700,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "For five turns, non Poison, Dark, Steel, and Ghost-type Pokemon on the ground lose 1/16 of their HP each turn if it isn't raining. Poison and Dark-type moves are powered up by 50%.",
+		shortDesc: "If on ground and no rain, lose HP + Poison and Dark moves stronger.",
+		id: "marshyterrain",
+		name: "Marshy Terrain",
+		pp: 10,
+		priority: 0,
+		terrain: 'marshyterrain',
+		isViable: true,
+		effect: {
+			duration: 5,
+			durationCallback: function(target, source, effect) {
+			if (source && source.ability === 'terraformer') {
+					return 6;
+				}
+				return 5;
+			},
+			onBasePower: function(basePower, attacker, defender, move) {
+				if (move.type === 'Poison' || move.type === 'Dark' && attacker.runImmunity('Ground')) {
+					this.debug('marshy terrain boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onSetStatus: function(status, target, source, effect) {
+				if (status.id === 'brn' && target.runImmunity('Ground')) {
+					this.debug('Interrupting burn from Marshy Terrain');
+					return false;
+				}
+			},
+			onStart: function(target, source) {
+				this.add('-fieldstart', 'move: Marshy Terrain');
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual: function(battle) {
+				this.debug('onResidual battle');
+				for (var s in battle.sides) {
+					for (var p in battle.sides[s].active) {
+						var pokemon = battle.sides[s].active[p];
+						if (pokemon.runImmunity('Ground') && !this.isWeather('raindance') && (!pokemon.hasType('Poison') && !pokemon.hasType('Dark') && !pokemon.hasType('Steel') && !pokemon.hasType('Ghost'))) {
+							this.debug('Pokémon is grounded, damage through Marshy Terrain.');
+							this.damage(pokemon.maxhp / 16, pokemon, pokemon);
+						}
+					}
+				}
+			},
+			onEnd: function() {
+				this.add('-fieldend', 'move: Marshy Terrain');
+			}
+		},
+		secondary: false,
+		target: "all",
+		type: "Poison"
 	},
 	"matblock": {
 		num: 561,
@@ -8733,7 +8829,7 @@ exports.BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "For five turns, Grounded Pokemon cannot have major status problem inflicted on them by other Pokemon. Dragon-type moves used against them are weakened by 50%.",
+		desc: "For five turns, Grounded Pokemon cannot have major status problem inflicted on them by other Pokemon. Dragon-type moves used against them are weakened by 50%. Ghost-type moves are boosted by 50%. If the weather is not Sun, Fairy-type Pokemon gain a 10% evasion boost.",
 		shortDesc: "Prevents status and weakens Dragon if grounded.",
 		id: "mistyterrain",
 		name: "Misty Terrain",
@@ -8743,11 +8839,24 @@ exports.BattleMovedex = {
 		isViable: true,
 		effect: {
 			duration: 5,
+			durationCallback: function(target, source, effect) {
+			if (source && source.ability === 'terraformer') {
+					return 6;
+				}
+				return 5;
+			},
 			onSetStatus: function(status, target, source, effect) {
 				if (!target.runImmunity('Ground')) return;
 				if (source && source !== target || (effect && effect.id === 'toxicspikes')) {
 					this.debug('misty terrain preventing status');
 					return false;
+				}
+			},
+			onAccuracy: function(accuracy, target) {
+				if (typeof accuracy !== 'number') return;
+				if (!this.isWeather('sunnyday') && target && target.hasType('Fairy')) {
+					this.debug('Misty Terrain - decreasing accuracy');
+					return accuracy * 0.9;
 				}
 			},
 			onTryHit: function(target, source, move) {
@@ -8761,7 +8870,7 @@ exports.BattleMovedex = {
 				if (move.type === 'Dragon' && defender.runImmunity('Ground')) {
 					this.debug('misty terrain weaken');
 					return this.chainModify(0.5);
-				} else if (move.type === 'Ghost' && defender.runImmunity('Ground')){
+				} else if (move.type === 'Ghost' && attacker.runImmunity('Ground')){
 					this.debug('misty terrain strengthen');
 					return this.chainModify(1.5);
 				}
@@ -11425,6 +11534,53 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Normal"
 	},
+	"royalterrain": {
+		num: 700,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "For five turns, Dragon and Fighting type Pokemon on the ground neglect damage from weather. Dragon and Fighting-type moves are powered up by 50%. Grounded Pokemon cannot be statused.",
+		shortDesc: "If on ground, Dragon and Fighting moves stronger + no damage from weather.",
+		id: "royalterrain",
+		name: "Royal Terrain",
+		pp: 10,
+		priority: 0,
+		terrain: 'royalterrain',
+		isViable: true,
+		effect: {
+			duration: 5,
+			durationCallback: function(target, source, effect) {
+			if (source && source.ability === 'terraformer') {
+					return 6;
+				}
+				return 5;
+			},
+			onBasePower: function(basePower, attacker, defender, move) {
+				if (move.type in ['Dragon','Fighting'] && attacker.runImmunity('Ground')) {
+					this.debug('royal terrain boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onSetStatus: function(status, target, source, effect) {
+				if (target.runImmunity('Ground')) {
+					this.debug('Interrupting status from Royal Terrain');
+					return false;
+				}
+			},
+			onStart: function(target, source) {
+				this.add('-fieldstart', 'move: Royal Terrain');
+			},
+			onImmunity: function(type, pokemon) {
+				if (type in ['sandstorm','hail'] && !pokemon.hasType('Dragon') && !pokemon.hasType('Fighting')) return false;
+			},
+			onEnd: function() {
+				this.add('-fieldend', 'move: Royal Terrain');
+			}
+		},
+		secondary: false,
+		target: "all",
+		type: "Dragon"
+	},
 	"sacredfire": {
 		num: 221,
 		accuracy: 95,
@@ -12572,6 +12728,74 @@ exports.BattleMovedex = {
 		},
 		target: "allAdjacent",
 		type: "Poison"
+	},
+	"slushyterrain": {
+		num: 700,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "For five turns, Pokemon on the ground cannot be burned. Their Ice and Water-type moves are powered up by 50%. In Rain and Hail, Ice-types gain 1/16 HP each turn, and in Rain only, Water-types gain 1/16 HP each turn. Sun removes the terrain.",
+		shortDesc: "If on ground and Water/Ice type, gain HP + Ice and Water moves stronger.",
+		id: "slushyterrain",
+		name: "Slushy Terrain",
+		pp: 10,
+		priority: 0,
+		terrain: 'slushyterrain',
+		isViable: true,
+		effect: {
+			duration: 5,
+			durationCallback: function(target, source, effect) {
+			if (source && source.ability === 'terraformer') {
+					return 6;
+				}
+				return 5;
+			},
+			onBasePower: function(basePower, attacker, defender, move) {
+				if (move.type in ['Ice','Water'] && attacker.runImmunity('Ground')) {
+					this.debug('slushy terrain boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onSetStatus: function(status, target, source, effect) {
+				if (status.id === 'brn' && target.runImmunity('Ground')) {
+					this.debug('Interrupting burn from Slushy Terrain');
+					return false;
+				}
+			},
+			onStart: function(target, source) {
+				this.add('-fieldstart', 'move: Slushy Terrain');
+			},
+			onUpdate: function(pokemon){
+				if (this.isWeather('sunnyday')){
+					this.clearTerrain();
+				}
+			},
+			onResidualOrder: 5,
+			onResidualSubOrder: 2,
+			onResidual: function(battle) {
+				this.debug('onResidual battle');
+				for (var s in battle.sides) {
+					for (var p in battle.sides[s].active) {
+						var pokemon = battle.sides[s].active[p];
+						if (pokemon.runImmunity('Ground')) {
+							if (pokemon.hasType('Ice') && this.isWeather('hail','raindance')) {
+								this.debug('Pokémon is grounded and ice type in rain or hail, heal through Slushy Terrain.');
+								this.heal(pokemon.maxhp / 16);
+							} else if (pokemon.hasType('Water') && this.isWeather('raindance')) {
+								this.debug('Pokémon is grounded and water type in rain, heal through Slushy Terrain.');
+								this.heal(pokemon.maxhp / 16);
+							}
+						}
+					}
+				}
+			},
+			onEnd: function() {
+				this.add('-fieldend', 'move: Slushy Terrain');
+			}
+		},
+		secondary: false,
+		target: "all",
+		type: "Ice"
 	},
 	"smackdown": {
 		num: 479,
@@ -14602,6 +14826,8 @@ exports.BattleMovedex = {
 			durationCallback: function(target, source, effect) {
 				if (source && source.ability === 'persistent') {
 					return 7;
+				} else if (source && source.ability === 'tricky'){
+					return 6;
 				}
 				return 5;
 			},

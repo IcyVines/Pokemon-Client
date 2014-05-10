@@ -2459,7 +2459,7 @@ function Battle(frame, logFrame, noPreload) {
 				abilityMessage: "'s Snow Warning whipped up a hailstorm!",
 				upkeepMessage: 'The hail crashes down.',
 				endMessage: 'The hail stopped.'
-			}
+			},
 		};
 		if (!weather || weather === 'none') {
 			weather = '';
@@ -4411,6 +4411,27 @@ function Battle(frame, logFrame, noPreload) {
 				case 'gravity':
 					actions += "Gravity intensified!";
 					break;
+				case 'grassyterrain':
+					actions += "Grass sprouts everywhere!";
+					break;
+				case 'mistyterrain':
+					actions += "A pinkish mist fills the area!";
+					break;
+				case 'electricterrain':
+					actions += "Electricity courses through the floor!";
+					break;
+				case 'fieryterrain':
+					actions += "The ground is set ablaze!";
+					break;
+				case 'marshyterrain':
+					actions += "Swampy water floods the field!";
+					break;
+				case 'royalterrain':
+					actions += "The arena is now a prideful domain!";
+					break;
+				case 'slushyterrain':
+					actions += "Slush and ice slosh about!";
+					break;
 				default:
 					actions += effect.name+" started!";
 					break;
@@ -4434,6 +4455,27 @@ function Battle(frame, logFrame, noPreload) {
 					break;
 				case 'gravity':
 					actions += 'Gravity returned to normal!';
+					break;
+				case 'grassyterrain':
+					actions += "The grass withers away!";
+					break;
+				case 'mistyterrain':
+					actions += "The mist dissipates!";
+					break;
+				case 'electricterrain':
+					actions += "The floor loses its charge!";
+					break;
+				case 'fieryterrain':
+					actions += "The fire dies down!";
+					break;
+				case 'marshyterrain':
+					actions += "The swampy water is absorbed into the ground!";
+					break;
+				case 'royalterrain':
+					actions += "The lingering dignity ends!";
+					break;
+				case 'slushyterrain':
+					actions += "The slush melts and vanishes!";
 					break;
 				default:
 					actions += effect.name+" ended!";

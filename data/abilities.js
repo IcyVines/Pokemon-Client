@@ -592,8 +592,13 @@ exports.BattleAbilities = {
 					this.add('-sideend', foe.side, this.getEffect(i).name, '[from] ability: Cyclone', '[of] '+foe);
 				}
 			}
-			if(this.isWeather('raindance') || this.isWeather('sandstorm') || this.isWeather('hail')){
-				this.weatherData.duration = 0;
+			if(this.isWeather('raindance','sandstorm','hail')){
+				this.setWeather('');
+			}
+		},
+		onDamage: function(damage, target, source, effect) {
+			if (effect && effect.id in {stealthrock:1,toxicspikes:1,spikes:1,stickyweb:1}) {
+				return false;
 			}
 		},
 		id: "cyclone",
@@ -1807,7 +1812,7 @@ exports.BattleAbilities = {
 		desc: "On switch-in, this Pokemon sets up Magic Room for five turns.",
 		shortDesc: "On switch-in, Magic Room is set up.",
 		onStart: function(source) {
-			this.setWeather('magicroom');
+			this.addPseudoWeather('magicroom');
 		},
 		/*onHit: function(target, source, move) {
 			// We need to hard check if the ability is Magician since the event will be run both ways.
@@ -3415,25 +3420,26 @@ exports.BattleAbilities = {
 		onStart: function(pokemon){
 			//var types = {'Grass', 'Ice', 'Fairy', 'Electric', 'Fire', 'Dragon', 'Poison'};
 			var types = pokemon.getTypes();
+			this.add('-message', pokemon.name + ' affects the environment.');
+			this.clearTerrain();
 			switch(types[0]){
-				case 'Grass': this.setWeather('grassyterrain');
+				case 'Grass': this.setTerrain('grassyterrain', pokemon);
 				break;
-				case 'Fairy': this.setWeather('mistyterrain');
+				case 'Fairy': this.setTerrain('mistyterrain', pokemon);
 				break;
-				case 'Electric': this.setWeather('electricterrain');
+				case 'Electric': this.setTerrain('electricterrain', pokemon);
 				break;
-				case 'Fire': this.setWeather('fieryterrain');
+				case 'Fire': this.setTerrain('fieryterrain', pokemon);
 				break;
-				case 'Ice':
+				case 'Ice': this.setTerrain('slushyterrain', pokemon);
 				break;
-				case 'Dragon':
+				case 'Dragon': this.setTerrain('royalterrain', pokemon);
 				break;
-				case 'Poison':
+				case 'Poison': this.setTerrain('marshyterrain', pokemon);
 				break;
-				default:
+				default: this.setTerrain('', pokemon);
 				break;
 			}
-			this.add('-message', pokemon.name + ' affects the environment.');
 		},
 		id: "terraformer",
 		name: "Terraformer",
@@ -3484,22 +3490,18 @@ exports.BattleAbilities = {
 	"tidal": {
 		desc: "This Pokemon's Water and Ice type moves do 1.5x damage every other turn starting on switch-in, and 0.66x the others.",
 		shortDesc: "This Pokemon's Water and Ice moves fluctuate in power.",
-		onStart: function(pokemon){
-			pokemon.addVolatile('tidal');
-		},
-		onBeforeMove: function(pokemon, target, move) {
-			if (pokemon.volatiles['tidal']) {
-				this.add('-message', 'Water rises on the field.');
-			} else {
-				this.add('-message', 'Water recedes from the field.');
-			}
-			pokemon.addVolatile('truant');
-		},
 		onBeforeMovePriority: 99,
+		onBeforeMove: function(pokemon, target, move) {
+			if (pokemon.removeVolatile('tidal')){
+				this.add('-message', 'Water recedes from the field.');
+			} else if (pokemon.addVolatile('tidal')) {
+				this.add('-message', 'Water rises on the field.');
+			}		
+		},
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			var power = 0.66;
-			if(attacker.removeVolatile('tidal')){
+			if(attacker.volatiles['tidal']){
 				power = 1.5;
 			} else {
 				attacker.addVolatile('tidal');
@@ -3601,7 +3603,7 @@ exports.BattleAbilities = {
 		desc: "On switch-in, this Pokemon sets up Trick Room for five turns.",
 		shortDesc: "On switch-in, Trick Room is set up.",
 		onStart: function(source) {
-			this.setWeather('trickroom');
+			this.addPseudoWeather('trickroom');
 		},
 		id: "tricky",
 		name: "Tricky",

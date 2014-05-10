@@ -5912,3 +5912,49 @@ Log:
 |turn|3
 |
 |-message|Wind blasts across the field.
+
+TypeError: Object Battle: customgame has no method 'removeTerrain'
+    at Tools.exports.BattleAbilities.terraformer.onStart (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:3424:9)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1843:37)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3330:10)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3413:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3491:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3473:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3817:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+
+Additional information:
+message = battle-customgame-1101|choose|p2|team 1|1
+currentRequest = teampreview
+
+Log:
+|player|p1|IcyVines|265
+|player|p2|asdjbfasdf|1
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Azurill, F
+|poke|p1|Flareon, F
+|poke|p1|Espeon, M
+|poke|p1|Typhlosion, F
+|poke|p1|Meganium, F
+|poke|p1|Glaceon, M
+|poke|p2|Flareon, F
+|poke|p2|Blastoise, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Dragon Rape|Azurill, F|384/384
+|switch|p1a: Dragon Rape|Azurill, F|384/384
+|switch|p1a: Dragon Rape|Azurill, F|384/384
+|switch|p1a: Dragon Rape|Azurill, F|384/384
+|split
+|switch|p2a: Flareon|Flareon, F|344/344
+|switch|p2a: Flareon|Flareon, F|344/344
+|switch|p2a: Flareon|Flareon, F|344/344
+|switch|p2a: Flareon|Flareon, F|344/344
+|-message|Flareon affects the environment.

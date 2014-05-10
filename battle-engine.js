@@ -1601,6 +1601,8 @@ var Battle = (function() {
 		if (this.terrain && !status.id) {
 			var oldstatus = this.getTerrain();
 			this.singleEvent('End', oldstatus, this.terrainData, this);
+		} else {
+			this.setTerrain('');
 		}
 		var prevTerrain = this.terrain;
 		var prevTerrainData = this.terrainData;

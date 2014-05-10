@@ -812,17 +812,31 @@ exports.BattleScripts = {
 				// Moves that have a low base power:
 				if (move.basePower && move.basePower <= 60) {
 					counter['technician']++;
+					counter['prioritize']++;
+					if(move.basePower <= 50){
+						counter['butterflyeffect']++;
+					}
 				}
 				// Moves that hit multiple times:
 				if (move.multihit && move.multihit[1] === 5) {
 					counter['skilllink']++;
+					counter['rapidfire']++;
 				}
 				// Punching moves:
 				if (move.isPunchAttack) {
 					counter['ironfist']++;
 				}
+				//Slashing/Stabbing moves:
+				if (move.isSword){
+					counter['unsheathed']++;
+				}
+				//
+				if (move.isBullet){
+					counter['advancedartillery']++;
+				}
 				// Recoil:
 				if (move.recoil) {
+					counter['thrillseeker']++;
 					counter['recoil']++;
 				}
 				// Moves which have a base power:
@@ -838,7 +852,11 @@ exports.BattleScripts = {
 					if (move.type === 'Fire') counter['blaze']++;
 					if (move.type === 'Grass') counter['overgrow']++;
 					if (move.type === 'Bug') counter['swarm']++;
-					if (move.type === 'Water') counter['torrent']++;
+					if (move.type === 'Water'){
+						counter['torrent']++;
+						counter['tidal']++;
+					} 
+					if (move.type === 'Ice') counter['tidal']++;
 					// Make sure not to count Knock Off, Rapid Spin, etc.
 					if (move.basePower > 20 || move.multihit || move.basePowerCallback) {
 						damagingMoves.push(move);
@@ -1241,6 +1259,24 @@ exports.BattleScripts = {
 				}
 
 				var rejectAbility = false;
+				if (ability === 'rapidfire' && !counter['rapidfire']) {
+					rejectAbility = true;
+				}
+				if (ability === 'butterflyeffect' && !counter['butterflyeffect']) {
+					rejectAbility = true;
+				}
+				if (ability === 'prioritize' && !counter['prioritize']) {
+					rejectAbility = true;
+				}
+				if (ability === 'unsheathed' && !counter['unsheathed']) {
+					rejectAbility = true;
+				}
+				if (ability === 'advancedartillery' && !counter['advancedartillery']) {
+					rejectAbility = true;
+				}
+				if (ability === 'thrillseeker' && !counter['thrillseeker']) {
+					rejectAbility = true;
+				}
 				if (ability === 'Blaze' && !counter['blaze']) {
 					rejectAbility = true;
 				}
