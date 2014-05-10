@@ -8168,7 +8168,7 @@ exports.BattleMovedex = {
 		type: "Ground"
 	},
 	"marshyterrain": {
-		num: 700,
+		num: 702,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -11535,7 +11535,7 @@ exports.BattleMovedex = {
 		type: "Normal"
 	},
 	"royalterrain": {
-		num: 700,
+		num: 703,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -12730,7 +12730,7 @@ exports.BattleMovedex = {
 		type: "Poison"
 	},
 	"slushyterrain": {
-		num: 700,
+		num: 701,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
