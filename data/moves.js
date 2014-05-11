@@ -3323,7 +3323,7 @@ exports.BattleMovedex = {
 			duration: 5,
 			durationCallback: function(target, source, effect) {
 			if (source && source.ability === 'terraformer') {
-					return 6;
+					return 5;
 				}
 				return 5;
 			},
@@ -3995,7 +3995,7 @@ exports.BattleMovedex = {
 			duration: 5,
 			durationCallback: function(target, source, effect) {
 			if (source && source.ability === 'terraformer') {
-					return 6;
+					return 5;
 				}
 				return 5;
 			},
@@ -5469,7 +5469,7 @@ exports.BattleMovedex = {
 			duration: 5,
 			durationCallback: function(target, source, effect) {
 			if (source && source.ability === 'terraformer') {
-					return 6;
+					return 5;
 				}
 				return 5;
 			},
@@ -8002,7 +8002,7 @@ exports.BattleMovedex = {
 			durationCallback: function(target, source, effect) {
 				// Persistent isn't updated for BW moves
 				if (source && source.ability === 'magician') {
-					return 6;
+					return 5;
 				}
 				return 5;
 			},
@@ -8184,7 +8184,7 @@ exports.BattleMovedex = {
 			duration: 5,
 			durationCallback: function(target, source, effect) {
 			if (source && source.ability === 'terraformer') {
-					return 6;
+					return 5;
 				}
 				return 5;
 			},
@@ -8841,7 +8841,7 @@ exports.BattleMovedex = {
 			duration: 5,
 			durationCallback: function(target, source, effect) {
 			if (source && source.ability === 'terraformer') {
-					return 6;
+					return 5;
 				}
 				return 5;
 			},
@@ -11551,7 +11551,7 @@ exports.BattleMovedex = {
 			duration: 5,
 			durationCallback: function(target, source, effect) {
 			if (source && source.ability === 'terraformer') {
-					return 6;
+					return 5;
 				}
 				return 5;
 			},
@@ -12746,7 +12746,8 @@ exports.BattleMovedex = {
 			duration: 5,
 			durationCallback: function(target, source, effect) {
 			if (source && source.ability === 'terraformer') {
-					return 6;
+					return 5
+					;
 				}
 				return 5;
 			},
@@ -14827,7 +14828,7 @@ exports.BattleMovedex = {
 				if (source && source.ability === 'persistent') {
 					return 7;
 				} else if (source && source.ability === 'tricky'){
-					return 6;
+					return 5;
 				}
 				return 5;
 			},

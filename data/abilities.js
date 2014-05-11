@@ -134,7 +134,7 @@ exports.BattleAbilities = {
 		desc: "When this Pokemon's health goes below half, Attack, Special Attack, and Speed are raised by one stage each.",
 		shortDesc: "Attack, Sp. Attack, and Speed are raised when health goes below half.",
 		onAfterDamage: function(damage, target, source, move){
-			if(target.hp < target.maxhp/2 && target.hp + damage > target.maxhp/2){
+			if(target.hp < target.maxhp/2 && target.hp + damage > target.maxhp/2 && target.hp > 0){
 				this.boost({atk: 1, spa:1, spe:1});
 				this.add('-message', target.name + ' isn\'t taking this battle lightly anymore!');
 			}
@@ -2564,7 +2564,7 @@ exports.BattleAbilities = {
 		onAccuracyPriority: 10,
 		onAccuracy: function(accuracy, target, source, move){
 			if(move && move.multihit){
-				return accuracy * 0.9;
+				return accuracy * 0.8;
 			}
 		},
 		id: "rapidfire",

@@ -16913,7 +16913,8 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Flame Body",
-            H: "Swarm"
+            1: "Unwavering",
+            H: "Butterfly Effect"
         },
         heightm: 1.6,
         weightkg: 46,
