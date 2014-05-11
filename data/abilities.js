@@ -2288,7 +2288,7 @@ exports.BattleAbilities = {
 		onAccuracyPriority: 10,
 		onAccuracy: function(accuracy, target, source, move){
 			if(source.volatiles['permeate']){
-				return accuracy * 0.5;
+				return accuracy * 0.9;
 			}
 		},
 		onResidualOrder: 26,
@@ -2556,11 +2556,18 @@ exports.BattleAbilities = {
 		num: 44
 	},
 	"rapidfire": {
-		desc: "Multi-hit moves have priority.",
-		shortDesc: "Multi-hit moves have priority.",
+		desc: "Multi-hit moves have priority but lose 10% accuracy.",
+		shortDesc: "Multi-hit moves have priority but lose accuracy.",
 		onModifyPriority: function(priority, pokemon, target, move) {
 			if (move && move.multihit) return priority + 1;
 		},
+		onAccuracyPriority: 10,
+		onAccuracy: function(accuracy, target, source, move){
+			if(move && move.multihit){
+				return accuracy * 0.9;
+			}
+		},
+		onModify
 		id: "rapidfire",
 		name: "Rapid Fire",
 		rating: 3,
