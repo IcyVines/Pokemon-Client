@@ -5958,3 +5958,77 @@ Log:
 |switch|p2a: Flareon|Flareon, F|344/344
 |switch|p2a: Flareon|Flareon, F|344/344
 |-message|Flareon affects the environment.
+
+ReferenceError: source is not defined
+    at Tools.exports.BattleMovedex.lightscreen.effect.onFoeBeforeMove (/Users/IcyVines/Desktop/Pokemon-Client/data/moves.js:7672:8)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2048:38)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:24:13)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3250:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3415:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3493:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3475:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3819:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+
+Additional information:
+message = battle-customgame-1266|choose|p2|move Struggle Bug|3
+currentRequest = move
+
+Log:
+|player|p1|Brendan0207|265
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Lucario, M
+|poke|p1|Chandelure, M, shiny
+|poke|p1|Dragonite, M
+|poke|p1|Forretress, M, shiny
+|poke|p1|Trevenant, F, shiny
+|poke|p1|Rotom-Wash, shiny
+|poke|p2|Sceptile, M, shiny
+|poke|p2|Butterfree, F
+|poke|p2|Azurill, F
+|poke|p2|Gardevoir, F, shiny
+|poke|p2|Heracross, M
+|poke|p2|Luxray, M, shiny
+|teampreview
+|
+|start
+|split
+|switch|p1a: Gluttony|Rotom-Wash, shiny|304/304
+|switch|p1a: Gluttony|Rotom-Wash, shiny|304/304
+|switch|p1a: Gluttony|Rotom-Wash, shiny|304/304
+|switch|p1a: Gluttony|Rotom-Wash, shiny|304/304
+|split
+|switch|p2a: Butterfree|Butterfree, F|262/262
+|switch|p2a: Butterfree|Butterfree, F|262/262
+|switch|p2a: Butterfree|Butterfree, F|262/262
+|switch|p2a: Butterfree|Butterfree, F|262/262
+|-item|p2a: Butterfree|Air Balloon
+|turn|1
+|
+|move|p2a: Butterfree|Struggle Bug|p1a: Gluttony
+|debug|randBW(100) = 96
+|debug|randBW(16) = 13
+|debug|randBW(16) = 4
+|split
+|-damage|p1a: Gluttony|247/304
+|-damage|p1a: Gluttony|247/304
+|-damage|p1a: Gluttony|247/304
+|-damage|p1a: Gluttony|247/304
+|debug|randBW(100) = 49
+|-unboost|p1a: Gluttony|spa|1
+|move|p1a: Gluttony|Light Screen|p1a: Gluttony
+|-sidestart|p1: Brendan0207|move: Light Screen
+|
+|-message|Even the smallest of actions can grow...
+|debug|randBW(5) = 4
+|-boost|p2a: Butterfree|spe|1|[from] ability: Butterfly Effect
+|-message|And grow larger...
+|debug|randBW(5) = 3
+|-boost|p2a: Butterfree|spd|1|[from] ability: Butterfly Effect
+|turn|2
+|

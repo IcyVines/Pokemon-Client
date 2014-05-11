@@ -7669,8 +7669,8 @@ exports.BattleMovedex = {
 				}
 			},
 			onFoeBeforeMove: function(attacker, defender, move){
-				if(source.ability === 'permeate'){
-					source.addVolatile('permeate');
+				if(attacker.ability === 'permeate'){
+					attacker.addVolatile('permeate');
 				}
 			},
 			onStart: function(side) {
@@ -10901,8 +10901,8 @@ exports.BattleMovedex = {
 				}
 			},
 			onFoeBeforeMove: function(attacker, defender, move){
-				if(source.ability === 'permeate'){
-					source.addVolatile('permeate');
+				if(attacker.ability === 'permeate'){
+					attacker.addVolatile('permeate');
 				}
 			},
 			onStart: function(side) {

@@ -17339,6 +17339,7 @@ exports.BattleLearnsets = {
             covet: ["5T"],
             hypervoice: ["5T"],
             confide: ["6M"],
+            playrough: ["6M"],
             dragontail: ["6M"],
             tailslap: ["6M"],
             poisontail: ["6M"],
