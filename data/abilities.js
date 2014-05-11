@@ -2567,7 +2567,6 @@ exports.BattleAbilities = {
 				return accuracy * 0.9;
 			}
 		},
-		onModify
 		id: "rapidfire",
 		name: "Rapid Fire",
 		rating: 3,
