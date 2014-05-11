@@ -1812,7 +1812,7 @@ exports.BattleAbilities = {
 		desc: "On switch-in, this Pokemon sets up Magic Room for five turns.",
 		shortDesc: "On switch-in, Magic Room is set up.",
 		onStart: function(source) {
-			this.addPseudoWeather('magicroom');
+			this.addPseudoWeather('magicroom', source, source);
 		},
 		/*onHit: function(target, source, move) {
 			// We need to hard check if the ability is Magician since the event will be run both ways.
@@ -3609,7 +3609,7 @@ exports.BattleAbilities = {
 		desc: "On switch-in, this Pokemon sets up Trick Room for five turns.",
 		shortDesc: "On switch-in, Trick Room is set up.",
 		onStart: function(source) {
-			this.addPseudoWeather('trickroom');
+			this.addPseudoWeather('trickroom', source, source);
 		},
 		id: "tricky",
 		name: "Tricky",

@@ -63,14 +63,15 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 80,
-            atk: 82,
-            def: 83,
+            atk: 80,
+            def: 90,
             spa: 100,
             spd: 100,
             spe: 80
         },
         abilities: {
             0: "Overgrow",
+            1: "Rapid Growth",
             H: "Chlorophyll"
         },
         heightm: 2,
@@ -302,15 +303,16 @@ exports.BattlePokedex = {
             F: 0.125
         },
         baseStats: {
-            hp: 79,
-            atk: 83,
+            hp: 80,
+            atk: 80,
             def: 100,
-            spa: 85,
+            spa: 90,
             spd: 105,
-            spe: 78
+            spe: 80
         },
         abilities: {
             0: "Torrent",
+            1: "Tidal",
             H: "Rain Dish"
         },
         heightm: 1.6,
@@ -327,14 +329,14 @@ exports.BattlePokedex = {
         baseSpecies: "Blastoise",
         forme: "Mega",
         formeLetter: "M",
-        types: ["Water"],
+        types: ["Water", "Steel"],
         baseStats: {
-            hp: 79,
-            atk: 103,
+            hp: 80,
+            atk: 100,
             def: 120,
             spa: 135,
             spd: 115,
-            spe: 78
+            spe: 80
         },
         abilities: {
             0: "Mega Launcher"
@@ -1990,17 +1992,17 @@ exports.BattlePokedex = {
         species: "Golem",
         types: ["Rock", "Ground"],
         baseStats: {
-            hp: 80,
+            hp: 90,
             atk: 120,
-            def: 130,
-            spa: 55,
-            spd: 65,
-            spe: 45
+            def: 140,
+            spa: 40,
+            spd: 80,
+            spe: 55
         },
         abilities: {
             0: "Rock Head",
-            1: "Sturdy",
-            H: "Sand Veil"
+            1: "Sand Veil",
+            H: "Solid Rock"
         },
         heightm: 1.4,
         weightkg: 300,
@@ -6790,6 +6792,7 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Torrent",
+            1: "Aqua Veil",
             H: "Dry Skin"
         },
         heightm: 1.5,
@@ -10151,15 +10154,16 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 95,
-            atk: 109,
-            def: 105,
-            spa: 75,
-            spd: 85,
-            spe: 56
+            atk: 115,
+            def: 110,
+            spa: 65,
+            spd: 90,
+            spe: 55
         },
         abilities: {
             0: "Overgrow",
-            H: "Shell Armor"
+            1: "Terracotta",
+            H: "Solid Rock"
         },
         heightm: 2.2,
         weightkg: 310,
@@ -13553,21 +13557,23 @@ exports.BattlePokedex = {
     emboar: {
         num: 500,
         species: "Emboar",
-        types: ["Fire", "Fighting"],
+        types: ["Fire", "Dark"],
         genderRatio: {
             M: 0.875,
             F: 0.125
         },
         baseStats: {
             hp: 110,
-            atk: 123,
-            def: 65,
-            spa: 100,
-            spd: 65,
-            spe: 65
+            atk: 125,
+            def: 70,
+            spa: 90,
+            spd: 70,
+            spe: 70
         },
         abilities: {
-            0: "Blaze"
+            0: "Blaze",
+            1: "Aggravation",
+            H: "Reckless"
         },
         heightm: 1.6,
         weightkg: 150,
@@ -17595,15 +17601,16 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 75,
-            atk: 69,
-            def: 72,
-            spa: 114,
+            atk: 65,
+            def: 70,
+            spa: 120,
             spd: 100,
-            spe: 104
+            spe: 105
         },
         abilities: {
             0: "Blaze",
-            H: "Magician"
+            1: "Magician",
+            H: "Magic Bounce"
         },
         heightm: 1.5,
         weightkg: 39,
