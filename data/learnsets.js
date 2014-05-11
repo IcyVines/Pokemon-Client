@@ -1748,6 +1748,11 @@ exports.BattleLearnsets = {
             willowisp: ["4M", "5M", "6M"],
             wingattack: ["3L36", "4L36", "5L36", "3S0", "6L36"],
             poweruppunch: ["6M"],
+            dragoon: ["6M"],
+            plummet: ["6M"],
+            flare: ["6M"],
+            dracometeor: ["6M"],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -2086,6 +2091,10 @@ exports.BattleLearnsets = {
             whirlwind: ["3L23", "4L22", "5L22", "6L22"],
             electroweb: ["5T"],
             infestation: ["6M"],
+            flutter: ["6M"],
+            dazzlinggleam: ["6M"],
+            psyshock: ["6M"],
+            mistyterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -6794,6 +6803,7 @@ exports.BattleLearnsets = {
             dualchop: ["5T"],
             knockoff: ["5T"],
             poweruppunch: ["6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -10687,6 +10697,7 @@ exports.BattleLearnsets = {
             uproar: ["4T", "5T"],
             whirlpool: ["4M"],
             poweruppunch: ["6M"],
+            rockit: ["6M"],
             confide: ["6M"]
         }
     },
@@ -12388,6 +12399,7 @@ exports.BattleLearnsets = {
             discharge: ["4L37", "5L44", "4S1", "6L36"],
             doubleteam: ["4M", "5M", "6M"],
             earthquake: ["4M", "5M", "4S0", "6M"],
+            electricterrain: ["6M"],
             electroball: ["5L32", "6L22"],
             endure: ["4M"],
             facade: ["4M", "5M", "6M"],
@@ -12450,6 +12462,8 @@ exports.BattleLearnsets = {
             electricterrain: ["6L1", "6L65"],
             iondeluge: ["6L1"],
             poweruppunch: ["6M"],
+            sparklerburns: ["6M"],
+            jolt: ["6M"],
             confide: ["6M"]
         }
     },
@@ -12669,6 +12683,10 @@ exports.BattleLearnsets = {
             covet: ["5T"],
             dualchop: ["5T"],
             poweruppunch: ["6M"],
+            fireworks: ["6M"],
+            shadowgrenades: ["6M"],
+            flare: ["6M"],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -13203,6 +13221,8 @@ exports.BattleLearnsets = {
             covet: ["5T"],
             hypervoice: ["5T"],
             confide: ["6M"],
+            jolt: ["6M"],
+            electricterrain: ["6M"],
             celebrate: ["6S1"]
         }
     },
@@ -13272,6 +13292,9 @@ exports.BattleLearnsets = {
             hypervoice: ["5T"],
             flareblitz: ["6L45"],
             confide: ["6M"],
+            thunderfang: ["6M"],
+            closecombat: ["6M"],
+            fieryterrain: ["6M"],
             celebrate: ["6S1"]
         }
     },
@@ -13419,6 +13442,8 @@ exports.BattleLearnsets = {
             hypervoice: ["5T"],
             wonderroom: ["5T"],
             confide: ["6M"],
+            foulplay: ["6M"],
+            scapegoat: ["6M"],
             celebrate: ["6S2"]
         }
     },
@@ -13487,6 +13512,8 @@ exports.BattleLearnsets = {
             hypervoice: ["5T"],
             naturepower: ["6M"],
             confide: ["6M"],
+            skewer: ["6M"],
+            grassyterrain: ["6M"],
             celebrate: ["6S1"]
         }
     },
@@ -13550,6 +13577,12 @@ exports.BattleLearnsets = {
             covet: ["5T"],
             hypervoice: ["5T"],
             confide: ["6M"],
+            glaciate: ["6M"],
+            freezedry: ["6M"],
+            dazzlinggleam: ["6M"],
+            waterpulse: ["6M"],
+            slushyterrain: ["6M"],
+            haze: ["6M"],
             celebrate: ["6S1"]
         }
     },
@@ -14911,6 +14944,7 @@ exports.BattleLearnsets = {
             magicroom: ["5T"],
             wonderroom: ["5T"],
             poweruppunch: ["6M"],
+            psyspike: ["6M"],
             confide: ["6M"]
         }
     },
@@ -15334,6 +15368,7 @@ exports.BattleLearnsets = {
             worryseed: ["4T", "5T"],
             petalblizzard: ["6L1", "6L70"],
             naturepower: ["6M"],
+            glitter: ["6M"],
             confide: ["6M"]
         }
     },
@@ -15543,6 +15578,9 @@ exports.BattleLearnsets = {
             covet: ["5T"],
             naturepower: ["6M"],
             poweruppunch: ["6M"],
+            fireworks: ["6M"],
+            flare: ["6M"],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -15813,6 +15851,7 @@ exports.BattleLearnsets = {
             whirlpool: ["4M"],
             block: ["5T"],
             poweruppunch: ["6M"],
+            dragonfang: ["6M"],
             confide: ["6M"]
         }
     },
@@ -17237,6 +17276,8 @@ exports.BattleLearnsets = {
     },
     azurill: {
         learnset: {
+            aquajet: ["6M"],
+            aquatail: ["6M"],
             attract: ["3M", "4M", "5M", "6M"],
             blizzard: ["3M", "4M", "5M", "6M"],
             bodyslam: ["3T", "4E", "5E", "6E"],
@@ -17298,6 +17339,10 @@ exports.BattleLearnsets = {
             covet: ["5T"],
             hypervoice: ["5T"],
             confide: ["6M"],
+            dragontail: ["6M"],
+            tailslap: ["6M"],
+            poisontail: ["6M"],
+            bellydrum: ["6M"],
             copycat: ["6E"]
         }
     },
@@ -19685,6 +19730,8 @@ exports.BattleLearnsets = {
             bulletseed: ["6L1"],
             pinmissile: ["6L31"],
             confide: ["6M"],
+            skewer: ["6M"],
+            machineburst: ["6M"],
             rockblast: ["6E"]
         }
     },
@@ -21105,6 +21152,8 @@ exports.BattleLearnsets = {
             uproar: ["4T", "5T"],
             willowisp: ["4M", "5M", "6M"],
             hypervoice: ["5T"],
+            flare: ["6M"],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -21578,6 +21627,8 @@ exports.BattleLearnsets = {
             toxic: ["3M", "4M", "5M", "6M"],
             willowisp: ["4M", "5M", "6M"],
             sacredfire: ["6L1"],
+            flare: ["6M"],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -24396,6 +24447,9 @@ exports.BattleLearnsets = {
             moonblast: ["6L1", "6L85"],
             mistyterrain: ["6L1"],
             dazzlinggleam: ["6M"],
+            cast: ["6M"],
+            glitter: ["6M"],
+            mistyterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -24504,6 +24558,8 @@ exports.BattleLearnsets = {
             wonderroom: ["5T"],
             poweruppunch: ["6M"],
             dazzlinggleam: ["6M"],
+            psyspike: ["6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -26435,6 +26491,8 @@ exports.BattleLearnsets = {
             waterpulse: ["3M", "4M"],
             whirlpool: ["4M"],
             poweruppunch: ["6M"],
+            machineburst: ["6M"],
+            rockit: ["6M"],
             confide: ["6M"]
         }
     },
@@ -27565,6 +27623,8 @@ exports.BattleLearnsets = {
             waterpulse: ["3M", "4M"],
             whirlpool: ["4M"],
             zenheadbutt: ["4T", "5T"],
+            dragonfang: ["6M"],
+            scapegoat: ["6M"],
             confide: ["6M"]
         }
     },
@@ -30892,6 +30952,7 @@ exports.BattleLearnsets = {
             zenheadbutt: ["4E", "4T", "5E", "5T", "6E"],
             foulplay: ["5T"],
             confide: ["6M"],
+            scapegoat: ["6M"],
             playrough: ["6E"]
         }
     },
@@ -31963,6 +32024,9 @@ exports.BattleLearnsets = {
             trick: ["4T", "5T"],
             zenheadbutt: ["4L62", "4T", "5L62", "4S0", "5T", "5S2", "5S3", "6L29"],
             poweruppunch: ["6M"],
+            machineburst: ["6M"],
+            psyspike: ["6M"],
+            sparklerburns: ["6M"],
             confide: ["6M"]
         }
     },
@@ -33726,6 +33790,9 @@ exports.BattleLearnsets = {
             whirlwind: ["4L23", "5L23", "6L23"],
             wingattack: ["4L1", "4L9", "5L1", "5L9", "6L1", "6L9"],
             workup: ["5M"],
+            boomerang: ["6M"],
+            swoopingdive: ["6M"],
+            plummet: ["6M"],
             confide: ["6M"]
         }
     },
@@ -34083,6 +34150,7 @@ exports.BattleLearnsets = {
             crunch: ["4L35", "4L42", "5L42", "6L42"],
             discharge: ["4L56", "5L56", "6L56"],
             doubleteam: ["4M", "5M", "6M"],
+            electricterrain: ["6M"],
             endure: ["4M"],
             facade: ["4M", "5M", "6M"],
             flash: ["4M", "5M", "6M"],
@@ -34127,6 +34195,9 @@ exports.BattleLearnsets = {
             voltswitch: ["5M", "6M"],
             wildcharge: ["5M", "5L63", "6L63", "6M"],
             electricterrain: ["6L1", "6L67"],
+            dragonfang: ["6M"],
+            sparklerburns: ["6M"],
+            scapegoat: ["6M"],
             confide: ["6M"]
         }
     },
@@ -36518,6 +36589,8 @@ exports.BattleLearnsets = {
             zenheadbutt: ["4T", "5T"],
             dualchop: ["5T"],
             poweruppunch: ["6L15", "6M"],
+            machineburst: ["6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -36790,6 +36863,11 @@ exports.BattleLearnsets = {
             xscissor: ["4M", "5M", "6M"],
             fellstinger: ["6L53"],
             infestation: ["6M"],
+            skewer: ["6M"],
+            venommortar: ["6M"],
+            shadowgrenades: ["6M"],
+            scapegoat: ["6M"],
+            marshyterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -38574,6 +38652,7 @@ exports.BattleLearnsets = {
             foulplay: ["5T"],
             wonderroom: ["5T"],
             poweruppunch: ["6M"],
+            eternalhaunting: ["6M"],
             confide: ["6M"]
         }
     },
@@ -39103,6 +39182,9 @@ exports.BattleLearnsets = {
             snatch: ["5T"],
             sleeptalk: ["5T", "6M"],
             naturepower: ["6M"],
+            tangle: ["6M"],
+            skewer: ["6M"],
+            dragonpulse: ["6M"],
             confide: ["6M"]
         }
     },
@@ -39502,6 +39584,8 @@ exports.BattleLearnsets = {
             knockoff: ["5T"],
             helpinghand: ["5T"],
             sleeptalk: ["5T", "6M"],
+            skewer: ["6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -44257,6 +44341,7 @@ exports.BattleLearnsets = {
             sleeptalk: ["5T", "6M"],
             infestation: ["6M"],
             poweruppunch: ["6M"],
+            cast: ["6M"],
             confide: ["6M"]
         }
     },
@@ -45904,6 +45989,7 @@ exports.BattleLearnsets = {
             spite: ["5T"],
             trick: ["5T"],
             sleeptalk: ["5T", "6M"],
+            flare: ["6M"],
             confide: ["6M"]
         }
     },
@@ -47585,6 +47671,7 @@ exports.BattleLearnsets = {
             spite: ["5T"],
             sleeptalk: ["5T", "6M"],
             steelwing: ["6M"],
+            shadowgrenades: ["6M"],
             confide: ["6M"]
         }
     },
@@ -48478,6 +48565,8 @@ exports.BattleLearnsets = {
             snore: ["5T"],
             endeavor: ["5T"],
             sleeptalk: ["5T", "6M"],
+            skewer: ["6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -48854,6 +48943,7 @@ exports.BattleLearnsets = {
             cut: ["6M"],
             strength: ["6M"],
             frenzyplant: ["6T"],
+            royalterrain: ["6M"],
             grasspledge: ["6T"]
         }
     },
@@ -49738,6 +49828,7 @@ exports.BattleLearnsets = {
             substitute: ["6M"],
             naturepower: ["6M"],
             dazzlinggleam: ["6M"],
+            glitter: ["6M"],
             confide: ["6M"]
         }
     },
@@ -51446,6 +51537,9 @@ exports.BattleLearnsets = {
             mefirst: ["6E"],
             allyswitch: ["6E"],
             agility: ["6E"],
+            swoopingdive: ["6M"],
+            boomerang: ["6M"],
+            plummet: ["6M"],
             mudsport: ["6E"]
         }
     },
@@ -51545,6 +51639,8 @@ exports.BattleLearnsets = {
             trickroom: ["6M"],
             naturepower: ["6M"],
             dazzlinggleam: ["6M"],
+            quake: ["6M"],
+            glitter: ["6M"],
             confide: ["6M"]
         }
     },
@@ -51848,6 +51944,8 @@ exports.BattleLearnsets = {
             poweruppunch: ["6M"],
             confide: ["6M"],
             cut: ["6M"],
+            tangle: ["6M"],
+            eternalhaunting: ["6M"],
             strength: ["6M"]
         }
     },
