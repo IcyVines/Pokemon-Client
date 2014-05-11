@@ -2281,20 +2281,15 @@ exports.BattleAbilities = {
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
 			if(attacker.volatiles['permeate']){
-				this.add('-message', attacker.name + ' isn\'t phased ')
+				this.add('-message', attacker.name + ' isn\'t phased.')
 				return this.chainModify(1.5);
 			}
 		},
-		onAccuracyPriority: 10,
-		onAccuracy: function(accuracy, target, source, move){
-			if(source.volatiles['permeate']){
-				return accuracy * 0.9;
+		onModifyMove: function(move, user, target) {
+			if (user.removeVolatile('permeate')){
+				this.debug('Permeate - decreasing accuracy');
+				move.accuracy = move.accuracy * 0.9;
 			}
-		},
-		onResidualOrder: 26,
-		onResidualSubOrder: 1,
-		onResidual: function(pokemon) {
-			pokemon.removeVolatile('permeate');
 		},
 		id: "permeate",
 		name: "Permeate",
@@ -2559,12 +2554,15 @@ exports.BattleAbilities = {
 		desc: "Multi-hit moves have priority but lose 10% accuracy.",
 		shortDesc: "Multi-hit moves have priority but lose accuracy.",
 		onModifyPriority: function(priority, pokemon, target, move) {
-			if (move && move.multihit) return priority + 1;
+			if (move && move.multihit) {
+				target.addVolatile('rapidfire');
+				return priority + 1;
+			}
 		},
-		onAccuracyPriority: 10,
-		onAccuracy: function(accuracy, target, source, move){
-			if(move && move.multihit){
-				return accuracy * 0.8;
+		onModifyMove: function(move, user, target) {
+			if (move && move.multihit){
+				this.debug('Rapid fire - decreasing accuracy');
+				move.accuracy = move.accuracy * 0.9;
 			}
 		},
 		id: "rapidfire",
