@@ -809,10 +809,15 @@ var Tools = {
 			};
 		}
 		if (pokemon.shiny) back += '-shiny'; // we don't have shiny sprites yet
+		var altNums = {
+			"toxeon": 9001,
+		};
+		var imagePrefix = Tools.resourcePrefix;
+		if (altNums[spriteid]) imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/";
 		return {
 			w: 96,
 			h: 96,
-			url: Tools.resourcePrefix + 'sprites/bw'+back+'/' + spriteid + '.png',
+			url: imagePrefix + 'sprites/bw'+back+'/' + spriteid + '.png',
 			cryurl: cryurl,
 			isBackSprite: isBack
 		};
@@ -880,6 +885,7 @@ var Tools = {
 			"aurumoth": 832+14,
 			"malaconda": 832+15,
 			"cawmodore": 832+16,
+			"toxeon": 9001,
 		};
 		if (altNums[id]) {
 			num = altNums[id];
@@ -894,7 +900,16 @@ var Tools = {
 		var top = 8 + Math.floor(num / 16) * 32;
 		var left = (num % 16) * 32;
 		var fainted = (pokemon && pokemon.fainted?';opacity:.4':'');
-		return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/bwicons-sheet-g6.png?v0.9xyb1) no-repeat scroll -' + left + 'px -' + top + 'px' + fainted;
+		var imagePrefix = Tools.resourcePrefix;
+		var imageSuffix = "bwicons-sheet-g6.png?v0.9xyb1";
+		if (num > 9000){
+			//console.log(pokemon.num)
+			imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/";
+			imageSuffix = toId(pokemon.species) + '.png';
+			left = 0;
+			top = 0;
+		}
+		return 'background:transparent url(' + imagePrefix + 'sprites/' + imageSuffix + ') no-repeat scroll -' + left + 'px -' + top + 'px' + fainted;
 	},
 
 	getTeambuilderSprite: function(pokemon) {
@@ -909,11 +924,16 @@ var Tools = {
 				id = toId(pokemon.species);
 			}
 		}
+		var altNums = {
+			"toxeon": 9001,
+		};
 		var shiny = (pokemon.shiny?'-shiny':'');
+		var imagePrefix = Tools.resourcePrefix;
+		if (altNums[id]) imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/";
 		if (BattlePokemonSprites && BattlePokemonSprites[id] && BattlePokemonSprites[id].front && BattlePokemonSprites[id].front.anif && pokemon.gender === 'F') {
 			id+='-f';
 		}
-		return 'background-image:url(' + Tools.resourcePrefix + 'sprites/bw'+shiny+'/'+id+'.png)';
+		return 'background-image:url(' + imagePrefix + 'sprites/bw'+shiny+'/'+id+'.png)';
 	},
 
 	getItemIcon: function(item) {

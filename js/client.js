@@ -349,8 +349,8 @@
 				// Handle *.psim.us.
 				return this.initializeCrossDomainConnection();
 			} else if (Config.testclient) {
-				this.initializeTestClient();
-
+				//this.initializeTestClient();
+				return this.initializeCrossDomainConnection();
 			} else if (document.location.protocol === 'https:') {
 				if (!$.cookie('showdown_ssl')) {
 					// Never used HTTPS before, so we have to copy over the

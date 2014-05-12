@@ -6792,7 +6792,7 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Torrent",
-            1: "Aqua Veil",
+            1: "Water Veil",
             H: "Dry Skin"
         },
         heightm: 1.5,
@@ -19764,5 +19764,29 @@ exports.BattlePokedex = {
         weightkg: 75.5,
         color: "",
         eggGroups: ["Human-Like", "Ground"]
+    },
+    toxeon: {
+        num: -62,
+        species: "Toxeon",
+        types: ["Poison"],
+        baseStats: {
+            hp: 70,
+            atk: 80,
+            def: 70,
+            spa: 125,
+            spd: 90,
+            spe: 120
+        },
+        abilities: {
+            0: "Acidic",
+            1: "Liquid Ooze",
+            H: "Stench"
+        },
+        heightm: 0.8,
+        weightkg: 22,
+        color: "Purple",
+        prevo: "eevee",
+        evoLevel: 1,
+        eggGroups: ["Field"]
     }
 };

@@ -1260,6 +1260,19 @@ exports.BattleLearnsets = {
             wrap: []
         }
     },
+    toxeon: {
+        learnset: {
+            acidspray: ["6M"],
+            belch: ["6M"],
+            gunkshot: ["6M"],
+            poisontail: ["6M"],
+            sludgebomb: ["6M"],
+            sludgewave: ["6M"],
+            uturn: ["6M"],
+            venomdrench: ["6M"],
+            venoshock: ["6M"]
+        }
+    },
     bulbasaur: {
         learnset: {
             amnesia: ["6E"],

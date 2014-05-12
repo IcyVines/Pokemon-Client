@@ -3169,6 +3169,18 @@ exports.BattleAbilities = {
 		rating: 1,
 		num: 60
 	},
+	"stormcenter": {
+		desc: "When this Pokemon enters the battlefield, the weather becomes Rain Dance for 8 turns.",
+		shortDesc: "On switch-in, the weather becomes Rain Dance.",
+		onStart: function(source) {
+			this.setWeather('raindance');
+			this.weatherData.duration = 8;
+		},
+		id: "stormcenter",
+		name: "Storm Center",
+		rating: 5,
+		num: 2
+	},
 	"stormdrain": {
 		desc: "During double battles, this Pokemon draws any single-target Water-type attack to itself. If an opponent uses an Water-type attack that affects multiple Pokemon, those targets will be hit. This ability does not affect Water Hidden Power, Judgment or Weather Ball. The user is immune to Water and its Special Attack is increased one stage when hit by one.",
 		shortDesc: "This Pokemon draws Water moves to itself to boost Sp. Atk by 1; Water immunity.",

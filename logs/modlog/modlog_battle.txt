@@ -15,3 +15,4 @@
 [2014-05-05T23:43:40.757Z] (battle-customgame-729) IcyVines forced a tie.
 [2014-05-06T00:28:00.682Z] (battle-customgame-771) IcyVines forced a tie.
 [2014-05-06T22:37:28.572Z] (battle-customgame-881) IcyVines forced a tie.
+[2014-05-12T00:32:50.863Z] (battle-ou-1288) Brendan0207 forced a tie.

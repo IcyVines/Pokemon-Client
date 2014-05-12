@@ -4558,5 +4558,10 @@ exports.BattleFormatsData = {
 		viableMoves: {"aurasphere":1,"darkpulse":1,"taunt":1,"painsplit":1,"substitute":1,"hiddenpowerice":1,"vacuumwave":1},
 		isNonstandard: true,
 		tier: "CAP"
+	},
+	toxeon: {
+		inherit: true,
+		viabelMoves: {"sludgebomb":1,"venomdrench":1,"sludgewave":1,"venoshock":1,"toxic":1,"hiddenpowerfire":1,"hiddenpowerice":1,"hiddenpowerwater":1,"shadowball":1,"synchronoise":1},
+		tier: "OU"
 	}
 };
