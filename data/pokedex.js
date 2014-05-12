@@ -12318,7 +12318,7 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Snow Cloak",
-            1: "Ice Body",
+            1: "Terraformer",
             H: "Snow Warning"
         },
         heightm: 0.8,
