@@ -1752,6 +1752,7 @@ exports.BattleLearnsets = {
             willowisp: ["6M"],
             wingattack: ["6L036"],
             poweruppunch: ["6M"],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -6801,6 +6802,7 @@ exports.BattleLearnsets = {
             dualchop: [],
             knockoff: [],
             poweruppunch: ["6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -7368,6 +7370,8 @@ exports.BattleLearnsets = {
             irondefense: [],
             naturepower: ["6M"],
             poweruppunch: ["6M"],
+            rockit: ["6M"],
+            rapidspin: ["6M"],
             confide: ["6M"]
         }
     },
@@ -12460,6 +12464,7 @@ exports.BattleLearnsets = {
             electricterrain: ["6L001a", "6L065"],
             iondeluge: ["6L001b"],
             poweruppunch: ["6M"],
+            electricterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -12682,6 +12687,7 @@ exports.BattleLearnsets = {
             covet: [],
             dualchop: [],
             poweruppunch: ["6M"],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -13217,6 +13223,7 @@ exports.BattleLearnsets = {
             covet: [],
             hypervoice: [],
             confide: ["6M"],
+            electricterrain: ["6M"],
             celebrate: ["6S1"]
         }
     },
@@ -15572,6 +15579,7 @@ exports.BattleLearnsets = {
             covet: [],
             naturepower: ["6M"],
             poweruppunch: ["6M"],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -17267,7 +17275,6 @@ exports.BattleLearnsets = {
     },
     azurill: {
         learnset: {
-            aquajet: ["6M"],
             aquatail: ["6M"],
             attract: ["6M"],
             bellydrum: ["6M"],
@@ -21145,6 +21152,7 @@ exports.BattleLearnsets = {
             uproar: [],
             willowisp: ["6M"],
             hypervoice: [],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -21619,6 +21627,7 @@ exports.BattleLearnsets = {
             toxic: ["6M"],
             willowisp: ["6M"],
             sacredfire: ["6L001a"],
+            fieryterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -24548,6 +24557,7 @@ exports.BattleLearnsets = {
             wonderroom: [],
             poweruppunch: ["6M"],
             dazzlinggleam: ["6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -36577,6 +36587,7 @@ exports.BattleLearnsets = {
             zenheadbutt: [],
             dualchop: [],
             poweruppunch: ["6L015", "6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -36853,6 +36864,7 @@ exports.BattleLearnsets = {
             xscissor: ["6M"],
             fellstinger: ["6L053"],
             infestation: ["6M"],
+            marshyterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -39570,6 +39582,7 @@ exports.BattleLearnsets = {
             knockoff: [],
             helpinghand: [],
             sleeptalk: ["6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -48550,6 +48563,7 @@ exports.BattleLearnsets = {
             snore: [],
             endeavor: [],
             sleeptalk: ["6M"],
+            royalterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -48926,6 +48940,7 @@ exports.BattleLearnsets = {
             cut: ["6M"],
             strength: ["6M"],
             frenzyplant: ["6T"],
+            royalterrain: ["6M"],
             grasspledge: ["6T"]
         }
     },

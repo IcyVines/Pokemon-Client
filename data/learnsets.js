@@ -2094,7 +2094,6 @@ exports.BattleLearnsets = {
             flutter: ["6M"],
             dazzlinggleam: ["6M"],
             psyshock: ["6M"],
-            mistyterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -7371,6 +7370,8 @@ exports.BattleLearnsets = {
             irondefense: ["5T"],
             naturepower: ["6M"],
             poweruppunch: ["6M"],
+            rapidspin: ["6M"],
+            rockit: ["6M"],
             confide: ["6M"]
         }
     },
@@ -17276,7 +17277,6 @@ exports.BattleLearnsets = {
     },
     azurill: {
         learnset: {
-            aquajet: ["6M"],
             aquatail: ["6M"],
             attract: ["3M", "4M", "5M", "6M"],
             blizzard: ["3M", "4M", "5M", "6M"],
@@ -24450,7 +24450,6 @@ exports.BattleLearnsets = {
             dazzlinggleam: ["6M"],
             cast: ["6M"],
             glitter: ["6M"],
-            mistyterrain: ["6M"],
             confide: ["6M"]
         }
     },
@@ -34151,7 +34150,6 @@ exports.BattleLearnsets = {
             crunch: ["4L35", "4L42", "5L42", "6L42"],
             discharge: ["4L56", "5L56", "6L56"],
             doubleteam: ["4M", "5M", "6M"],
-            electricterrain: ["6M"],
             endure: ["4M"],
             facade: ["4M", "5M", "6M"],
             flash: ["4M", "5M", "6M"],

@@ -7703,10 +7703,10 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 90,
             atk: 40,
-            def: 80,
+            def: 75,
             spa: 50,
-            spd: 80,
-            spe: 100
+            spd: 75,
+            spe: 95
         },
         abilities: {
             0: "Thick Fat",
