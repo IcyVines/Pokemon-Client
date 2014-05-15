@@ -1263,13 +1263,19 @@ exports.BattleLearnsets = {
     toxeon: {
         learnset: {
             acidspray: ["6M"],
-            belch: ["6M"],
+            blight: ["6M"],
+            clearsmog: ["6M"],
             gunkshot: ["6M"],
+            poisonjab: ["6M"],
             poisontail: ["6M"],
+            signalbeam: ["6M"],
+            sludge: ["6M"],
             sludgebomb: ["6M"],
             sludgewave: ["6M"],
+            toxicspikes: ["6M"],
             uturn: ["6M"],
             venomdrench: ["6M"],
+            venommortar: ["6M"],
             venoshock: ["6M"]
         }
     },
@@ -36601,6 +36607,9 @@ exports.BattleLearnsets = {
             dualchop: [],
             poweruppunch: ["6L015", "6M"],
             royalterrain: ["6M"],
+            dracometeor: ["6M"],
+            dragondance: ["6M"],
+            dragonclaw: ["6M"],
             confide: ["6M"]
         }
     },

@@ -318,14 +318,14 @@ exports.BattleAbilities = {
 		shortDesc: "When this Pokemon has 1/3 or less of its max HP, its Fire attacks do 1.5x damage.",
 		onModifyAtkPriority: 5,
 		onModifyAtk: function(atk, attacker, defender, move) {
-			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp/3) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA: function(atk, attacker, defender, move) {
-			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp/3) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Blaze boost');
 				return this.chainModify(1.5);
 			}
@@ -407,6 +407,24 @@ exports.BattleAbilities = {
 							k = stats[this.random(stats.length)];
 							boost[k] = 1;
 							this.boost(boost);
+						}
+						if(Math.random()*200 < 1){
+							stats = [];
+							boost = {};
+							var x = '';
+							for (var x in pokemon.boosts) {
+								if (pokemon.boosts[x] < 6 && !(x in {accuracy:1, evasion:1})) {
+									stats.push(x);
+								}
+							}
+							if (stats.length) {
+								this.add('-message', 'Armageddon is upon thee.');
+								for (var y = 0; y < stats.length; y++){
+									x = stats[y];
+									boost[x] = 1;
+								}
+								this.boost(boost);
+							}
 						}
 					}
 				}
@@ -1157,11 +1175,83 @@ exports.BattleAbilities = {
 		num: 119
 	},
 	"frostbite": {
-		desc: "All physical attacks have an added 10% chance to freeze the opposing Pokemon.",
-		shortDesc: "Physical attacks have an added 10% chance to freeze.",
-		//functions
+		desc: "All contact, non Fire-type, attacks have an added 10% chance to freeze the opposing Pokemon.",
+		shortDesc: "Contact attacks have an added 10% chance to freeze.",
+		onModifyMove: function(move) {
+			if (!move || !move.isContact || move.type === 'Fire') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 10,
+				status: 'frz'
+			});
+		},
 		id: "frostbite",
 		name: "Frostbite",
+		rating: 3,
+		num: -6
+	},
+	"fuckingannoying": {
+		desc: "It's just what it is...",
+		shortDesc: "Really fucking annoying...",
+		onStart: function(pokemon) {
+			var target = pokemon.side.foe.active[pokemon.side.foe.active.length-1-pokemon.position];
+			var atk = target.getStat('atk', false, true);
+			var spa = target.getStat('spa', false, true);
+			var def = target.getStat('def', false, true);
+			var spd = target.getStat('spd', false, true);
+			var spe = target.getStat('spe', false, true);
+			if (target.baseTemplate.species === 'Gliscor'){
+				var toxic = false, protect = false, sub = false;
+				for(var i = 0; i < target.moveset.length; i++){
+					var move = this.getMove(target.moveset[i].move);
+					if(move.name === "Toxic") toxic = true;
+					if(move.name === "Protect") protect = true;
+					if(move.name === "Substitute") sub = true;
+				}
+				if(toxic && substitute && protect){
+					this.add('-message', "Yea. Fuck you.");
+					this.damage(target.maxhp, target, pokemon);
+				}
+			} else if (target.baseTemplate.species === 'Gliscor'){
+				var par = false, airslash = false;
+				for(var i = 0; i < target.moveset.length; i++){
+					var move = this.getMove(target.moveset[i].move);
+					if(move.name === "Thunder Wave") par = true;
+					if(move.name === "Air Slash") airslash = true;
+				}
+				if(par && airslash){
+					this.add('-message', "Yea. Fuck you.");
+					this.damage(target.maxhp, target, pokemon);
+				}
+			} 
+			if (atk >= spa) {
+				if (atk > def && atk > spd) {
+					if (atk > spe) {
+						target.setStatus('brn');
+					} else {
+						target.setStatus('par');
+					}
+				} else if (def > spe || spd > spe) {
+					target.setStatus('tox');
+				} else {
+					target.setStatus('par');
+				}
+			} else if (spa > def && spa > spd) {
+				if (spa > spe) {
+					target.setStatus('tox');
+				} else {
+					target.setStatus('par');
+				}
+			} else if (def > spe || spd > spe) {
+				target.setStatus('tox');
+			} else {
+				target.setStatus('par');
+			}
+		},
+		id: "fuckingannoying",
+		name: "Fucking Annoying",
 		rating: 3,
 		num: -6
 	},
@@ -1644,7 +1734,7 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon's Attack is boosted by 1 after it is damaged by a Dark-type attack.",
 		onAfterDamage: function(damage, target, source, effect) {
 			if (effect && effect.type === 'Dark') {
-				this.boost({atk:1});
+				this.boost({atk:1,spa:1});
 			}
 		},
 		id: "justified",
@@ -1687,8 +1777,8 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon can survive a fatal hit.",
 		onDamage: function(damage, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && damage >= target.hp) {
-				if(Math.random()*100 < 25){
-					this.boost({atk:1, spa:1});
+				if(Math.random()*100 < 33){
+					this.boost({atk:1, spa:1, spe:-1});
 					this.debug('Last Stand Boost');
 					return target.hp - 1;
 				}
@@ -1798,7 +1888,7 @@ exports.BattleAbilities = {
 			this.debug("Heal is occurring: "+target+" <- "+source+" :: "+effect.id);
 			var canOoze = {drain: 1, leechseed: 1};
 			if (canOoze[effect.id]) {
-				this.damage(damage);
+				this.damage(damage*2);
 				return 0;
 			}
 		},
@@ -2203,14 +2293,14 @@ exports.BattleAbilities = {
 		shortDesc: "When this Pokemon has 1/3 or less of its max HP, its Grass attacks do 1.5x damage.",
 		onModifyAtkPriority: 5,
 		onModifyAtk: function(atk, attacker, defender, move) {
-			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp/3) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Overgrow boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA: function(atk, attacker, defender, move) {
-			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp/3) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Overgrow boost');
 				return this.chainModify(1.5);
 			}
@@ -2240,9 +2330,20 @@ exports.BattleAbilities = {
 		num: 20
 	},
 	"passiveaggressive": {
-		desc: "Effect chance 2.5x, but damage is 0.66x.",
-		shortDesc: "Effect chance 2.5x, but damage is 0.66x.",
-		//functions
+		desc: "Effect chance 2.5x, but damage is 0.5x.",
+		shortDesc: "Effect chance 2.5x, but damage is 0.5x.",
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			return this.chainModify(0.5);
+		},
+		onModifyMove: function(move, pokemon, target) {
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (var i=0; i<move.secondaries.length; i++) {
+					move.secondaries[i].chance *= 2.5;
+				}
+			}
+		},
 		id: "passiveaggressive",
 		name: "Passive Aggressive",
 		rating: 3,
@@ -2531,7 +2632,18 @@ exports.BattleAbilities = {
 	"quicksand": {
 		desc: "Attacks by this Pokemon have a 50% chance to lower opposing Pokemon's Speed by one stage.",
 		shortDesc: "Attacks have a 50% chance to lower foe's speed.",
-		//functions
+		onModifyMove: function(move, user, target) {
+			if (!move || !((move.type === 'Rock') || (move.type === 'Ground'))) return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 50,
+				boosts: {
+					spd: -1
+				}
+			});
+		},
 		id: "quicksand",
 		name: "Quick Sand",
 		rating: 3,
@@ -2589,7 +2701,7 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon gets +1 Speed if hit by a Dark-, Bug-, or Ghost-type attack.",
 		onAfterDamage: function(damage, target, source, effect) {
 			if (effect && (effect.type === 'Dark' || effect.type === 'Bug' || effect.type === 'Ghost')) {
-				this.boost({spe:1});
+				this.boost({spe:3, atk:1, spa:1});
 			}
 		},
 		id: "rattled",
@@ -2985,6 +3097,9 @@ exports.BattleAbilities = {
 				return this.chainModify(1.5);
 			}
 		},
+		onModifyMove: function(move) {
+			if(Math.random()*100 < 50) move.critRatio++;
+		},
 		id: "sniper",
 		name: "Sniper",
 		rating: 1,
@@ -3031,7 +3146,7 @@ exports.BattleAbilities = {
 		},
 		onWeather: function(target, source, effect) {
 			if (effect.id === 'sunnyday') {
-				this.damage(target.maxhp/8);
+				this.damage(target.maxhp/12);
 			}
 		},
 		id: "solarpower",
@@ -3130,7 +3245,7 @@ exports.BattleAbilities = {
 		desc: "If this Pokemon flinches, its Speed increases by one stage.",
 		shortDesc: "If this Pokemon flinches, its Speed is boosted by 1.",
 		onFlinch: function(pokemon) {
-			this.boost({spe: 1});
+			this.boost({spe: 2});
 		},
 		id: "steadfast",
 		name: "Steadfast",
@@ -3148,7 +3263,7 @@ exports.BattleAbilities = {
 					if (move.secondaries[i].volatileStatus === 'flinch') return;
 				}
 				move.secondaries.push({
-					chance: 10,
+					chance: 20,
 					volatileStatus: 'flinch'
 				});
 			}
@@ -3256,11 +3371,11 @@ exports.BattleAbilities = {
 		desc: "This Pokemon's critical hit ratio is boosted by 1.",
 		shortDesc: "This Pokemon's critical hit ratio is boosted by 1.",
 		onModifyMove: function(move) {
-			move.critRatio++;
+			move.critRatio+=2;
 		},
 		id: "superluck",
 		name: "Super Luck",
-		rating: 1,
+		rating: 2,
 		num: 105
 	},
 	"swarm": {
@@ -3268,14 +3383,14 @@ exports.BattleAbilities = {
 		shortDesc: "When this Pokemon has 1/3 or less of its max HP, its Bug attacks do 1.5x damage.",
 		onModifyAtkPriority: 5,
 		onModifyAtk: function(atk, attacker, defender, move) {
-			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp/3) {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA: function(atk, attacker, defender, move) {
-			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp/3) {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Swarm boost');
 				return this.chainModify(1.5);
 			}
@@ -3516,7 +3631,7 @@ exports.BattleAbilities = {
 		},
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
-			var power = 0.66;
+			var power = 0.67;
 			if(attacker.volatiles['tidal']){
 				power = 1.5;
 			} else {
@@ -3550,14 +3665,14 @@ exports.BattleAbilities = {
 		shortDesc: "When this Pokemon has 1/3 or less of its max HP, its Water attacks do 1.5x damage.",
 		onModifyAtkPriority: 5,
 		onModifyAtk: function(atk, attacker, defender, move) {
-			if (move.type === 'Water' && attacker.hp <= attacker.maxhp/3) {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Torrent boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA: function(atk, attacker, defender, move) {
-			if (move.type === 'Water' && attacker.hp <= attacker.maxhp/3) {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Torrent boost');
 				return this.chainModify(1.5);
 			}
@@ -3792,12 +3907,12 @@ exports.BattleAbilities = {
 		desc: "This Pokemon cannot fall asleep (Rest will fail if it tries to use it). Gaining this Ability while asleep cures it.",
 		shortDesc: "This Pokemon cannot fall asleep. Gaining this Ability while asleep cures it.",
 		onUpdate: function(pokemon) {
-			if (pokemon.status === 'slp') {
+			if (pokemon.status === 'slp' || pokemon.status === 'par') {
 				pokemon.cureStatus();
 			}
 		},
 		onImmunity: function(type) {
-			if (type === 'slp') return false;
+			if (type === 'slp' || type === 'par') return false;
 		},
 		id: "vitalspirit",
 		name: "Vital Spirit",
