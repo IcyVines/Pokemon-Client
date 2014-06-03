@@ -2589,6 +2589,8 @@ var Battle = (function() {
 				default:
 					if (effect.effectType === 'Move') {
 						this.add(msg, target, i, boost[i]);
+					} else if (effect.fullname == 'lockedmove'){
+						this.add(msg, target, i, boost[i], '[from] ' + 'thrashing about');
 					} else {
 						this.add(msg, target, i, boost[i], '[from] '+effect.fullname);
 					}

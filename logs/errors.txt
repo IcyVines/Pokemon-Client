@@ -6032,3 +6032,475 @@ Log:
 |-boost|p2a: Butterfree|spd|1|[from] ability: Butterfly Effect
 |turn|2
 |
+
+ReferenceError: substitute is not defined
+    at Tools.exports.BattleAbilities.fuckingannoying.onStart (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:1213:17)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1845:37)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3332:10)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3415:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3493:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3475:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3819:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+
+Additional information:
+message = battle-customgame-1376|choose|p2|team 1|1
+currentRequest = teampreview
+
+Log:
+|player|p1|Brendan0207|102
+|player|p2|IcyVines|8
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Lucario, M
+|poke|p1|Chandelure, M, shiny
+|poke|p1|Carbink
+|poke|p1|Toxeon, M
+|poke|p1|Trevenant, F, shiny
+|poke|p1|Rotom-Wash, shiny
+|poke|p2|Gliscor, F, shiny
+|poke|p2|Togekiss, M
+|poke|p2|Gliscor, F, shiny
+|poke|p2|Togekiss, M
+|poke|p2|Aegislash, F
+|poke|p2|Alakazam, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Greed|Carbink|324/324
+|switch|p1a: Greed|Carbink|324/324
+|switch|p1a: Greed|Carbink|324/324
+|switch|p1a: Greed|Carbink|324/324
+|split
+|switch|p2a: Gliscor|Gliscor, F, shiny|291/291
+|switch|p2a: Gliscor|Gliscor, F, shiny|291/291
+|switch|p2a: Gliscor|Gliscor, F, shiny|291/291
+|switch|p2a: Gliscor|Gliscor, F, shiny|291/291
+
+TypeError: Object p1a: Gliscor has no method 'getMove'
+    at Tools.exports.BattleAbilities.fuckingannoying.onStart (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:1208:24)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1845:37)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3332:10)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3415:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3493:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3475:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3819:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+
+Additional information:
+message = battle-customgame-1387|choose|p1|team 1|1
+currentRequest = teampreview
+
+Log:
+|player|p1|IcyVines|2
+|player|p2|kasdfasd|265
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Gliscor, M, shiny
+|poke|p1|Gliscor, M
+|poke|p1|Togekiss, F
+|poke|p1|Togekiss, M
+|poke|p1|Machamp, M
+|poke|p1|Aegislash, M
+|poke|p2|Butterfree, M
+|poke|p2|Azurill, M
+|teampreview
+|
+|start
+|split
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|split
+|switch|p2a: Butterfree|Butterfree, M|261/261
+|switch|p2a: Butterfree|Butterfree, M|261/261
+|switch|p2a: Butterfree|Butterfree, M|261/261
+|switch|p2a: Butterfree|Butterfree, M|261/261
+
+TypeError: Object p1a: Machamp has no method 'addVolatiles'
+    at Tools.exports.BattleAbilities.fuckingannoying.onStart (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:1238:13)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1845:37)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3332:10)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3415:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3493:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3475:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3819:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+
+Additional information:
+message = battle-customgame-1388|choose|p1|move Brick Break|8
+currentRequest = move
+
+Log:
+|player|p1|IcyVines|2
+|player|p2|kasdfasd|265
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Gliscor, M, shiny
+|poke|p1|Gliscor, F
+|poke|p1|Togekiss, M
+|poke|p1|Togekiss, M
+|poke|p1|Machamp, M
+|poke|p1|Aegislash, M
+|poke|p2|Butterfree, F
+|poke|p2|Azurill, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|split
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|-status|p1a: Gliscor|brn
+|-message|Yea. Fuck you.
+|split
+|-damage|p1a: Gliscor|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Gliscor|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Gliscor|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Gliscor|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-message|Blame yourself for being fucking annoying...
+|faint|p1a: Gliscor
+|
+|split
+|switch|p1a: Gliscor|Gliscor, F|291/291
+|switch|p1a: Gliscor|Gliscor, F|291/291
+|switch|p1a: Gliscor|Gliscor, F|291/291
+|switch|p1a: Gliscor|Gliscor, F|291/291
+|turn|1
+|
+|split
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|-status|p1a: Gliscor|tox
+|-message|Blame yourself for being fucking annoying...
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-fail|p1a: Gliscor
+|
+|split
+|-damage|p1a: Gliscor|273/291 tox|[from] psn
+|-damage|p1a: Gliscor|273/291 tox|[from] psn
+|-damage|p1a: Gliscor|273/291 tox|[from] psn
+|-damage|p1a: Gliscor|273/291 tox|[from] psn
+|turn|2
+|
+|split
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|split
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|-status|p1a: Togekiss|par
+|-message|Yea. Fuck you.
+|split
+|-damage|p1a: Togekiss|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Togekiss|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Togekiss|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Togekiss|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-message|Blame yourself for being fucking annoying...
+|faint|p1a: Togekiss
+|
+|
+|split
+|switch|p1a: Gliscor|Gliscor, F|273/291 tox
+|switch|p1a: Gliscor|Gliscor, F|273/291 tox
+|switch|p1a: Gliscor|Gliscor, F|273/291 tox
+|switch|p1a: Gliscor|Gliscor, F|273/291 tox
+|turn|3
+|
+|split
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|-message|Blame yourself for being fucking annoying...
+|split
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|
+|turn|4
+|
+|split
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|-status|p1a: Togekiss|tox
+|-message|Blame yourself for being fucking annoying...
+|split
+|switch|p1a: Machamp|Machamp, M|321/321
+|switch|p1a: Machamp|Machamp, M|321/321
+|switch|p1a: Machamp|Machamp, M|321/321
+|switch|p1a: Machamp|Machamp, M|321/321
+|
+|turn|5
+|
+|split
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+
+TypeError: Object p1a: Machamp has no method 'addVolatiles'
+    at Tools.exports.BattleAbilities.fuckingannoying.onStart (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:1238:13)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1845:37)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3332:10)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3415:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3493:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3475:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3819:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+
+Additional information:
+message = battle-customgame-1388|choose|p2|switch 2|9
+currentRequest = move
+
+Log:
+|player|p1|IcyVines|2
+|player|p2|kasdfasd|265
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Gliscor, M, shiny
+|poke|p1|Gliscor, F
+|poke|p1|Togekiss, M
+|poke|p1|Togekiss, M
+|poke|p1|Machamp, M
+|poke|p1|Aegislash, M
+|poke|p2|Butterfree, F
+|poke|p2|Azurill, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|switch|p1a: Gliscor|Gliscor, M, shiny|291/291
+|split
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|-status|p1a: Gliscor|brn
+|-message|Yea. Fuck you.
+|split
+|-damage|p1a: Gliscor|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Gliscor|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Gliscor|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Gliscor|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-message|Blame yourself for being fucking annoying...
+|faint|p1a: Gliscor
+|
+|split
+|switch|p1a: Gliscor|Gliscor, F|291/291
+|switch|p1a: Gliscor|Gliscor, F|291/291
+|switch|p1a: Gliscor|Gliscor, F|291/291
+|switch|p1a: Gliscor|Gliscor, F|291/291
+|turn|1
+|
+|split
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|-status|p1a: Gliscor|tox
+|-message|Blame yourself for being fucking annoying...
+|move|p1a: Gliscor|Protect|p1a: Gliscor
+|-fail|p1a: Gliscor
+|
+|split
+|-damage|p1a: Gliscor|273/291 tox|[from] psn
+|-damage|p1a: Gliscor|273/291 tox|[from] psn
+|-damage|p1a: Gliscor|273/291 tox|[from] psn
+|-damage|p1a: Gliscor|273/291 tox|[from] psn
+|turn|2
+|
+|split
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|split
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|-status|p1a: Togekiss|par
+|-message|Yea. Fuck you.
+|split
+|-damage|p1a: Togekiss|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Togekiss|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Togekiss|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-damage|p1a: Togekiss|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Butterfree
+|-message|Blame yourself for being fucking annoying...
+|faint|p1a: Togekiss
+|
+|
+|split
+|switch|p1a: Gliscor|Gliscor, F|273/291 tox
+|switch|p1a: Gliscor|Gliscor, F|273/291 tox
+|switch|p1a: Gliscor|Gliscor, F|273/291 tox
+|switch|p1a: Gliscor|Gliscor, F|273/291 tox
+|turn|3
+|
+|split
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|-message|Blame yourself for being fucking annoying...
+|split
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|switch|p1a: Togekiss|Togekiss, M|311/311
+|
+|turn|4
+|
+|split
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|-status|p1a: Togekiss|tox
+|-message|Blame yourself for being fucking annoying...
+|split
+|switch|p1a: Machamp|Machamp, M|321/321
+|switch|p1a: Machamp|Machamp, M|321/321
+|switch|p1a: Machamp|Machamp, M|321/321
+|switch|p1a: Machamp|Machamp, M|321/321
+|
+|turn|5
+|
+|split
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|html|<div class="broadcast-red"><b>The battle crashed</b><br />You can keep playing but it might crash again.</div>
+|
+|split
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+|switch|p2a: Butterfree|Butterfree, F|261/261
+
+ReferenceError: targer is not defined
+    at Tools.exports.BattleAbilities.fuckingannoying.onStart (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:1248:5)
+    at Tools.Battle.singleEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1845:37)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3332:10)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3415:9)
+    at Tools.Battle.commitDecisions (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3493:8)
+    at Tools.Battle.choose (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3475:9)
+    at Tools.Battle.receive (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3819:9)
+    at process.BattlePokemon.side (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:144:12)
+    at process.EventEmitter.emit (events.js:98:17)
+    at handleMessage (child_process.js:318:10)
+
+Additional information:
+message = battle-customgame-1398|choose|p2|team 2|1
+currentRequest = teampreview
+
+Log:
+|player|p1|IcyVines|266
+|player|p2|asjkdbhfasdf|102
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Gliscor, M, shiny
+|poke|p1|Gliscor, F
+|poke|p1|Togekiss, F
+|poke|p1|Togekiss, F
+|poke|p1|Machamp, F
+|poke|p1|Aegislash, M
+|poke|p2|Butterfree, F
+|poke|p2|Azurill, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Machamp|Machamp, F|321/321
+|switch|p1a: Machamp|Machamp, F|321/321
+|switch|p1a: Machamp|Machamp, F|321/321
+|switch|p1a: Machamp|Machamp, F|321/321
+|split
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|switch|p2a: Azurill|Azurill, F|321/321
+|-start|p1a: Machamp|confusion
+|debug|randBW(2,6) = 2
+|-message|Yea. Fuck you.
+|split
+|-damage|p1a: Machamp|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Azurill
+|-damage|p1a: Machamp|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Azurill
+|-damage|p1a: Machamp|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Azurill
+|-damage|p1a: Machamp|0 fnt|[from] ability: Fucking Annoying|[of] p2a: Azurill
+
+Error: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (child_process.js:476:26)
+    at /Users/IcyVines/Desktop/Pokemon-Client/simulator.js:40:39
+    at Array.forEach (native)
+    at Function.SimulatorProcess.respawn (/Users/IcyVines/Desktop/Pokemon-Client/simulator.js:38:28)
+    at Object.exports.commands.hotpatch (/Users/IcyVines/Desktop/Pokemon-Client/commands.js:1030:31)
+    at Object.exports.parse (/Users/IcyVines/Desktop/Pokemon-Client/command-parser.js:207:31)
+    at ChatRoom.chat (/Users/IcyVines/Desktop/Pokemon-Client/rooms.js:1479:27)
+    at User.chat (/Users/IcyVines/Desktop/Pokemon-Client/users.js:1254:9)
+    at Object.socketReceive (/Users/IcyVines/Desktop/Pokemon-Client/users.js:197:13)
+    at Worker.<anonymous> (/Users/IcyVines/Desktop/Pokemon-Client/sockets.js:46:11)
+
+Additional information:
+user = icyvines
+ip = 127.0.0.1
+roomid = 
+message = |/hotpatch battles
+
+Error: IPC channel is already disconnected
+    at ChildProcess.target.disconnect (child_process.js:476:26)
+    at /Users/IcyVines/Desktop/Pokemon-Client/simulator.js:40:39
+    at Array.forEach (native)
+    at Function.SimulatorProcess.respawn (/Users/IcyVines/Desktop/Pokemon-Client/simulator.js:38:28)
+    at Object.exports.commands.hotpatch (/Users/IcyVines/Desktop/Pokemon-Client/commands.js:1030:31)
+    at Object.exports.parse (/Users/IcyVines/Desktop/Pokemon-Client/command-parser.js:207:31)
+    at ChatRoom.chat (/Users/IcyVines/Desktop/Pokemon-Client/rooms.js:1479:27)
+    at User.chat (/Users/IcyVines/Desktop/Pokemon-Client/users.js:1254:9)
+    at Object.socketReceive (/Users/IcyVines/Desktop/Pokemon-Client/users.js:197:13)
+    at Worker.<anonymous> (/Users/IcyVines/Desktop/Pokemon-Client/sockets.js:46:11)
+
+Additional information:
+user = icyvines
+ip = 127.0.0.1
+roomid = 
+message = |/hotpatch battles

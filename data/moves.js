@@ -9867,7 +9867,7 @@ exports.BattleMovedex = {
 	},
 	"poisonpowder": {
 		num: 77,
-		accuracy: 75,
+		accuracy: 85,
 		basePower: 0,
 		category: "Status",
 		desc: "Poisons one adjacent target. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",
@@ -12609,7 +12609,7 @@ exports.BattleMovedex = {
 	},
 	"sleeppowder": {
 		num: 79,
-		accuracy: 75,
+		accuracy: 85,
 		basePower: 0,
 		category: "Status",
 		desc: "Puts one adjacent target to sleep. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",
@@ -13335,7 +13335,7 @@ exports.BattleMovedex = {
 	},
 	"spore": {
 		num: 147,
-		accuracy: 100,
+		accuracy: 90,
 		basePower: 0,
 		category: "Status",
 		desc: "Puts one adjacent target to sleep. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",
@@ -13655,7 +13655,7 @@ exports.BattleMovedex = {
 	},
 	"stunspore": {
 		num: 78,
-		accuracy: 75,
+		accuracy: 85,
 		basePower: 0,
 		category: "Status",
 		desc: "Paralyzes one adjacent target. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",

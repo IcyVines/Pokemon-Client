@@ -336,7 +336,7 @@ exports.BattlePokedex = {
             def: 120,
             spa: 135,
             spd: 115,
-            spe: 80
+            spe: 75
         },
         abilities: {
             0: "Mega Launcher"
@@ -465,18 +465,19 @@ exports.BattlePokedex = {
     beedrill: {
         num: 15,
         species: "Beedrill",
-        types: ["Bug", "Poison"],
+        types: ["Poison", "Steel"],
         baseStats: {
-            hp: 65,
-            atk: 90,
-            def: 40,
+            hp: 70,
+            atk: 120,
+            def: 80,
             spa: 45,
             spd: 80,
-            spe: 75
+            spe: 110
         },
         abilities: {
             0: "Swarm",
-            H: "Sniper"
+            1: "Sniper",
+            H: "Aggravation"
         },
         heightm: 1,
         weightkg: 29.5,
@@ -1200,18 +1201,19 @@ exports.BattlePokedex = {
     vileplume: {
         num: 45,
         species: "Vileplume",
-        types: ["Grass", "Poison"],
+        types: ["Poison", "Dark"],
         baseStats: {
             hp: 75,
-            atk: 80,
-            def: 85,
+            atk: 105,
+            def: 95,
             spa: 110,
-            spd: 90,
-            spe: 50
+            spd: 95,
+            spe: 60
         },
         abilities: {
             0: "Chlorophyll",
-            H: "Effect Spore"
+            1: "Effect Spore",
+            H: "Terraformer"
         },
         heightm: 1.2,
         weightkg: 18.6,
@@ -1293,14 +1295,14 @@ exports.BattlePokedex = {
     venomoth: {
         num: 49,
         species: "Venomoth",
-        types: ["Bug", "Poison"],
+        types: ["Bug", "Psychic"],
         baseStats: {
             hp: 70,
             atk: 65,
-            def: 60,
-            spa: 90,
-            spd: 75,
-            spe: 90
+            def: 65,
+            spa: 100,
+            spd: 85,
+            spe: 110
         },
         abilities: {
             0: "Shield Dust",
@@ -1611,15 +1613,15 @@ exports.BattlePokedex = {
         types: ["Water", "Fighting"],
         baseStats: {
             hp: 90,
-            atk: 95,
+            atk: 110,
             def: 95,
             spa: 70,
-            spd: 90,
-            spe: 70
+            spd: 95,
+            spe: 75
         },
         abilities: {
             0: "Water Absorb",
-            1: "Damp",
+            1: "Water Veil",
             H: "Swift Swim"
         },
         heightm: 1.3,
@@ -2553,18 +2555,18 @@ exports.BattlePokedex = {
     kingler: {
         num: 99,
         species: "Kingler",
-        types: ["Water"],
+        types: ["Water", "Steel"],
         baseStats: {
-            hp: 55,
+            hp: 65,
             atk: 130,
             def: 115,
             spa: 50,
-            spd: 50,
-            spe: 75
+            spd: 70,
+            spe: 70
         },
         abilities: {
             0: "Hyper Cutter",
-            1: "Shell Armor",
+            1: "Thrill Seeker",
             H: "Sheer Force"
         },
         heightm: 1.3,
@@ -3342,18 +3344,19 @@ exports.BattlePokedex = {
     gyarados: {
         num: 130,
         species: "Gyarados",
-        types: ["Water", "Flying"],
+        types: ["Water", "Dragon"],
         baseStats: {
             hp: 95,
             atk: 125,
-            def: 79,
+            def: 80,
             spa: 60,
             spd: 100,
-            spe: 81
+            spe: 80
         },
         abilities: {
             0: "Intimidate",
-            H: "Moxie"
+            1: "Moxie",
+            H: "Drizzle"
         },
         heightm: 6.5,
         weightkg: 235,
@@ -3394,16 +3397,16 @@ exports.BattlePokedex = {
         types: ["Water", "Ice"],
         baseStats: {
             hp: 130,
-            atk: 85,
-            def: 80,
-            spa: 85,
-            spd: 95,
-            spe: 60
+            atk: 90,
+            def: 85,
+            spa: 90,
+            spd: 100,
+            spe: 70
         },
         abilities: {
             0: "Water Absorb",
             1: "Shell Armor",
-            H: "Hydration"
+            H: "Ice Body"
         },
         heightm: 2.5,
         weightkg: 220,
@@ -3695,8 +3698,8 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Rock Head",
-            1: "Pressure",
-            H: "Unnerve"
+            1: "Unnerve",
+            H: "Sand Veil"
         },
         heightm: 1.8,
         weightkg: 59,
@@ -4392,16 +4395,16 @@ exports.BattlePokedex = {
         types: ["Bug", "Poison"],
         baseStats: {
             hp: 70,
-            atk: 90,
-            def: 70,
-            spa: 60,
-            spd: 60,
-            spe: 40
+            atk: 100,
+            def: 90,
+            spa: 80,
+            spd: 80,
+            spe: 90
         },
         abilities: {
             0: "Swarm",
-            1: "Insomnia",
-            H: "Sniper"
+            1: "Sniper",
+            H: "Underdog"
         },
         heightm: 1.1,
         weightkg: 33.5,
@@ -4416,15 +4419,16 @@ exports.BattlePokedex = {
         types: ["Poison", "Flying"],
         baseStats: {
             hp: 85,
-            atk: 90,
+            atk: 95,
             def: 80,
-            spa: 70,
+            spa: 75,
             spd: 80,
             spe: 130
         },
         abilities: {
-            0: "Inner Focus",
-            H: "Infiltrator"
+            0: "Aggravation",
+            1: "Infiltrator",
+            H: "Poison Touch"
         },
         heightm: 1.8,
         weightkg: 75,
@@ -4782,18 +4786,19 @@ exports.BattlePokedex = {
     bellossom: {
         num: 182,
         species: "Bellossom",
-        types: ["Grass"],
+        types: ["Grass", "Fairy"],
         baseStats: {
             hp: 75,
-            atk: 80,
+            atk: 40,
             def: 95,
-            spa: 90,
-            spd: 100,
-            spe: 50
+            spa: 100,
+            spd: 130,
+            spe: 70
         },
         abilities: {
             0: "Chlorophyll",
-            H: "Healer"
+            1: "Full Bloom",
+            H: "Entrancing"
         },
         heightm: 0.4,
         weightkg: 5.8,
@@ -4879,14 +4884,14 @@ exports.BattlePokedex = {
     politoed: {
         num: 186,
         species: "Politoed",
-        types: ["Water"],
+        types: ["Water", "Psychic"],
         baseStats: {
             hp: 90,
             atk: 75,
             def: 75,
             spa: 90,
             spd: 100,
-            spe: 70
+            spe: 75
         },
         abilities: {
             0: "Water Absorb",
@@ -4954,11 +4959,11 @@ exports.BattlePokedex = {
         types: ["Grass", "Flying"],
         baseStats: {
             hp: 75,
-            atk: 55,
-            def: 70,
-            spa: 55,
-            spd: 95,
-            spe: 110
+            atk: 65,
+            def: 85,
+            spa: 65,
+            spd: 105,
+            spe: 120
         },
         abilities: {
             0: "Chlorophyll",
@@ -5196,15 +5201,15 @@ exports.BattlePokedex = {
         species: "Slowking",
         types: ["Water", "Psychic"],
         baseStats: {
-            hp: 95,
+            hp: 100,
             atk: 75,
             def: 80,
             spa: 100,
             spd: 110,
-            spe: 30
+            spe: 35
         },
         abilities: {
-            0: "Oblivious",
+            0: "Drizzle",
             1: "Own Tempo",
             H: "Regenerator"
         },
@@ -5596,14 +5601,14 @@ exports.BattlePokedex = {
         baseSpecies: "Heracross",
         forme: "Mega",
         formeLetter: "M",
-        types: ["Bug", "Fighting"],
+        types: ["Bug", "Steel"],
         baseStats: {
             hp: 80,
-            atk: 185,
-            def: 115,
+            atk: 180,
+            def: 110,
             spa: 40,
-            spd: 105,
-            spe: 75
+            spd: 100,
+            spe: 70
         },
         abilities: {
             0: "Skill Link"
@@ -5830,19 +5835,19 @@ exports.BattlePokedex = {
     octillery: {
         num: 224,
         species: "Octillery",
-        types: ["Water"],
+        types: ["Water", "Fire"],
         baseStats: {
             hp: 75,
-            atk: 105,
-            def: 75,
-            spa: 105,
-            spd: 75,
-            spe: 45
+            atk: 125,
+            def: 80,
+            spa: 125,
+            spd: 80,
+            spe: 50
         },
         abilities: {
             0: "Suction Cups",
-            1: "Sniper",
-            H: "Moody"
+            1: "Advanced Artillery",
+            H: "Rapid Fire"
         },
         heightm: 0.9,
         weightkg: 28.5,
@@ -6007,7 +6012,7 @@ exports.BattlePokedex = {
         abilities: {
             0: "Swift Swim",
             1: "Sniper",
-            H: "Damp"
+            H: "Advanced Artillery"
         },
         heightm: 1.8,
         weightkg: 152,
@@ -6312,15 +6317,16 @@ exports.BattlePokedex = {
         gender: "N",
         baseStats: {
             hp: 90,
-            atk: 85,
-            def: 75,
+            atk: 90,
+            def: 80,
             spa: 115,
             spd: 100,
             spe: 115
         },
         abilities: {
             0: "Pressure",
-            H: "Volt Absorb"
+            1: "Volt Absorb",
+            H: "Storm Center"
         },
         heightm: 1.9,
         weightkg: 178,
@@ -6343,7 +6349,7 @@ exports.BattlePokedex = {
         abilities: {
             0: "Pressure",
             1: "Flash Fire",
-            H: "Intense Flames"
+            H: "Drought"
         },
         heightm: 2.1,
         weightkg: 198,
@@ -6357,15 +6363,16 @@ exports.BattlePokedex = {
         gender: "N",
         baseStats: {
             hp: 100,
-            atk: 75,
+            atk: 70,
             def: 115,
-            spa: 90,
+            spa: 95,
             spd: 115,
-            spe: 85
+            spe: 95
         },
         abilities: {
             0: "Pressure",
-            H: "Water Absorb"
+            1: "Water Absorb",
+            H: "Drizzle"
         },
         heightm: 2,
         weightkg: 187,
@@ -6676,15 +6683,16 @@ exports.BattlePokedex = {
             F: 0.125
         },
         baseStats: {
-            hp: 70,
-            atk: 110,
+            hp: 80,
+            atk: 115,
             def: 70,
-            spa: 110,
+            spa: 100,
             spd: 70,
             spe: 80
         },
         abilities: {
             0: "Blaze",
+            1: "Power Surge",
             H: "Speed Boost"
         },
         heightm: 1.9,
@@ -6704,10 +6712,10 @@ exports.BattlePokedex = {
         types: ["Fire", "Fighting"],
         baseStats: {
             hp: 80,
-            atk: 160,
-            def: 80,
-            spa: 130,
-            spd: 80,
+            atk: 130,
+            def: 75,
+            spa: 110,
+            spd: 75,
             spe: 100
         },
         abilities: {
@@ -6944,18 +6952,19 @@ exports.BattlePokedex = {
     beautifly: {
         num: 267,
         species: "Beautifly",
-        types: ["Bug", "Flying"],
+        types: ["Bug", "Fairy"],
         baseStats: {
             hp: 60,
-            atk: 70,
-            def: 50,
-            spa: 100,
-            spd: 50,
-            spe: 65
+            atk: 65,
+            def: 65,
+            spa: 120,
+            spd: 90,
+            spe: 85
         },
         abilities: {
-            0: "Swarm",
-            H: "Rivalry"
+            0: "Entrancing",
+            1: "Rivalry",
+            H: "Butterfly Effect"
         },
         heightm: 1,
         weightkg: 28.4,
@@ -7367,18 +7376,19 @@ exports.BattlePokedex = {
     masquerain: {
         num: 284,
         species: "Masquerain",
-        types: ["Bug", "Flying"],
+        types: ["Bug", "Water"],
         baseStats: {
-            hp: 70,
-            atk: 60,
-            def: 62,
-            spa: 80,
-            spd: 82,
-            spe: 60
+            hp: 75,
+            atk: 80,
+            def: 65,
+            spa: 100,
+            spd: 90,
+            spe: 70
         },
         abilities: {
             0: "Intimidate",
-            H: "Unnerve"
+            1: "Swift Swim",
+            H: "Butterfly Effect"
         },
         heightm: 0.8,
         weightkg: 3.6,
@@ -7527,16 +7537,17 @@ exports.BattlePokedex = {
         species: "Ninjask",
         types: ["Bug", "Flying"],
         baseStats: {
-            hp: 61,
-            atk: 90,
-            def: 45,
-            spa: 50,
-            spd: 50,
+            hp: 65,
+            atk: 100,
+            def: 65,
+            spa: 45,
+            spd: 70,
             spe: 160
         },
         abilities: {
             0: "Speed Boost",
-            H: "Infiltrator"
+            1: "Infiltrator",
+            H: "Prioritize"
         },
         heightm: 0.8,
         weightkg: 12,
@@ -7552,14 +7563,16 @@ exports.BattlePokedex = {
         gender: "N",
         baseStats: {
             hp: 1,
-            atk: 90,
+            atk: 124,
             def: 45,
-            spa: 30,
-            spd: 30,
-            spe: 40
+            spa: 124,
+            spd: 45,
+            spe: 41
         },
         abilities: {
-            0: "Wonder Guard"
+            0: "Wonder Guard",
+            1: "Permeate",
+            H: "Mummy"
         },
         heightm: 0.8,
         weightkg: 1.2,
@@ -8414,14 +8427,15 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 70,
             atk: 85,
-            def: 140,
+            def: 180,
             spa: 85,
-            spd: 70,
-            spe: 20
+            spd: 100,
+            spe: 30
         },
         abilities: {
             0: "White Smoke",
-            H: "Shell Armor"
+            1: "Terraformer",
+            H: "Bulletproof"
         },
         heightm: 0.5,
         weightkg: 80.4,
@@ -8548,15 +8562,17 @@ exports.BattlePokedex = {
         species: "Flygon",
         types: ["Ground", "Dragon"],
         baseStats: {
-            hp: 80,
-            atk: 100,
-            def: 80,
-            spa: 80,
-            spd: 80,
+            hp: 90,
+            atk: 110,
+            def: 90,
+            spa: 100,
+            spd: 90,
             spe: 100
         },
         abilities: {
-            0: "Levitate"
+            0: "Quick Sand",
+            1: "Sandstream",
+            H: "Tinted Lens"
         },
         heightm: 2,
         weightkg: 82,
@@ -9266,12 +9282,12 @@ exports.BattlePokedex = {
         species: "Tropius",
         types: ["Grass", "Flying"],
         baseStats: {
-            hp: 99,
-            atk: 68,
-            def: 83,
-            spa: 72,
-            spd: 87,
-            spe: 51
+            hp: 120,
+            atk: 70,
+            def: 100,
+            spa: 70,
+            spd: 95,
+            spe: 60
         },
         abilities: {
             0: "Chlorophyll",
@@ -9399,19 +9415,19 @@ exports.BattlePokedex = {
     glalie: {
         num: 362,
         species: "Glalie",
-        types: ["Ice"],
+        types: ["Ice", "Dark"],
         baseStats: {
-            hp: 80,
-            atk: 80,
-            def: 80,
-            spa: 80,
-            spd: 80,
-            spe: 80
+            hp: 90,
+            atk: 95,
+            def: 90,
+            spa: 95,
+            spd: 90,
+            spe: 95
         },
         abilities: {
-            0: "Inner Focus",
+            0: "Terraformer",
             1: "Ice Body",
-            H: "Moody"
+            H: "Crystallize"
         },
         heightm: 1.5,
         weightkg: 256.5,
@@ -10595,19 +10611,19 @@ exports.BattlePokedex = {
     roserade: {
         num: 407,
         species: "Roserade",
-        types: ["Grass", "Poison"],
+        types: ["Grass"],
         baseStats: {
-            hp: 60,
+            hp: 65,
             atk: 70,
-            def: 65,
+            def: 75,
             spa: 125,
-            spd: 105,
-            spe: 90
+            spd: 110,
+            spe: 95
         },
         abilities: {
             0: "Natural Cure",
-            1: "Poison Point",
-            H: "Technician"
+            1: "Guardian",
+            H: "Willpower"
         },
         heightm: 0.9,
         weightkg: 14.5,
@@ -10833,15 +10849,16 @@ exports.BattlePokedex = {
         gender: "M",
         baseStats: {
             hp: 70,
-            atk: 94,
-            def: 50,
-            spa: 94,
-            spd: 50,
-            spe: 66
+            atk: 120,
+            def: 65,
+            spa: 110,
+            spd: 80,
+            spe: 75
         },
         abilities: {
             0: "Swarm",
-            H: "Tinted Lens"
+            1: "Tinted Lens",
+            H: "Multiscale"
         },
         heightm: 0.9,
         weightkg: 23.3,
@@ -11236,10 +11253,10 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 100,
             atk: 125,
-            def: 52,
+            def: 55,
             spa: 105,
-            spd: 52,
-            spe: 71
+            spd: 55,
+            spe: 70
         },
         abilities: {
             0: "Insomnia",
@@ -11861,15 +11878,15 @@ exports.BattlePokedex = {
         species: "Toxicroak",
         types: ["Poison", "Fighting"],
         baseStats: {
-            hp: 83,
-            atk: 106,
+            hp: 85,
+            atk: 110,
             def: 65,
-            spa: 86,
+            spa: 90,
             spd: 65,
-            spe: 85
+            spe: 95
         },
         abilities: {
-            0: "Anticipation",
+            0: "Acidic",
             1: "Dry Skin",
             H: "Poison Touch"
         },
@@ -12531,13 +12548,15 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 50,
             atk: 65,
-            def: 107,
+            def: 110,
             spa: 105,
-            spd: 107,
-            spe: 86
+            spd: 110,
+            spe: 90
         },
         abilities: {
-            0: "Levitate"
+            0: "Levitate",
+            1: "Flash Fire",
+            H: "Drought"
         },
         heightm: 0.3,
         weightkg: 0.3,
@@ -12555,13 +12574,15 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 50,
             atk: 65,
-            def: 107,
+            def: 110,
             spa: 105,
-            spd: 107,
-            spe: 86
+            spd: 110,
+            spe: 90
         },
         abilities: {
-            0: "Levitate"
+            0: "Levitate",
+            1: "Storm Drain",
+            H: "Drizzle"
         },
         heightm: 0.3,
         weightkg: 0.3,
@@ -12579,13 +12600,15 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 50,
             atk: 65,
-            def: 107,
+            def: 110,
             spa: 105,
-            spd: 107,
-            spe: 86
+            spd: 110,
+            spe: 90
         },
         abilities: {
-            0: "Levitate"
+            0: "Levitate",
+            1: "Ice Body",
+            H: "Snow Warning"
         },
         heightm: 0.3,
         weightkg: 0.3,
@@ -12603,13 +12626,15 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 50,
             atk: 65,
-            def: 107,
+            def: 110,
             spa: 105,
-            spd: 107,
-            spe: 86
+            spd: 110,
+            spe: 90
         },
         abilities: {
-            0: "Levitate"
+            0: "Unwavering",
+            1: "Permeate",
+            H: "Cyclone"
         },
         heightm: 0.3,
         weightkg: 0.3,
@@ -12627,13 +12652,15 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 50,
             atk: 65,
-            def: 107,
+            def: 110,
             spa: 105,
-            spd: 107,
-            spe: 86
+            spd: 110,
+            spe: 90
         },
         abilities: {
-            0: "Levitate"
+            0: "Levitate",
+            1: "Solar Power",
+            H: "Chlorophyll"
         },
         heightm: 0.3,
         weightkg: 0.3,
@@ -14669,10 +14696,10 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 60,
             atk: 100,
-            def: 89,
+            def: 90,
             spa: 55,
-            spd: 69,
-            spe: 112
+            spd: 75,
+            spe: 115
         },
         abilities: {
             0: "Poison Point",
@@ -14715,16 +14742,16 @@ exports.BattlePokedex = {
         types: ["Grass", "Fairy"],
         baseStats: {
             hp: 60,
-            atk: 67,
-            def: 85,
-            spa: 77,
-            spd: 75,
-            spe: 116
+            atk: 65,
+            def: 95,
+            spa: 80,
+            spd: 85,
+            spe: 125
         },
         abilities: {
             0: "Prankster",
             1: "Infiltrator",
-            H: "Chlorophyll"
+            H: "Terraformer"
         },
         heightm: 0.7,
         weightkg: 6.6,
@@ -14760,20 +14787,20 @@ exports.BattlePokedex = {
     lilligant: {
         num: 549,
         species: "Lilligant",
-        types: ["Grass"],
+        types: ["Grass", "Fairy"],
         gender: "F",
         baseStats: {
-            hp: 70,
-            atk: 60,
-            def: 75,
-            spa: 110,
-            spd: 75,
-            spe: 90
+            hp: 75,
+            atk: 50,
+            def: 80,
+            spa: 115,
+            spd: 95,
+            spe: 100
         },
         abilities: {
             0: "Chlorophyll",
             1: "Own Tempo",
-            H: "Leaf Guard"
+            H: "Full Bloom"
         },
         heightm: 1.1,
         weightkg: 16.3,
@@ -14885,15 +14912,15 @@ exports.BattlePokedex = {
         types: ["Ground", "Dark"],
         baseStats: {
             hp: 95,
-            atk: 117,
-            def: 80,
+            atk: 120,
+            def: 90,
             spa: 65,
-            spd: 70,
-            spe: 92
+            spd: 80,
+            spe: 95
         },
         abilities: {
             0: "Intimidate",
-            1: "Moxie",
+            1: "Aggravation",
             H: "Anger Point"
         },
         heightm: 1.5,
@@ -15073,17 +15100,17 @@ exports.BattlePokedex = {
         species: "Scrafty",
         types: ["Dark", "Fighting"],
         baseStats: {
-            hp: 65,
-            atk: 90,
-            def: 115,
+            hp: 70,
+            atk: 95,
+            def: 120,
             spa: 45,
-            spd: 115,
-            spe: 58
+            spd: 120,
+            spe: 60
         },
         abilities: {
             0: "Shed Skin",
             1: "Moxie",
-            H: "Intimidate"
+            H: "Skeptic"
         },
         heightm: 1.1,
         weightkg: 30,
@@ -15344,11 +15371,11 @@ exports.BattlePokedex = {
             F: 0.125
         },
         baseStats: {
-            hp: 60,
+            hp: 75,
             atk: 105,
-            def: 60,
+            def: 65,
             spa: 120,
-            spd: 60,
+            spd: 65,
             spe: 105
         },
         abilities: {
@@ -15789,16 +15816,16 @@ exports.BattlePokedex = {
         types: ["Bug", "Steel"],
         baseStats: {
             hp: 70,
-            atk: 135,
+            atk: 125,
             def: 105,
             spa: 60,
-            spd: 105,
-            spe: 20
+            spd: 100,
+            spe: 30
         },
         abilities: {
             0: "Swarm",
-            1: "Shell Armor",
-            H: "Overcoat"
+            1: "Overcoat",
+            H: "Speed Boost"
         },
         heightm: 1,
         weightkg: 33,
@@ -16694,20 +16721,20 @@ exports.BattlePokedex = {
     braviary: {
         num: 628,
         species: "Braviary",
-        types: ["Normal", "Flying"],
+        types: ["Flying", "Fighting"],
         gender: "M",
         baseStats: {
-            hp: 100,
-            atk: 123,
-            def: 75,
-            spa: 57,
-            spd: 75,
-            spe: 80
+            hp: 95,
+            atk: 135,
+            def: 80,
+            spa: 55,
+            spd: 80,
+            spe: 85
         },
         abilities: {
             0: "Keen Eye",
             1: "Sheer Force",
-            H: "Defiant"
+            H: "Last Stand"
         },
         heightm: 1.5,
         weightkg: 41,
@@ -17870,16 +17897,16 @@ exports.BattlePokedex = {
         types: ["Bug", "Flying"],
         baseStats: {
             hp: 80,
-            atk: 52,
-            def: 50,
-            spa: 90,
-            spd: 50,
-            spe: 89
+            atk: 50,
+            def: 60,
+            spa: 110,
+            spd: 60,
+            spe: 115
         },
         abilities: {
             0: "Shield Dust",
             1: "Compound Eyes",
-            H: "Friend Guard"
+            H: "Butterfly Effect"
         },
         heightm: 1.2,
         weightkg: 17,
@@ -18504,16 +18531,16 @@ exports.BattlePokedex = {
         species: "Dragalge",
         types: ["Poison", "Dragon"],
         baseStats: {
-            hp: 65,
-            atk: 75,
+            hp: 70,
+            atk: 65,
             def: 90,
-            spa: 97,
-            spd: 123,
-            spe: 44
+            spa: 100,
+            spd: 130,
+            spe: 50
         },
         abilities: {
             0: "Poison Point",
-            1: "Poison Touch",
+            1: "Acidic",
             H: "Adaptability"
         },
         heightm: 1.8,
@@ -18547,17 +18574,19 @@ exports.BattlePokedex = {
     clawitzer: {
         num: 693,
         species: "Clawitzer",
-        types: ["Water"],
+        types: ["Water", "Steel"],
         baseStats: {
-            hp: 71,
-            atk: 73,
-            def: 88,
+            hp: 70,
+            atk: 70,
+            def: 95,
             spa: 120,
-            spd: 89,
-            spe: 59
+            spd: 90,
+            spe: 60
         },
         abilities: {
-            0: "Mega Launcher"
+            0: "Mega Launcher",
+            1: "Power Surge",
+            H: "Tidal"
         },
         heightm: 1.3,
         weightkg: 35.3,
@@ -18648,16 +18677,17 @@ exports.BattlePokedex = {
             F: 0.125
         },
         baseStats: {
-            hp: 82,
-            atk: 121,
-            def: 119,
-            spa: 69,
-            spd: 59,
-            spe: 71
+            hp: 85,
+            atk: 120,
+            def: 120,
+            spa: 70,
+            spd: 70,
+            spe: 80
         },
         abilities: {
             0: "Strong Jaw",
-            H: "Rock Head"
+            1: "Rock Head",
+            H: "Thrill Seeker"
         },
         heightm: 2.5,
         weightkg: 270,
@@ -18701,16 +18731,17 @@ exports.BattlePokedex = {
             F: 0.125
         },
         baseStats: {
-            hp: 123,
-            atk: 77,
-            def: 72,
-            spa: 99,
-            spd: 92,
-            spe: 58
+            hp: 125,
+            atk: 60,
+            def: 100,
+            spa: 100,
+            spd: 100,
+            spe: 60
         },
         abilities: {
             0: "Refrigerate",
-            H: "Snow Warning"
+            1: "Snow Warning",
+            H: "Solid Rock"
         },
         heightm: 2.7,
         weightkg: 225,

@@ -284,7 +284,7 @@ exports.BattleTypeChart = {
 	},
 	"Normal": {
 		damageTaken: {
-			//confusion: 3,
+			confusion: 3,
 			"Bug": 0,
 			"Dark": 1,
 			"Dragon": 0,

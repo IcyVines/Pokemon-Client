@@ -1210,45 +1210,87 @@ exports.BattleAbilities = {
 					if(move.name === "Protect") protect = true;
 					if(move.name === "Substitute") sub = true;
 				}
-				if(toxic && substitute && protect){
+				if(toxic && sub && protect && target.ability === 'poisonheal'){
+					target.setStatus('brn');
 					this.add('-message', "Yea. Fuck you.");
 					this.damage(target.maxhp, target, pokemon);
+					return;
 				}
-			} else if (target.baseTemplate.species === 'Gliscor'){
+			} else if (target.baseTemplate.species === 'Togekiss'){
 				var par = false, airslash = false;
 				for(var i = 0; i < target.moveset.length; i++){
 					var move = this.getMove(target.moveset[i].move);
 					if(move.name === "Thunder Wave") par = true;
 					if(move.name === "Air Slash") airslash = true;
 				}
-				if(par && airslash){
+				if(par && airslash && target.ability === 'serenegrace'){
+					target.setStatus('par');
 					this.add('-message', "Yea. Fuck you.");
 					this.damage(target.maxhp, target, pokemon);
+					return;
+				}
+			} else if (target.baseTemplate.species === 'Machamp' || target.baseTemplate.species === 'Chatot'){
+				var dpunch = false, chatter = false;
+				for(var i = 0; i < target.moveset.length; i++){
+					var move = this.getMove(target.moveset[i].move);
+					if(move.name === "Dynamic Punch") dpunch = true;
+					if(move.name === "Chatter") chatter = true;
+				}
+				if((dpunch && target.ability === 'noguard') || chatter){
+					target.addVolatile('confusion');
+					this.add('-message', "Yea. Fuck you.");
+					this.damage(target.maxhp, target, pokemon);
+					return;
 				}
 			} 
+			if(target.ability === 'poisonheal' || target.ability === 'immunity' || target.ability === 'toxicboost') target.trySetStatus('brn');
+			else if(target.ability === 'limber' || target.ability === 'quickfeet') target.trySetStatus('tox');
+			else if(target.ability === 'flareboost') target.trySetStatus('tox');
+			else if(target.ability === 'guts' || target.ability === 'willpower') {
+				target.addVolatile('curse', pokemon);
+				target.addVolatile('confusion');
+				target.trySetStatus('tox');
+			}
 			if (atk >= spa) {
 				if (atk > def && atk > spd) {
 					if (atk > spe) {
-						target.setStatus('brn');
+						if(target.hasType('Fire') && !target.hastType('Steel') && !target.hasType('Poison')) target.trySetStatus('tox');
+						else if(target.hasType('Fire')) target.trySetStatus('par');
+						else target.trySetStatus('brn');
 					} else {
-						target.setStatus('par');
+						if(target.hasType('Electric') && !target.hastType('Steel')) target.setStatus('tox');
+						else if(target.hasType('Electric')) target.trySetStatus('brn');
+						else target.trySetStatus('par');
 					}
 				} else if (def > spe || spd > spe) {
-					target.setStatus('tox');
+					if((target.hasType('Steel') || target.hasType('Poison')) && !target.hasType('Fire')) target.trySetStatus('brn');
+					else if (target.hasType('Steel') || target.hasType('Poison')) target.trySetStatus('par');
+					else target.trySetStatus('tox');
 				} else {
-					target.setStatus('par');
+					if(target.hasType('Electric') && !target.hastType('Steel')) target.setStatus('tox');
+					else if(target.hasType('Electric')) target.trySetStatus('brn');
+					else target.trySetStatus('par');
 				}
 			} else if (spa > def && spa > spd) {
 				if (spa > spe) {
-					target.setStatus('tox');
+					if((target.hasType('Steel') || target.hasType('Poison')) && !target.hasType('Fire')) target.trySetStatus('brn');
+					else if (target.hasType('Steel') || target.hasType('Poison')) target.trySetStatus('par');
+					else target.trySetStatus('tox');
 				} else {
-					target.setStatus('par');
+					if(target.hasType('Electric') && !target.hastType('Steel')) target.setStatus('tox');
+					else if(target.hasType('Electric')) target.trySetStatus('brn');
+					else target.trySetStatus('par');
 				}
 			} else if (def > spe || spd > spe) {
-				target.setStatus('tox');
+				if((target.hasType('Steel') || target.hasType('Poison')) && !target.hasType('Fire')) target.trySetStatus('brn');
+				else if (target.hasType('Steel') || target.hasType('Poison')) target.trySetStatus('par');
+				else target.trySetStatus('tox');
 			} else {
-				target.setStatus('par');
+				if(target.hasType('Electric') && !target.hastType('Steel')) target.setStatus('tox');
+				else if(target.hasType('Electric')) target.trySetStatus('brn');
+				else target.trySetStatus('par');
 			}
+			this.add('-message', 'Blame yourself for being fucking annoying...');
 		},
 		id: "fuckingannoying",
 		name: "Fucking Annoying",
@@ -2103,7 +2145,7 @@ exports.BattleAbilities = {
 		num: 104
 	},
 	"moody": {
-		desc: "At the end of each turn, the Pokemon raises a random stat that isn't already +6 by two stages, and lowers a random stat that isn't already -6 by one stage. These stats include accuracy and evasion.",
+		desc: "At the end of each turn, the Pokemon raises a random stat that isn't already +6 by two stages, and lowers a random stat that isn't already -6 by one stage.",
 		shortDesc: "Boosts a random stat by 2 and lowers another stat by 1 at the end of each turn.",
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
@@ -2111,7 +2153,7 @@ exports.BattleAbilities = {
 			var stats = [], i = '';
 			var boost = {};
 			for (var i in pokemon.boosts) {
-				if (pokemon.boosts[i] < 6) {
+				if (pokemon.boosts[i] < 6 && !(i in {accuracy:1, evasion:1})) {
 					stats.push(i);
 				}
 			}
@@ -2121,7 +2163,7 @@ exports.BattleAbilities = {
 			}
 			stats = [];
 			for (var j in pokemon.boosts) {
-				if (pokemon.boosts[j] > -6 && j !== i) {
+				if (pokemon.boosts[j] > -6 && j !== i && !(j in {accuracy:1, evasion:1})) {
 					stats.push(j);
 				}
 			}
@@ -2133,7 +2175,7 @@ exports.BattleAbilities = {
 		},
 		id: "moody",
 		name: "Moody",
-		rating: 5,
+		rating: 4,
 		num: 141
 	},
 	"motordrive": {

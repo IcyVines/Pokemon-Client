@@ -74,7 +74,7 @@ exports.BattleStatuses = {
 		},
 		onBeforeMovePriority: 2,
 		onBeforeMove: function(pokemon, target, move) {
-			if (move.thawsUser || this.random(4) === 0) {
+			if (move.thawsUser || this.random(3) === 0) {
 				//random used to be at 5
 				pokemon.cureStatus();
 				return;
@@ -218,7 +218,9 @@ exports.BattleStatuses = {
 		onEnd: function(target) {
 			if (this.effectData.trueDuration > 1) return;
 			this.add('-end', target, 'rampage');
-			target.addVolatile('confusion');
+			if(!target.addVolatile('confusion')){
+				this.boost({evasion:-1});
+			}
 		},
 		onLockMove: function(pokemon) {
 			return this.effectData.move;
