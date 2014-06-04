@@ -314,20 +314,20 @@ exports.BattleAbilities = {
 		num: 145
 	},
 	"blaze": {
-		desc: "When its health reaches one-third or less of its max HP, this Pokemon's Fire-type attacks receive a 50% boost in power.",
-		shortDesc: "When this Pokemon has 1/3 or less of its max HP, its Fire attacks do 1.5x damage.",
+		desc: "When its health reaches one-half or less of its max HP, this Pokemon's Fire-type attacks receive a 100% boost in power.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Fire attacks do 2x damage.",
 		onModifyAtkPriority: 5,
 		onModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Blaze boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Blaze boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		id: "blaze",
@@ -561,6 +561,21 @@ exports.BattleAbilities = {
 		name: "Contrary",
 		rating: 4,
 		num: 126
+	},
+	"crystallize": {
+		desc: "When its health reaches 1/2 or less of its max HP, this Pokemon's Ice-type attacks do 2x damage.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Ice attacks do 2x damage.",
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if (move.type === 'Ice' && attacker.hp <= attacker.maxhp/2) {
+				this.debug('Crystallize boost');
+				return this.chainModify(2);
+			}
+		}
+		id: "crystallize",
+		name: "Crystallize",
+		rating: 3,
+		num: -6
 	},
 	"cursedbody": {
 		desc: "30% chance of disabling one of the opponent's moves when attacked. This works even if the attacker is behind a Substitute, but will not activate if the Pokemon with Cursed Body is behind a Substitute.",
@@ -913,6 +928,21 @@ exports.BattleAbilities = {
 		rating: 3,
 		num: -6,
 		gen: 6
+	},
+	"fester": {
+		desc: "When its health reaches 1/2 or less of its max HP, this Pokemon's Poison-type attacks do 2x damage.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Poison attacks do 2x damage.",
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if (move.type === 'Poison' && attacker.hp <= attacker.maxhp/2) {
+				this.debug('Fester boost');
+				return this.chainModify(2);
+			}
+		}
+		id: "fester",
+		name: "Fester",
+		rating: 3,
+		num: -6
 	},
 	"fightingspirit": {
 		desc: "If the opposing Pokemon has an overall type advantage, this Pokemon's moves gain a 50% boost.",
@@ -2331,20 +2361,20 @@ exports.BattleAbilities = {
 		num: 142
 	},
 	"overgrow": {
-		desc: "When its health reaches one-third or less of its max HP, this Pokemon's Grass-type attacks receive a 50% boost in power.",
-		shortDesc: "When this Pokemon has 1/3 or less of its max HP, its Grass attacks do 1.5x damage.",
+		desc: "When its health reaches one-half or less of its max HP, this Pokemon's Grass-type attacks receive a 100% boost in power.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Grass attacks do 2x damage.",
 		onModifyAtkPriority: 5,
 		onModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Overgrow boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Overgrow boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		id: "overgrow",
@@ -2704,6 +2734,21 @@ exports.BattleAbilities = {
 		rating: 1.5,
 		num: 44
 	},
+	"rampage": {
+		desc: "When its health reaches 1/2 or less of its max HP, this Pokemon's Dragon-type attacks do 2x damage.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Dragon attacks do 2x damage.",
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if (move.type === 'Dragon' && attacker.hp <= attacker.maxhp/2) {
+				this.debug('Rampage boost');
+				return this.chainModify(2);
+			}
+		}
+		id: "rampage",
+		name: "Rampage",
+		rating: 3,
+		num: -6
+	},
 	"rapidfire": {
 		desc: "Multi-hit moves have priority but lose 10% accuracy.",
 		shortDesc: "Multi-hit moves have priority but lose accuracy.",
@@ -2986,6 +3031,21 @@ exports.BattleAbilities = {
 		name: "Shadow Tag",
 		rating: 5,
 		num: 23
+	},
+	"sharpen": {
+		desc: "When its health reaches 1/2 or less of its max HP, this Pokemon's Steel-type attacks do 2x damage.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Steel attacks do 2x damage.",
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if (move.type === 'Steel' && attacker.hp <= attacker.maxhp/2) {
+				this.debug('Sharpen boost');
+				return this.chainModify(2);
+			}
+		}
+		id: "sharpen",
+		name: "Sharpen",
+		rating: 3,
+		num: -6
 	},
 	"shedskin": {
 		desc: "At the end of each turn, this Pokemon has a 33% chance to heal itself from poison (including Toxic), paralysis, burn, freeze or sleep (including self-induced Rest).",
@@ -3421,20 +3481,20 @@ exports.BattleAbilities = {
 		num: 105
 	},
 	"swarm": {
-		desc: "When its health reaches 1/3 or less of its max HP, this Pokemon's Bug-type attacks do 1.5x damage.",
-		shortDesc: "When this Pokemon has 1/3 or less of its max HP, its Bug attacks do 1.5x damage.",
+		desc: "When its health reaches 1/2 or less of its max HP, this Pokemon's Bug-type attacks do 2x damage.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Bug attacks do 2x damage.",
 		onModifyAtkPriority: 5,
 		onModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Swarm boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Swarm boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		id: "swarm",
@@ -3703,20 +3763,20 @@ exports.BattleAbilities = {
 		num: 110
 	},
 	"torrent": {
-		desc: "When its health reaches 1/3 or less of its max HP, this Pokemon's Water-type attacks do 1.5x damage.",
-		shortDesc: "When this Pokemon has 1/3 or less of its max HP, its Water attacks do 1.5x damage.",
+		desc: "When its health reaches 1/2 or less of its max HP, this Pokemon's Water-type attacks do 2x damage.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Water attacks do 2x damage.",
 		onModifyAtkPriority: 5,
 		onModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Water' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Torrent boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		onModifySpAPriority: 5,
 		onModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Water' && attacker.hp <= attacker.maxhp/2) {
 				this.debug('Torrent boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		id: "torrent",
@@ -3976,6 +4036,21 @@ exports.BattleAbilities = {
 		name: "Volt Absorb",
 		rating: 3.5,
 		num: 10
+	},
+	"voltage": {
+		desc: "When its health reaches 1/2 or less of its max HP, this Pokemon's Electric-type attacks do 2x damage.",
+		shortDesc: "When this Pokemon has 1/2 or less of its max HP, its Electric attacks do 2x damage.",
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if (move.type === 'Electric' && attacker.hp <= attacker.maxhp/2) {
+				this.debug('Voltage boost');
+				return this.chainModify(2);
+			}
+		}
+		id: "voltage",
+		name: "Voltage",
+		rating: 3,
+		num: -6
 	},
 	"waterabsorb": {
 		desc: "This Pokemon is immune to Water moves. If hit by an Water move, it recovers 25% of its max HP.",
