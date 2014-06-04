@@ -571,7 +571,7 @@ exports.BattleAbilities = {
 				this.debug('Crystallize boost');
 				return this.chainModify(2);
 			}
-		}
+		},
 		id: "crystallize",
 		name: "Crystallize",
 		rating: 3,
@@ -938,7 +938,7 @@ exports.BattleAbilities = {
 				this.debug('Fester boost');
 				return this.chainModify(2);
 			}
-		}
+		},
 		id: "fester",
 		name: "Fester",
 		rating: 3,
@@ -2743,7 +2743,7 @@ exports.BattleAbilities = {
 				this.debug('Rampage boost');
 				return this.chainModify(2);
 			}
-		}
+		},
 		id: "rampage",
 		name: "Rampage",
 		rating: 3,
@@ -3041,7 +3041,7 @@ exports.BattleAbilities = {
 				this.debug('Sharpen boost');
 				return this.chainModify(2);
 			}
-		}
+		},
 		id: "sharpen",
 		name: "Sharpen",
 		rating: 3,
@@ -4046,7 +4046,7 @@ exports.BattleAbilities = {
 				this.debug('Voltage boost');
 				return this.chainModify(2);
 			}
-		}
+		},
 		id: "voltage",
 		name: "Voltage",
 		rating: 3,
