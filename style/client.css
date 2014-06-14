@@ -9,10 +9,10 @@ html, body {
 body {
 	color: white;
 	font-size: 11pt;
-	font-family: Verdana, Helvetica, Arial, sans-serif;
+	font-family: Futura, Verdana, Helvetica, Arial, sans-serif;
 
 	/* license: CC-BY source: http://commons.wikimedia.org/wiki/File:%22La_piedra%22_(2809466426).jpg */
-	background: #546bac url(../fx/client-bg-horizon.jpg) no-repeat left center fixed;
+	background: #546bac url(../fx/client-bg-ocean.jpg) no-repeat left center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -412,12 +412,12 @@ p.or:after {
 	margin: -2px 0 -1px 0;
 	padding: 0;
 	list-style: none;
-	font-size: 8pt;
+	font-size: 10pt;
 }
 .popupmenu h3 {
 	margin: 5px 0 0 -2px;
 	padding: 1px 0;
-	font-size: 8pt;
+	font-size: 12pt;
 	color: #579;
 }
 .popupmenu li:first-child h3 {
@@ -426,7 +426,7 @@ p.or:after {
 .popupmenu button {
 	display: block;
 	cursor: pointer;
-	font-size: 8pt;
+	font-size: 10pt;
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 	margin: 0 0 0 6px;
 	padding: 0 4px;
@@ -467,7 +467,7 @@ p.or:after {
 .popupmenu button.sel:hover {
 	padding: 0 3px;
 	border: 1px solid #888888;
-	background: #D5D5D5;
+	background: #7f8c8d;
 }
 .select {
 	cursor: pointer;
@@ -704,12 +704,12 @@ p.or:after {
 	max-width: 400px;
 	border-radius: 20px;
 
-	background: rgba(201, 207, 219, .6);
+	/* background: rgba(201, 207, 219, .6); */
 	color: white;
 	text-shadow: 0 1px 0 black;
-}
+} 
 .menugroup {
-	background: rgba(201, 207, 219, .4);
+	/*background: rgba(201, 207, 219, .4); */
 	text-align: center;
 }
 
@@ -740,11 +740,11 @@ p.or:after {
 	/* default colors */
 	color: #FFFFFF;
 	border: solid 1px #AAAAAA;
-	background: #779EC5;
-	background: hsl(210,40%,62%);
+	background: #2980b9;
+	/*background: hsl(210,40%,62%);
 	background: -webkit-gradient(linear, left top, left bottom, from(hsl(210,40%,72%)), to(hsl(210,40%,52%)));
 	background: -moz-linear-gradient(top,  hsl(210,40%,72%),  hsl(210,40%,52%));
-	background: linear-gradient(top,  hsl(210,40%,72%),  hsl(210,40%,52%));
+	background: linear-gradient(top,  hsl(210,40%,72%),  hsl(210,40%,52%)); */
 	border-color: hsl(210,40%,40%);
 }
 .menugroup button.big {
@@ -753,11 +753,11 @@ p.or:after {
 	font-size: 14pt;
 }
 .menugroup .button:hover {
-	background: #5485B6;
-	background: hsl(210,40%,52%);
+	background: #27ae60;
+	/*background: hsl(210,40%,52%);
 	background: -webkit-gradient(linear, left top, left bottom, from(hsl(210,40%,62%)), to(hsl(210,40%,42%)));
 	background: -moz-linear-gradient(top,  hsl(210,40%,62%),  hsl(210,40%,42%));
-	background: linear-gradient(top,  hsl(210,40%,62%),  hsl(210,40%,42%));
+	background: linear-gradient(top,  hsl(210,40%,62%),  hsl(210,40%,42%)); */
 	border-color: hsl(210,40%,21%);
 }
 .menugroup .button:active {
@@ -1998,7 +1998,7 @@ div[class^='tournament-message-'], div[class*=' tournament-message-'] {
 	width: 300px;
 }
 .label {
-	font-size: 9pt;
+	font-size: 12pt;
 	font-weight: bold;
 	display: block;
 }

@@ -121,8 +121,8 @@
 				this.$el.html(buf);
 				return;
 			}
-			buf = '<div class="pad"><p>y\'know zarel this is a pretty good teambuilder</p>'
-			buf += '<p>aww thanks I\'m glad you like it :)</p>'
+			//buf = '<div class="pad"><p>y\'know zarel this is a pretty good teambuilder</p>'
+			//buf += '<p>aww thanks I\'m glad you like it :)</p>'
 			buf += '<ul>';
 			if (!window.localStorage && !window.nodewebkit) buf += '<li>== CAN\'T SAVE ==<br /><small>Your browser doesn\'t support <code>localStorage</code> and can\'t save teams! Update to a newer browser.</small></li>';
 			if (Storage.cantSave) buf += '<li>== CAN\'T SAVE ==<br /><small>You hit your browser\'s limit for team storage! Please backup them and delete some of them. Your teams won\'t be saved until you\'re under the limit again.</small></li>';
@@ -130,7 +130,7 @@
 				if (this.deletedTeamLoc >= 0) {
 					buf += '<li><button name="undoDelete"><i class="icon-undo"></i> Undo Delete</button></li>';
 				}
-				buf += '<li><em>you don\'t have any teams lol</em></li>';
+				buf += '<li><em>You don\'t have any teams</em></li>';
 			} else {
 				buf += '<li><button name="newTop"><i class="icon-plus-sign"></i> New team</button></li>';
 				for (var i=0; i<teams.length+1; i++) {
