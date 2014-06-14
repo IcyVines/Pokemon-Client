@@ -70,7 +70,7 @@ function BattleChart()
 	this.pokemonRow = function(pokemon, attrs, match, isFirst) {
 		var text = '<li class="result'+(isFirst?' firstresult':'')+'"><a'+attrs+' data-name="'+Tools.escapeHTML(pokemon.species)+'">';
 
-		text += '<span class="col numcol">'+(pokemon.num)+'</span> ';
+		//text += '<span class="col numcol">'+(pokemon.num)+'</span> '; 
 
 		var name = Tools.escapeHTML(pokemon.name);
 
