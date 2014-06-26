@@ -1409,7 +1409,7 @@ div[class^='tournament-message-'], div[class*=' tournament-message-'] {
 	cursor: default;
 	border: 0;
 	font-weight: bold;
-	font-style: italic;
+	/*font-style: italic; */
 	color: #555555;
 	font-size: 12pt;
 	display: block;

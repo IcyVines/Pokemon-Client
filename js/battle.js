@@ -191,12 +191,14 @@ function Pokemon(species) {
 	this.getHPColor = function () {
 		if (selfP.hpcolor) return selfP.hpcolor;
 		var ratio = selfP.hp / selfP.maxhp;
-		if (ratio > 0.5) return 'g';
-		if (ratio > 0.2) return 'y';
+		if (ratio > 0.75) return 'g';
+		if (ratio > 0.50) return 'y'
+		if (ratio > 0.25) return 'o';
 		return 'r';
 	};
 	this.getHPColorClass = function () {
 		switch (selfP.getHPColor()) {
+			case 'o': return ' hpbar-orange';
 			case 'y': return ' hpbar-yellow';
 			case 'r': return ' hpbar-red';
 		}
@@ -209,14 +211,14 @@ function Pokemon(species) {
 		} else if (pixels === 1) {
 			return [0 + epsilon, 2/48 - epsilon];
 		} else if (pixels === 9) {
-			if (color === 'y') { // ratio is > 0.2
-				return [0.2 + epsilon, 10/48 - epsilon];
+			if (color === 'o') { // ratio is > 0.2
+				return [0.25 + epsilon, 10/48 - epsilon];
 			} else { // ratio is <= 0.2
-				return [9/48, 0.2];
+				return [9/48, 0.25];
 			}
 		} else if (pixels === 24) {
 			if (color === 'g') { // ratio is > 0.5
-				return [0.5 + epsilon, 25/48 - epsilon];
+				return [0.75 + epsilon, 25/48 - epsilon];
 			} else { // ratio is exactly 0.5
 				return [0.5, 0.5];
 			}

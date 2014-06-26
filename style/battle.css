@@ -226,13 +226,22 @@ License: GPLv2
 	border-right: 1px solid #007734;
 	border-radius: 3px;
 }
-.statbar .hpbar .hp-yellow
+.statbar .hpbar .hp-orange
 {
 	border-top-color: #f8e379;
 	background-color: #e67e22;
 	border-bottom-color: #be9f0a;
 	border-right-color: #be9f0a;
 }
+
+.statbar .hpbar .hp-yellow
+{
+	border-top-color: #f37f67;
+	background-color: #f1c40f;
+	border-bottom-color: #a3260d;
+	border-right-color: #a3260d;
+}
+
 .statbar .hpbar .hp-red
 {
 	border-top-color: #f37f67;
