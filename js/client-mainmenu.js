@@ -38,7 +38,6 @@
 				buf += '<p><label class="label">Format:</label>'+this.renderFormats()+'</p>';
 				buf += '<p><label class="label">Team:</label>'+this.renderTeams()+'</p>';
 				buf += '<p><button class="button big" name="search"><strong>Battle</strong></button></p></form></div>';
-
 				buf += '<div class="menugroup"><p><button class="button" name="roomlist">Watch a battle</button></p></div>';
 			}
 

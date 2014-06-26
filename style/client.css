@@ -46,18 +46,18 @@ body {
 	font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
 	font-size: 9pt;
 
-	box-shadow: inset 0px 1px 2px #CCCCCC, 1px 1px 0 rgba(255,255,255,.6);
+	/*box-shadow: inset 0px 1px 2px #CCCCCC, 1px 1px 0 rgba(255,255,255,.6); */
 	background: #F8FBFD;
 }
 .textbox:hover {
 	border-color: #474747;
-	box-shadow: inset 0px 1px 2px #D2D2D2, 1px 1px 0 rgba(255,255,255,.6);
+	/*box-shadow: inset 0px 1px 2px #D2D2D2, 1px 1px 0 rgba(255,255,255,.6); */
 	background: #FFFFFF;
 }
 .textbox:focus {
 	outline: 0 none;
 	border: 1px solid #004488;
-	box-shadow: inset 0px 1px 2px #D2D2D2, 0px 0px 5px #2266AA;
+	/*box-shadow: inset 0px 1px 2px #D2D2D2, 0px 0px 5px #2266AA; */
 	background: #FFFFFF;
 }
 a.subtle {
@@ -461,13 +461,13 @@ p.or:after {
 
 .popupmenu button.sel {
 	padding: 0 3px;
-	border: 1px solid #AAAAAA;
+	border: 1px solid #2ecc71;
 }
 .popupmenu button:hover,
 .popupmenu button.sel:hover {
 	padding: 0 3px;
 	border: 1px solid #888888;
-	background: #7f8c8d;
+	background: #2ecc71;
 }
 .select {
 	cursor: pointer;
