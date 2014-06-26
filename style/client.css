@@ -325,7 +325,7 @@ a.subtle:hover {
 	left: 0;
 	right: 0;
 	bottom: 0;
-
+	
 	border-left: 1px solid #AAAAAA;
 	margin-left: -1px;
 }
@@ -1513,7 +1513,7 @@ div[class^='tournament-message-'], div[class*=' tournament-message-'] {
 	padding:  6px 4px 0 4px;
 }
 .movemenu button small {
-	color: #777777;
+	color: #000000;
 }
 .movemenu button small.type {
 	padding-top: 3px;

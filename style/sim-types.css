@@ -9,7 +9,7 @@
 }
 .movemenu button.type-Normal small
 {
-	color: hsl(60,14%,41%);
+	color: #000000;
 }
 .movemenu button.type-Normal:hover
 {
@@ -41,7 +41,7 @@
 }
 .movemenu button.type-Fighting small
 {
-	color: hsl(3,40%,41%);
+	color: #ffffff;
 }
 .movemenu button.type-Fighting:hover
 {
@@ -73,7 +73,7 @@
 }
 .movemenu button.type-Flying small
 {
-	color: hsl(255,20%,41%);
+	color: #000000;
 }
 .movemenu button.type-Flying:hover
 {
@@ -193,33 +193,33 @@
 .movemenu button.type-Bug
 {
 	/* bg: 97 to 90, border: 70 */
-	background: #27ae60;
+	background: #75ae27;
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(66,42%,97%)), to(hsl(66,42%,84%)));
 	background: -moz-linear-gradient(top,  hsl(66,42%,97%),  hsl(66,42%,84%));
 	background: linear-gradient(top,  hsl(66,42%,97%),  hsl(66,42%,84%));*/
-	border-color: hsl(66,42%,70%);
+	border-color: hsl(85.3,63.4%,41.8%);
 }
 .movemenu button.type-Bug small
 {
-	color: hsl(66,42%,41%);
+	color: hsl(85.3,63.4%,41.8%);
 }
 .movemenu button.type-Bug:hover
 {
 	/* bg: 95 to 83, border: 41 */
-	background: hsl(66,42%,87%);
+	background: hsl(85.3,63.4%,41.8%);
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(66,42%,94%)), to(hsl(66,42%,77%)));
 	background: -moz-linear-gradient(top,  hsl(66,42%,94%),  hsl(66,42%,77%));
 	background: linear-gradient(top,  hsl(66,42%,94%),  hsl(66,42%,77%));*/
-	border-color: hsl(66,42%,41%);
+	border-color: hsl(85.3,63.4%,41.8%);
 }
 .movemenu button.type-Bug:active
 {
 	/* bg: 83 to 88, border: 41 */
-	background: hsl(66,42%,77%);
+	background: hsl(85.3,63.4%,41.8%);
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(66,42%,77%)), to(hsl(66,42%,83%)));
 	background: -moz-linear-gradient(top,  hsl(66,42%,77%),  hsl(66,42%,83%));
 	background: linear-gradient(top,  hsl(66,42%,77%),  hsl(66,42%,83%));*/
-	border-color: hsl(66,42%,41%);
+	border-color: hsl(85.3,63.4%,41.8%);
 }
 
 .movemenu button.type-Ghost
@@ -329,7 +329,7 @@
 }
 .movemenu button.type-Water small
 {
-	color: hsl(222,29%,41%);
+	color: #ffffff;
 }
 .movemenu button.type-Water:hover
 {
@@ -393,7 +393,7 @@
 }
 .movemenu button.type-Electric small
 {
-	color: hsl(48,41%,41%);
+	color: #000000;
 }
 .movemenu button.type-Electric:hover
 {
@@ -457,7 +457,7 @@
 }
 .movemenu button.type-Ice small
 {
-	color: hsl(180,15%,41%);
+	color: #000000;
 }
 .movemenu button.type-Ice:hover
 {
@@ -521,7 +521,7 @@
 }
 .movemenu button.type-Dark small
 {
-	color: hsl(24,18%,41%);
+	color: #ffffff;
 }
 .movemenu button.type-Dark:hover
 {
