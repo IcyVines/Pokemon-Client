@@ -1,7 +1,7 @@
 .movemenu button.type-Normal
 {
 	/* bg: 97 to 90, border: 70 */
-	background: #ecf0f1;
+	background: #bdc3c7;
 /*	background: -webkit-gradient(linear, left top, left bottom, from(hsl(60,14%,97%)), to(hsl(60,14%,84%)));
 	background: -moz-linear-gradient(top,  hsl(60,14%,97%),  hsl(60,14%,84%));
 	background: linear-gradient(top,  hsl(60,14%,97%),  hsl(60,14%,84%));*/
@@ -41,7 +41,7 @@
 }
 .movemenu button.type-Fighting small
 {
-	color: #ffffff;
+	color: #bdc3c7;
 }
 .movemenu button.type-Fighting:hover
 {
@@ -129,15 +129,15 @@
 .movemenu button.type-Ground
 {
 	/* bg: 97 to 90, border: 70 */
-	background: #d35400;
+	background: #8E4723;
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(44,27%,97%)), to(hsl(44,27%,84%)));
 	background: -moz-linear-gradient(top,  hsl(44,27%,97%),  hsl(44,27%,84%));
 	background: linear-gradient(top,  hsl(44,27%,97%),  hsl(44,27%,84%));*/
-	border-color: hsl(44,27%,70%);
+	border-color: #000000;
 }
 .movemenu button.type-Ground small
 {
-	color: hsl(44,27%,41%);
+	color: #000000;
 }
 .movemenu button.type-Ground:hover
 {
@@ -161,15 +161,15 @@
 .movemenu button.type-Rock
 {
 	/* bg: 97 to 90, border: 70 */
-	background: hsl(49,35%,93%);
+	background: #a46b4e;
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(49,35%,97%)), to(hsl(49,35%,84%)));
 	background: -moz-linear-gradient(top,  hsl(49,35%,97%),  hsl(49,35%,84%));
 	background: linear-gradient(top,  hsl(49,35%,97%),  hsl(49,35%,84%));*/
-	border-color: hsl(49,35%,70%);
+	border-color: #000000;
 }
 .movemenu button.type-Rock small
 {
-	color: hsl(49,35%,41%);
+	color: #000000;
 }
 .movemenu button.type-Rock:hover
 {
@@ -201,7 +201,7 @@
 }
 .movemenu button.type-Bug small
 {
-	color: hsl(85.3,63.4%,41.8%);
+	color: #bdc3c7;
 }
 .movemenu button.type-Bug:hover
 {
@@ -233,7 +233,7 @@
 }
 .movemenu button.type-Ghost small
 {
-	color: hsl(262,21%,41%);
+	color: #bdc3c7;
 }
 .movemenu button.type-Ghost:hover
 {
@@ -297,7 +297,7 @@
 }
 .movemenu button.type-Fire small
 {
-	color: hsl(25,40%,41%);
+	color: #000000;
 }
 .movemenu button.type-Fire:hover
 {
@@ -329,7 +329,7 @@
 }
 .movemenu button.type-Water small
 {
-	color: #ffffff;
+	color: #bdc3c7;
 }
 .movemenu button.type-Water:hover
 {
@@ -425,7 +425,7 @@
 }
 .movemenu button.type-Psychic small
 {
-	color: hsl(342,33%,41%);
+	color: #000000;
 }
 .movemenu button.type-Psychic:hover
 {
@@ -521,7 +521,7 @@
 }
 .movemenu button.type-Dark small
 {
-	color: #ffffff;
+	color: #bdc3c7;
 }
 .movemenu button.type-Dark:hover
 {

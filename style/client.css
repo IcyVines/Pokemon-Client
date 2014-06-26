@@ -99,7 +99,7 @@ a.subtle:hover {
 }
 .userbar .username {
 	color: black;
-	text-shadow: 1px 1px 0 #f8f8f8, 1px -1px 0 #f8f8f8, -1px 1px 0 #f8f8f8, -1px -1px 0 #f8f8f8;
+	/*text-shadow: 1px 1px 0 #f8f8f8, 1px -1px 0 #f8f8f8, -1px 1px 0 #f8f8f8, -1px -1px 0 #f8f8f8; */
 }
 .username {
 	cursor: pointer;
@@ -132,7 +132,7 @@ a.subtle:hover {
 	text-align: left;
 
 	color: white;
-	text-shadow: 0 1px 0 black;
+	/*text-shadow: 0 1px 0 black; */
 	font-size: 10pt;
 
 	line-height: 100%;
@@ -191,7 +191,7 @@ a.subtle:hover {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	text-shadow: 0 1px 0 rgba(255,255,255,.4);
+	/*text-shadow: 0 1px 0 rgba(255,255,255,.4); */
 	border-radius: 5px;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 -1px 2px rgba(255,255,255,1);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 -1px 2px rgba(255,255,255,1);
@@ -200,7 +200,7 @@ a.subtle:hover {
 
 	/* default colors */
 	color: #222222;
-	text-shadow: 0 1px 0 white;
+	/*text-shadow: 0 1px 0 white; */
 	border: solid 1px #AAAAAA;
 	background: #e3e3e3;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#e3e3e3));
@@ -573,7 +573,7 @@ p.or:after {
 .mainmenufooter a {
 	text-decoration: underline;
 	color: #6688CC;
-	text-shadow: 0 -1px 0 black;
+	/*text-shadow: 0 -1px 0 black; */
 }
 .mainmenufooter a:hover {
 	text-decoration: underline;
@@ -706,7 +706,7 @@ p.or:after {
 
 	/* background: rgba(201, 207, 219, .6); */
 	color: white;
-	text-shadow: 0 1px 0 black;
+	/*text-shadow: 0 1px 0 black; */
 } 
 .menugroup {
 	/*background: rgba(201, 207, 219, .4); */
@@ -731,7 +731,7 @@ p.or:after {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	text-shadow: 0 -1px 0 hsl(210,40%,10%);
+	/*text-shadow: 0 -1px 0 hsl(210,40%,10%); */
 	border-radius: 5px;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 1px 1px rgba(255,255,255,.8);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 1px 1px rgba(255,255,255,.8);
@@ -837,7 +837,7 @@ p.or:after {
 	border-radius: 4px;
 	text-decoration: none;
 	color: #336699;
-	text-shadow: #ffffff 0px -1px 0;
+	/*text-shadow: #ffffff 0px -1px 0; */
 	box-shadow: 1px 1px 1px #D5D5D5;
 	cursor: pointer;
 	font-size: 10pt;
@@ -1539,7 +1539,7 @@ div[class^='tournament-message-'], div[class*=' tournament-message-'] {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	text-shadow: 0 1px 0 rgba(255,255,255,.4);
+	/*text-shadow: 0 1px 0 rgba(255,255,255,.4); */
 	border-radius: 5px;
 	margin-top: 2px;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 -1px 2px rgba(255,255,255,1);
@@ -1874,7 +1874,7 @@ div[class^='tournament-message-'], div[class*=' tournament-message-'] {
 	color: #555555;
 	padding-left: 2px;
 
-	text-shadow: 1px 1px 0 rgba(255,255,255,.6);
+	/*text-shadow: 1px 1px 0 rgba(255,255,255,.6);*/
 }
 .setchart-nickname label {
 	font-size: 7pt;
@@ -2113,7 +2113,7 @@ div[class^='tournament-message-'], div[class*=' tournament-message-'] {
 	border: 1px solid #AAAAAA;
 	border-left: 0;
 	border-right: 0;
-	text-shadow: 1px 1px 0 rgba(255,255,255,.6);
+	/*text-shadow: 1px 1px 0 rgba(255,255,255,.6); */
 	box-shadow: inset 1px 1px 0 rgba(255,255,255,.6), 0px 2px 2px rgba(0,0,0,.15);
 }
 
