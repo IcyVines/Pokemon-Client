@@ -206,7 +206,7 @@ License: GPLv2
 .statbar .hpbar
 {
 	position: relative;
-	border: 1px solid #777777;
+	border: 1px solid #ecf0f1;
 	background: #FCFEFF;
 	padding: 1px;
 	height: 8px;
@@ -220,25 +220,34 @@ License: GPLv2
 .statbar .hpbar .hp
 {
 	height: 4px;
-	border-top: 2px solid #00dd60;
-	background: #00bb51;
-	border-bottom: 2px solid #007734;
-	border-right: 1px solid #007734;
+	border-top: 2px solid #2c3e50;
+	background: #2ecc71;
+	border-bottom: 2px solid #2c3e50;
+	border-right: 1px solid #2c3e50;
 	border-radius: 3px;
 }
+.statbar .hpbar .hp-orange
+{
+	border-top-color: #2c3e50;
+	background-color: #e67e22;
+	border-bottom-color: #2c3e50;
+	border-right-color: #2c3e50;
+}
+
 .statbar .hpbar .hp-yellow
 {
-	border-top-color: #f8e379;
-	background-color: #f5d538;
-	border-bottom-color: #be9f0a;
-	border-right-color: #be9f0a;
+	border-top-color: #2c3e50;
+	background-color: #f1c40f;
+	border-bottom-color: #2c3e50;
+	border-right-color: #2c3e50;
 }
+
 .statbar .hpbar .hp-red
 {
-	border-top-color: #f37f67;
-	background-color: #ee4928;
-	border-bottom-color: #a3260d;
-	border-right-color: #a3260d;
+	border-top-color: #2c3e50;
+	background-color: #c0392b;
+	border-bottom-color: #2c3e50;
+	border-right-color: #2c3e50;
 }
 
 /* The declaration order of these prevhp* classes is significant. */

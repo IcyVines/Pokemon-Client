@@ -116,8 +116,8 @@
 			}
 
 			if (!teams) {
-				buf = '<div class="pad"><p>lol zarel this is a horrible teambuilder</p>'
-				buf += '<p>that\'s because we\'re not done loading it...</p></div>';
+				/*buf = '<div class="pad"><p>lol zarel this is a horrible teambuilder</p>'
+				buf += '<p>that\'s because we\'re not done loading it...</p></div>'; */
 				this.$el.html(buf);
 				return;
 			}
@@ -283,7 +283,7 @@
 					buf += '</select></li>';
 				}
 				if (!this.curTeam.team.length) {
-					buf += '<li><em>you have no pokemon lol</em></li>';
+					buf += '<li><em>There are no members on your team</em></li>';
 				}
 				for (i=0; i<this.curTeam.team.length; i++) {
 					if (this.curTeam.team.length < 6 && this.deletedSet && i === this.deletedSetLoc) {
@@ -298,7 +298,7 @@
 					buf += '<li><button name="import" class="majorbutton"><i class="icon-upload-alt"></i> Import from text</button></li>';
 				}
 				if (i < 6) {
-					buf += '<li><button name="addPokemon" class="majorbutton"><i class="icon-plus"></i> Add pokemon</button></li>';
+					buf += '<li><button name="addPokemon" class="majorbutton"><i class="icon-plus"></i> Add A Team Member</button></li>';
 				}
 				buf += '</ol>';
 				buf += '</div>';
@@ -683,7 +683,7 @@
 			var buf = '';
 			var set = this.curSet;
 			var baseStats = Tools.getTemplate(this.curSet.species).baseStats;
-			buf += '<h3>EVs</h3>';
+			buf += '<h2>EVs</h2>';
 			buf += '<div class="statform">';
 			var role = this.guessRole();
 
@@ -972,7 +972,7 @@
 			var set = this.curSet;
 			var template = Tools.getTemplate(set.species);
 			if (!set) return;
-			buf += '<h3>Details</h3>';
+			buf += '<h2>Details</h2>';
 			buf += '<form class="detailsform">';
 
 			buf += '<div class="formrow"><label class="formlabel">Level:</label><div><input type="number" min="1" max="100" step="1" name="level" value="'+(set.level||100)+'" class="textbox inputform numform" /></div></div>';

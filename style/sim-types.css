@@ -1,7 +1,7 @@
 .movemenu button.type-Normal
 {
 	/* bg: 97 to 90, border: 70 */
-	background: #ecf0f1;
+	background: #bdc3c7;
 /*	background: -webkit-gradient(linear, left top, left bottom, from(hsl(60,14%,97%)), to(hsl(60,14%,84%)));
 	background: -moz-linear-gradient(top,  hsl(60,14%,97%),  hsl(60,14%,84%));
 	background: linear-gradient(top,  hsl(60,14%,97%),  hsl(60,14%,84%));*/
@@ -9,7 +9,7 @@
 }
 .movemenu button.type-Normal small
 {
-	color: hsl(60,14%,41%);
+	color: #000000;
 }
 .movemenu button.type-Normal:hover
 {
@@ -41,7 +41,7 @@
 }
 .movemenu button.type-Fighting small
 {
-	color: hsl(3,40%,41%);
+	color: #bdc3c7;
 }
 .movemenu button.type-Fighting:hover
 {
@@ -73,7 +73,7 @@
 }
 .movemenu button.type-Flying small
 {
-	color: hsl(255,20%,41%);
+	color: #000000;
 }
 .movemenu button.type-Flying:hover
 {
@@ -129,15 +129,15 @@
 .movemenu button.type-Ground
 {
 	/* bg: 97 to 90, border: 70 */
-	background: #d35400;
+	background: #8E4723;
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(44,27%,97%)), to(hsl(44,27%,84%)));
 	background: -moz-linear-gradient(top,  hsl(44,27%,97%),  hsl(44,27%,84%));
 	background: linear-gradient(top,  hsl(44,27%,97%),  hsl(44,27%,84%));*/
-	border-color: hsl(44,27%,70%);
+	border-color: #000000;
 }
 .movemenu button.type-Ground small
 {
-	color: hsl(44,27%,41%);
+	color: #000000;
 }
 .movemenu button.type-Ground:hover
 {
@@ -161,15 +161,15 @@
 .movemenu button.type-Rock
 {
 	/* bg: 97 to 90, border: 70 */
-	background: hsl(49,35%,93%);
+	background: #a46b4e;
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(49,35%,97%)), to(hsl(49,35%,84%)));
 	background: -moz-linear-gradient(top,  hsl(49,35%,97%),  hsl(49,35%,84%));
 	background: linear-gradient(top,  hsl(49,35%,97%),  hsl(49,35%,84%));*/
-	border-color: hsl(49,35%,70%);
+	border-color: #000000;
 }
 .movemenu button.type-Rock small
 {
-	color: hsl(49,35%,41%);
+	color: #000000;
 }
 .movemenu button.type-Rock:hover
 {
@@ -193,33 +193,33 @@
 .movemenu button.type-Bug
 {
 	/* bg: 97 to 90, border: 70 */
-	background: #27ae60;
+	background: #75ae27;
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(66,42%,97%)), to(hsl(66,42%,84%)));
 	background: -moz-linear-gradient(top,  hsl(66,42%,97%),  hsl(66,42%,84%));
 	background: linear-gradient(top,  hsl(66,42%,97%),  hsl(66,42%,84%));*/
-	border-color: hsl(66,42%,70%);
+	border-color: hsl(85.3,63.4%,41.8%);
 }
 .movemenu button.type-Bug small
 {
-	color: hsl(66,42%,41%);
+	color: #bdc3c7;
 }
 .movemenu button.type-Bug:hover
 {
 	/* bg: 95 to 83, border: 41 */
-	background: hsl(66,42%,87%);
+	background: hsl(85.3,63.4%,41.8%);
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(66,42%,94%)), to(hsl(66,42%,77%)));
 	background: -moz-linear-gradient(top,  hsl(66,42%,94%),  hsl(66,42%,77%));
 	background: linear-gradient(top,  hsl(66,42%,94%),  hsl(66,42%,77%));*/
-	border-color: hsl(66,42%,41%);
+	border-color: hsl(85.3,63.4%,41.8%);
 }
 .movemenu button.type-Bug:active
 {
 	/* bg: 83 to 88, border: 41 */
-	background: hsl(66,42%,77%);
+	background: hsl(85.3,63.4%,41.8%);
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(66,42%,77%)), to(hsl(66,42%,83%)));
 	background: -moz-linear-gradient(top,  hsl(66,42%,77%),  hsl(66,42%,83%));
 	background: linear-gradient(top,  hsl(66,42%,77%),  hsl(66,42%,83%));*/
-	border-color: hsl(66,42%,41%);
+	border-color: hsl(85.3,63.4%,41.8%);
 }
 
 .movemenu button.type-Ghost
@@ -233,7 +233,7 @@
 }
 .movemenu button.type-Ghost small
 {
-	color: hsl(262,21%,41%);
+	color: #bdc3c7;
 }
 .movemenu button.type-Ghost:hover
 {
@@ -297,7 +297,7 @@
 }
 .movemenu button.type-Fire small
 {
-	color: hsl(25,40%,41%);
+	color: #000000;
 }
 .movemenu button.type-Fire:hover
 {
@@ -329,7 +329,7 @@
 }
 .movemenu button.type-Water small
 {
-	color: hsl(222,29%,41%);
+	color: #bdc3c7;
 }
 .movemenu button.type-Water:hover
 {
@@ -393,7 +393,7 @@
 }
 .movemenu button.type-Electric small
 {
-	color: hsl(48,41%,41%);
+	color: #000000;
 }
 .movemenu button.type-Electric:hover
 {
@@ -425,7 +425,7 @@
 }
 .movemenu button.type-Psychic small
 {
-	color: hsl(342,33%,41%);
+	color: #000000;
 }
 .movemenu button.type-Psychic:hover
 {
@@ -457,7 +457,7 @@
 }
 .movemenu button.type-Ice small
 {
-	color: hsl(180,15%,41%);
+	color: #000000;
 }
 .movemenu button.type-Ice:hover
 {
@@ -481,15 +481,15 @@
 .movemenu button.type-Dragon
 {
 	/* bg: 97 to 90, border: 70 */
-	background: #8e44ad;
+	background: #b075c9;
 	/*background: -webkit-gradient(linear, left top, left bottom, from(hsl(257,39%,97%)), to(hsl(257,39%,84%)));
 	background: -moz-linear-gradient(top,  hsl(257,39%,97%),  hsl(257,39%,84%));
 	background: linear-gradient(top,  hsl(257,39%,97%),  hsl(257,39%,84%)); */
-	border-color: hsl(257,39%,70%);
+	border-color: #b075c9;
 }
 .movemenu button.type-Dragon small
 {
-	color: hsl(257,39%,41%);
+	color: #000000;
 }
 .movemenu button.type-Dragon:hover
 {
@@ -521,7 +521,7 @@
 }
 .movemenu button.type-Dark small
 {
-	color: hsl(24,18%,41%);
+	color: #bdc3c7;
 }
 .movemenu button.type-Dark:hover
 {

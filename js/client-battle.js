@@ -180,7 +180,7 @@
 						this.$controls.html('<div class="controls"><p><button name="setTimer" value="on"><small>Claim victory</small></button> <small>&larr; Your opponent has disconnected. Click this if they don\'t reconnect.</small></p></div>');
 					}
 				} else {
-					this.$controls.html('<p><em>Waiting for players...</em></p>');
+					this.$controls.html('<p><Waiting for players...</p>');
 					this.$join = $('<div class="playbutton"><button name="joinBattle">Join Battle</button></div>');
 					this.$battle.append(this.$join);
 				}
@@ -204,7 +204,7 @@
 			} else {
 
 				// full battle
-				this.$controls.html('<p><em>Waiting for players...</em></p>');
+				this.$controls.html('<p><Waiting for players...</p>');
 
 			}
 
@@ -488,7 +488,7 @@
 				break;
 
 			default:
-				var buf = '<div class="controls"><p><em>Waiting for opponent...</em> ';
+				var buf = '<div class="controls"><p>Waiting for opponent... ';
 				if (this.choice && this.choice.waiting && !this.finalDecision) {
 					buf += '<button name="undoChoice">Cancel</button>';
 				}
