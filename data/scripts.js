@@ -789,8 +789,9 @@ exports.BattleScripts = {
 			hasMove = {};
 			counter = {
 				Physical: 0, Special: 0, Status: 0, damage: 0,
-				technician: 0, skilllink: 0, contrary: 0, sheerforce: 0, ironfist: 0, adaptability: 0, hustle: 0,
-				blaze: 0, overgrow: 0, swarm: 0, torrent: 0,
+				technician: 0, skilllink: 0, contrary: 0, sheerforce: 0, ironfist: 0, adaptability: 0, hustle: 0, 
+				butterflyeffect: 0, prioritize: 0, rapidfire: 0, unsheathed: 0, advancedartillery: 0, thrillseeker: 0, tidal: 0, acidic: 0,
+				blaze: 0, overgrow: 0, swarm: 0, torrent: 0, crystallize: 0, fester: 0, sharpen: 0, rampage: 0, voltage: 0, 
 				recoil: 0, inaccurate: 0,
 				physicalsetup: 0, specialsetup: 0, mixedsetup: 0
 			};
@@ -852,11 +853,20 @@ exports.BattleScripts = {
 					if (move.type === 'Fire') counter['blaze']++;
 					if (move.type === 'Grass') counter['overgrow']++;
 					if (move.type === 'Bug') counter['swarm']++;
+					if (move.type === 'Steel') counter['sharpen']++;
+					if (move.type === 'Ice'){ 
+						counter['crystallize']++;
+						counter['tidal']++;
+					}
+					if (move.type === 'Poison'){ 
+						counter['fester']++;
+						counter['acidic']++;					}
+					if (move.type === 'Electric') counter['voltage']++;
+					if (move.type === 'Dragon') counter['rampage']++;
 					if (move.type === 'Water'){
 						counter['torrent']++;
 						counter['tidal']++;
 					} 
-					if (move.type === 'Ice') counter['tidal']++;
 					// Make sure not to count Knock Off, Rapid Spin, etc.
 					if (move.basePower > 20 || move.multihit || move.basePowerCallback) {
 						damagingMoves.push(move);
@@ -1259,22 +1269,25 @@ exports.BattleScripts = {
 				}
 
 				var rejectAbility = false;
-				if (ability === 'rapidfire' && !counter['rapidfire']) {
+				if (ability === 'Rapid Fire' && !counter['rapidfire']) {
 					rejectAbility = true;
 				}
-				if (ability === 'butterflyeffect' && !counter['butterflyeffect']) {
+				if (ability === 'Butterfly Effect' && !counter['butterflyeffect']) {
 					rejectAbility = true;
 				}
-				if (ability === 'prioritize' && !counter['prioritize']) {
+				if (ability === 'Prioritize' && !counter['prioritize']) {
 					rejectAbility = true;
 				}
-				if (ability === 'unsheathed' && !counter['unsheathed']) {
+				if (ability === 'Unsheathed' && !counter['unsheathed']) {
 					rejectAbility = true;
 				}
-				if (ability === 'advancedartillery' && !counter['advancedartillery']) {
+				if (ability === 'Tidal' && !counter['tidal']) {
 					rejectAbility = true;
 				}
-				if (ability === 'thrillseeker' && !counter['thrillseeker']) {
+				if (ability === 'Advanced Artillery' && !counter['advancedartillery']) {
+					rejectAbility = true;
+				}
+				if (ability === 'Thrill Seeker' && !counter['thrillseeker']) {
 					rejectAbility = true;
 				}
 				if (ability === 'Blaze' && !counter['blaze']) {
@@ -1287,6 +1300,21 @@ exports.BattleScripts = {
 					rejectAbility = true;
 				}
 				if (ability === 'Torrent' && !counter['torrent']) {
+					rejectAbility = true;
+				}
+				if (ability === 'Sharpen' && !counter['sharpen']) {
+					rejectAbility = true;
+				}
+				if (ability === 'Fester' && !counter['fester']) {
+					rejectAbility = true;
+				}
+				if (ability === 'Crystallize' && !counter['crystallize']) {
+					rejectAbility = true;
+				}
+				if (ability === 'Rampage' && !counter['rampage']) {
+					rejectAbility = true;
+				}
+				if (ability === 'Voltage' && !counter['voltage']) {
 					rejectAbility = true;
 				}
 				if (ability === 'Contrary' && !counter['contrary']) {

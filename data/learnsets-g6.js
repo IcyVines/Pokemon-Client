@@ -1500,6 +1500,7 @@ exports.BattleLearnsets = {
             venommortar: ["6M"],
             blight: ["6M"],
             grassyterrain: ["6M"],
+            seedflare: ["6M"],
             marshyterrain: ["6M"]
         }
     },
@@ -2945,7 +2946,12 @@ exports.BattleLearnsets = {
             thunderwave: [],
             toxic: [],
             uproar: [],
-            volttackle: []
+            volttackle: [],
+            electricterrain: ["4M"],
+            voltswitch: ["4M"],
+            sparklerburns: ["4M"],
+            aprilfools: ["4M"],
+            jolt: ["4M"]
         }
     },
     pikachu: {
@@ -27462,6 +27468,7 @@ exports.BattleLearnsets = {
             clearsmog: ["6M"],
             flashcannon: ["6M"],
             leafstorm: ["6M"],
+            seedflare: ["6M"],
             signalbeam: ["6M"]
         }
     },
@@ -42535,6 +42542,7 @@ exports.BattleLearnsets = {
             psychic: ["6M"],
             signalbeam: ["6M"],
             aurasphere: ["6M"],
+            seedflare: ["6M"],
             grassyterrain: ["6M"]
         }
     },
@@ -50073,6 +50081,7 @@ exports.BattleLearnsets = {
             naturepower: ["6M"],
             dazzlinggleam: ["6M"],
             glitter: ["6M"],
+            seedflare: ["6M"],
             confide: ["6M"]
         }
     },

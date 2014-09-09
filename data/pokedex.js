@@ -4516,15 +4516,17 @@ exports.BattlePokedex = {
         types: ["Electric"],
         gender: "F",
         baseStats: {
-            hp: 20,
-            atk: 40,
-            def: 15,
-            spa: 35,
-            spd: 35,
-            spe: 60
+            hp: 60,
+            atk: 100,
+            def: 55,
+            spa: 100,
+            spd: 80,
+            spe: 115
         },
         abilities: {
-            0: "Static"
+            0: "Static",
+            1: "Voltage",
+            H: "Terraformer"
         },
         heightm: 0.3,
         weightkg: 2,

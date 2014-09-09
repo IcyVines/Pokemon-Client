@@ -2946,7 +2946,12 @@ exports.BattleLearnsets = {
             thunderwave: ["4M", "4L10"],
             toxic: ["4M"],
             uproar: ["4T"],
-            volttackle: ["4S0"]
+            volttackle: ["4S0"],
+            voltswitch: ["4M"],
+            electricterrain: ["4M"],
+            sparklerburns: ["4M"],
+            aprilfools: ["4M"],
+            jolt: ["4M"]
         }
     },
     pikachu: {

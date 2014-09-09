@@ -2648,7 +2648,7 @@ exports.BattleAbilities = {
 	},
 	"prioritize": {
 		desc: "Pokemon's moves with base power of 60 or less gain +1 priority.",
-		shortDesc: "Moves with base power of 60 or less gain priority",
+		shortDesc: "Moves with base power of 60 or less gain priority.",
 		onModifyPriority: function(priority, pokemon, target, move){
 			if (move && move.basePower <= 60){
 				return priority + 1;
@@ -3355,8 +3355,8 @@ exports.BattleAbilities = {
 		num: 80
 	},
 	"stench": {
-		desc: "This Pokemon's damaging moves that don't already have a flinch chance gain a 10% chance to cause flinch.",
-		shortDesc: "This Pokemon's attacks without a chance to flinch have a 10% chance to flinch.",
+		desc: "This Pokemon's damaging moves that don't already have a flinch chance gain a 20% chance to cause flinch.",
+		shortDesc: "This Pokemon's attacks without a chance to flinch have a 20% chance to flinch.",
 		onModifyMove: function(move) {
 			if (move.category !== "Status") {
 				this.debug('Adding Stench flinch');
