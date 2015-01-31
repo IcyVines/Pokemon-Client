@@ -468,11 +468,11 @@ exports.BattlePokedex = {
         types: ["Poison", "Steel"],
         baseStats: {
             hp: 70,
-            atk: 120,
-            def: 80,
+            atk: 115,
+            def: 60,
             spa: 45,
-            spd: 80,
-            spe: 110
+            spd: 90,
+            spe: 105
         },
         abilities: {
             0: "Swarm",
@@ -492,13 +492,13 @@ exports.BattlePokedex = {
         baseSpecies: "Beedrill",
         forme: "Mega",
         formeLetter: "M",
-        types: ["Bug", "Poison"],
+        types: ["Poison", "Steel"],
         baseStats: {
-            hp: 65,
+            hp: 70,
             atk: 150,
-            def: 40,
-            spa: 15,
-            spd: 80,
+            def: 80,
+            spa: 45,
+            spd: 95,
             spe: 145
         },
         abilities: {
