@@ -52716,7 +52716,7 @@ exports.BattleLearnsets = {
             strength: ["6M"],
             dracometeor: ["6T"]
         }
-    }
+    },
     diancie: {
         learnset: {
             afteryou: ["6T"],
