@@ -486,6 +486,31 @@ exports.BattlePokedex = {
         evoLevel: 10,
         eggGroups: ["Bug"]
     },
+    beedrillmega: {
+        num: 15,
+        species: "Beedrill-Mega",
+        baseSpecies: "Beedrill",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Bug", "Poison"],
+        baseStats: {
+            hp: 65,
+            atk: 150,
+            def: 40,
+            spa: 15,
+            spd: 80,
+            spe: 145
+        },
+        abilities: {
+            0: "Adaptability"
+        },
+        heightm: 1.4,
+        weightkg: 40.5,
+        color: "Yellow",
+        prevo: "kakuna",
+        evoLevel: 10,
+        eggGroups: ["Bug"]
+    },
     pidgey: {
         num: 16,
         species: "Pidgey",
@@ -553,6 +578,31 @@ exports.BattlePokedex = {
         },
         heightm: 1.5,
         weightkg: 39.5,
+        color: "Brown",
+        prevo: "pidgeotto",
+        evoLevel: 36,
+        eggGroups: ["Flying"]
+    },
+    pidgeotmega: {
+        num: 18,
+        species: "Pidgeot-Mega",
+        baseSpecies: "Pidgeot",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Normal", "Flying"],
+        baseStats: {
+            hp: 83,
+            atk: 80,
+            def: 80,
+            spa: 135,
+            spd: 80,
+            spe: 121
+        },
+        abilities: {
+            0: "No Guard"
+        },
+        heightm: 2.2,
+        weightkg: 50.5,
         color: "Brown",
         prevo: "pidgeotto",
         evoLevel: 36,
@@ -2107,6 +2157,31 @@ exports.BattlePokedex = {
         evoLevel: 37,
         eggGroups: ["Monster", "Water 1"]
     },
+    slowbromega: {
+        num: 80,
+        species: "Slowbro-Mega",
+        baseSpecies: "Slowbro",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Water", "Psychic"],
+        baseStats: {
+            hp: 95,
+            atk: 75,
+            def: 180,
+            spa: 130,
+            spd: 80,
+            spe: 30
+        },
+        abilities: {
+            0: "Shell Armor"
+        },
+        heightm: 2,
+        weightkg: 120,
+        color: "Pink",
+        prevo: "slowpoke",
+        evoLevel: 37,
+        eggGroups: ["Monster", "Water 1"]
+    },
     magnemite: {
         num: 81,
         species: "Magnemite",
@@ -3356,7 +3431,7 @@ exports.BattlePokedex = {
         abilities: {
             0: "Intimidate",
             1: "Moxie",
-            H: "Drizzle"
+            H: "Rampage"
         },
         heightm: 6.5,
         weightkg: 235,
@@ -3459,7 +3534,9 @@ exports.BattlePokedex = {
         heightm: 0.3,
         weightkg: 6.5,
         color: "Brown",
-        evos: ["vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"],
+        evos: ["vaporeon", "jolteon", "flareon", "espeon", "umbreon",
+            "leafeon", "glaceon", "sylveon"
+        ],
         eggGroups: ["Field"]
     },
     vaporeon: {
@@ -3476,7 +3553,7 @@ exports.BattlePokedex = {
             def: 70,
             spa: 110,
             spd: 100,
-            spe: 80
+            spe: 75
         },
         abilities: {
             0: "Water Absorb",
@@ -3503,7 +3580,7 @@ exports.BattlePokedex = {
             atk: 65,
             def: 70,
             spa: 120,
-            spd: 100,
+            spd: 95,
             spe: 130
         },
         abilities: {
@@ -3530,7 +3607,7 @@ exports.BattlePokedex = {
             hp: 70,
             atk: 130,
             def: 80,
-            spa: 80,
+            spa: 75,
             spd: 110,
             spe: 85
         },
@@ -5129,7 +5206,7 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 70,
-            atk: 70,
+            atk: 65,
             def: 65,
             spa: 135,
             spd: 105,
@@ -5157,7 +5234,7 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 100,
-            atk: 80,
+            atk: 75,
             def: 120,
             spa: 60,
             spd: 130,
@@ -5264,7 +5341,12 @@ exports.BattlePokedex = {
         weightkg: 5,
         color: "Black",
         eggGroups: ["Undiscovered"],
-        otherForms: ["unownb", "unownc", "unownd", "unowne", "unownf", "unowng", "unownh", "unowni", "unownj", "unownk", "unownl", "unownm", "unownn", "unowno", "unownp", "unownq", "unownr", "unowns", "unownt", "unownu", "unownv", "unownw", "unownx", "unowny", "unownz", "unownem", "unownqm"]
+        otherForms: ["unownb", "unownc", "unownd", "unowne", "unownf",
+            "unowng", "unownh", "unowni", "unownj", "unownk", "unownl",
+            "unownm", "unownn", "unowno", "unownp", "unownq", "unownr",
+            "unowns", "unownt", "unownu", "unownv", "unownw", "unownx",
+            "unowny", "unownz", "unownem", "unownqm"
+        ]
     },
     wobbuffet: {
         num: 202,
@@ -5420,6 +5502,31 @@ exports.BattlePokedex = {
         },
         heightm: 9.2,
         weightkg: 400,
+        color: "Gray",
+        prevo: "onix",
+        evoLevel: 1,
+        eggGroups: ["Mineral"]
+    },
+    steelixmega: {
+        num: 208,
+        species: "Steelix-Mega",
+        baseSpecies: "Steelix",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Steel", "Ground"],
+        baseStats: {
+            hp: 75,
+            atk: 125,
+            def: 230,
+            spa: 55,
+            spd: 95,
+            spe: 30
+        },
+        abilities: {
+            0: "Sand Force"
+        },
+        heightm: 10.5,
+        weightkg: 740,
         color: "Gray",
         prevo: "onix",
         evoLevel: 1,
@@ -6622,6 +6729,35 @@ exports.BattlePokedex = {
         evoLevel: 36,
         eggGroups: ["Monster", "Dragon"]
     },
+    sceptilemega: {
+        num: 254,
+        species: "Sceptile-Mega",
+        baseSpecies: "Sceptile",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Grass", "Dragon"],
+        genderRatio: {
+            M: 0.875,
+            F: 0.125
+        },
+        baseStats: {
+            hp: 70,
+            atk: 110,
+            def: 75,
+            spa: 145,
+            spd: 85,
+            spe: 145
+        },
+        abilities: {
+            0: "Lightning Rod"
+        },
+        heightm: 1.9,
+        weightkg: 55.2,
+        color: "Green",
+        prevo: "grovyle",
+        evoLevel: 36,
+        eggGroups: ["Monster", "Dragon"]
+    },
     torchic: {
         num: 255,
         species: "Torchic",
@@ -6807,6 +6943,35 @@ exports.BattlePokedex = {
         },
         heightm: 1.5,
         weightkg: 81.9,
+        color: "Blue",
+        prevo: "marshtomp",
+        evoLevel: 36,
+        eggGroups: ["Monster", "Water 1"]
+    },
+    swampertmega: {
+        num: 260,
+        species: "Swampert-Mega",
+        baseSpecies: "Swampert",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Water", "Ground"],
+        genderRatio: {
+            M: 0.875,
+            F: 0.125
+        },
+        baseStats: {
+            hp: 100,
+            atk: 150,
+            def: 110,
+            spa: 95,
+            spd: 110,
+            spe: 70
+        },
+        abilities: {
+            0: "Swift Swim"
+        },
+        heightm: 1.9,
+        weightkg: 102,
         color: "Blue",
         prevo: "marshtomp",
         evoLevel: 36,
@@ -7834,6 +7999,29 @@ exports.BattlePokedex = {
         color: "Purple",
         eggGroups: ["Human-Like"]
     },
+    sableyemega: {
+        num: 302,
+        species: "Sableye-Mega",
+        baseSpecies: "Sableye",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Dark", "Ghost"],
+        baseStats: {
+            hp: 50,
+            atk: 85,
+            def: 125,
+            spa: 85,
+            spd: 115,
+            spe: 20
+        },
+        abilities: {
+            0: "Magic Bounce"
+        },
+        heightm: 0.5,
+        weightkg: 161,
+        color: "Purple",
+        eggGroups: ["Human-Like"]
+    },
     mawile: {
         num: 303,
         species: "Mawile",
@@ -8328,6 +8516,31 @@ exports.BattlePokedex = {
         evoLevel: 30,
         eggGroups: ["Water 2"]
     },
+    sharpedomega: {
+        num: 319,
+        species: "Sharpedo-Mega",
+        baseSpecies: "Sharpedo",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Water", "Dark"],
+        baseStats: {
+            hp: 70,
+            atk: 140,
+            def: 70,
+            spa: 110,
+            spd: 65,
+            spe: 105
+        },
+        abilities: {
+            0: "Strong Jaw"
+        },
+        heightm: 2.5,
+        weightkg: 130.3,
+        color: "Blue",
+        prevo: "carvanha",
+        evoLevel: 30,
+        eggGroups: ["Water 2"]
+    },
     wailmer: {
         num: 320,
         species: "Wailmer",
@@ -8417,6 +8630,31 @@ exports.BattlePokedex = {
         },
         heightm: 1.9,
         weightkg: 220,
+        color: "Red",
+        prevo: "numel",
+        evoLevel: 33,
+        eggGroups: ["Field"]
+    },
+    cameruptmega: {
+        num: 323,
+        species: "Camerupt-Mega",
+        baseSpecies: "Camerupt",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Fire", "Ground"],
+        baseStats: {
+            hp: 70,
+            atk: 120,
+            def: 100,
+            spa: 145,
+            spd: 105,
+            spe: 20
+        },
+        abilities: {
+            0: "Sheer Force"
+        },
+        heightm: 2.5,
+        weightkg: 320.5,
         color: "Red",
         prevo: "numel",
         evoLevel: 33,
@@ -8667,6 +8905,31 @@ exports.BattlePokedex = {
             H: "Cloud Nine"
         },
         heightm: 1.1,
+        weightkg: 20.6,
+        color: "Blue",
+        prevo: "swablu",
+        evoLevel: 35,
+        eggGroups: ["Flying", "Dragon"]
+    },
+    altariamega: {
+        num: 334,
+        species: "Altaria-Mega",
+        baseSpecies: "Altaria",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Dragon", "Fairy"],
+        baseStats: {
+            hp: 75,
+            atk: 110,
+            def: 110,
+            spa: 110,
+            spd: 105,
+            spe: 80
+        },
+        abilities: {
+            0: "Pixilate"
+        },
+        heightm: 1.5,
         weightkg: 20.6,
         color: "Blue",
         prevo: "swablu",
@@ -9438,6 +9701,31 @@ exports.BattlePokedex = {
         evoLevel: 42,
         eggGroups: ["Fairy", "Mineral"]
     },
+    glaliemega: {
+        num: 362,
+        species: "Glalie-Mega",
+        baseSpecies: "Glalie",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Ice"],
+        baseStats: {
+            hp: 80,
+            atk: 120,
+            def: 80,
+            spa: 120,
+            spd: 80,
+            spe: 100
+        },
+        abilities: {
+            0: "Refrigerate"
+        },
+        heightm: 2.1,
+        weightkg: 350.2,
+        color: "Gray",
+        prevo: "snorunt",
+        evoLevel: 42,
+        eggGroups: ["Fairy", "Mineral"]
+    },
     spheal: {
         num: 363,
         species: "Spheal",
@@ -9698,6 +9986,31 @@ exports.BattlePokedex = {
         evoLevel: 50,
         eggGroups: ["Dragon"]
     },
+    salamencemega: {
+        num: 373,
+        species: "Salamence-Mega",
+        baseSpecies: "Salamence",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Dragon", "Flying"],
+        baseStats: {
+            hp: 95,
+            atk: 145,
+            def: 130,
+            spa: 120,
+            spd: 90,
+            spe: 120
+        },
+        abilities: {
+            0: "Aerilate"
+        },
+        heightm: 1.8,
+        weightkg: 112.6,
+        color: "Blue",
+        prevo: "shelgon",
+        evoLevel: 50,
+        eggGroups: ["Dragon"]
+    },
     beldum: {
         num: 374,
         species: "Beldum",
@@ -9766,6 +10079,32 @@ exports.BattlePokedex = {
         },
         heightm: 1.6,
         weightkg: 550,
+        color: "Blue",
+        prevo: "metang",
+        evoLevel: 45,
+        eggGroups: ["Mineral"]
+    },
+    metagrossmega: {
+        num: 376,
+        species: "Metagross-Mega",
+        baseSpecies: "Metagross",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Steel", "Psychic"],
+        gender: "N",
+        baseStats: {
+            hp: 80,
+            atk: 145,
+            def: 150,
+            spa: 105,
+            spd: 110,
+            spe: 110
+        },
+        abilities: {
+            0: "Tough Claws"
+        },
+        heightm: 2.5,
+        weightkg: 942.9,
         color: "Blue",
         prevo: "metang",
         evoLevel: 45,
@@ -9950,6 +10289,30 @@ exports.BattlePokedex = {
         color: "Blue",
         eggGroups: ["Undiscovered"]
     },
+    kyogreprimal: {
+        num: 382,
+        species: "Kyogre-Primal",
+        baseSpecies: "Kyogre",
+        forme: "Primal",
+        formeLetter: "P",
+        types: ["Water"],
+        gender: "N",
+        baseStats: {
+            hp: 100,
+            atk: 150,
+            def: 90,
+            spa: 180,
+            spd: 160,
+            spe: 90
+        },
+        abilities: {
+            0: "Primordial Sea"
+        },
+        heightm: 9.8,
+        weightkg: 430,
+        color: "Blue",
+        eggGroups: ["Undiscovered"]
+    },
     groudon: {
         num: 383,
         species: "Groudon",
@@ -9971,6 +10334,30 @@ exports.BattlePokedex = {
         color: "Red",
         eggGroups: ["Undiscovered"]
     },
+    groudonprimal: {
+        num: 383,
+        species: "Groudon-Primal",
+        baseSpecies: "Groudon",
+        forme: "Primal",
+        formeLetter: "P",
+        types: ["Ground", "Fire"],
+        gender: "N",
+        baseStats: {
+            hp: 100,
+            atk: 180,
+            def: 160,
+            spa: 150,
+            spd: 90,
+            spe: 90
+        },
+        abilities: {
+            0: "Desolate Land"
+        },
+        heightm: 5,
+        weightkg: 999.7,
+        color: "Red",
+        eggGroups: ["Undiscovered"]
+    },
     rayquaza: {
         num: 384,
         species: "Rayquaza",
@@ -9989,6 +10376,30 @@ exports.BattlePokedex = {
         },
         heightm: 7,
         weightkg: 206.5,
+        color: "Green",
+        eggGroups: ["Undiscovered"]
+    },
+    rayquazamega: {
+        num: 384,
+        species: "Rayquaza-Mega",
+        baseSpecies: "Rayquaza",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Dragon", "Flying"],
+        gender: "N",
+        baseStats: {
+            hp: 105,
+            atk: 180,
+            def: 100,
+            spa: 180,
+            spd: 100,
+            spe: 115
+        },
+        abilities: {
+            0: "Delta Stream"
+        },
+        heightm: 10.8,
+        weightkg: 392,
         color: "Green",
         eggGroups: ["Undiscovered"]
     },
@@ -11226,6 +11637,31 @@ exports.BattlePokedex = {
         evoLevel: 2,
         eggGroups: ["Field", "Human-Like"]
     },
+    lopunnymega: {
+        num: 428,
+        species: "Lopunny-Mega",
+        baseSpecies: "Lopunny",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Normal", "Fighting"],
+        baseStats: {
+            hp: 65,
+            atk: 136,
+            def: 94,
+            spa: 54,
+            spd: 96,
+            spe: 135
+        },
+        abilities: {
+            0: "Scrappy"
+        },
+        heightm: 1.3,
+        weightkg: 28.3,
+        color: "Brown",
+        prevo: "buneary",
+        evoLevel: 2,
+        eggGroups: ["Field", "Human-Like"]
+    },
     mismagius: {
         num: 429,
         species: "Mismagius",
@@ -12302,7 +12738,7 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 70,
             atk: 120,
-            def: 130,
+            def: 125,
             spa: 55,
             spd: 80,
             spe: 100
@@ -12329,11 +12765,11 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 70,
-            atk: 55,
-            def: 110,
+            atk: 60,
+            def: 115,
             spa: 130,
-            spd: 110,
-            spe: 80
+            spd: 100,
+            spe: 75
         },
         abilities: {
             0: "Snow Cloak",
@@ -12446,6 +12882,32 @@ exports.BattlePokedex = {
         evoLevel: 20,
         eggGroups: ["Amorphous"]
     },
+    gallademega: {
+        num: 475,
+        species: "Gallade-Mega",
+        baseSpecies: "Gallade",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Psychic", "Fighting"],
+        gender: "M",
+        baseStats: {
+            hp: 68,
+            atk: 165,
+            def: 95,
+            spa: 65,
+            spd: 115,
+            spe: 110
+        },
+        abilities: {
+            0: "Inner Focus"
+        },
+        heightm: 1.6,
+        weightkg: 56.4,
+        color: "White",
+        prevo: "kirlia",
+        evoLevel: 20,
+        eggGroups: ["Amorphous"]
+    },
     probopass: {
         num: 476,
         species: "Probopass",
@@ -12537,7 +12999,9 @@ exports.BattlePokedex = {
         weightkg: 0.3,
         color: "Red",
         eggGroups: ["Amorphous"],
-        otherFormes: ["rotomheat", "rotomwash", "rotomfrost", "rotomfan", "rotommow"]
+        otherFormes: ["rotomheat", "rotomwash", "rotomfrost", "rotomfan",
+            "rotommow"
+        ]
     },
     rotomheat: {
         num: 479,
@@ -13018,7 +13482,12 @@ exports.BattlePokedex = {
         weightkg: 320,
         color: "Gray",
         eggGroups: ["Undiscovered"],
-        otherFormes: ["arceusbug", "arceusdark", "arceusdragon", "arceuselectric", "arceusfairy", "arceusfighting", "arceusfire", "arceusflying", "arceusghost", "arceusgrass", "arceusground", "arceusice", "arceuspoison", "arceuspsychic", "arceusrock", "arceussteel", "arceuswater"]
+        otherFormes: ["arceusbug", "arceusdark", "arceusdragon",
+            "arceuselectric", "arceusfairy", "arceusfighting",
+            "arceusfire", "arceusflying", "arceusghost", "arceusgrass",
+            "arceusground", "arceusice", "arceuspoison",
+            "arceuspsychic", "arceusrock", "arceussteel", "arceuswater"
+        ]
     },
     arceusbug: {
         num: 493,
@@ -14366,6 +14835,29 @@ exports.BattlePokedex = {
         },
         heightm: 1.1,
         weightkg: 31,
+        color: "Pink",
+        eggGroups: ["Fairy"]
+    },
+    audinomega: {
+        num: 531,
+        species: "Audino-Mega",
+        baseSpecies: "Audino",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Normal", "Fairy"],
+        baseStats: {
+            hp: 103,
+            atk: 60,
+            def: 126,
+            spa: 80,
+            spd: 126,
+            spe: 50
+        },
+        abilities: {
+            0: "Healer"
+        },
+        heightm: 1.5,
+        weightkg: 32,
         color: "Pink",
         eggGroups: ["Fairy"]
     },
@@ -17387,7 +17879,9 @@ exports.BattlePokedex = {
         weightkg: 82.5,
         color: "Purple",
         eggGroups: ["Undiscovered"],
-        otherFormes: ["genesectdouse", "genesectshock", "genesectburn", "genesectchill"]
+        otherFormes: ["genesectdouse", "genesectshock", "genesectburn",
+            "genesectchill"
+        ]
     },
     genesectdouse: {
         num: 649,
@@ -19374,6 +19868,30 @@ exports.BattlePokedex = {
         color: "Gray",
         eggGroups: ["Undiscovered"]
     },
+    dianciemega: {
+        num: 719,
+        species: "Diancie-Mega",
+        baseSpecies: "Diancie",
+        forme: "Mega",
+        formeLetter: "M",
+        types: ["Rock", "Fairy"],
+        gender: "N",
+        baseStats: {
+            hp: 50,
+            atk: 160,
+            def: 110,
+            spa: 160,
+            spd: 110,
+            spe: 110
+        },
+        abilities: {
+            0: "Magic Bounce"
+        },
+        heightm: 1.1,
+        weightkg: 27.8,
+        color: "Gray",
+        eggGroups: ["Undiscovered"]
+    },
     hoopa: {
         num: 720,
         species: "Hoopa",
@@ -19392,6 +19910,30 @@ exports.BattlePokedex = {
         },
         heightm: 0.5,
         weightkg: 9,
+        color: "Pink",
+        eggGroups: ["Undiscovered"]
+    },
+    hoopaunbound: {
+        num: 720,
+        species: "Hoopa-Unbound",
+        baseSpecies: "Hoopa",
+        forme: "Unbound",
+        formeLetter: "U",
+        types: ["Psychic", "Dark"],
+        gender: "N",
+        baseStats: {
+            hp: 80,
+            atk: 160,
+            def: 60,
+            spa: 170,
+            spd: 130,
+            spe: 80
+        },
+        abilities: {
+            0: "Magician"
+        },
+        heightm: 6.5,
+        weightkg: 490,
         color: "Pink",
         eggGroups: ["Undiscovered"]
     },

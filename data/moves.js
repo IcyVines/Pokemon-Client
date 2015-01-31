@@ -2900,6 +2900,29 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Dragon"
 	},
+	"dragonascent": {
+		num: 620,
+		accuracy: 100,
+		basePower: 120,
+		category: "Physical",
+		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
+		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
+		id: "dragonascent",
+		isViable: true,
+		name: "Dragon Ascent",
+		pp: 5,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, distance: 1},
+		isContact: true,
+		self: {
+			boosts: {
+				def: -1,
+				spd: -1
+			}
+		},
+		target: "any",
+		type: "Flying"
+	},
 	"dragonbreath": {
 		num: 225,
 		accuracy: 100,
@@ -3829,18 +3852,20 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
-		desc: "Deals damage to one adjacent target with a 100% chance to flinch it. Fails unless it is the user's first turn on the field. Makes contact. Priority +3.",
+		desc: "Has a 100% chance to flinch it. Fails unless it is the user's first turn on the field. Makes contact. Priority +3.",
 		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
 		id: "fakeout",
 		isViable: true,
 		name: "Fake Out",
 		pp: 10,
 		priority: 3,
+		flags: {contact: 1, protect: 1, mirror: 1},
 		isContact: true,
 		onTryHit: function(target, pokemon) {
 			if (pokemon.activeTurns > 1) {
-				this.add('-message', '(Fake Out only works your first turn out.)');
-				return false;
+				this.add('-fail', pokemon);
+				this.add('-hint', "Fake Out only works on your first turn out.");
+				return null;
 			}
 		},
 		secondary: {
@@ -8554,7 +8579,7 @@ exports.BattleMovedex = {
 				if (i !== move.id) continue;
 				if (move.isNonstandard) continue;
 				var noMetronome = {
-					afteryou:1, assist:1, bestow:1, chatter:1, copycat:1, counter:1, covet:1, destinybond:1, detect:1, endure:1, feint:1, focuspunch:1, followme:1, freezeshock:1, helpinghand:1, iceburn:1, mefirst:1, metronome:1, mimic:1, mirrorcoat:1, mirrormove:1, naturepower:1, protect:1, quash:1, quickguard:1, ragepowder:1, relicsong:1, secretsword:1, sketch:1, sleeptalk:1, snatch:1, snarl:1, snore:1, struggle:1, switcheroo:1, technoblast:1, thief:1, transform:1, trick:1, vcreate:1, wideguard:1
+					afteryou:1, assist:1, bestow:1, chatter:1, copycat:1, counter:1, covet:1, destinybond:1, detect:1, diamondstorm:1, dragonascent:1, endure:1, feint:1, focuspunch:1, followme:1, freezeshock:1, helpinghand:1, iceburn:1, mefirst:1, metronome:1, mimic:1, mirrorcoat:1, mirrormove:1, naturepower:1, originpulse:1, precipiceblades:1, protect:1, quash:1, quickguard:1, ragepowder:1, relicsong:1, secretsword:1, sketch:1, sleeptalk:1, snatch:1, snarl:1, snore:1, struggle:1, switcheroo:1, technoblast:1, thief:1, transform:1, trick:1, vcreate:1, wideguard:1
 				};
 				if (!noMetronome[move.id]) {
 					moves.push(move.id);
@@ -9396,6 +9421,22 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Ghost"
 	},
+	"originpulse": {
+		num: 618,
+		accuracy: 85,
+		basePower: 110,
+		category: "Special",
+		desc: "No additional effect.",
+		shortDesc: "Deals damage to all adjacent foes.",
+		id: "originpulse",
+		isViable: true,
+		name: "Origin Pulse",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, pulse: 1, mirror: 1},
+		target: "allAdjacentFoes",
+		type: "Water"
+	},
 	"outrage": {
 		num: 200,
 		accuracy: 100,
@@ -10143,6 +10184,22 @@ exports.BattleMovedex = {
 		secondary: false,
 		target: "normal",
 		type: "Grass"
+	},
+	"precipiceblades": {
+		num: 619,
+		accuracy: 85,
+		basePower: 120,
+		category: "Physical",
+		desc: "No additional effect.",
+		shortDesc: "Deals damage to all adjacent foes.",
+		id: "precipiceblades",
+		isViable: true,
+		name: "Precipice Blades",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, nonsky: 1},
+		target: "allAdjacentFoes",
+		type: "Ground"
 	},
 	"present": {
 		num: 217,
@@ -13786,7 +13843,7 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
-		desc: "Deals damage to one adjacent target. Fails if the target did not select a damaging move for use this turn, or if the target moves before the user. Makes contact. Priority +1.",
+		desc: "Fails if the target did not select a damaging move for use this turn, or if the target moves before the user. Makes contact. Priority +1.",
 		shortDesc: "Usually goes first. Fails if target is not attacking.",
 		id: "suckerpunch",
 		isViable: true,
@@ -13794,11 +13851,13 @@ exports.BattleMovedex = {
 		pp: 5,
 		priority: 1,
 		isNotProtectable: true,
+		flags: {contact: 1, protect: 1, mirror: 1},
 		isContact: true,
 		onTryHit: function(target) {
 			var decision = this.willMove(target);
 			if (!decision || decision.choice !== 'move' || (decision.move.category === 'Status' && decision.move.id !== 'mefirst')) {
-				return false;
+				this.add('-fail', source);
+				return null;
 			}
 		},
 		secondary: false,

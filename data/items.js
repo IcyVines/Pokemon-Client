@@ -157,6 +157,20 @@ exports.BattleItems = {
 		gen: 6,
 		desc: "Mega-evolves Alakazam."
 	},
+	"altarianite": {
+		id: "altarianite",
+		name: "Altarianite",
+		spritenum: 615,
+		megaStone: "Altaria-Mega",
+		megaEvolves: "Altaria",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 755,
+		gen: 6,
+		desc: "Mega-evolves Altaria."
+	},
 	"ampharosite": {
 		id: "ampharosite",
 		name: "Ampharosite",
@@ -249,6 +263,20 @@ exports.BattleItems = {
 		gen: 6,
 		desc: "Holder's Sp. Def is 1.5x, but it can only use damaging moves."
 	},
+	"audinite": {
+		id: "audinite",
+		name: "Audinite",
+		spritenum: 617,
+		megaStone: "Audino-Mega",
+		megaEvolves: "Audino",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 757,
+		gen: 6,
+		desc: "Mega-evolves Audino."
+	},
 	"babiriberry": {
 		id: "babiriberry",
 		name: "Babiri Berry",
@@ -284,6 +312,20 @@ exports.BattleItems = {
 		num: 668,
 		gen: 6,
 		desc: "Mega-evolves Banette."
+	},
+	"beedrillite": {
+		id: "beedrillite",
+		name: "Beedrillite",
+		spritenum: 628,
+		megaStone: "Beedrill-Mega",
+		megaEvolves: "Beedrill",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 770,
+		gen: 6,
+		desc: "Mega-evolves Beedrill."
 	},
 	"belueberry": {
 		id: "belueberry",
@@ -428,6 +470,31 @@ exports.BattleItems = {
 		gen: 6,
 		desc: "Mega-evolves Blaziken."
 	},
+	"blueorb": {
+		id: "blueorb",
+		name: "Blue Orb",
+		spritenum: 41,
+		onSwitchInPriority: -6,
+		onSwitchIn: function (pokemon) {
+			if (pokemon.isActive && pokemon.baseTemplate.species === 'Kyogre') {
+				var template = this.getTemplate('Kyogre-Primal');
+				pokemon.formeChange(template);
+				pokemon.baseTemplate = template;
+				pokemon.details = template.species + (pokemon.level === 100 ? '' : ', L' + pokemon.level) + (pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				this.add('detailschange', pokemon, pokemon.details);
+				this.add('message', pokemon.name + "'s Primal Reversion! It reverted to its primal form!");
+				pokemon.setAbility(template.abilities['0']);
+				pokemon.baseAbility = pokemon.ability;
+			}
+		},
+		onTakeItem: function (item, source) {
+			if (source.baseTemplate.baseSpecies === 'Kyogre') return false;
+			return true;
+		},
+		num: -6,
+		gen: 6,
+		desc: "Reverts Kyogre to its Primal form."
+	},
 	"blukberry": {
 		id: "blukberry",
 		name: "Bluk Berry",
@@ -487,6 +554,20 @@ exports.BattleItems = {
 		num: 118,
 		gen: 5,
 		desc: "Holder's Techno Blast is Fire-type."
+	},
+	"cameruptite": {
+		id: "cameruptite",
+		name: "Cameruptite",
+		spritenum: 625,
+		megaStone: "Camerupt-Mega",
+		megaEvolves: "Camerupt",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 767,
+		gen: 6,
+		desc: "Mega-evolves Camerupt."
 	},
 	"cellbattery": {
 		id: "cellbattery",
@@ -937,6 +1018,20 @@ exports.BattleItems = {
 		num: 280,
 		gen: 4,
 		desc: "If holder becomes infatuated, the other Pokemon also becomes infatuated."
+	},
+	"diancite": {
+		id: "diancite",
+		name: "Diancite",
+		spritenum: 624,
+		megaStone: "Diancie-Mega",
+		megaEvolves: "Diancie",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 764,
+		gen: 6,
+		desc: "Mega-evolves Diancie."
 	},
 	"diveball": {
 		id: "diveball",
@@ -1430,6 +1525,20 @@ exports.BattleItems = {
 		gen: 4,
 		desc: "Holder moves last in its priority bracket."
 	},
+	"galladite": {
+		id: "galladite",
+		name: "Galladite",
+		spritenum: 616,
+		megaStone: "Gallade-Mega",
+		megaEvolves: "Gallade",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 756,
+		gen: 6,
+		desc: "Mega-evolves Gallade."
+	},
 	"ganlonberry": {
 		id: "ganlonberry",
 		name: "Ganlon Berry",
@@ -1511,6 +1620,20 @@ exports.BattleItems = {
 		num: 560,
 		gen: 5,
 		desc: "Holder's first successful Ghost-type attack will have 1.3x power. Single use."
+	},
+	"glalitite": {
+		id: "glalitite",
+		name: "Glalitite",
+		spritenum: 623,
+		megaStone: "Glalie-Mega",
+		megaEvolves: "Glalie",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 763,
+		gen: 6,
+		desc: "Mega-evolves Glalie."
 	},
 	"grassgem": {
 		id: "grassgem",
@@ -2041,11 +2164,10 @@ exports.BattleItems = {
 	"latiasite": {
 		id: "latiasite",
 		name: "Latiasite",
-		spritenum: -6,
+		spritenum: 629,
 		megaStone: "Latias-Mega",
 		megaEvolves: "Latias",
-		isUnreleased: true,
-		onTakeItem: function(item, source) {
+		onTakeItem: function (item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -2056,11 +2178,10 @@ exports.BattleItems = {
 	"latiosite": {
 		id: "latiosite",
 		name: "Latiosite",
-		spritenum: -6,
+		spritenum: 630,
 		megaStone: "Latios-Mega",
 		megaEvolves: "Latios",
-		isUnreleased: true,
-		onTakeItem: function(item, source) {
+		onTakeItem: function (item, source) {
 			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
 			return true;
 		},
@@ -2229,6 +2350,20 @@ exports.BattleItems = {
 		num: 269,
 		gen: 4,
 		desc: "Holder's use of Light Screen or Reflect lasts 8 turns instead of 5."
+	},
+	"lopunnite": {
+		id: "lopunnite",
+		name: "Lopunnite",
+		spritenum: 626,
+		megaStone: "Lopunny-Mega",
+		megaEvolves: "Lopunny",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 768,
+		gen: 6,
+		desc: "Mega-evolves Lopunny."
 	},
 	"loveball": {
 		id: "loveball",
@@ -2512,7 +2647,7 @@ exports.BattleItems = {
 		fling: {
 			basePower: 10,
 			effect: function(pokemon) {
-				var conditions = ['attract','taunt','encore','torment','disable'];
+				var conditions = ['attract','taunt','encore','torment','disable', 'healblock'];
 				for (var i=0; i<conditions.length; i++) {
 					if (pokemon.volatiles[conditions[i]]) {
 						for (var j=0; j<conditions.length; j++) {
@@ -2524,7 +2659,7 @@ exports.BattleItems = {
 			}
 		},
 		onUpdate: function(pokemon) {
-			var conditions = ['attract','taunt','encore','torment','disable'];
+			var conditions = ['attract','taunt','encore','torment','disable', 'healblock'];
 			for (var i=0; i<conditions.length; i++) {
 				if (pokemon.volatiles[conditions[i]]) {
 					if (!pokemon.useItem()) return;
@@ -2538,6 +2673,20 @@ exports.BattleItems = {
 		num: 219,
 		gen: 3,
 		desc: "Cures holder if affected by Attract, Disable, Encore, Taunt, Torment. Single use."
+	},
+	"metagrossite": {
+		id: "metagrossite",
+		name: "Metagrossite",
+		spritenum: 618,
+		megaStone: "Metagross-Mega",
+		megaEvolves: "Metagross",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 758,
+		gen: 6,
+		desc: "Mega-evolves Metagross."
 	},
 	"metalcoat": {
 		id: "metalcoat",
@@ -3021,6 +3170,20 @@ exports.BattleItems = {
 		gen: 3,
 		desc: "Raises Sp. Atk by 1 when at 1/4 max HP or less. Single use."
 	},
+	"pidgeotite": {
+		id: "pidgeotite",
+		name: "Pidgeotite",
+		spritenum: 622,
+		megaStone: "Pidgeot-Mega",
+		megaEvolves: "Pidgeot",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 762,
+		gen: 6,
+		desc: "Mega-evolves Pidgeot."
+	},
 	"pinapberry": {
 		id: "pinapberry",
 		name: "Pinap Berry",
@@ -3352,6 +3515,31 @@ exports.BattleItems = {
 		gen: 5,
 		desc: "If holder is hit, it forces the attacker to switch to a random ally. Single use."
 	},
+	"redorb": {
+		id: "redorb",
+		name: "Red Orb",
+		spritenum: 390,
+		onSwitchInPriority: -6,
+		onSwitchIn: function (pokemon) {
+			if (pokemon.isActive && pokemon.baseTemplate.species === 'Groudon') {
+				var template = this.getTemplate('Groudon-Primal');
+				pokemon.formeChange(template);
+				pokemon.baseTemplate = template;
+				pokemon.details = template.species + (pokemon.level === 100 ? '' : ', L' + pokemon.level) + (pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				this.add('detailschange', pokemon, pokemon.details);
+				this.add('message', pokemon.name + "'s Primal Reversion! It reverted to its primal form!");
+				pokemon.setAbility(template.abilities['0']);
+				pokemon.baseAbility = pokemon.ability;
+			}
+		},
+		onTakeItem: function (item, source) {
+			if (source.baseTemplate.baseSpecies === 'Groudon') return false;
+			return true;
+		},
+		num: -6,
+		gen: 6,
+		desc: "Reverts Groudon to its Primal form."
+	},
 	"repeatball": {
 		id: "repeatball",
 		name: "Repeat Ball",
@@ -3520,6 +3708,20 @@ exports.BattleItems = {
 		gen: 4,
 		desc: "If holder is hit by a special move, attacker loses 1/8 of its max HP. Single use."
 	},
+	"sablenite": {
+		id: "sablenite",
+		name: "Sablenite",
+		spritenum: 614,
+		megaStone: "Sableye-Mega",
+		megaEvolves: "Sableye",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 754,
+		gen: 6,
+		desc: "Mega-evolves Sableye."
+	},
 	"safariball": {
 		id: "safariball",
 		name: "Safari Ball",
@@ -3559,6 +3761,34 @@ exports.BattleItems = {
 		num: 203,
 		gen: 3,
 		desc: "Raises Speed by 1 when at 1/4 max HP or less. Single use."
+	},
+	"salamencite": {
+		id: "salamencite",
+		name: "Salamencite",
+		spritenum: 627,
+		megaStone: "Salamence-Mega",
+		megaEvolves: "Salamence",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 769,
+		gen: 6,
+		desc: "Mega-evolves Salamence."
+	},
+	"sceptilite": {
+		id: "sceptilite",
+		name: "Sceptilite",
+		spritenum: 613,
+		megaStone: "Sceptile-Mega",
+		megaEvolves: "Sceptile",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 753,
+		gen: 6,
+		desc: "Mega-evolves Sceptile."
 	},
 	"scizorite": {
 		id: "scizorite",
@@ -3621,6 +3851,20 @@ exports.BattleItems = {
 		num: 244,
 		gen: 2,
 		desc: "Holder's Flying-type attacks have 1.2x power."
+	},
+	"sharpedonite": {
+		id: "sharpedonite",
+		name: "Sharpedonite",
+		spritenum: 619,
+		megaStone: "Sharpedo-Mega",
+		megaEvolves: "Sharpedo",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 759,
+		gen: 6,
+		desc: "Mega-evolves Sharpedo."
 	},
 	"shedshell": {
 		id: "shedshell",
@@ -3770,6 +4014,20 @@ exports.BattleItems = {
 		num: 306,
 		gen: 4,
 		desc: "Holder's Flying-type attacks have 1.2x power. Judgment is Flying-type."
+	},
+	"slowbronite": {
+		id: "slowbronite",
+		name: "Slowbronite",
+		spritenum: 620,
+		megaStone: "Slowbro-Mega",
+		megaEvolves: "Slowbro",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 760,
+		gen: 6,
+		desc: "Mega-evolves Slowbro."
 	},
 	"smoothrock": {
 		id: "smoothrock",
@@ -3945,6 +4203,20 @@ exports.BattleItems = {
 		gen: 3,
 		desc: "Raises a random stat by 2 when at 1/4 max HP or less (not acc/eva). Single use."
 	},
+	"steelixite": {
+		id: "steelixite",
+		name: "Steelixite",
+		spritenum: 621,
+		megaStone: "Steelix-Mega",
+		megaEvolves: "Steelix",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 761,
+		gen: 6,
+		desc: "Mega-evolves Steelix."
+	},
 	"steelgem": {
 		id: "steelgem",
 		name: "Steel Gem",
@@ -4020,6 +4292,20 @@ exports.BattleItems = {
 		num: 309,
 		gen: 4,
 		desc: "Holder's Rock-type attacks have 1.2x power. Judgment is Rock-type."
+	},
+	"swampertite": {
+		id: "swampertite",
+		name: "Swampertite",
+		spritenum: 612,
+		megaStone: "Swampert-Mega",
+		megaEvolves: "Swampert",
+		onTakeItem: function (item, source) {
+			if (item.megaEvolves === source.baseTemplate.baseSpecies) return false;
+			return true;
+		},
+		num: 752,
+		gen: 6,
+		desc: "Mega-evolves Swampert."
 	},
 	"tamatoberry": {
 		id: "tamatoberry",

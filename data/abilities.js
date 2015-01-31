@@ -453,7 +453,7 @@ exports.BattleAbilities = {
 		desc: "If this Pokemon is active while Sunny Day is in effect, its speed is temporarily doubled.",
 		shortDesc: "If Sunny Day is active, this Pokemon's Speed is doubled.",
 		onModifySpe: function(speMod) {
-			if (this.isWeather('sunnyday')) {
+			if (this.isWeather(['sunnyday', 'desolateland'])) {
 				return this.chain(speMod, 2);
 			}
 		},
@@ -746,6 +746,56 @@ exports.BattleAbilities = {
 		rating: 2,
 		num: 128
 	},
+	"deltastream": {
+		desc: "When this Pokemon enters the battlefield, the weather becomes strong winds for as long as this Pokemon remains on the battlefield with Delta Stream.",
+		shortDesc: "The weather becomes strong winds until this Pokemon leaves battle.",
+		onStart: function (source) {
+			this.setWeather('deltastream');
+		},
+		onEnd: function (pokemon) {
+			if (this.weatherData.source !== pokemon) return;
+			for (var i = 0; i < this.sides.length; i++) {
+				for (var j = 0; j < this.sides[i].active.length; j++) {
+					var target = this.sides[i].active[j];
+					if (target === pokemon) continue;
+					if (target && target.hp && target.ability === 'deltastream' && target.ignore['Ability'] !== true) {
+						this.weatherData.source = target;
+						return;
+					}
+				}
+			}
+			this.clearWeather();
+		},
+		id: "deltastream",
+		name: "Delta Stream",
+		rating: 5,
+		num: 191
+	},
+	"desolateland": {
+		desc: "When this Pokemon enters the battlefield, the weather becomes harsh sun for as long as this Pokemon remains on the battlefield with Desolate Land.",
+		shortDesc: "The weather becomes harsh sun until this Pokemon leaves battle.",
+		onStart: function (source) {
+			this.setWeather('desolateland');
+		},
+		onEnd: function (pokemon) {
+			if (this.weatherData.source !== pokemon) return;
+			for (var i = 0; i < this.sides.length; i++) {
+				for (var j = 0; j < this.sides[i].active.length; j++) {
+					var target = this.sides[i].active[j];
+					if (target === pokemon) continue;
+					if (target && target.hp && target.ability === 'desolateland' && target.ignore['Ability'] !== true) {
+						this.weatherData.source = target;
+						return;
+					}
+				}
+			}
+			this.clearWeather();
+		},
+		id: "desolateland",
+		name: "Desolate Land",
+		rating: 5,
+		num: 190
+	},
 	"dethrone": {
 		desc: "If the opposing Pokemon has a higher Attack or Special Attack stat, this Pokemon gains 1.5x Attack or Special Attack, respectively.",
 		shortDesc: "This Pokemon gains 1.5x Attack or Special Attack if its foe has higher attack stats.",
@@ -801,6 +851,10 @@ exports.BattleAbilities = {
 		desc: "When this Pokemon enters the battlefield, the weather becomes Rain Dance for 8 turns.",
 		shortDesc: "On switch-in, the weather becomes Rain Dance.",
 		onStart: function(source) {
+			if (this.isWeather(['desolateland', 'primordialsea', 'deltastream'])) {
+				this.add('-ability', source, 'Drizzle', '[from] ' + this.effectiveWeather(), '[fail]');
+				return null;
+			}
 			this.setWeather('raindance');
 			this.weatherData.duration = 8;
 		},
@@ -813,6 +867,10 @@ exports.BattleAbilities = {
 		desc: "When this Pokemon enters the battlefield, the weather becomes Sunny Day for 8 turns.",
 		shortDesc: "On switch-in, the weather becomes Sunny Day.",
 		onStart: function(source) {
+			if (this.isWeather(['desolateland', 'primordialsea', 'deltastream'])) {
+				this.add('-ability', source, 'Drizzle', '[from] ' + this.effectiveWeather(), '[fail]');
+				return null;
+			}
 			this.setWeather('sunnyday');
 			this.weatherData.duration = 8;
 		},
@@ -839,10 +897,10 @@ exports.BattleAbilities = {
 			}
 		},
 		onWeather: function(target, source, effect) {
-			if (effect.id === 'raindance') {
-				this.heal(target.maxhp/8);
-			} else if (effect.id === 'sunnyday') {
-				this.damage(target.maxhp/8);
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.maxhp / 8);
+			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.maxhp / 8);
 			}
 		},
 		id: "dryskin",
@@ -1057,7 +1115,7 @@ exports.BattleAbilities = {
 		},
 		onUpdate: function(pokemon) {
 			if (!pokemon.isActive || pokemon.speciesid !== 'cherrim') return;
-			if (this.isWeather('sunnyday')) {
+			if (this.isWeather(['sunnyday', 'desolateland'])) {
 				if (this.effectData.forme !== 'Sunshine') {
 					this.effectData.forme = 'Sunshine';
 					this.add('-formechange', pokemon, 'Cherrim-Sunshine');
@@ -1074,14 +1132,14 @@ exports.BattleAbilities = {
 		onModifyAtkPriority: 3,
 		onAllyModifyAtk: function(atk) {
 			if (this.effectData.target.template.speciesid !== 'cherrim') return;
-			if (this.isWeather('sunnyday')) {
+			if (this.isWeather(['sunnyday', 'desolateland'])) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpDPriority: 4,
 		onAllyModifySpD: function(spd) {
 			if (this.effectData.target.template.speciesid !== 'cherrim') return;
-			if (this.isWeather('sunnyday')) {
+			if (this.isWeather(['sunnyday', 'desolateland'])) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -1118,9 +1176,11 @@ exports.BattleAbilities = {
 			var forme = null;
 			switch (this.effectiveWeather()) {
 			case 'sunnyday':
+			case 'desolateland':
 				if (pokemon.template.speciesid !== 'castformsunny') forme = 'Castform-Sunny';
 				break;
 			case 'raindance':
+			case 'primordialsea':
 				if (pokemon.template.speciesid !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
@@ -1473,7 +1533,7 @@ exports.BattleAbilities = {
 		onResidualOrder: 26,
 		onResidualSubOrder: 1,
 		onResidual: function(pokemon) {
-			if (this.isWeather('sunnyday') || this.random(2) === 0) {
+			if (this.isWeather(['sunnyday', 'desolateland']) || this.random(2) === 0) {
 				if (pokemon.hp && !pokemon.item && this.getItem(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Harvest');
@@ -1578,7 +1638,7 @@ exports.BattleAbilities = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 1,
 		onResidual: function(pokemon) {
-			if (pokemon.status && this.isWeather('raindance')) {
+			if (pokemon.status && this.isWeather(['raindance', 'primordialsea'])) {
 				this.debug('hydration');
 				pokemon.cureStatus();
 			}
@@ -1874,16 +1934,21 @@ exports.BattleAbilities = {
 		},
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
-			if (this.isWeather('sunnyday') && move.type === 'Fire'){
+			if (this.isWeather(['sunnyday', 'desolateland']) && move.type === 'Fire'){
 				this.debug('Leaf Guard weaken');
 				return this.chainModify(0.5);
 			}
 		},
 		onModifySpAPriority: 6,
 		onSourceModifySpA: function(atk, attacker, defender, move) {
-			if (this.isWeather('sunnyday') && move.type === 'Fire'){
+			if (this.isWeather(['sunnyday', 'desolateland']) && move.type === 'Fire'){
 				this.debug('Leaf Guard weaken');
 				return this.chainModify(0.5);
+			}
+		},
+		onTryHit: function (target, source, move) {
+			if (move && move.id === 'yawn' && this.isWeather(['sunnyday', 'desolateland'])) {
+				return false;
 			}
 		},
 		id: "leafguard",
@@ -2646,6 +2711,31 @@ exports.BattleAbilities = {
 		rating: 1.5,
 		num: 46
 	},
+	"primordialsea": {
+		desc: "When this Pokemon enters the battlefield, the weather becomes heavy rain for as long as this Pokemon remains on the battlefield with Primordial Sea.",
+		shortDesc: "The weather becomes heavy rain until this Pokemon leaves battle.",
+		onStart: function (source) {
+			this.setWeather('primordialsea');
+		},
+		onEnd: function (pokemon) {
+			if (this.weatherData.source !== pokemon) return;
+			for (var i = 0; i < this.sides.length; i++) {
+				for (var j = 0; j < this.sides[i].active.length; j++) {
+					var target = this.sides[i].active[j];
+					if (target === pokemon) continue;
+					if (target && target.hp && target.ability === 'primordialsea' && target.ignore['Ability'] !== true) {
+						this.weatherData.source = target;
+						return;
+					}
+				}
+			}
+			this.clearWeather();
+		},
+		id: "primordialsea",
+		name: "Primordial Sea",
+		rating: 5,
+		num: 189
+	},
 	"prioritize": {
 		desc: "Pokemon's moves with base power of 60 or less gain +1 priority.",
 		shortDesc: "Moves with base power of 60 or less gain priority.",
@@ -2725,7 +2815,7 @@ exports.BattleAbilities = {
 		desc: "If the weather is Rain Dance, this Pokemon recovers 1/16 of its max HP after each turn.",
 		shortDesc: "If the weather is Rain Dance, this Pokemon heals 1/16 of its max HP each turn.",
 		onWeather: function(target, source, effect) {
-			if (effect.id === 'raindance') {
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
 				this.heal(target.maxhp/16);
 			}
 		},
@@ -2750,7 +2840,7 @@ exports.BattleAbilities = {
 		num: -6
 	},
 	"rapidfire": {
-		desc: "Multi-hit moves have priority but lose 10% accuracy.",
+		desc: "Multi-hit moves have priority but lose 15% accuracy.",
 		shortDesc: "Multi-hit moves have priority but lose accuracy.",
 		onModifyPriority: function(priority, pokemon, target, move) {
 			if (move && move.multihit) {
@@ -2761,7 +2851,7 @@ exports.BattleAbilities = {
 		onModifyMove: function(move, user, target) {
 			if (move && move.multihit){
 				this.debug('Rapid fire - decreasing accuracy');
-				move.accuracy = move.accuracy * 0.9;
+				move.accuracy = move.accuracy * 0.85;
 			}
 		},
 		id: "rapidfire",
@@ -2770,13 +2860,13 @@ exports.BattleAbilities = {
 		num: -6
 	},
 	"rapidgrowth": {
-		desc: "At the end of the turn, this Pokemon regains 10% health.",
-		shortDesc: "At the end of the turn, this Pokemon regains 10% health.",
+		desc: "At the end of the turn, this Pokemon regains 5% health.",
+		shortDesc: "At the end of the turn, this Pokemon regains 5% health.",
 		onResidualOrder: 5,
 		onResidualSubOrder: 1,
 		onResidual: function(pokemon) {
 			this.add('-message', pokemon.name + ' grows bigger.')
-			this.heal(pokemon.maxhp/10);
+			this.heal(pokemon.maxhp/20);
 		},
 		id: "rapidgrowth",
 		name: "Rapid Growth",
@@ -2937,6 +3027,10 @@ exports.BattleAbilities = {
 		desc: "When this Pokemon enters the battlefield, the weather becomes Sandstorm for 8 turns.",
 		shortDesc: "On switch-in, the weather becomes Sandstorm.",
 		onStart: function(source) {
+			if (this.isWeather(['desolateland', 'primordialsea', 'deltastream'])) {
+				this.add('-ability', source, 'Sand Stream', '[from] ' + this.effectiveWeather(), '[fail]');
+				return null;
+			}
 			this.setWeather('sandstorm');
 			this.weatherData.duration = 8;
 		},
@@ -3191,12 +3285,12 @@ exports.BattleAbilities = {
 		num: 112
 	},
 	"sniper": {
-		desc: "When this Pokemon lands a Critical Hit, the damage is increased to another 1.5x.",
-		shortDesc: "If this Pokemon strikes with a critical hit, the damage is increased by 50%",
+		desc: "When this Pokemon lands a Critical Hit, the damage is increased to another 1.5x. 100% chance for an increased critical hit ratio.",
+		shortDesc: "If this Pokemon strikes with a critical hit, the damage is increased by 100%. 50% chance for increased crit. ratio.",
 		onModifyDamage: function(damage, source, target, move) {
 			if (move.crit) {
 				this.debug('Sniper boost');
-				return this.chainModify(1.5);
+				return this.chainModify(2);
 			}
 		},
 		onModifyMove: function(move) {
@@ -3229,6 +3323,10 @@ exports.BattleAbilities = {
 		desc: "When this Pokemon enters the battlefield, the weather becomes Hail for 8 turns.",
 		shortDesc: "On switch-in, the weather becomes Hail.",
 		onStart: function(source) {
+			if (this.isWeather(['desolateland', 'primordialsea', 'deltastream'])) {
+				this.add('-ability', source, 'Sand Stream', '[from] ' + this.effectiveWeather(), '[fail]');
+				return null;
+			}
 			this.setWeather('hail');
 			this.weatherData.duration = 8;
 		},
@@ -3242,12 +3340,12 @@ exports.BattleAbilities = {
 		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x and loses 1/8 max HP per turn.",
 		onModifySpAPriority: 5,
 		onModifySpA: function(spa, pokemon) {
-			if (this.isWeather('sunnyday')) {
+			if (this.isWeather(['sunnyday', 'desolateland'])) {
 				return this.chainModify(1.5);
 			}
 		},
 		onWeather: function(target, source, effect) {
-			if (effect.id === 'sunnyday') {
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
 				this.damage(target.maxhp/12);
 			}
 		},
@@ -3527,7 +3625,7 @@ exports.BattleAbilities = {
 		desc: "If the weather is Rain Dance, this Pokemon's Speed is doubled.",
 		shortDesc: "If the weather is Rain Dance, this Pokemon's Speed is doubled.",
 		onModifySpe: function(speMod, pokemon) {
-			if (this.isWeather('raindance')) {
+			if (this.isWeather(['raindance', 'primordialsea'])) {
 				return this.chain(speMod, 2);
 			}
 		},

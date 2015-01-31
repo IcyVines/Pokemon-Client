@@ -1006,7 +1006,7 @@ exports.BattleScripts = {
 				case 'surf':
 					if (hasMove['scald'] || hasMove['hydropump']) rejected = true;
 					break;
-				case 'hydropump':
+				case 'hydropump': case 'originpulse':
 					if (hasMove['razorshell'] || hasMove['scald']) rejected = true;
 					break;
 				case 'waterfall':
@@ -1050,9 +1050,6 @@ exports.BattleScripts = {
 					break;
 				case 'rockslide': case 'rockblast':
 					if (hasMove['stoneedge'] || hasMove['headsmash']) rejected = true;
-					break;
-				case 'stoneedge':
-					if (hasMove['headsmash']) rejected = true;
 					break;
 				case 'bonemerang': case 'earthpower': case 'bulldoze':
 					if (hasMove['earthquake']) rejected = true;

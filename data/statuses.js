@@ -373,6 +373,34 @@ exports.BattleStatuses = {
 			this.add('-weather', 'none');
 		}
 	},
+	primordialsea: {
+		effectType: 'Weather',
+		duration: 0,
+		onTryMove: function (target, source, effect) {
+			if (effect.type === 'Fire' && effect.category !== 'Status') {
+				this.debug('Primordial Sea fire suppress');
+				this.add('-fail', source, effect, '[from] Primordial Sea');
+				return null;
+			}
+		},
+		onBasePower: function (basePower, attacker, defender, move) {
+			if (move.type === 'Water') {
+				this.debug('Rain water boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onStart: function () {
+			this.add('-weather', 'PrimordialSea');
+		},
+		onResidualOrder: 1,
+		onResidual: function () {
+			this.add('-weather', 'PrimordialSea', '[upkeep]');
+			this.eachEvent('Weather');
+		},
+		onEnd: function () {
+			this.add('-weather', 'none');
+		}
+	},
 	sunnyday: {
 		effectType: 'Weather',
 		duration: 5,
@@ -409,6 +437,37 @@ exports.BattleStatuses = {
 			this.eachEvent('Weather');
 		},
 		onEnd: function() {
+			this.add('-weather', 'none');
+		}
+	},
+	desolateland: {
+		effectType: 'Weather',
+		duration: 0,
+		onTryMove: function (target, source, effect) {
+			if (effect.type === 'Water' && effect.category !== 'Status') {
+				this.debug('Desolate Land water suppress');
+				this.add('-fail', source, effect, '[from] Desolate Land');
+				return null;
+			}
+		},
+		onBasePower: function (basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				this.debug('Sunny Day fire boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onStart: function () {
+			this.add('-weather', 'DesolateLand');
+		},
+		onImmunity: function (type) {
+			if (type === 'frz') return false;
+		},
+		onResidualOrder: 1,
+		onResidual: function () {
+			this.add('-weather', 'DesolateLand', '[upkeep]');
+			this.eachEvent('Weather');
+		},
+		onEnd: function () {
 			this.add('-weather', 'none');
 		}
 	},
@@ -475,6 +534,27 @@ exports.BattleStatuses = {
 			this.damage(target.maxhp/16);
 		},
 		onEnd: function() {
+			this.add('-weather', 'none');
+		}
+	},
+	deltastream: {
+		effectType: 'Weather',
+		duration: 0,
+		onEffectiveness: function (typeMod, target, type, move) {
+			if (move && move.effectType === 'Move' && type === 'Flying' && typeMod > 0) {
+				this.add('-activate', '', 'deltastream');
+				return 0;
+			}
+		},
+		onStart: function () {
+			this.add('-weather', 'DeltaStream');
+		},
+		onResidualOrder: 1,
+		onResidual: function () {
+			this.add('-weather', 'DeltaStream', '[upkeep]');
+			this.eachEvent('Weather');
+		},
+		onEnd: function () {
 			this.add('-weather', 'none');
 		}
 	},
