@@ -2847,7 +2847,7 @@ exports.BattleAbilities = {
 		desc: "This Pokemon is unaffected by Status Conditions, Damage from Weather, and Hazard Effects or Powder.",
 		shortDesc: "Unable to be statused, effected by hazards or powder, or damaged by weather",
 		onUpdate: function(pokemon) {
-			if (pokemon.status in {'slp':1,'par':1,'tox':1,'psn':1,'brn':1,'frz':1) {
+			if (pokemon.status in {'slp':1,'par':1,'tox':1,'psn':1,'brn':1,'frz':1}) {
 				pokemon.cureStatus();
 			}
 			if (pokemon.volatiles['confusion']){
