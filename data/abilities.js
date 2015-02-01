@@ -50,8 +50,8 @@ exports.BattleAbilities = {
 		num: -6
 	},
 	"acidic": {
-		desc: "This Pokemon's Poison-type moves are super-effective on Steel types.",
-		shortDesc: "This Pokemon's Poison-type moves are super-effective on Steel types.",
+		desc: "This Pokemon's Poison-type moves effect Steel types and do 1.5x damage to Ground and Rock types.",
+		shortDesc: "This Pokemon's Poison-type moves are effective on Steel, Ground, and Rock types.",
 		onModifyMove: function(move) {
 			if (move.type === 'Poison') {
 				move.affectedByImmunities = false;
@@ -59,10 +59,15 @@ exports.BattleAbilities = {
 		},
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){
-			if(move.type === 'Poison' && defender.hasType('Steel')){
-				this.add('-message', attacker.name + '\'s poison burns through the metal.');
-				return this.chainModify(2.0);
-			}
+			var eff = 1;
+			if(move.type === 'Poison'){ 
+				if (defender.hasType('Steel')) eff = 1;
+				if(defender.hasType('Ground')) eff = eff*1.5;
+				if(defender.hasType('Rock')) eff = eff*1.5;
+				this.add('-message', attacker.name + '\'s poison burns through.');
+				return this.chainModify(eff);
+			} 
+			
 		},
 		id: "acidic",
 		name: "Acidic",
@@ -351,13 +356,13 @@ exports.BattleAbilities = {
 		gen: 6
 	},
 	"butterflyeffect": {
-		desc: "Attacks/Special Attacks with 50 or less base power raise a random stat by 1 stage, have a 50% chance to raise another stat, and have a 25% chance to raise a third.",
-		shortDesc: "Moves with 50 or less base power have a chance to boost three random stats.",
+		desc: "Attacks/Special Attacks with 60 or less base power raise a random stat by 1 stage, have a 50% chance to raise another stat, and have a 15% chance to raise a third.",
+		shortDesc: "Moves with 60 or less base power have a chance to boost three random stats.",
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, pokemon, defender, move){
 			if (pokemon.removeVolatile('butterflyeffect')) 
 				pokemon.addVolatile('butterflyeffect');
-			else if (atk && atk <= 50 && move)
+			else if (atk && atk <= 60 && move)
 				pokemon.addVolatile('butterflyeffect');
 		},
 		onResidualOrder: 26,
@@ -393,7 +398,7 @@ exports.BattleAbilities = {
 						boost[j] = 1;
 						this.boost(boost);
 					}
-					if(r < 25){
+					if(r < 15){
 						stats = [];
 						boost = {};
 						var k = '';
@@ -408,7 +413,7 @@ exports.BattleAbilities = {
 							boost[k] = 1;
 							this.boost(boost);
 						}
-						if(Math.random()*200 < 1){
+						if(Math.random()*100 < 1){
 							stats = [];
 							boost = {};
 							var x = '';
@@ -1492,18 +1497,18 @@ exports.BattleAbilities = {
 		gen: 6
 	},
 	"guardian": {
-		desc: "This Pokemon receives half damage from Poison, Dark, Steel, and Bug-type attacks.",
+		desc: "This Pokemon receives 0.66x damage from Poison, Dark, Steel, and Bug-type attacks.",
 		shortDesc: "This Pokemon resists Poison, Dark, Steel, and Bug moves.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Poison' || move.type === 'Dark' || move.type === 'Steel' || move.type === 'Bug') {
-				return this.chainModify(0.5);
+				return this.chainModify(0.66);
 			}
 		},
 		onModifySpAPriority: 5,
 		onSourceModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Poison' || move.type === 'Dark' || move.type === 'Steel' || move.type === 'Bug') {
-				return this.chainModify(0.5);
+				return this.chainModify(0.66);
 			}
 		},
 		id: "guardian",
@@ -1905,11 +1910,11 @@ exports.BattleAbilities = {
 		num: 103
 	},
 	"laststand": {
-		desc: "This Pokemon has a 25% chance to survive a fatal hit. If it does, Attack and Special Attack are raised by one stage.",
+		desc: "This Pokemon has a 30% chance to survive a fatal hit. If it does, Attack and Special Attack are raised by one stage, but Speed goes down by one stage.",
 		shortDesc: "This Pokemon can survive a fatal hit.",
 		onDamage: function(damage, target, source, effect) {
 			if (effect && effect.effectType === 'Move' && damage >= target.hp) {
-				if(Math.random()*100 < 33){
+				if(Math.random()*100 < 30){
 					this.boost({atk:1, spa:1, spe:-1});
 					this.debug('Last Stand Boost');
 					return target.hp - 1;
@@ -2860,13 +2865,13 @@ exports.BattleAbilities = {
 		num: -6
 	},
 	"rapidgrowth": {
-		desc: "At the end of the turn, this Pokemon regains 5% health.",
-		shortDesc: "At the end of the turn, this Pokemon regains 5% health.",
+		desc: "At the end of the turn, this Pokemon regains 1/16 health.",
+		shortDesc: "At the end of the turn, this Pokemon regains 1/16 health.",
 		onResidualOrder: 5,
 		onResidualSubOrder: 1,
 		onResidual: function(pokemon) {
 			this.add('-message', pokemon.name + ' grows bigger.')
-			this.heal(pokemon.maxhp/20);
+			this.heal(pokemon.maxhp/16);
 		},
 		id: "rapidgrowth",
 		name: "Rapid Growth",
@@ -3215,20 +3220,20 @@ exports.BattleAbilities = {
 		num: 86
 	},
 	"skeptic": {
-		desc: "This Pokemon receives half damage from Fairy, Dragon, Ghost, and Psychic-type attacks.",
+		desc: "This Pokemon receives 0.66x damage from Fairy, Dragon, Ghost, and Psychic-type attacks.",
 		shortDesc: "This Pokemon resists Fairy, Dragon, Ghost, and Psychic moves.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Fairy' || move.type === 'Dragon' || move.type === 'Ghost' || move.type === 'Psychic') {
 				this.add('-message', defender.name + ' refuses to believe in \'magic\'.');
-				return this.chainModify(0.5);
+				return this.chainModify(0.66);
 			}
 		},
 		onModifySpAPriority: 5,
 		onSourceModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Fairy' || move.type === 'Dragon' || move.type === 'Ghost' || move.type === 'Psychic') {
 				this.add('-message', defender.name + ' refuses to believe in \'magic\'.');
-				return this.chainModify(0.5);
+				return this.chainModify(0.66);
 			}
 		},
 		id: "skeptic",
@@ -3723,20 +3728,20 @@ exports.BattleAbilities = {
 		num: 164
 	},
 	"terracotta": {
-		desc: "This Pokemon receives half damage from Ground, Rock, Grass, and Water-type attacks.",
+		desc: "This Pokemon receives 0.66x damage from Ground, Rock, Grass, and Water-type attacks.",
 		shortDesc: "This Pokemon resists Ground, Rock, Grass, and Water moves.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Ground' || move.type === 'Rock' || move.type === 'Grass' || move.type === 'Water') {
 				this.debug('Terracotta weaken');
-				return this.chainModify(0.5);
+				return this.chainModify(0.66);
 			}
 		},
 		onModifySpAPriority: 5,
 		onSourceModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Ground' || move.type === 'Rock' || move.type === 'Grass' || move.type === 'Water') {
 				this.debug('Terracotta weaken');
-				return this.chainModify(0.5);
+				return this.chainModify(0.66);
 			}
 		},
 		id: "terracotta",
@@ -3778,18 +3783,18 @@ exports.BattleAbilities = {
 		num: -6
 	},
 	"thickfat": {
-		desc: "This Pokemon receives half damage from Ice, Fire, Electric, Flying, and Fighting-type attacks.",
+		desc: "This Pokemon receives 0.66x damage from Ice, Fire, Electric, Flying, and Fighting-type attacks.",
 		shortDesc: "This Pokemon resists Fire, Ice, Electric, Flying, and Fighting moves.",
 		onModifyAtkPriority: 6,
 		onSourceModifyAtk: function(atk, attacker, defender, move) {
 			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Electric' || move.type === 'Flying' || move.type === 'Fighting') {
-				return this.chainModify(0.5);
+				return this.chainModify(0.66);
 			}
 		},
 		onModifySpAPriority: 5,
 		onSourceModifySpA: function(atk, attacker, defender, move) {
 			if (move.type === 'Ice' || move.type === 'Fire' || move.type === 'Electric' || move.type === 'Flying' || move.type === 'Fighting') {
-				return this.chainModify(0.5);
+				return this.chainModify(0.66);
 			}
 		},
 		id: "thickfat",
@@ -4025,8 +4030,8 @@ exports.BattleAbilities = {
 	},
 	"underdog": {
 		inherit: true,
-		desc: "When this Pokemon enters the field, the Special Defense and Defense stat of each of its opponents lowers by one stage.",
-		shortDesc: "On switch-in, this Pokemon lowers adjacent foes' Defense and Special Defense by 1.",
+		desc: "When this Pokemon enters the field, the highest defense stat of each of its opponents lowers by one stage.",
+		shortDesc: "On switch-in, this Pokemon lowers adjacent foes' highest defense stat by 1.",
 		onStart: function(pokemon) {
 			var foeactive = pokemon.side.foe.active;
 			for (var i=0; i<foeactive.length; i++) {
@@ -4035,8 +4040,11 @@ exports.BattleAbilities = {
 					// does it give a message?
 					this.add('-activate',foeactive[i],'Substitute','ability: Underdog','[of] '+pokemon);
 				} else {
+					var def = foeactive[i].getStat('def', false, true);
+					var spDef = foeactive[i].getStat('spd', false, true);
 					this.add('-ability',pokemon,'Underdog','[of] '+foeactive[i]);
-					this.boost({spd: -1, def:-1}, foeactive[i], pokemon);
+					if (def >= spDef) this.boost({def: -1}, foeactive[i], pokemon);
+					else this.boost({spd: -1}, foeactive[i], pokemon);
 				}
 			}
 		},

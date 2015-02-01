@@ -8811,7 +8811,7 @@ exports.BattlePokedex = {
         },
         abilities: {
             0: "Quick Sand",
-            1: "Sandstream",
+            1: "Sand Stream",
             H: "Tinted Lens"
         },
         heightm: 2,
@@ -8927,7 +8927,8 @@ exports.BattlePokedex = {
             spe: 80
         },
         abilities: {
-            0: "Pixilate"
+            0: "Pixilate",
+            H: "Guardian"
         },
         heightm: 1.5,
         weightkg: 20.6,
