@@ -398,11 +398,11 @@ exports.BattlePokedex = {
         species: "Butterfree",
         types: ["Bug", "Psychic"],
         baseStats: {
-            hp: 60,
+            hp: 65,
             atk: 45,
             def: 65,
-            spa: 110,
-            spd: 100,
+            spa: 100,
+            spd: 110,
             spe: 100
         },
         abilities: {
@@ -412,6 +412,28 @@ exports.BattlePokedex = {
         },
         heightm: 1.1,
         weightkg: 32,
+        color: "White",
+        prevo: "metapod",
+        evoLevel: 10,
+        eggGroups: ["Bug"]
+    },
+    butterfreemega: {
+        num: 12,
+        species: "Butterfree-Mega",
+        types: ["Bug", "Psychic"],
+        baseStats: {
+            hp: 65,
+            atk: 45,
+            def: 85,
+            spa: 125,
+            spd: 155,
+            spe: 110
+        },
+        abilities: {
+            0: "Radiant Glimmer"
+        },
+        heightm: 1.5,
+        weightkg: 40,
         color: "White",
         prevo: "metapod",
         evoLevel: 10,
@@ -562,19 +584,19 @@ exports.BattlePokedex = {
     pidgeot: {
         num: 18,
         species: "Pidgeot",
-        types: ["Normal", "Flying"],
+        types: ["Flying"],
         baseStats: {
-            hp: 83,
-            atk: 80,
-            def: 75,
-            spa: 70,
-            spd: 70,
-            spe: 101
+            hp: 90,
+            atk: 95,
+            def: 80,
+            spa: 60,
+            spd: 75,
+            spe: 100
         },
         abilities: {
             0: "Keen Eye",
-            1: "Tangled Feet",
-            H: "Big Pecks"
+            1: "Bick Pecks",
+            H: "Sand Rush"
         },
         heightm: 1.5,
         weightkg: 39.5,
@@ -589,17 +611,17 @@ exports.BattlePokedex = {
         baseSpecies: "Pidgeot",
         forme: "Mega",
         formeLetter: "M",
-        types: ["Normal", "Flying"],
+        types: ["Flying"],
         baseStats: {
-            hp: 83,
-            atk: 80,
+            hp: 90,
+            atk: 95,
             def: 80,
             spa: 135,
-            spd: 80,
-            spe: 121
+            spd: 85,
+            spe: 115
         },
         abilities: {
-            0: "No Guard"
+            0: "Applied Knowledge"
         },
         heightm: 2.2,
         weightkg: 50.5,
@@ -5489,11 +5511,11 @@ exports.BattlePokedex = {
         types: ["Steel", "Ground"],
         baseStats: {
             hp: 75,
-            atk: 85,
-            def: 200,
-            spa: 55,
-            spd: 65,
-            spe: 30
+            atk: 90,
+            def: 210,
+            spa: 45,
+            spd: 70,
+            spe: 35
         },
         abilities: {
             0: "Rock Head",
@@ -5517,13 +5539,13 @@ exports.BattlePokedex = {
         baseStats: {
             hp: 75,
             atk: 125,
-            def: 230,
-            spa: 55,
+            def: 250,
+            spa: 45,
             spd: 95,
-            spe: 30
+            spe: 35
         },
         abilities: {
-            0: "Sand Force"
+            0: "Mineralate"
         },
         heightm: 10.5,
         weightkg: 740,
@@ -6742,14 +6764,14 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 70,
-            atk: 110,
+            atk: 145,
             def: 75,
-            spa: 145,
+            spa: 125,
             spd: 85,
             spe: 145
         },
         abilities: {
-            0: "Lightning Rod"
+            0: "Infiltrator"
         },
         heightm: 1.9,
         weightkg: 55.2,
@@ -8525,11 +8547,11 @@ exports.BattlePokedex = {
         types: ["Water", "Dark"],
         baseStats: {
             hp: 70,
-            atk: 140,
-            def: 70,
+            atk: 145,
+            def: 80,
             spa: 110,
-            spd: 65,
-            spe: 105
+            spd: 75,
+            spe: 110
         },
         abilities: {
             0: "Strong Jaw"
@@ -8616,11 +8638,11 @@ exports.BattlePokedex = {
         species: "Camerupt",
         types: ["Fire", "Ground"],
         baseStats: {
-            hp: 70,
+            hp: 80,
             atk: 100,
-            def: 70,
-            spa: 105,
-            spd: 75,
+            def: 90,
+            spa: 115,
+            spd: 100,
             spe: 40
         },
         abilities: {
@@ -8643,12 +8665,12 @@ exports.BattlePokedex = {
         formeLetter: "M",
         types: ["Fire", "Ground"],
         baseStats: {
-            hp: 70,
-            atk: 120,
-            def: 100,
-            spa: 145,
-            spd: 105,
-            spe: 20
+            hp: 80,
+            atk: 135,
+            def: 105,
+            spa: 150,
+            spd: 115,
+            spe: 40
         },
         abilities: {
             0: "Sheer Force"
@@ -8679,6 +8701,26 @@ exports.BattlePokedex = {
         },
         heightm: 0.5,
         weightkg: 80.4,
+        color: "Brown",
+        eggGroups: ["Field"]
+    },
+    torkoalmega: {
+        num: 324,
+        species: "Torkoal-Mega",
+        types: ["Fire", "Steel"],
+        baseStats: {
+            hp: 85,
+            atk: 80,
+            def: 220,
+            spa: 125,
+            spd: 120,
+            spe: 35
+        },
+        abilities: {
+            0: "War Machine"
+        },
+        heightm: 0.5,
+        weightkg: 150.4,
         color: "Brown",
         eggGroups: ["Field"]
     },
@@ -8813,6 +8855,28 @@ exports.BattlePokedex = {
             0: "Quick Sand",
             1: "Sand Stream",
             H: "Tinted Lens"
+        },
+        heightm: 2,
+        weightkg: 82,
+        color: "Green",
+        prevo: "vibrava",
+        evoLevel: 45,
+        eggGroups: ["Bug"]
+    },
+    flygonmega: {
+        num: 330,
+        species: "Flygon-Mega",
+        types: ["Ground", "Dragon"],
+        baseStats: {
+            hp: 90,
+            atk: 135,
+            def: 100,
+            spa: 125,
+            spd: 100,
+            spe: 130
+        },
+        abilities: {
+            0: "Siren"
         },
         heightm: 2,
         weightkg: 82,
@@ -9707,17 +9771,17 @@ exports.BattlePokedex = {
         baseSpecies: "Glalie",
         forme: "Mega",
         formeLetter: "M",
-        types: ["Ice"],
+        types: ["Ice", "Dark"],
         baseStats: {
-            hp: 80,
-            atk: 120,
-            def: 80,
-            spa: 120,
-            spd: 80,
-            spe: 100
+            hp: 90,
+            atk: 125,
+            def: 95,
+            spa: 125,
+            spd: 95,
+            spe: 125
         },
         abilities: {
-            0: "Refrigerate"
+            0: "Frostbite"
         },
         heightm: 2.1,
         weightkg: 350.2,
@@ -10094,11 +10158,11 @@ exports.BattlePokedex = {
         gender: "N",
         baseStats: {
             hp: 80,
-            atk: 145,
-            def: 150,
-            spa: 105,
+            atk: 150,
+            def: 155,
+            spa: 115,
             spd: 110,
-            spe: 110
+            spe: 90
         },
         abilities: {
             0: "Tough Claws"
@@ -10215,7 +10279,7 @@ exports.BattlePokedex = {
             spe: 110
         },
         abilities: {
-            0: "Levitate"
+            0: "Guardian"
         },
         heightm: 1.8,
         weightkg: 52,
@@ -10254,14 +10318,14 @@ exports.BattlePokedex = {
         gender: "M",
         baseStats: {
             hp: 80,
-            atk: 130,
+            atk: 120,
             def: 100,
-            spa: 160,
+            spa: 170,
             spd: 120,
             spe: 110
         },
         abilities: {
-            0: "Levitate"
+            0: "Guardian"
         },
         heightm: 2.3,
         weightkg: 70,
@@ -12891,15 +12955,15 @@ exports.BattlePokedex = {
         types: ["Psychic", "Fighting"],
         gender: "M",
         baseStats: {
-            hp: 68,
+            hp: 70,
             atk: 165,
-            def: 95,
-            spa: 65,
-            spd: 115,
+            def: 105,
+            spa: 85,
+            spd: 120,
             spe: 110
         },
         abilities: {
-            0: "Inner Focus"
+            0: "Unsheathed"
         },
         heightm: 1.6,
         weightkg: 56.4,

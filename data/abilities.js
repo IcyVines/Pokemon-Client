@@ -57,32 +57,13 @@ exports.BattleAbilities = {
 				move.affectedByImmunities = false;
 			}
 		},
-		onBasePowerPriority: 8,
-		/*onBasePower: function(atk, attacker, defender, move){
-			var eff = 1;
-			if(move.type === 'Poison'){ 
-				if (defender.hasType('Steel')) eff = 1;
-				if(defender.hasType('Ground')) eff = eff*1.5;
-				if(defender.hasType('Rock')) eff = eff*1.5;
-				this.add('-message', attacker.name + '\'s poison burns through.');
-				return this.chainModify(eff);
-			} 
-			
-		},*/
 		getEffectiveness: function(source, target, pokemon) {
 			var type = source.type || source;
 			var totalTypeMod = 0;
 			var types = target.getTypes && target.getTypes() || target.types;
 			for (var i=0; i<types.length; i++) {
 				if (!this.data.TypeChart[types[i]]) continue;
-				if (types[i] === 'Steel') continue;
-				if (types[i] === 'Ground'){
-					totalTypeMod += 0.5;
-					continue;
-				} if (types[i] === 'Rock'){
-					totalTypeMod += 0.5;
-					continue;
-				}
+				if (types[i] in {'Steel', 'Rock', 'Ground'}) continue;
 				var typeMod = this.data.TypeChart[types[i]].damageTaken[type];
 				if (typeMod === 1) { // super-effective
 					totalTypeMod++;
@@ -2225,6 +2206,28 @@ exports.BattleAbilities = {
 		rating: 2,
 		num: -6
 	},
+	"mineralate": {
+		desc: "Turns all of this Pokemon's Normal-typed attacks into Steel-type and deal 1.3x damage. Does not affect Hidden Power.",
+		shortDesc: "This Pokemon's Normal moves become Steel-type and do 1.3x damage.",
+		onModifyMove: function(move, pokemon) {
+			if (move.type === 'Normal' && move.id !== 'hiddenpower') {
+				move.type = 'Steel';
+				pokemon.addVolatile('mineralate');
+			}
+		},
+		effect: {
+			duration: 1,
+			onBasePowerPriority: 8,
+			onBasePower: function(basePower, pokemon, target, move) {
+				return this.chainModify([0x14CD, 0x1000]);
+			}
+		},
+		id: "mineralate",
+		name: "Mineralate",
+		rating: 3,
+		num: -6,
+		gen: 6
+	},
 	"minus": {
 		desc: "This Pokemon's Special Attack receives a 50% boost in double battles if a partner has the Plus or Minus ability.",
 		shortDesc: "If an ally has the Ability Plus or Minus, this Pokemon's Sp. Atk is 1.5x.",
@@ -2840,6 +2843,33 @@ exports.BattleAbilities = {
 		rating: 3,
 		num: -6
 	},
+	"radiantglimmer": {
+		desc: "This Pokemon is unaffected by Status Conditions, Damage from Weather, and Hazard Effects or Powder.",
+		shortDesc: "Unable to be statused, effected by hazards or powder, or damaged by weather",
+		onUpdate: function(pokemon) {
+			if (pokemon.status in {'slp', 'par', 'tox', 'psn', 'brn', 'frz') {
+				pokemon.cureStatus();
+			}
+			if (pokemon.volatiles['confusion']){
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onDamage: function(damage, target, source, effect) {
+			if (effect && effect.id in {stealthrock:1,toxicspikes:1,spikes:1,stickyweb:1}) {
+				return false;
+			}
+		},
+		onImmunity: function(type, pokemon) {
+			if (type in {'slp', 'par', 'tox', 'psn', 'brn', 'frz', 'confusion', 'sandstorm', 'hail', 'powder'}) {
+				this.add('-immune', target, '[msg]');
+				return false;
+			}
+		},
+		id: "radiantglimmer",
+		name: "Radiant Glimmer",
+		rating: 3,
+		num: -6
+	},
 	"raindish": {
 		desc: "If the weather is Rain Dance, this Pokemon recovers 1/16 of its max HP after each turn.",
 		shortDesc: "If the weather is Rain Dance, this Pokemon heals 1/16 of its max HP each turn.",
@@ -3242,6 +3272,27 @@ exports.BattleAbilities = {
 		name: "Simple",
 		rating: 4,
 		num: 86
+	},
+	"siren": {
+		desc: "Attacks by this Pokemon that don't have a confusion chance have a 15% confusion chance.",
+		shortDesc: "Attacks by this Pokemon that don't confuse have a 15% chance to confuse.",
+		onModifyMove: function(move) {
+			if (!move) return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			for (var i=0; i<move.secondaries.length; i++) {
+				if (move.secondaries[i].volatileStatus === 'confusion') return;
+			}
+			move.secondaries.push({
+				chance: 15,
+				volatileStatus: 'confusion'
+			});
+		},
+		id: "siren",
+		name: "Siren",
+		rating: 3,
+		num: -6
 	},
 	"skeptic": {
 		desc: "This Pokemon receives 0.66x damage from Fairy, Dragon, Ghost, and Psychic-type attacks.",
@@ -4179,6 +4230,26 @@ exports.BattleAbilities = {
 		},
 		id: "voltage",
 		name: "Voltage",
+		rating: 3,
+		num: -6
+	},
+	"warmachine": {
+		desc: "This Pokemon does 1.25x more damage and takes 0.75x damage.",
+		shortDesc: "This Pokemon does 1.25x more damage and takes 0.75x damage.",
+		onSourceBasePower: function(basePower, attacker, defender, move) {
+			if (move) {
+				return this.chainModify(0.75);
+			}
+		},
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			if (move) {
+				this.debug('War Machine boost');
+				return this.chainModify(1.25);
+			}
+		},
+		id: "warmachine",
+		name: "War Machine",
 		rating: 3,
 		num: -6
 	},
