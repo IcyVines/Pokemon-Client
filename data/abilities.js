@@ -61,16 +61,26 @@ exports.BattleAbilities = {
 			var types = target.getTypes && target.getTypes() || target.types;
 			for (var i=0; i<types.length; i++) {
 				if (!this.data.TypeChart[types[i]]) continue;
-				if (types[i] in {'Steel':1,'Rock':1,'Ground':1}) continue;
-				var typeMod = this.data.TypeChart[types[i]].damageTaken[type];
-				if (typeMod === 1) { // super-effective
-					totalTypeMod++;
-				}
-				if (typeMod === 2) { // resist
-					totalTypeMod--;
+				if (types[i] in {'Rock':1,'Ground':1}){
+					totalTypeMod += 2; 
 				}
 			}
-			move.effectiveness = totalTypeMod;
+			this
+
+		},
+		onBasePowerPriority: 8,
+		onBasePower: function(atk, attacker, defender, move){
+			var defTypes = defender.getTypes();
+			var amount = 1;
+			for(var i = 0; i < defTypes.length; i++){
+				if(defTypes[i] in {'Rock':1,'Ground':1}){
+					amount += 2;
+				}
+			}
+			if(amount > 1){
+				this.add('-message', attacker.name + '\'s venom was more potent than anticipated!');
+			}
+			return this.chainModify(amount);
 		},
 		id: "acidic",
 		name: "Acidic",
