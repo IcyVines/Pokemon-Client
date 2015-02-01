@@ -50,15 +50,13 @@ exports.BattleAbilities = {
 		num: -6
 	},
 	"acidic": {
-		desc: "This Pokemon's Poison-type moves effect Steel types and do 1.5x damage to Ground and Rock types.",
+		desc: "This Pokemon's Poison-type moves are effective on Steel, Ground, and Rock types.",
 		shortDesc: "This Pokemon's Poison-type moves are effective on Steel, Ground, and Rock types.",
-		onModifyMove: function(move) {
+		onModifyMove: function(move, pokemon, target) {
 			if (move.type === 'Poison') {
 				move.affectedByImmunities = false;
 			}
-		},
-		getEffectiveness: function(source, target, pokemon) {
-			var type = source.type || source;
+			var type = move.type || move;
 			var totalTypeMod = 0;
 			var types = target.getTypes && target.getTypes() || target.types;
 			for (var i=0; i<types.length; i++) {
@@ -72,7 +70,7 @@ exports.BattleAbilities = {
 					totalTypeMod--;
 				}
 			}
-			return totalTypeMod;
+			move.effectiveness = totalTypeMod;
 		},
 		id: "acidic",
 		name: "Acidic",
