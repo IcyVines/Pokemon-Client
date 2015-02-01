@@ -58,7 +58,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onBasePowerPriority: 8,
-		onBasePower: function(atk, attacker, defender, move){
+		/*onBasePower: function(atk, attacker, defender, move){
 			var eff = 1;
 			if(move.type === 'Poison'){ 
 				if (defender.hasType('Steel')) eff = 1;
@@ -68,6 +68,30 @@ exports.BattleAbilities = {
 				return this.chainModify(eff);
 			} 
 			
+		},*/
+		getEffectiveness: function(source, target, pokemon) {
+			var type = source.type || source;
+			var totalTypeMod = 0;
+			var types = target.getTypes && target.getTypes() || target.types;
+			for (var i=0; i<types.length; i++) {
+				if (!this.data.TypeChart[types[i]]) continue;
+				if (types[i] === 'Steel') continue;
+				if (types[i] === 'Ground'){
+					totalTypeMod += 0.5;
+					continue;
+				} if (types[i] === 'Rock'){
+					totalTypeMod += 0.5;
+					continue;
+				}
+				var typeMod = this.data.TypeChart[types[i]].damageTaken[type];
+				if (typeMod === 1) { // super-effective
+					totalTypeMod++;
+				}
+				if (typeMod === 2) { // resist
+					totalTypeMod--;
+				}
+			}
+			return totalTypeMod;
 		},
 		id: "acidic",
 		name: "Acidic",

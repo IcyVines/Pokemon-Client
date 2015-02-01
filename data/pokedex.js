@@ -8927,8 +8927,7 @@ exports.BattlePokedex = {
             spe: 80
         },
         abilities: {
-            0: "Pixilate",
-            H: "Guardian"
+            0: "Guardian"
         },
         heightm: 1.5,
         weightkg: 20.6,
