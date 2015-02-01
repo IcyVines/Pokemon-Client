@@ -78,7 +78,7 @@ exports.BattleAbilities = {
 				}
 			}
 			if(amount > 1){
-				this.add('-message', attacker.name + '\'s venom was more potent than anticipated!');
+				this.add('-message', attacker.name + '\'s venom, although not very effective, was more potent than anticipated!');
 			}
 			return this.chainModify(amount);
 		},

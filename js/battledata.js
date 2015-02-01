@@ -886,6 +886,7 @@ var Tools = {
 			"malaconda": 832+15,
 			"cawmodore": 832+16,
 			"toxeon": 9001,
+			"butterfreemega": 11,
 		};
 		if (altNums[id]) {
 			num = altNums[id];

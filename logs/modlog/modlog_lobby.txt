@@ -23,3 +23,6 @@
 [2014-04-26T22:34:07.155Z] (lobby) SirDanMan declared °˖✧◝(⁰▿⁰)◜✧˖°
 [2014-04-26T22:34:13.120Z] (lobby) SirDanMan declared olo
 [2014-04-26T22:35:32.319Z] (lobby) SirDanMan declared ALL YOUR BASE ARE BELONG TO US
+[2015-02-01T23:33:59.602Z] (lobby) FuckTheNewYear was promoted to Moderator by IcyVines.
+[2015-02-01T23:34:17.281Z] (lobby) FuckTheNewYear was promoted to Administrator by IcyVines.
+[2015-02-01T23:34:47.362Z] (lobby) (FuckTheNewYear was demoted to Moderator by IcyVines.)
