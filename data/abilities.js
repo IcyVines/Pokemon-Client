@@ -63,7 +63,7 @@ exports.BattleAbilities = {
 			var types = target.getTypes && target.getTypes() || target.types;
 			for (var i=0; i<types.length; i++) {
 				if (!this.data.TypeChart[types[i]]) continue;
-				if (types[i] in {'Steel', 'Rock', 'Ground'}) continue;
+				if (types[i] in {'Steel':1,'Rock':1,'Ground':1}) continue;
 				var typeMod = this.data.TypeChart[types[i]].damageTaken[type];
 				if (typeMod === 1) { // super-effective
 					totalTypeMod++;
@@ -2847,7 +2847,7 @@ exports.BattleAbilities = {
 		desc: "This Pokemon is unaffected by Status Conditions, Damage from Weather, and Hazard Effects or Powder.",
 		shortDesc: "Unable to be statused, effected by hazards or powder, or damaged by weather",
 		onUpdate: function(pokemon) {
-			if (pokemon.status in {'slp', 'par', 'tox', 'psn', 'brn', 'frz') {
+			if (pokemon.status in {'slp':1,'par':1,'tox':1,'psn':1,'brn':1,'frz':1) {
 				pokemon.cureStatus();
 			}
 			if (pokemon.volatiles['confusion']){
@@ -2860,7 +2860,7 @@ exports.BattleAbilities = {
 			}
 		},
 		onImmunity: function(type, pokemon) {
-			if (type in {'slp', 'par', 'tox', 'psn', 'brn', 'frz', 'confusion', 'sandstorm', 'hail', 'powder'}) {
+			if (type in {'slp':1,'par':1,'tox':1,'psn':1,'brn':1,'frz':1,'confusion':1,'sandstorm':1,'hail':1,'powder':1}) {
 				this.add('-immune', target, '[msg]');
 				return false;
 			}
