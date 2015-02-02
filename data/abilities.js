@@ -56,17 +56,6 @@ exports.BattleAbilities = {
 			if (move.type === 'Poison') {
 				move.affectedByImmunities = false;
 			}
-			var type = move.type || move;
-			var totalTypeMod = 0;
-			var types = target.getTypes && target.getTypes() || target.types;
-			for (var i=0; i<types.length; i++) {
-				if (!this.data.TypeChart[types[i]]) continue;
-				if (types[i] in {'Rock':1,'Ground':1}){
-					totalTypeMod += 2; 
-				}
-			}
-			this
-
 		},
 		onBasePowerPriority: 8,
 		onBasePower: function(atk, attacker, defender, move){

@@ -811,7 +811,7 @@ var Tools = {
 		if (pokemon.shiny) back += '-shiny'; // we don't have shiny sprites yet
 		var altNums = {
 			"toxeon": 9001,
-			"butterfreemega": 12,
+			"regaleon": 9002,
 		};
 		var imagePrefix = Tools.resourcePrefix;
 		if (altNums[spriteid]) imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/";
@@ -887,7 +887,7 @@ var Tools = {
 			"malaconda": 832+15,
 			"cawmodore": 832+16,
 			"toxeon": 9001,
-			"butterfreemega": 12,
+			"regaleon": 9002,
 		};
 		if (altNums[id]) {
 			num = altNums[id];
@@ -928,7 +928,7 @@ var Tools = {
 		}
 		var altNums = {
 			"toxeon": 9001,
-			"butterfreemega": 12,
+			"regaleon": 9002,
 		};
 		var shiny = (pokemon.shiny?'-shiny':'');
 		var imagePrefix = Tools.resourcePrefix;

@@ -20427,5 +20427,29 @@ exports.BattlePokedex = {
         prevo: "eevee",
         evoLevel: 1,
         eggGroups: ["Field"]
+    },
+    regaleon: {
+        num: -63,
+        species: "Regaleon",
+        types: ["Dragon"],
+        baseStats: {
+            hp: 85,
+            atk: 130,
+            def: 70,
+            spa: 120,
+            spd: 70,
+            spe: 80
+        },
+        abilities: {
+            0: "Dethrone",
+            1: "Defiant",
+            H: "Strong Jaw"
+        },
+        heightm: 0.8,
+        weightkg: 22,
+        color: "Blue",
+        prevo: "eevee",
+        evoLevel: 1,
+        eggGroups: ["Field"]
     }
 };

@@ -4720,5 +4720,10 @@ exports.BattleFormatsData = {
 		inherit: true,
 		viabelMoves: {"sludgebomb":1,"venomdrench":1,"sludgewave":1,"venoshock":1,"toxic":1,"hiddenpowerfire":1,"hiddenpowerice":1,"hiddenpowerwater":1,"shadowball":1,"synchronoise":1},
 		tier: "OU"
+	},
+	regaleon: {
+		inherit: true,
+		viabelMoves: {"dracometeor":1,"dragondance":1,"dragonfang":1,"dragonpulse":1,"dragonrush":1,"dragontail":1,"firefang":1,"hiddenpowerpoison":1,"hiddenpowerrock":1,"hiddenpowersteel":1,"icefang":1,"thunderfang":1},
+		tier: "OU"
 	}
 };
