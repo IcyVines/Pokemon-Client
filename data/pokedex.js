@@ -6736,11 +6736,11 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 70,
-            atk: 105,
-            def: 65,
-            spa: 95,
+            atk: 95,
+            def: 70,
+            spa: 90,
             spd: 85,
-            spe: 120
+            spe: 125
         },
         abilities: {
             0: "Overgrow",
@@ -6767,11 +6767,11 @@ exports.BattlePokedex = {
         },
         baseStats: {
             hp: 70,
-            atk: 145,
+            atk: 140,
             def: 75,
             spa: 125,
             spd: 85,
-            spe: 145
+            spe: 140
         },
         abilities: {
             0: "Infiltrator"
