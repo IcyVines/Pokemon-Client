@@ -20483,6 +20483,6 @@ exports.BattlePokedex = {
         color: "Purple",
         prevo: "eevee",
         evoLevel: 1,
-        eggGroups: ["Amorphous"]
+        eggGroups: ["Field"]
     }
 };
