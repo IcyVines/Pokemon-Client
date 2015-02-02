@@ -99,11 +99,8 @@ exports.BattleFormatsData = {
 		tier: "OU"
 	},
 	butterfreemega: {
-		viableMoves: {"quiverdance":1,"roost":1,"bugbuzz":1,"substitute":1,"sleeppowder":1,"gigadrain":1,"psychic":1,"shadowball":1},
-		viableDoublesMoves: {"quiverdance":1,"bugbuzz":1,"substitute":1,"sleeppowder":1,"gigadrain":1,"psychic":1,"shadowball":1,"protect":1,},
-		eventPokemon: [
-			{"generation":3,"level":30,"moves":["morningsun","psychic","sleeppowder","aerialace"]}
-		],
+		randomBattleMoves: {"quiverdance":1,"roost":1,"bugbuzz":1,"substitute":1,"sleeppowder":1,"gigadrain":1,"psychic":1,"shadowball":1},
+		randomDoublesMoves: {"quiverdance":1,"bugbuzz":1,"substitute":1,"sleeppowder":1,"gigadrain":1,"psychic":1,"shadowball":1,"protect":1,},
 		requiredItem: "Butterfrenite"
 	},
 	weedle: {
@@ -2307,7 +2304,7 @@ exports.BattleFormatsData = {
 		tier: "OU"
 	},
 	torkoalmega: {
-		viableMoves: {"rapidspin":1,"stealthrock":1,"yawn":1,"lavaplume":1,"earthquake":1,"toxic":1,"willowisp":1,"shellsmash":1,"fireblast":1},
+		randomBattleMoves: {"rapidspin":1,"stealthrock":1,"yawn":1,"lavaplume":1,"earthquake":1,"toxic":1,"willowisp":1,"shellsmash":1,"fireblast":1},
 		requiredItem: "Torkoalite"
 	},
 	spoink: {
@@ -2348,11 +2345,7 @@ exports.BattleFormatsData = {
 		tier: "OU"
 	},
 	flygonmega: {
-		viableMoves: {"earthquake":1,"outrage":1,"dragonclaw":1,"uturn":1,"roost":1,"substitute":1,"stoneedge":1,"firepunch":1,"superpower":1,"defog":1},
-		eventPokemon: [
-			{"generation":3,"level":45,"moves":["sandtomb","crunch","dragonbreath","screech"]},
-			{"generation":4,"level":50,"gender":"M","nature":"Naive","moves":["dracometeor","uturn","earthquake","dragonclaw"],"pokeball":"cherishball"}
-		],
+		randomBattleMoves: {"earthquake":1,"outrage":1,"dragonclaw":1,"uturn":1,"roost":1,"substitute":1,"stoneedge":1,"firepunch":1,"superpower":1,"defog":1},
 		requiredItem: "Flygonite"
 	},
 	cacnea: {

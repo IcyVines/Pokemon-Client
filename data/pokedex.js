@@ -420,6 +420,9 @@ exports.BattlePokedex = {
     butterfreemega: {
         num: 12,
         species: "Butterfree-Mega",
+        baseSpecies: "Butterfree",
+        forme: "Mega",
+        formeLetter: "M",
         types: ["Bug", "Psychic"],
         baseStats: {
             hp: 65,
@@ -8707,6 +8710,9 @@ exports.BattlePokedex = {
     torkoalmega: {
         num: 324,
         species: "Torkoal-Mega",
+        baseSpecies: "Torkoal",
+        forme: "Mega",
+        formeLetter: "M",
         types: ["Fire", "Steel"],
         baseStats: {
             hp: 85,
@@ -8866,6 +8872,9 @@ exports.BattlePokedex = {
     flygonmega: {
         num: 330,
         species: "Flygon-Mega",
+        baseSpecies: "Flygon",
+        forme: "Mega",
+        formeLetter: "M",
         types: ["Ground", "Dragon"],
         baseStats: {
             hp: 90,
