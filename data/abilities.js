@@ -2858,7 +2858,6 @@ exports.BattleAbilities = {
 		},
 		onImmunity: function(type, pokemon) {
 			if (type in {'slp':1,'par':1,'tox':1,'psn':1,'brn':1,'frz':1,'confusion':1,'sandstorm':1,'hail':1,'powder':1}) {
-				this.add('-immune', pokemon, '[msg]');
 				return false;
 			}
 		},

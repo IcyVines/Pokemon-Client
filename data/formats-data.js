@@ -557,7 +557,7 @@ exports.BattleFormatsData = {
 		tier: "LC"
 	},
 	tentacruel: {
-		viableMoves: {"toxicspikes":1,"rapidspin":1,"scald":1,"sludgebomb":1,"icebeam":1,"knockoff":1,"gigadrain":1,"toxic":1,"dazzlinggleam":1},
+		viableMoves: {"toxicspikes":1,"rapidspin":1,"scald":1,"sludgebomb":1,"icebeam":1,"knockoff":1,"gigadrain":1,"toxic":1,"dazzlinggleam":1,"haze":1},
 		tier: "OU"
 	},
 	geodude: {
