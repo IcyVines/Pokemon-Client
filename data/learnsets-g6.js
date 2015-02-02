@@ -1292,6 +1292,19 @@ exports.BattleLearnsets = {
             thunderfang: ["6M"]
         }
     },
+    mummeon: {
+        learnset: {
+            curse: ["6M"],
+            darkpulse: ["6M"],
+            destinybond: ["6M"],
+            icebeam: ["6M"],
+            ominouswind: ["6M"],
+            psychic: ["6M"],
+            shadowsneak: ["6M"],
+            sludgebomb: ["6M"],
+            thunderbolt: ["6M"]
+        }
+    },
     bulbasaur: {
         learnset: {
             amnesia: ["6E"],

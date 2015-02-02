@@ -20461,4 +20461,28 @@ exports.BattlePokedex = {
         evoLevel: 1,
         eggGroups: ["Field"]
     }
+    mummeon: {
+        num: -64,
+        species: "Mummeeon",
+        types: ["Ghost"],
+        baseStats: {
+            hp: 70,
+            atk: 75,
+            def: 65,
+            spa: 140,
+            spd: 85,
+            spe: 120
+        },
+        abilities: {
+            0: "Mummy",
+            1: "Cursed Body",
+            H: "Shadow Tag"
+        },
+        heightm: 0.6,
+        weightkg: 5,
+        color: "Purple",
+        prevo: "eevee",
+        evoLevel: 1,
+        eggGroups: ["Amorphous"]
+    }
 };
