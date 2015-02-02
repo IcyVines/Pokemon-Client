@@ -7384,7 +7384,6 @@ exports.BattleLearnsets = {
             gigadrain: ["3M", "4M", "5T"],
             gigaimpact: ["4M", "5M", "6M"],
             hail: ["3M", "4M", "5M", "6M"],
-            haze: [],
             hex: ["5L47", "6L47"],
             hiddenpower: ["3M", "4M", "5M", "6M"],
             hydropump: ["3L55", "4L49", "5L52", "6L52"],
