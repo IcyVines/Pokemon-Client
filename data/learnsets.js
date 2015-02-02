@@ -1289,7 +1289,7 @@ exports.BattleLearnsets = {
             dragontail: ["6M"],
             firefang: ["6M"],
             icefang: ["6M"],
-            thunderfang: ["6M"],
+            thunderfang: ["6M"]
         }
     },
     bulbasaur: {

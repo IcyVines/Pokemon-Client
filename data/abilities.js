@@ -2821,17 +2821,17 @@ exports.BattleAbilities = {
 		num: 95
 	},
 	"quicksand": {
-		desc: "Attacks by this Pokemon have a 50% chance to lower opposing Pokemon's Speed by one stage.",
-		shortDesc: "Attacks have a 50% chance to lower foe's speed.",
+		desc: "Rock or Ground type moves by this Pokemon have a 75% chance to lower opposing Pokemon's Speed by one stage.",
+		shortDesc: "Rock or Ground type moves have a 75% chance to lower foe's speed.",
 		onModifyMove: function(move, user, target) {
 			if (!move || !((move.type === 'Rock') || (move.type === 'Ground'))) return;
 			if (!move.secondaries) {
 				move.secondaries = [];
 			}
 			move.secondaries.push({
-				chance: 50,
+				chance: 75,
 				boosts: {
-					spd: -1
+					spe: -1
 				}
 			});
 		},
@@ -2858,7 +2858,7 @@ exports.BattleAbilities = {
 		},
 		onImmunity: function(type, pokemon) {
 			if (type in {'slp':1,'par':1,'tox':1,'psn':1,'brn':1,'frz':1,'confusion':1,'sandstorm':1,'hail':1,'powder':1}) {
-				this.add('-immune', target, '[msg]');
+				this.add('-immune', pokemon, '[msg]');
 				return false;
 			}
 		},

@@ -1279,6 +1279,19 @@ exports.BattleLearnsets = {
             venoshock: ["6M"]
         }
     },
+    regaleon: {
+        learnset: {
+            dracometeor: ["6M"],
+            dragondance: ["6M"],
+            dragonfang: ["6M"],
+            dragonpulse: ["6M"],
+            dragonrush: ["6M"],
+            dragontail: ["6M"],
+            firefang: ["6M"],
+            icefang: ["6M"],
+            thunderfang: ["6M"]
+        }
+    },
     bulbasaur: {
         learnset: {
             amnesia: ["6E"],

@@ -104,7 +104,7 @@ exports.BattleFormatsData = {
 		eventPokemon: [
 			{"generation":3,"level":30,"moves":["morningsun","psychic","sleeppowder","aerialace"]}
 		],
-		tier: "OU"
+		requiredItem: "Butterfrenite"
 	},
 	weedle: {
 		viableMoves: {"bugbite":1,"stringshot":1,"poisonsting":1,"electroweb":1},
@@ -2308,7 +2308,7 @@ exports.BattleFormatsData = {
 	},
 	torkoalmega: {
 		viableMoves: {"rapidspin":1,"stealthrock":1,"yawn":1,"lavaplume":1,"earthquake":1,"toxic":1,"willowisp":1,"shellsmash":1,"fireblast":1},
-		tier: "OU"
+		requiredItem: "Torkoalite"
 	},
 	spoink: {
 		viableMoves: {"psychic":1,"reflect":1,"lightscreen":1,"thunderwave":1,"trick":1,"healbell":1,"calmmind":1,"hiddenpowerfighting":1,"shadowball":1},
@@ -2353,7 +2353,7 @@ exports.BattleFormatsData = {
 			{"generation":3,"level":45,"moves":["sandtomb","crunch","dragonbreath","screech"]},
 			{"generation":4,"level":50,"gender":"M","nature":"Naive","moves":["dracometeor","uturn","earthquake","dragonclaw"],"pokeball":"cherishball"}
 		],
-		tier: "OU"
+		requiredItem: "Flygonite"
 	},
 	cacnea: {
 		viableMoves: {"swordsdance":1,"spikes":1,"suckerpunch":1,"seedbomb":1,"drainpunch":1},

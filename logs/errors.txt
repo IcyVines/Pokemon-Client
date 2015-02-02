@@ -6504,3 +6504,62 @@ user = icyvines
 ip = 127.0.0.1
 roomid = 
 message = |/hotpatch battles
+
+ReferenceError: target is not defined
+    at Tools.exports.BattleAbilities.radiantglimmer.onImmunity (/Users/IcyVines/Desktop/Pokemon-Client/data/abilities.js:2861:25)
+    at Tools.Battle.runEvent (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:2048:38)
+    at BattlePokemon.runImmunity (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:1190:30)
+    at BattlePokemon.setStatus (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:894:14)
+    at Tools.exports.BattleScripts.moveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:408:25)
+    at Tools.exports.BattleScripts.tryMoveHit (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:274:18)
+    at Tools.exports.BattleScripts.useMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:164:18)
+    at Tools.exports.BattleScripts.runMove (/Users/IcyVines/Desktop/Pokemon-Client/data/scripts.js:45:8)
+    at Tools.Battle.runDecision (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3252:9)
+    at Tools.Battle.go (/Users/IcyVines/Desktop/Pokemon-Client/battle-engine.js:3417:9)
+
+Additional information:
+message = battle-customgame-1588|choose|p1|move Thunder Wave|3
+currentRequest = move
+
+Log:
+|player|p1|AayushPar|102
+|player|p2|IcyVines|102
+|gametype|singles
+|gen|6
+|tier|Custom Game
+|clearpoke
+|poke|p1|Typhlosion, F, shiny
+|poke|p1|Keldeo, shiny
+|poke|p1|Carbink
+|poke|p1|Serperior, F, shiny
+|poke|p1|Donphan, F, shiny
+|poke|p1|Aggron, F
+|poke|p2|Butterfree-Mega, F
+|poke|p2|Golem, F
+|poke|p2|Ariados, F
+|teampreview
+|
+|start
+|split
+|switch|p1a: Carbink|Carbink|324/324
+|switch|p1a: Carbink|Carbink|324/324
+|switch|p1a: Carbink|Carbink|324/324
+|switch|p1a: Carbink|Carbink|324/324
+|split
+|switch|p2a: Butterfree-Mega|Butterfree-Mega, F|272/272
+|switch|p2a: Butterfree-Mega|Butterfree-Mega, F|272/272
+|switch|p2a: Butterfree-Mega|Butterfree-Mega, F|272/272
+|switch|p2a: Butterfree-Mega|Butterfree-Mega, F|272/272
+|-fieldstart|move: Trick Room|[of] p1a: Carbink
+|turn|1
+|
+|move|p1a: Carbink|Stealth Rock|p2a: Butterfree-Mega
+|-sidestart|p2: IcyVines|move: Stealth Rock
+|move|p2a: Butterfree-Mega|Roost|p2a: Butterfree-Mega
+|-fail|p2a: Butterfree-Mega
+|debug|heal interrupted
+|
+|turn|2
+|
+|move|p1a: Carbink|Thunder Wave|p2a: Butterfree-Mega
+|debug|randBW(100) = 58
