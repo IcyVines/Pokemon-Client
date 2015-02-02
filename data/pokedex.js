@@ -20463,7 +20463,7 @@ exports.BattlePokedex = {
     },
     mummeon: {
         num: -64,
-        species: "Mummeeon",
+        species: "Mummeon",
         types: ["Ghost"],
         baseStats: {
             hp: 70,
