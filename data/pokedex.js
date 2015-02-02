@@ -20460,7 +20460,7 @@ exports.BattlePokedex = {
         prevo: "eevee",
         evoLevel: 1,
         eggGroups: ["Field"]
-    }
+    },
     mummeon: {
         num: -64,
         species: "Mummeeon",

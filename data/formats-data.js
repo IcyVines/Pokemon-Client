@@ -4703,10 +4703,10 @@ exports.BattleFormatsData = {
 		inherit: true,
 		viabelMoves: {"dracometeor":1,"dragondance":1,"dragonfang":1,"dragonpulse":1,"dragonrush":1,"dragontail":1,"firefang":1,"hiddenpowerpoison":1,"hiddenpowerrock":1,"hiddenpowersteel":1,"icefang":1,"thunderfang":1},
 		tier: "OU"
-	}
+	},
 	mummeon: {
         inherit: true,
         viableMoves: {"curse":1,"darkpulse":1,"destinybond":1,"hiddenpowerfighting":1,"hiddenpowerfire":1,"hiddenpowerrock":1,"icebeam":1,"ominouswind":1,"psychic":1,"shadowsneak":1,"sludgebomb":1,"thunderbolt":1},
         tier: "OU"
-    },
+    }
 };
