@@ -1535,7 +1535,7 @@ var Tools = {
 		else if (gen <= 2 && template.gen <= 2) spriteDir = Tools.resourcePrefix + 'sprites/gsc';
 		else if (gen <= 3 && template.gen <= 3) spriteDir = Tools.resourcePrefix + 'sprites/rse';
 		else if (gen <= 4 && template.gen <= 4) spriteDir = Tools.resourcePrefix + 'sprites/dpp';
-		else if (altNums[spriteid]) imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/sprites/bw";
+		else if (altNums[id]) imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/sprites/bw";
 		return 'background-image:url(' + spriteDir + shiny + '/' + spriteid + '.png);background-position:10px 5px;background-repeat:no-repeat';
 		// var w = Math.round(57 - sdata.w / 2), h = Math.round(57 - sdata.h / 2);
 		// if (id === 'altariamega' || id === 'dianciemega' || id === 'charizardmegay') h += 15;
