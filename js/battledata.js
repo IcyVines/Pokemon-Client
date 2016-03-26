@@ -905,7 +905,7 @@ var Tools = {
 		var left = (num % 16) * 32;
 		var fainted = (pokemon && pokemon.fainted?';opacity:.4':'');
 		var imagePrefix = Tools.resourcePrefix;
-		var imageSuffix = "bwicons-sheet-g6.png?v0.9xyb1";
+		var imageSuffix = "xyicons-sheet.png?v0.9xyb1";
 		if (num > 9000){
 			//console.log(pokemon.num)
 			imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/";
