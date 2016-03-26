@@ -1137,6 +1137,12 @@ var Tools = {
 			name += '-f';
 			spriteType += 'f';
 		}
+		var altNums = {
+			"toxeon": 9001,
+			"regaleon": 9002,
+			"mummeon": 9003,
+		};
+		if (altNums[spriteid]) imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/";
 
 		// There is no entry or enough data in pokedex-mini.js
 		// Handle these in case-by-case basis; either using BW sprites or matching the played gen.
@@ -1468,6 +1474,10 @@ var Tools = {
 			 top = 8 + Math.floor(num / 16) * 32;
 			 left = (num % 16) * 32;
 		}
+
+		var imagePrefix = Tools.resourcePrefix;
+		var imageSuffix = newSize ? 'xyicons-sheet.png?a1' : 'bwicons-sheet.png?g6'
+
 		if (num > 9000){
 			//console.log(pokemon.num)
 			imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/";
@@ -1476,7 +1486,8 @@ var Tools = {
 			top = 0;
 		}
 		var fainted = (pokemon && pokemon.fainted ? ';opacity:.4' : '');
-		return 'background:transparent url(' + Tools.resourcePrefix + 'sprites/' + (newSize ? 'xyicons-sheet.png?a1' : 'bwicons-sheet.png?g6') + ') no-repeat scroll -' + left + 'px -' + top + 'px' + fainted;
+
+		return 'background:transparent url(' + imagePrefix + 'sprites/' + imageSuffix + ') no-repeat scroll -' + left + 'px -' + top + 'px' + fainted;
 	},
 
 	getTeambuilderSprite: function (pokemon, gen) {
@@ -1500,7 +1511,6 @@ var Tools = {
 			"regaleon": 9002,
 			"mummeon": 9003,
 		};
-		if (altNums[id]) imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/";
 		// var sdata;
 		// if (BattlePokemonSprites[id] && BattlePokemonSprites[id].front && !Tools.prefs('bwgfx')) {
 		// 	if (BattlePokemonSprites[id].front.anif && pokemon.gender === 'F') {
@@ -1525,6 +1535,7 @@ var Tools = {
 		else if (gen <= 2 && template.gen <= 2) spriteDir = Tools.resourcePrefix + 'sprites/gsc';
 		else if (gen <= 3 && template.gen <= 3) spriteDir = Tools.resourcePrefix + 'sprites/rse';
 		else if (gen <= 4 && template.gen <= 4) spriteDir = Tools.resourcePrefix + 'sprites/dpp';
+		else if (altNums[spriteid]) imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/sprites/bw";
 		return 'background-image:url(' + spriteDir + shiny + '/' + spriteid + '.png);background-position:10px 5px;background-repeat:no-repeat';
 		// var w = Math.round(57 - sdata.w / 2), h = Math.round(57 - sdata.h / 2);
 		// if (id === 'altariamega' || id === 'dianciemega' || id === 'charizardmegay') h += 15;
