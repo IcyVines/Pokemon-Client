@@ -1528,7 +1528,13 @@ var Tools = {
 			if (id.substr(0, 6) === 'arceus') offset = '-2px 7px';
 			if (id === 'garchomp') offset = '-2px 2px';
 			if (id === 'garchompmega') offset = '-2px 0px';
-			return 'background-image:url(' + Tools.resourcePrefix + 'sprites/xydex' + shiny + '/' + spriteid + '.png);background-position:' + offset + ';background-repeat:no-repeat';
+			var imagePrefix = Tools.resourcePrefix;
+			var imageSuffix = 'sprites/xydex'
+			if (altNums[id]) {
+				imagePrefix = "https://rawgit.com/IcyVines/Pokemon-Client/master/";
+				imageSuffix = "sprites/bw";
+			}
+			return 'background-image:url(' + imagePrefix + imageSuffix + shiny + '/' + spriteid + '.png);background-position:' + offset + ';background-repeat:no-repeat';
 		}
 		var spriteDir = Tools.resourcePrefix + 'sprites/bw';
 		if (gen <= 1 && template.gen <= 1) spriteDir = Tools.resourcePrefix + 'sprites/rby';
