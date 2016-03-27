@@ -1,34 +1,64 @@
+'use strict';
+
 exports.BattleFormatsData = {
-	genesect: {
+	aegislash: {
 		inherit: true,
-		tier: 'OU'
-	},
-	tornadustherian: {
-		inherit: true,
-		tier: 'OU'
-	},
-	thundurus: {
-		inherit: true,
-		tier: 'OU'
-	},
-	excadrill: {
-		inherit: true,
-		tier: 'OU'
+		tier: 'OU',
 	},
 	blaziken: {
 		inherit: true,
-		tier: 'OU'
+		tier: 'OU',
 	},
-	kyurem: {
+	blazikenmega: {
 		inherit: true,
-		tier: 'Uber'
+		tier: 'OU',
 	},
-	kyuremblack: {
+	genesect: {
 		inherit: true,
-		tier: 'Uber'
+		tier: 'OU',
+	},
+	gengarmega: {
+		inherit: true,
+		tier: 'OU',
+	},
+	greninja: {
+		inherit: true,
+		tier: 'OU',
+	},
+	kangaskhanmega: {
+		inherit: true,
+		tier: 'OU',
+	},
+	landorus: {
+		inherit: true,
+		tier: 'OU',
+	},
+	mawilemega: {
+		inherit: true,
+		tier: 'OU',
+	},
+	salamencemega: {
+		inherit: true,
+		tier: 'OU',
 	},
 	deoxysdefense: {
 		inherit: true,
-		tier: 'Uber'
-	}
+		tier: 'Uber',
+	},
+	deoxysspeed: {
+		inherit: true,
+		tier: 'Uber',
+	},
+	hoopaunbound: {
+		inherit: true,
+		tier: 'OU',
+	},
+	kyurem: {
+		inherit: true,
+		tier: 'Uber',
+	},
+	kyuremblack: {
+		inherit: true,
+		tier: 'Uber',
+	},
 };

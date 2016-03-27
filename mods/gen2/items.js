@@ -1,43 +1,98 @@
+'use strict';
+
 exports.BattleItems = {
-	amuletcoin: {
-		id: "amuletcoin",
-		name: "Amulet Coin",
-		num: -1,
-		gen: 2,
-		desc: "Doubles the amount of money received in trainer battles."
-	},
-	berry: {
-		id: "berry",
-		name: "Berry",
-		isBerry: true,
-		onUpdate: function(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp/2) pokemon.eatItem();
-		},
-		onEat: function(pokemon) {
-			this.heal(10);
-		},
-		num: -2,
-		gen: 2,
-		desc: "Restores 10 HP when the holder of this item is at 50% HP or less. One-time use."
-	},
-	dragonscale: {
-		id: "dragonscale",
-		name: "Dragon Scale",
-		num: -3,
-		gen: 2,
-		desc: "Evolves Seadra into Kingdra. Raises power of Dragon-type moves by 10%."
+	dragonfang: {
+		inherit: true,
+		onBasePower: function () {},
+		desc: "No competitive use.",
 	},
 	metalpowder: {
 		inherit: true,
-		onModifyDef: function(def, pokemon) {
-			if (pokemon.template.species === 'Ditto') {
-				return def * 1.5;
+		// On Gen 2 this happens in stat calculation directly.
+		onModifyDef: function () {},
+		onModifySpD: function () {},
+	},
+	lightball: {
+		inherit: true,
+		// On Gen 2 this happens in stat calculation directly.
+		onModifyAtk: function () {},
+		onModifySpA: function () {},
+	},
+	luckypunch: {
+		inherit: true,
+		onModifyMove: function (move, user) {
+			if (user.template.species === 'Chansey') {
+				move.critRatio = 3;
 			}
 		},
-		onModifySpD: function(def, pokemon) {
-			if (pokemon.template.species === 'Ditto') {
-				return def * 1.5;
+	},
+	stick: {
+		inherit: true,
+		onModifyMove: function (move, user) {
+			if (user.template.species === 'Farfetch\'d') {
+				move.critRatio = 3;
 			}
-		}
-	}
+		},
+	},
+	thickclub: {
+		inherit: true,
+		// On Gen 2 this happens in stat calculation directly.
+		onModifyAtk: function () {},
+	},
+	berserkgene: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	berry: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	bitterberry: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	burntberry: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	dragonscale: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	goldberry: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	iceberry: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	mintberry: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	miracleberry: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	mysteryberry: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	pinkbow: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	polkadotbow: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	przcureberry: {
+		inherit: true,
+		isNonstandard: false,
+	},
+	psncureberry: {
+		inherit: true,
+		isNonstandard: false,
+	},
 };

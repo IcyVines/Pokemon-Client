@@ -1,12 +1,14 @@
+'use strict';
+
 exports.BattleMovedex = {
 	/******************************************************************
 	Perfect accuracy moves:
-	- base power increased 60 to 90
+	- base power increased to 90
 
 	Justification:
 	- perfect accuracy is too underpowered to have such low base power
 	- it's not even an adequate counter to accuracy boosting, which
-	  is why the latter is banned
+	  is why the latter is banned in OU
 
 	Precedent:
 	- Giga Drain and Drain Punch, similar 60 base power moves, have
@@ -14,31 +16,43 @@ exports.BattleMovedex = {
 	******************************************************************/
 	aerialace: {
 		inherit: true,
-		basePower: 90
+		basePower: 90,
 	},
 	feintattack: {
 		inherit: true,
-		basePower: 90
+		basePower: 90,
 	},
 	shadowpunch: {
 		inherit: true,
-		basePower: 90
+		basePower: 90,
 	},
 	magnetbomb: {
 		inherit: true,
-		basePower: 90
+		basePower: 90,
 	},
 	magicalleaf: {
 		inherit: true,
-		basePower: 90
+		basePower: 90,
 	},
 	shockwave: {
 		inherit: true,
-		basePower: 90
+		basePower: 90,
 	},
 	swift: {
 		inherit: true,
-		basePower: 90
+		basePower: 90,
+	},
+	disarmingvoice: {
+		inherit: true,
+		basePower: 90,
+	},
+	aurasphere: {
+		inherit: true,
+		basePower: 90,
+	},
+	clearsmog: {
+		inherit: true,
+		basePower: 90,
 	},
 	/******************************************************************
 	HMs:
@@ -56,19 +70,20 @@ exports.BattleMovedex = {
 			chance: 30,
 			self: {
 				boosts: {
-					atk: 1
-				}
-			}
-		}
+					atk: 1,
+				},
+			},
+		},
 	},
 	cut: {
 		inherit: true,
+		accuracy: 100,
 		secondary: {
 			chance: 100,
 			boosts: {
-				def: -1
-			}
-		}
+				def: -1,
+			},
+		},
 	},
 	rocksmash: {
 		inherit: true,
@@ -76,9 +91,9 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 100,
 			boosts: {
-				def: -1
-			}
-		}
+				def: -1,
+			},
+		},
 	},
 	/******************************************************************
 	Weather moves:
@@ -90,19 +105,19 @@ exports.BattleMovedex = {
 	******************************************************************/
 	raindance: {
 		inherit: true,
-		priority: 1
+		priority: 1,
 	},
 	sunnyday: {
 		inherit: true,
-		priority: 1
+		priority: 1,
 	},
 	sandstorm: {
 		inherit: true,
-		priority: 1
+		priority: 1,
 	},
 	hail: {
 		inherit: true,
-		priority: 1
+		priority: 1,
 	},
 	/******************************************************************
 	Substitute:
@@ -120,34 +135,21 @@ exports.BattleMovedex = {
 	substitute: {
 		inherit: true,
 		effect: {
-			onStart: function(target) {
+			onStart: function (target) {
 				this.add('-start', target, 'Substitute');
-				this.effectData.hp = Math.floor(target.maxhp/4);
+				this.effectData.hp = Math.floor(target.maxhp / 4);
 				delete target.volatiles['partiallytrapped'];
 			},
 			onAccuracyPriority: -100,
-			onAccuracy: function(accuracy, target, source, move) {
+			onAccuracy: function (accuracy, target, source, move) {
 				return 100;
 			},
 			onTryPrimaryHitPriority: 2,
-			onTryPrimaryHit: function(target, source, move) {
-				if (target === source) {
-					this.debug('sub bypass: self hit');
+			onTryPrimaryHit: function (target, source, move) {
+				if (target === source || move.flags['authentic'] || move.infiltrates) {
 					return;
 				}
-				if (move.category === 'Status') {
-					if (move.notSubBlocked) {
-						return;
-					}
-					var SubBlocked = {
-						block:1, embargo:1, entrainment:1, gastroacid:1, healblock:1, healpulse:1, leechseed:1, lockon:1, meanlook:1, mindreader:1, nightmare:1, painsplit:1, psychoshift:1, simplebeam:1, skydrop:1, soak: 1, spiderweb:1, switcheroo:1, trick:1, worryseed:1, yawn:1
-					};
-					if (move.status || move.boosts || move.volatileStatus === 'confusion' || SubBlocked[move.id]) {
-						return false;
-					}
-					return;
-				}
-				var damage = this.getDamage(source, target, move);
+				let damage = this.getDamage(source, target, move);
 				if (!damage) {
 					return null;
 				}
@@ -166,7 +168,7 @@ exports.BattleMovedex = {
 					this.add('-activate', target, 'Substitute', '[damage]');
 				}
 				if (move.recoil) {
-					this.damage(Math.round(damage * move.recoil[0] / move.recoil[1]), source, target, 'recoil');
+					this.damage(this.clampIntRange(Math.round(damage * move.recoil[0] / move.recoil[1]), 1), source, target, 'recoil');
 				}
 				if (move.drain) {
 					this.heal(Math.ceil(damage * move.drain[0] / move.drain[1]), source, target, 'drain');
@@ -174,28 +176,23 @@ exports.BattleMovedex = {
 				this.runEvent('AfterSubDamage', target, source, move, damage);
 				return 0; // hit
 			},
-			onEnd: function(target) {
+			onEnd: function (target) {
 				this.add('-end', target, 'Substitute');
-			}
-		}
+			},
+		},
 	},
 	"protect": {
 		inherit: true,
 		effect: {
 			duration: 1,
-			onStart: function(target) {
+			onStart: function (target) {
 				this.add('-singleturn', target, 'Protect');
 			},
 			onTryHitPriority: 3,
-			onTryHit: function(target, source, move) {
-				if (target.volatiles.substitute) return;
-				if (move.breaksProtect) {
-					target.removeVolatile('Protect');
-					return;
-				}
-				if (move && (move.target === 'self' || move.isNotProtectable)) return;
+			onTryHit: function (target, source, move) {
+				if (target.volatiles.substitute || !move.flags['protect']) return;
 				this.add('-activate', target, 'Protect');
-				var lockedmove = source.getVolatile('lockedmove');
+				let lockedmove = source.getVolatile('lockedmove');
 				if (lockedmove) {
 					// Outrage counter is reset
 					if (source.volatiles['lockedmove'].duration === 2) {
@@ -203,31 +200,75 @@ exports.BattleMovedex = {
 					}
 				}
 				return null;
-			}
-		}
+			},
+		},
+	},
+	"kingsshield": {
+		inherit: true,
+		effect: {
+			duration: 1,
+			onStart: function (target) {
+				this.add('-singleturn', target, 'Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit: function (target, source, move) {
+				if (target.volatiles.substitute || !move.flags['protect'] || move.category === 'Status') return;
+				this.add('-activate', target, 'Protect');
+				let lockedmove = source.getVolatile('lockedmove');
+				if (lockedmove) {
+					// Outrage counter is reset
+					if (source.volatiles['lockedmove'].duration === 2) {
+						delete source.volatiles['lockedmove'];
+					}
+				}
+				if (move.flags['contact']) {
+					this.boost({atk:-2}, source, target, this.getMove("King's Shield"));
+				}
+				return null;
+			},
+		},
+	},
+	"spikyshield": {
+		inherit: true,
+		effect: {
+			duration: 1,
+			onStart: function (target) {
+				this.add('-singleturn', target, 'move: Protect');
+			},
+			onTryHitPriority: 3,
+			onTryHit: function (target, source, move) {
+				if (target.volatiles.substitute || !move.flags['protect']) return;
+				if (move && (move.target === 'self' || move.id === 'suckerpunch')) return;
+				this.add('-activate', target, 'move: Protect');
+				if (move.flags['contact']) {
+					this.damage(source.maxhp / 8, source, target);
+				}
+				return null;
+			},
+		},
 	},
 	minimize: {
 		inherit: true,
 		boosts: {
-			evasion: 1
-		}
+			evasion: 1,
+		},
 	},
 	doubleteam: {
 		inherit: true,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			if (target.boosts.evasion >= 6) {
 				return false;
 			}
-			if (target.hp <= target.maxhp/4 || target.maxhp === 1) { // Shedinja clause
+			if (target.hp <= target.maxhp / 4 || target.maxhp === 1) { // Shedinja clause
 				return false;
 			}
 		},
-		onHit: function(target) {
-			this.directDamage(target.maxhp/4);
+		onHit: function (target) {
+			this.directDamage(target.maxhp / 4);
 		},
 		boosts: {
-			evasion: 1
-		}
+			evasion: 1,
+		},
 	},
 	/******************************************************************
 	Two-turn moves:
@@ -238,313 +279,351 @@ exports.BattleMovedex = {
 	******************************************************************/
 	solarbeam: {
 		inherit: true,
-		basePower: 60,
-		basePowerCallback: function(pokemon, target) {
-			return 60;
+		basePower: 80,
+		basePowerCallback: function (pokemon, target) {
+			return 80;
 		},
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		effect: {
 			duration: 2,
 			onLockMove: 'solarbeam',
-			onStart: function(pokemon) {
-				this.heal(pokemon.maxhp/2);
-			}
+			onStart: function (pokemon) {
+				this.heal(pokemon.maxhp / 2);
+			},
 		},
-		breaksProtect: true
+		flags: {charge: 1, mirror: 1},
+		breaksProtect: true,
 	},
 	razorwind: {
 		inherit: true,
-		basePower: 40,
+		basePower: 60,
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		secondary: {
 			chance: 100,
-			volatileStatus: 'confusion'
+			volatileStatus: 'confusion',
 		},
-		breaksProtect: true
+		flags: {charge: 1, mirror: 1},
+		breaksProtect: true,
 	},
 	skullbash: {
-		inherit: true,
-		basePower: 50,
-		willCrit: true,
-		accuracy: true,
-		onTryHitPriority: 10,
-		onTryHit: function(target) {
-			target.removeVolatile('substitute');
-		},
-		effect: {
-			duration: 2,
-			onLockMove: 'skullbash',
-			onStart: function(pokemon) {
-				this.boost({def:1,spd:1,accuracy:1}, pokemon, pokemon, this.getMove('skullbash'));
-			}
-		},
-		breaksProtect: true
-	},
-	skyattack: {
 		inherit: true,
 		basePower: 70,
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
+			target.removeVolatile('substitute');
+		},
+		onTry: function (attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) {
+				return;
+			}
+			this.add('-prepare', attacker, move.name, defender);
+			this.boost({def:1, spd:1, accuracy:1}, attacker, attacker, this.getMove('skullbash'));
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
+				this.add('-anim', attacker, move.name, defender);
+				attacker.removeVolatile(move.id);
+				return;
+			}
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		flags: {contact: 1, charge: 1, mirror: 1},
+		breaksProtect: true,
+	},
+	skyattack: {
+		inherit: true,
+		basePower: 95,
+		willCrit: true,
+		accuracy: true,
+		onTryHitPriority: 10,
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		secondary: {
 			chance: 100,
 			boosts: {
-				def: -1
-			}
+				def: -1,
+			},
 		},
-		breaksProtect: true
+		flags: {charge: 1, mirror: 1, distance: 1},
+		breaksProtect: true,
 	},
 	freezeshock: {
 		inherit: true,
-		basePower: 70,
+		basePower: 95,
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		secondary: {
 			chance: 100,
-			status: 'par'
+			status: 'par',
 		},
-		breaksProtect: true
+		flags: {charge: 1, mirror: 1},
+		breaksProtect: true,
 	},
 	iceburn: {
 		inherit: true,
-		basePower: 70,
+		basePower: 95,
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		secondary: {
 			chance: 100,
-			status: 'brn'
+			status: 'brn',
 		},
-		breaksProtect: true
+		flags: {charge: 1, mirror: 1},
+		breaksProtect: true,
 	},
 	bounce: {
 		inherit: true,
-		basePower: 45,
+		basePower: 60,
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		secondary: {
 			chance: 30,
-			status: 'par'
+			status: 'par',
 		},
-		breaksProtect: true
+		flags: {contact: 1, charge: 1, mirror: 1, gravity: 1, distance: 1},
+		breaksProtect: true,
 	},
 	fly: {
 		inherit: true,
-		basePower: 45,
+		basePower: 60,
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		secondary: {
 			chance: 100,
 			boosts: {
-				def: -1
-			}
+				def: -1,
+			},
 		},
-		breaksProtect: true
+		flags: {contact: 1, charge: 1, mirror: 1, gravity: 1, distance: 1},
+		breaksProtect: true,
 	},
 	dig: {
 		inherit: true,
-		basePower: 45,
+		basePower: 60,
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		secondary: {
 			chance: 100,
 			boosts: {
-				def: -1
-			}
+				def: -1,
+			},
 		},
-		breaksProtect: true
+		flags: {contact: 1, charge: 1, mirror: 1, nonsky: 1},
+		breaksProtect: true,
 	},
 	dive: {
 		inherit: true,
-		basePower: 45,
+		basePower: 60,
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		secondary: {
 			chance: 100,
 			boosts: {
-				def: -1
-			}
+				def: -1,
+			},
 		},
-		breaksProtect: true
+		flags: {contact: 1, charge: 1, mirror: 1, nonsky: 1},
+		breaksProtect: true,
 	},
-	shadowforce: {
+	phantomforce: {
 		inherit: true,
-		basePower: 30,
+		basePower: 60,
 		willCrit: true,
 		accuracy: true,
 		onTryHitPriority: 10,
-		onTryHit: function(target) {
+		onTryHit: function (target) {
 			target.removeVolatile('substitute');
 		},
 		secondary: {
 			chance: 100,
-			volatileStatus: 'curse'
+			boosts: {
+				def: -1,
+			},
 		},
-		breaksProtect: true
+		breaksProtect: true,
 	},
-	skydrop: {
+	shadowforce: {
 		inherit: true,
 		basePower: 40,
 		willCrit: true,
 		accuracy: true,
+		onTryHitPriority: 10,
+		onTryHit: function (target) {
+			target.removeVolatile('substitute');
+		},
+		secondary: {
+			chance: 100,
+			volatileStatus: 'curse',
+		},
+		breaksProtect: true,
+	},
+	skydrop: {
+		inherit: true,
+		basePower: 60,
+		willCrit: true,
+		accuracy: true,
 		secondary: {
 			chance: 100,
 			boosts: {
-				def: -1
-			}
+				def: -1,
+			},
 		},
-		breaksProtect: true
+		flags: {contact: 1, charge: 1, mirror: 1, gravity: 1, distance: 1},
+		breaksProtect: true,
 	},
 	hyperbeam: {
 		inherit: true,
 		accuracy: true,
-		basePower: 75,
+		basePower: 100,
 		willCrit: true,
 		self: null,
-		onHit: function(target, source) {
+		onHit: function (target, source) {
 			if (!target.hp) {
 				source.addVolatile('mustrecharge');
 			}
-		}
+		},
 	},
 	gigaimpact: {
 		inherit: true,
 		accuracy: true,
-		basePower: 75,
+		basePower: 100,
 		willCrit: true,
 		self: null,
-		onHit: function(target, source) {
+		onHit: function (target, source) {
 			if (!target.hp) {
 				source.addVolatile('mustrecharge');
 			}
-		}
+		},
 	},
 	blastburn: {
 		inherit: true,
 		accuracy: true,
-		basePower: 75,
+		basePower: 100,
 		willCrit: true,
 		self: null,
-		onHit: function(target, source) {
+		onHit: function (target, source) {
 			if (!target.hp) {
 				source.addVolatile('mustrecharge');
 			}
-		}
+		},
 	},
 	frenzyplant: {
 		inherit: true,
 		accuracy: true,
-		basePower: 75,
+		basePower: 100,
 		willCrit: true,
 		self: null,
-		onHit: function(target, source) {
+		onHit: function (target, source) {
 			if (!target.hp) {
 				source.addVolatile('mustrecharge');
 			}
-		}
+		},
 	},
 	hydrocannon: {
 		inherit: true,
 		accuracy: true,
-		basePower: 75,
+		basePower: 100,
 		willCrit: true,
 		self: null,
-		onHit: function(target, source) {
+		onHit: function (target, source) {
 			if (!target.hp) {
 				source.addVolatile('mustrecharge');
 			}
-		}
+		},
 	},
 	rockwrecker: {
 		inherit: true,
 		accuracy: true,
-		basePower: 75,
+		basePower: 100,
 		willCrit: true,
 		self: null,
-		onHit: function(target, source) {
+		onHit: function (target, source) {
 			if (!target.hp) {
 				source.addVolatile('mustrecharge');
 			}
-		}
+		},
 	},
 	roaroftime: {
 		inherit: true,
 		accuracy: true,
-		basePower: 75,
+		basePower: 100,
 		willCrit: true,
 		self: null,
-		onHit: function(target, source) {
+		onHit: function (target, source) {
 			if (!target.hp) {
 				source.addVolatile('mustrecharge');
 			}
-		}
+		},
 	},
 	bide: {
 		inherit: true,
+		onTryHit: function (pokemon) {
+			return this.willAct() && this.runEvent('StallMove', pokemon);
+		},
 		effect: {
 			duration: 2,
 			onLockMove: 'bide',
-			onStart: function(pokemon) {
+			onStart: function (pokemon) {
 				if (pokemon.removeVolatile('bidestall') || pokemon.hp <= 1) return false;
 				pokemon.addVolatile('bidestall');
 				this.effectData.totalDamage = 0;
 				this.add('-start', pokemon, 'Bide');
 			},
 			onDamagePriority: -11,
-			onDamage: function(damage, target, source, effect) {
+			onDamage: function (damage, target, source, effect) {
 				if (!effect || effect.effectType !== 'Move') return;
 				if (!source || source.side === target.side) return;
 				if (effect && effect.effectType === 'Move' && damage >= target.hp) {
-					damage = target.hp-1;
+					damage = target.hp - 1;
 				}
 				this.effectData.totalDamage += damage;
 				this.effectData.sourcePosition = source.position;
 				this.effectData.sourceSide = source.side;
 				return damage;
 			},
-			onAfterSetStatus: function(status, pokemon) {
+			onAfterSetStatus: function (status, pokemon) {
 				if (status.id === 'slp') {
 					pokemon.removeVolatile('bide');
 					pokemon.removeVolatile('bidestall');
 				}
 			},
-			onBeforeMove: function(pokemon) {
+			onBeforeMove: function (pokemon) {
 				if (this.effectData.duration === 1) {
 					if (!this.effectData.totalDamage) {
 						this.add('-end', pokemon, 'Bide');
@@ -552,29 +631,29 @@ exports.BattleMovedex = {
 						return false;
 					}
 					this.add('-end', pokemon, 'Bide');
-					var target = this.effectData.sourceSide.active[this.effectData.sourcePosition];
-					this.moveHit(target, pokemon, 'bide', {damage: this.effectData.totalDamage*2});
+					let target = this.effectData.sourceSide.active[this.effectData.sourcePosition];
+					this.moveHit(target, pokemon, 'bide', {damage: this.effectData.totalDamage * 2});
 					return false;
 				}
 				this.add('-activate', pokemon, 'Bide');
 				return false;
-			}
-		}
+			},
+		},
 	},
 	/******************************************************************
 	Snore:
 	- base power increased to 100
-	- deals Special damage off physical Attack (reverse Psyshock)
 
 	Justification:
 	- Sleep Talk needs some competition
 	******************************************************************/
 	snore: {
 		inherit: true,
-		category: "Physical",
-		defensiveCategory: "Special",
 		basePower: 100,
-		affectedByImmunities: false
+		onBasePower: function (power, user) {
+			if (user.template.id === 'snorlax') return power * 1.5;
+		},
+		ignoreImmunity: true,
 	},
 	/******************************************************************
 	Sound-based Normal-type moves:
@@ -584,21 +663,25 @@ exports.BattleMovedex = {
 	- they're already affected by Soundproof, also, ghosts can hear
 	  sounds
 	******************************************************************/
+	boomburst: {
+		inherit: true,
+		ignoreImmunity: true,
+	},
 	hypervoice: {
 		inherit: true,
-		affectedByImmunities: false
+		ignoreImmunity: true,
 	},
 	round: {
 		inherit: true,
-		affectedByImmunities: false
+		ignoreImmunity: true,
 	},
 	uproar: {
 		inherit: true,
-		affectedByImmunities: false
+		ignoreImmunity: true,
 	},
 	/******************************************************************
-	Bonemerang, Bone Rush moves:
-	- not affected by immunities
+	Bonemerang, Bone Rush, Bone Club moves:
+	- not affected by Ground immunities
 	- Bone Rush nerfed to 20 base power so it's not viable on Lucario
 
 	Justification:
@@ -606,14 +689,19 @@ exports.BattleMovedex = {
 	******************************************************************/
 	bonemerang: {
 		inherit: true,
-		affectedByImmunities: false,
-		accuracy: true
+		ignoreImmunity: true,
+		accuracy: true,
 	},
 	bonerush: {
 		inherit: true,
 		basePower: 20,
-		affectedByImmunities: false,
-		accuracy: true
+		ignoreImmunity: true,
+		accuracy: true,
+	},
+	boneclub: {
+		inherit: true,
+		ignoreImmunity: true,
+		accuracy: 90,
 	},
 	/******************************************************************
 	Relic Song:
@@ -625,45 +713,62 @@ exports.BattleMovedex = {
 	relicsong: {
 		inherit: true,
 		basePower: 60,
-		affectedByImmunities: false,
-		onHit: function(target, pokemon) {
+		ignoreImmunity: true,
+		onHit: function (target, pokemon) {
 			if (pokemon.baseTemplate.species !== 'Meloetta' || pokemon.transformed) {
 				return;
 			}
-			var natureChange = {
+			let natureChange = {
 				'Modest': 'Adamant',
 				'Adamant': 'Modest',
 				'Timid': 'Jolly',
-				'Jolly': 'Timid'
+				'Jolly': 'Timid',
 			};
-			if (pokemon.template.speciesid==='meloettapirouette' && pokemon.formeChange('Meloetta')) {
+			let tmpAtkEVs;
+			let Atk2SpA;
+			if (pokemon.template.speciesid === 'meloettapirouette' && pokemon.formeChange('Meloetta')) {
 				this.add('-formechange', pokemon, 'Meloetta');
-				var tmpAtkEVs = pokemon.set.evs.atk;
+				tmpAtkEVs = pokemon.set.evs.atk;
 				pokemon.set.evs.atk = pokemon.set.evs.spa;
 				pokemon.set.evs.spa = tmpAtkEVs;
 				if (natureChange[pokemon.set.nature]) pokemon.set.nature = natureChange[pokemon.set.nature];
-				var Atk2SpA = (pokemon.boosts.spa||0) - (pokemon.boosts.atk||0);
+				Atk2SpA = (pokemon.boosts.spa || 0) - (pokemon.boosts.atk || 0);
 				this.boost({
 					atk: Atk2SpA,
-					spa: -Atk2SpA
+					spa: -Atk2SpA,
 				}, pokemon);
 			} else if (pokemon.formeChange('Meloetta-Pirouette')) {
 				this.add('-formechange', pokemon, 'Meloetta-Pirouette');
-				var tmpAtkEVs = pokemon.set.evs.atk;
+				tmpAtkEVs = pokemon.set.evs.atk;
 				pokemon.set.evs.atk = pokemon.set.evs.spa;
 				pokemon.set.evs.spa = tmpAtkEVs;
 				if (natureChange[pokemon.set.nature]) pokemon.set.nature = natureChange[pokemon.set.nature];
-				var Atk2SpA = (pokemon.boosts.spa||0) - (pokemon.boosts.atk||0);
+				Atk2SpA = (pokemon.boosts.spa || 0) - (pokemon.boosts.atk || 0);
 				this.boost({
 					atk: Atk2SpA,
-					spa: -Atk2SpA
+					spa: -Atk2SpA,
 				}, pokemon);
 			}
 			// renderer takes care of this for us
 			pokemon.transformed = false;
 		},
 		priority: 1,
-		secondary: null
+		secondary: null,
+	},
+	/******************************************************************
+	Defend Order, Heal Order:
+	- now +1 priority
+
+	Justification:
+	- Vespiquen needs viability
+	******************************************************************/
+	defendorder: {
+		inherit: true,
+		priority: 1,
+	},
+	healorder: {
+		inherit: true,
+		priority: 1,
 	},
 	/******************************************************************
 	Stealth Rock:
@@ -684,35 +789,15 @@ exports.BattleMovedex = {
 		inherit: true,
 		effect: {
 			// this is a side condition
-			onStart: function(side) {
-				this.add('-sidestart',side,'move: Stealth Rock');
+			onStart: function (side) {
+				this.add('-sidestart', side, 'move: Stealth Rock');
 			},
-			onSwitchIn: function(pokemon) {
-				var factor = 2;
+			onSwitchIn: function (pokemon) {
+				let factor = 2;
 				if (pokemon.hasType('Flying')) factor = 4;
-				var damage = this.damage(pokemon.maxhp*factor/16);
-			}
-		}
-	},
-	quiverdance: {
-		// Quiver Dance is nerfed because Volc
-		inherit: true,
-		boosts: {
-			spd: 1,
-			spe: 1,
-			accuracy: 1
+				this.damage(pokemon.maxhp * factor / 16);
+			},
 		},
-		onModifyMove: function(move, user) {
-			var GossamerWingUsers = {"Butterfree":1, "Masquerain":1, "Beautifly":1, "Mothim":1, "Lilligant":1};
-			if (user.item === 'stick' && GossamerWingUsers[user.template.species]) {
-				move.boosts = {
-					spa: 1,
-					spd: 1,
-					spe: 1,
-					accuracy: 1
-				};
-			}
-		}
 	},
 	/******************************************************************
 	Silver Wind, Ominous Wind, AncientPower:
@@ -732,7 +817,7 @@ exports.BattleMovedex = {
 	******************************************************************/
 	silverwind: {
 		inherit: true,
-		basePowerCallback: function() {
+		basePowerCallback: function () {
 			if (this.isWeather('hail')) {
 				return 90;
 			}
@@ -741,28 +826,28 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 100,
 			self: {
-				onHit: function(target, source) {
-					var stats = [];
-					for (var i in target.boosts) {
-						if (i!=='accuracy' && i!=='evasion' && i!=='atk' && target.boosts[i] < 6) {
-							stats.push(i);
+				onHit: function (target, source) {
+					let stats = [];
+					for (let stat in target.boosts) {
+						if (stat !== 'accuracy' && stat !== 'evasion' && stat !== 'atk' && target.boosts[stat] < 6) {
+							stats.push(stat);
 						}
 					}
 					if (stats.length) {
-						var i = stats[this.random(stats.length)];
-						var boost = {};
-						boost[i] = 1;
+						let randomStat = stats[this.random(stats.length)];
+						let boost = {};
+						boost[randomStat] = 1;
 						this.boost(boost);
 					} else {
 						return false;
 					}
-				}
-			}
-		}
+				},
+			},
+		},
 	},
 	ominouswind: {
 		inherit: true,
-		basePowerCallback: function() {
+		basePowerCallback: function () {
 			if (this.isWeather('hail')) {
 				return 90;
 			}
@@ -771,48 +856,48 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 100,
 			self: {
-				onHit: function(target, source) {
-					var stats = [];
-					for (var i in target.boosts) {
-						if (i!=='accuracy' && i!=='evasion' && i!=='atk' && target.boosts[i] < 6) {
-							stats.push(i);
+				onHit: function (target, source) {
+					let stats = [];
+					for (let stat in target.boosts) {
+						if (stat !== 'accuracy' && stat !== 'evasion' && stat !== 'atk' && target.boosts[stat] < 6) {
+							stats.push(stat);
 						}
 					}
 					if (stats.length) {
-						var i = stats[this.random(stats.length)];
-						var boost = {};
-						boost[i] = 1;
+						let randomStat = stats[this.random(stats.length)];
+						let boost = {};
+						boost[randomStat] = 1;
 						this.boost(boost);
 					} else {
 						return false;
 					}
-				}
-			}
-		}
+				},
+			},
+		},
 	},
 	ancientpower: {
 		inherit: true,
 		secondary: {
 			chance: 100,
 			self: {
-				onHit: function(target, source) {
-					var stats = [];
-					for (var i in target.boosts) {
-						if (i!=='accuracy' && i!=='evasion' && i!=='atk' && target.boosts[i] < 6) {
-							stats.push(i);
+				onHit: function (target, source) {
+					let stats = [];
+					for (let stat in target.boosts) {
+						if (stat !== 'accuracy' && stat !== 'evasion' && stat !== 'atk' && target.boosts[stat] < 6) {
+							stats.push(stat);
 						}
 					}
 					if (stats.length) {
-						var i = stats[this.random(stats.length)];
-						var boost = {};
-						boost[i] = 1;
+						let randomStat = stats[this.random(stats.length)];
+						let boost = {};
+						boost[randomStat] = 1;
 						this.boost(boost);
 					} else {
 						return false;
 					}
-				}
-			}
-		}
+				},
+			},
+		},
 	},
 	/******************************************************************
 	Moves relating to Hail:
@@ -823,13 +908,13 @@ exports.BattleMovedex = {
 	******************************************************************/
 	avalanche: {
 		inherit: true,
-		basePowerCallback: function(pokemon, source) {
+		basePowerCallback: function (pokemon, source) {
 			if ((source.lastDamage > 0 && pokemon.lastAttackedBy && pokemon.lastAttackedBy.thisTurn)) {
-				this.debug('Boosted for getting hit by '+pokemon.lastAttackedBy.move);
-				return this.isWeather('hail')?180:120;
+				this.debug('Boosted for getting hit by ' + pokemon.lastAttackedBy.move);
+				return this.isWeather('hail') ? 180 : 120;
 			}
-			return this.isWeather('hail')?90:60;
-		}
+			return this.isWeather('hail') ? 90 : 60;
+		},
 	},
 	/******************************************************************
 	Direct phazing moves:
@@ -850,11 +935,11 @@ exports.BattleMovedex = {
 	******************************************************************/
 	roar: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	whirlwind: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	/******************************************************************
 	Multi-hit moves:
@@ -870,71 +955,75 @@ exports.BattleMovedex = {
 	******************************************************************/
 	doublehit: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	armthrust: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	barrage: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	beatup: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	bulletseed: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	cometpunch: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	doublekick: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	doubleslap: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	dualchop: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	furyattack: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	furyswipes: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	geargrind: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	iciclespear: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	pinmissile: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	rockblast: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	spikecannon: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
 	},
 	tailslap: {
 		inherit: true,
-		accuracy: true
+		accuracy: true,
+	},
+	watershuriken: {
+		inherit: true,
+		accuracy: true,
 	},
 	/******************************************************************
 	Draining moves:
@@ -945,7 +1034,7 @@ exports.BattleMovedex = {
 	******************************************************************/
 	leechlife: {
 		inherit: true,
-		basePower: 75
+		basePower: 75,
 	},
 	/******************************************************************
 	Flying moves:
@@ -958,18 +1047,24 @@ exports.BattleMovedex = {
 	twister: {
 		inherit: true,
 		basePower: 80,
+		onBasePower: function (power, user) {
+			let GossamerWingUsers = {"Butterfree":1, "Venomoth":1, "Masquerain":1, "Dustox":1, "Beautifly":1, "Mothim":1, "Lilligant":1, "Volcarona":1, "Vivillon":1};
+			if (user.hasItem('stick') && GossamerWingUsers[user.template.species]) {
+				return power * 1.5;
+			}
+		},
 		secondary: {
 			chance: 30,
-			volatileStatus: 'confusion'
+			volatileStatus: 'confusion',
 		},
 		pp: 15,
-		type: "Flying"
+		type: "Flying",
 	},
 	wingattack: {
 		inherit: true,
 		basePower: 40,
 		accuracy: true,
-		multihit: [2,2]
+		multihit: [2, 2],
 	},
 	/******************************************************************
 	Moves with not enough drawbacks:
@@ -983,9 +1078,9 @@ exports.BattleMovedex = {
 		self: {
 			boosts: {
 				def: -2,
-				spd: -2
-			}
-		}
+				spd: -2,
+			},
+		},
 	},
 	/******************************************************************
 	Blizzard:
@@ -999,8 +1094,8 @@ exports.BattleMovedex = {
 		inherit: true,
 		secondary: {
 			chance: 30,
-			status: 'frz'
-		}
+			status: 'frz',
+		},
 	},
 	/******************************************************************
 	Special Ghost and Fighting:
@@ -1013,7 +1108,7 @@ exports.BattleMovedex = {
 	******************************************************************/
 	focusblast: {
 		inherit: true,
-		accuracy: 50
+		accuracy: 30,
 	},
 	shadowball: {
 		inherit: true,
@@ -1021,13 +1116,13 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 30,
 			boosts: {
-				spd: -1
-			}
-		}
+				spd: -1,
+			},
+		},
 	},
 	/******************************************************************
 	Selfdestruct and Explosion:
-	- 120 and 180 base power autocrit
+	- 200 and 250 base power autocrit
 
 	Justification:
 	- these were nerfed unreasonably in gen 5, they're now somewhat
@@ -1035,18 +1130,18 @@ exports.BattleMovedex = {
 	******************************************************************/
 	selfdestruct: {
 		inherit: true,
-		basePower: 140,
+		basePower: 200,
 		accuracy: true,
-		willCrit: true
+		willCrit: true,
 	},
 	explosion: {
 		inherit: true,
-		basePower: 180,
+		basePower: 250,
 		accuracy: true,
-		willCrit: true
+		willCrit: true,
 	},
 	/******************************************************************
-	Scald:
+	Scald and Steam eruption:
 	- base power not affected by weather
 	- 60% burn in sun
 
@@ -1055,13 +1150,24 @@ exports.BattleMovedex = {
 	******************************************************************/
 	scald: {
 		inherit: true,
-		onModifyMove: function(move) {
+		onModifyMove: function (move) {
 			switch (this.effectiveWeather()) {
 			case 'sunnyday':
 				move.secondary.chance = 60;
 				break;
 			}
-		}
+		},
+	},
+	steameruption: {
+		inherit: true,
+		accuracy: 100,
+		onModifyMove: function (move) {
+			switch (this.effectiveWeather()) {
+			case 'sunnyday':
+				move.secondary.chance = 60;
+				break;
+			}
+		},
 	},
 	/******************************************************************
 	High Jump Kick:
@@ -1072,7 +1178,7 @@ exports.BattleMovedex = {
 	******************************************************************/
 	highjumpkick: {
 		inherit: true,
-		basePower: 100
+		basePower: 100,
 	},
 	/******************************************************************
 	Echoed Voice:
@@ -1085,15 +1191,14 @@ exports.BattleMovedex = {
 		inherit: true,
 		accuracy: 100,
 		basePower: 80,
-		basePowerCallback: function() {
+		basePowerCallback: function () {
 			return 80;
 		},
 		category: "Special",
 		isViable: true,
 		priority: 0,
-		isNotProtectable: true,
-		affectedByImmunities: false,
-		onHit: function(target, source) {
+		ignoreImmunity: true,
+		onHit: function (target, source) {
 			source.side.addSideCondition('futuremove');
 			if (source.side.sideConditions['futuremove'].positions[source.position]) {
 				return false;
@@ -1104,15 +1209,18 @@ exports.BattleMovedex = {
 				targetPosition: target.position,
 				source: source,
 				moveData: {
+					name: "Future Sight",
 					basePower: 80,
 					category: "Special",
-					type: 'Normal'
-				}
+					flags: {},
+					ignoreImmunity: true,
+					type: 'Normal',
+				},
 			};
 			this.add('-start', source, 'Echoed Voice');
 		},
 		target: "normal",
-		type: "Normal"
+		type: "Normal",
 	},
 	/******************************************************************
 	Rapid Spin, Rock Throw:
@@ -1128,37 +1236,37 @@ exports.BattleMovedex = {
 	rapidspin: {
 		inherit: true,
 		basePower: 30,
-		onBasePower: function(power, user) {
-			var doubled = false;
+		onBasePower: function (power, user) {
+			let doubled = false;
 			if (user.removeVolatile('leechseed')) {
-				this.add('-end', user, 'Leech Seed', '[from] move: Rapid Spin', '[of] '+user);
+				this.add('-end', user, 'Leech Seed', '[from] move: Rapid Spin', '[of] ' + user);
 				doubled = true;
 			}
-			var sideConditions = {spikes:1, toxicspikes:1, stealthrock:1};
-			for (var i in sideConditions) {
+			let sideConditions = {spikes:1, toxicspikes:1, stealthrock:1};
+			for (let i in sideConditions) {
 				if (user.side.removeSideCondition(i)) {
-					this.add('-sideend', user.side, this.getEffect(i).name, '[from] move: Rapid Spin', '[of] '+user);
+					this.add('-sideend', user.side, this.getEffect(i).name, '[from] move: Rapid Spin', '[of] ' + user);
 					doubled = true;
 				}
 			}
 			if (user.volatiles['partiallytrapped']) {
-				this.add('-remove', user, user.volatiles['partiallytrapped'].sourceEffect.name, '[from] move: Rapid Spin', '[of] '+user, '[partiallytrapped]');
+				this.add('-remove', user, user.volatiles['partiallytrapped'].sourceEffect.name, '[from] move: Rapid Spin', '[of] ' + user, '[partiallytrapped]');
 				doubled = true;
 				delete user.volatiles['partiallytrapped'];
 			}
 			if (doubled) return power * 2;
 		},
-		self: undefined
+		self: undefined,
 	},
 	rockthrow: {
 		inherit: true,
 		accuracy: 100,
-		onBasePower: function(power, user) {
+		onBasePower: function (power, user) {
 			if (user.side.removeSideCondition('stealthrock')) {
-				this.add('-sideend', user.side, "Stealth Rock", '[from] move: Rapid Spin', '[of] '+user);
+				this.add('-sideend', user.side, "Stealth Rock", '[from] move: Rapid Spin', '[of] ' + user);
 				return power * 2;
 			}
-		}
+		},
 	},
 	/******************************************************************
 	New feature: Signature Pokemon
@@ -1171,233 +1279,259 @@ exports.BattleMovedex = {
 	******************************************************************/
 	firefang: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'flareon') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'flareon') return this.chainModify(1.5);
 		},
 		accuracy: 100,
 		secondaries: [
 			{chance:20, status:'brn'},
-			{chance:30, volatileStatus:'flinch'}
-		]
+			{chance:30, volatileStatus:'flinch'},
+		],
 	},
 	icefang: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'walrein') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'walrein') return this.chainModify(1.5);
 		},
 		accuracy: 100,
 		secondaries: [
 			{chance:20, status:'frz'},
-			{chance:30, volatileStatus:'flinch'}
-		]
+			{chance:30, volatileStatus:'flinch'},
+		],
 	},
 	thunderfang: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'luxray') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'luxray') return this.chainModify(1.5);
 		},
 		accuracy: 100,
 		secondaries: [
 			{chance:20, status:'par'},
-			{chance:30, volatileStatus:'flinch'}
-		]
+			{chance:30, volatileStatus:'flinch'},
+		],
 	},
 	poisonfang: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'drapion') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'drapion') return this.chainModify(1.5);
 		},
 		accuracy: 100,
 		secondaries: [
 			{chance:100, status:'tox'},
-			{chance:30, volatileStatus:'flinch'}
-		]
+			{chance:30, volatileStatus:'flinch'},
+		],
 	},
 	poisontail: {
 		inherit: true,
 		basePower: 60,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'seviper') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'seviper') return this.chainModify(1.5);
 		},
 		accuracy: 100,
 		secondary: {
 			chance: 60,
-			status: 'tox'
-		}
+			status: 'tox',
+		},
+	},
+	slash: {
+		inherit: true,
+		basePower: 60,
+		onBasePower: function (power, user) {
+			if (user.template.id === 'persian') return this.chainModify(1.5);
+		},
+		secondary: {
+			chance: 30,
+			boosts: {
+				def: -1,
+			},
+		},
 	},
 	sludge: {
 		inherit: true,
 		basePower: 60,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'muk') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'muk') return this.chainModify(1.5);
 		},
 		secondary: {
 			chance: 100,
-			status: 'psn'
-		}
+			status: 'psn',
+		},
 	},
 	smog: {
 		inherit: true,
 		basePower: 75,
 		accuracy: 100,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'weezing') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'weezing') return this.chainModify(1.5);
 		},
 		secondary: {
 			chance: 100,
-			status: 'psn'
-		}
+			status: 'psn',
+		},
 	},
 	flamecharge: {
 		inherit: true,
 		basePower: 60,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'rapidash') return power * 1.5;
-		}
+		onBasePower: function (power, user) {
+			if (user.template.id === 'rapidash') return this.chainModify(1.5);
+		},
 	},
 	flamewheel: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'darmanitan') return power * 1.5;
-		}
+		onBasePower: function (power, user) {
+			if (user.template.id === 'darmanitan') return this.chainModify(1.5);
+		},
 	},
 	spark: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'eelektross') return power * 1.5;
-		}
+		onBasePower: function (power, user) {
+			if (user.template.id === 'eelektross') return this.chainModify(1.5);
+		},
+	},
+	triplekick: {
+		inherit: true,
+		onBasePower: function (power, user) {
+			if (user.template.id === 'hitmontop') return this.chainModify(1.5);
+		},
+		accuracy: true,
 	},
 	bubblebeam: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'kingdra') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'kingdra') return this.chainModify(1.5);
 		},
 		secondary: {
 			chance: 30,
 			boosts: {
-				spe: -1
-			}
-		}
+				spe: -1,
+			},
+		},
 	},
 	electroweb: {
 		inherit: true,
 		basePower: 60,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'galvantula') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'galvantula') return this.chainModify(1.5);
 		},
-		accuracy: 100
+		accuracy: 100,
 	},
 	gigadrain: {
 		inherit: true,
 		basePower: 60,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'beautifly') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'beautifly') return this.chainModify(1.5);
 		},
-		accuracy: 100
+		accuracy: 100,
 	},
 	icywind: {
 		inherit: true,
 		basePower: 60,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'glaceon') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'glaceon') return this.chainModify(1.5);
 		},
-		accuracy: 100
+		accuracy: 100,
 	},
 	mudshot: {
 		inherit: true,
 		basePower: 60,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'swampert') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'swampert') return this.chainModify(1.5);
 		},
-		accuracy: 100
+		accuracy: 100,
 	},
 	glaciate: {
 		inherit: true,
 		basePower: 80,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'kyurem') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'kyurem') return this.chainModify(1.5);
 		},
-		accuracy: 100
+		accuracy: 100,
 	},
 	octazooka: {
 		inherit: true,
 		basePower: 75,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'octillery') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'octillery') return this.chainModify(1.5);
 		},
 		accuracy: 90,
 		secondary: {
 			chance: 100,
 			boosts: {
-				accuracy: -1
-			}
-		}
+				accuracy: -1,
+			},
+		},
 	},
 	leaftornado: {
 		inherit: true,
 		basePower: 75,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'serperior') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'serperior') return this.chainModify(1.5);
 		},
 		accuracy: 90,
 		secondary: {
 			chance: 100,
 			boosts: {
-				accuracy: -1
-			}
-		}
+				accuracy: -1,
+			},
+		},
 	},
 	iceshard: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'weavile') return power * 1.5;
-		}
+		onBasePower: function (power, user) {
+			if (user.template.id === 'weavile') return this.chainModify(1.5);
+		},
 	},
 	aquajet: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'sharpedo') return power * 1.5;
-		}
+		onBasePower: function (power, user) {
+			if (user.template.id === 'sharpedo') return this.chainModify(1.5);
+		},
 	},
 	machpunch: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'hitmonchan') return power * 1.5;
-		}
+		onBasePower: function (power, user) {
+			if (user.template.id === 'hitmonchan') return this.chainModify(1.5);
+		},
 	},
 	shadowsneak: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'banette') return power * 1.5;
-		}
+		onBasePower: function (power, user) {
+			if (user.template.id === 'banette') return this.chainModify(1.5);
+		},
 	},
 	steelwing: {
 		inherit: true,
 		basePower: 60,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'skarmory') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'skarmory') return this.chainModify(1.5);
 		},
 		accuracy: 100,
 		secondary: {
 			chance: 50,
 			self: {
 				boosts: {
-					def: 1
-				}
-			}
-		}
+					def: 1,
+				},
+			},
+		},
 	},
 	surf: {
 		inherit: true,
-		onBasePower: function(power, user) {
-			if (user.template.id === 'masquerain') return power * 1.5;
+		onBasePower: function (power, user) {
+			if (user.template.id === 'masquerain') return this.chainModify(1.5);
 		},
 		secondary: {
 			chance: 10,
 			boosts: {
-				spe: -1
-			}
-		}
+				spe: -1,
+			},
+		},
+	},
+	hiddenpower: {
+		inherit: true,
+		onBasePower: function (power, user) {
+			if (user.template.id === 'unown') return this.chainModify(1.5);
+		},
 	},
 	/******************************************************************
 	Moves with accuracy not a multiple of 10%
@@ -1410,141 +1544,241 @@ exports.BattleMovedex = {
 	- Rock Slide is included for being similar enough to Air Slash
 	- Charge Beam is included because its 30% chance of no boost is enough
 	******************************************************************/
+	jumpkick: {
+		inherit: true,
+		accuracy: 100,
+	},
 	razorshell: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	drillrun: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	vcreate: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	aeroblast: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	sacredfire: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	spacialrend: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
+	},
+	originpulse: {
+		inherit: true,
+		accuracy: 90,
+	},
+	precipiceblades: {
+		inherit: true,
+		accuracy: 90,
 	},
 	airslash: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	rockslide: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	chargebeam: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	aircutter: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	furycutter: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
+	},
+	flyingpress: {
+		inherit: true,
+		accuracy: 100,
 	},
 	crushclaw: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	razorleaf: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	stringshot: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	metalclaw: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
+	},
+	diamondstorm: {
+		inherit: true,
+		accuracy: 100,
 	},
 	snarl: {
 		inherit: true,
-		accuracy: 100
+		accuracy: 100,
 	},
 	powerwhip: {
 		inherit: true,
-		accuracy: 90
+		accuracy: 90,
 	},
 	seedflare: {
 		inherit: true,
-		accuracy: 90
+		accuracy: 90,
+	},
+	willowisp: {
+		inherit: true,
+		accuracy: 90,
 	},
 	meteormash: {
 		inherit: true,
-		accuracy: 90
+		accuracy: 90,
 	},
 	boltstrike: {
 		inherit: true,
 		accuracy: 90,
 		secondary: {
 			chance: 30,
-			status: 'par'
-		}
+			status: 'par',
+		},
 	},
 	blueflare: {
 		inherit: true,
 		accuracy: 90,
 		secondary: {
 			chance: 30,
-			status: 'brn'
-		}
+			status: 'brn',
+		},
+	},
+	dragonrush: {
+		inherit: true,
+		accuracy: 80,
+	},
+	rocktomb: {
+		inherit: true,
+		accuracy: 100,
 	},
 	fireblast: {
 		inherit: true,
 		accuracy: 80,
 		secondary: {
 			chance: 20,
-			status: 'brn'
-		}
+			status: 'brn',
+		},
+	},
+	irontail: {
+		inherit: true,
+		accuracy: 80,
 	},
 	magmastorm: {
 		inherit: true,
-		accuracy: 80
+		accuracy: 80,
+	},
+	megahorn: {
+		inherit: true,
+		accuracy: 90,
+	},
+	megapunch: {
+		inherit: true,
+		accuracy: 90,
 	},
 	megakick: {
 		inherit: true,
-		accuracy: 80
+		accuracy: 80,
+	},
+	slam: {
+		inherit: true,
+		accuracy: 80,
+	},
+	rollingkick: {
+		inherit: true,
+		accuracy: 90,
+	},
+	takedown: {
+		inherit: true,
+		accuracy: 90,
+	},
+	mudbomb: {
+		inherit: true,
+		accuracy: 90,
+	},
+	mirrorshot: {
+		inherit: true,
+		accuracy: 90,
+	},
+	rockclimb: {
+		inherit: true,
+		accuracy: 90,
 	},
 	poisonpowder: {
 		inherit: true,
-		accuracy: 80
+		accuracy: 80,
 	},
 	stunspore: {
 		inherit: true,
-		accuracy: 80
+		accuracy: 80,
 	},
 	sleeppowder: {
 		inherit: true,
-		accuracy: 80
+		accuracy: 80,
+	},
+	sweetkiss: {
+		inherit: true,
+		accuracy: 80,
 	},
 	lovelykiss: {
 		inherit: true,
-		accuracy: 80
+		accuracy: 80,
 	},
-	eggbomb: {
+	whirlpool: {
 		inherit: true,
-		accuracy: 80
+		accuracy: 90,
+	},
+	firespin: {
+		inherit: true,
+		accuracy: 90,
+	},
+	clamp: {
+		inherit: true,
+		accuracy: 90,
+	},
+	sandtomb: {
+		inherit: true,
+		accuracy: 90,
+	},
+	bind: {
+		inherit: true,
+		accuracy: 90,
 	},
 	grasswhistle: {
 		inherit: true,
-		accuracy: 60
+		accuracy: 60,
 	},
 	sing: {
 		inherit: true,
-		accuracy: 60
+		accuracy: 60,
+	},
+	supersonic: {
+		inherit: true,
+		accuracy: 60,
+	},
+	screech: {
+		inherit: true,
+		accuracy: 90,
+	},
+	metalsound: {
+		inherit: true,
+		accuracy: 90,
 	},
 	/******************************************************************
 	Signature moves and other moves with limited distribution:
@@ -1553,80 +1787,117 @@ exports.BattleMovedex = {
 	Justification:
 	- more metagame variety is always good
 	******************************************************************/
+	psychocut: {
+		inherit: true,
+		basePower: 90,
+	},
 	twineedle: {
 		inherit: true,
-		basePower: 50
+		accuracy: true,
+		basePower: 50,
 	},
 	drillpeck: {
 		inherit: true,
 		basePower: 100,
-		pp: 10
+		pp: 10,
 	},
 	needlearm: {
 		inherit: true,
 		basePower: 100,
-		pp: 10
+		pp: 10,
 	},
 	leafblade: {
 		inherit: true,
 		basePower: 100,
-		pp: 10
+		pp: 10,
 	},
 	attackorder: {
 		inherit: true,
 		basePower: 100,
-		pp: 10
+		pp: 10,
 	},
 	withdraw: {
 		inherit: true,
 		boosts: {
 			def: 1,
-			spd: 1
-		}
+			spd: 1,
+		},
+	},
+	paraboliccharge: {
+		inherit: true,
+		basePower: 40,
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+				spd: -1,
+			},
+			self: {
+				boosts: {
+					spa: 1,
+					spd: 1,
+				},
+			},
+		},
+	},
+	drainingkiss: {
+		inherit: true,
+		basePower: 40,
+		secondary: {
+			chance: 100,
+			boosts: {
+				spa: -1,
+				atk: -1,
+			},
+			self: {
+				boosts: {
+					spa: 1,
+					atk: 1,
+				},
+			},
+		},
 	},
 	stomp: {
 		inherit: true,
 		basePower: 100,
 		accuracy: true,
-		pp: 10
+		pp: 10,
 	},
 	steamroller: {
 		inherit: true,
 		basePower: 100,
 		accuracy: true,
-		pp: 10
+		pp: 10,
 	},
 	crabhammer: {
 		inherit: true,
 		basePower: 100,
-		accuracy: 100
+		accuracy: 100,
 	},
 	autotomize: {
 		inherit: true,
 		boosts: {
-			spe: 3
-		}
+			spe: 3,
+		},
 	},
 	dizzypunch: {
 		inherit: true,
 		basePower: 90,
 		secondary: {
 			chance: 50,
-			volatileStatus: 'confusion'
+			volatileStatus: 'confusion',
 		},
 	},
 	nightdaze: {
 		inherit: true,
 		accuracy: 100,
-		onModifyMove: function(move, user) {
+		onModifyMove: function (move, user) {
 			if (user.illusion) {
-				var illusionMoves = user.illusion.moves.filter(function(illusionMove) {
-					var illusionMove = this.getMove(illusionMove);
-					return illusionMove.category !== 'Status';
-				}, this);
-				if (illusionMoves.length) move.name = this.getMove(illusionMoves.sample()).name;
+				let illusionMoves = user.illusion.moves.filter(move => this.getMove(move).category !== 'Status');
+				if (!illusionMoves.length) return;
+				move.name = this.getMove(illusionMoves[this.random(illusionMoves.length)]).name;
 			}
-		}
+		},
 	},
 	muddywater: {
 		inherit: true,
@@ -1635,33 +1906,33 @@ exports.BattleMovedex = {
 		secondary: {
 			chance: 30,
 			boosts: {
-				accuracy: -1
-			}
-		}
+				accuracy: -1,
+			},
+		},
 	},
 	powergem: {
 		inherit: true,
 		basePower: 40,
 		accuracy: true,
-		multihit: [2,2]
+		multihit: [2, 2],
 	},
 	acid: {
 		inherit: true,
-		affectedByImmunities: false
+		ignoreImmunity: true,
 	},
 	acidspray: {
 		inherit: true,
-		affectedByImmunities: false
+		ignoreImmunity: true,
 	},
 	eggbomb: {
 		inherit: true,
 		accuracy: 80,
-		basePower: 40,
-		willCrit: true
+		basePower: 60,
+		willCrit: true,
 	},
 	sacredsword: {
 		inherit: true,
-		basePower: 95
+		basePower: 95,
 	},
 	triattack: {
 		num: 161,
@@ -1669,27 +1940,28 @@ exports.BattleMovedex = {
 		basePower: 30,
 		category: "Special",
 		desc: "Hits 3 times. Has a 10% chance to burn, paralyze or freeze the target each time.",
-		shortDesc: "hits 3x; 10% chance to paralyze/burn/freeze.",
+		shortDesc: "Hits 3x; 10% chance to paralyze/burn/freeze.",
 		id: "triattack",
 		name: "Tri Attack",
 		pp: 10,
 		isViable: true,
 		priority: 0,
-		multihit: [3,3],
+		flags: {protect: 1, mirror: 1},
+		multihit: [3, 3],
 		secondary: {
 			chance: 10,
-			onHit: function(target, source) {
-				var result = this.random(3);
-				if (result===0) {
+			onHit: function (target, source) {
+				let result = this.random(3);
+				if (result === 0) {
 					target.trySetStatus('brn', source);
-				} else if (result===1) {
+				} else if (result === 1) {
 					target.trySetStatus('par', source);
 				} else {
 					target.trySetStatus('frz', source);
 				}
-			}
+			},
 		},
 		target: "normal",
-		type: "Normal"
-	}
+		type: "Normal",
+	},
 };

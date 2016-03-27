@@ -1,38 +1,44 @@
+'use strict';
+
 exports.BattleAbilities = {
 	"cutecharm": {
 		inherit: true,
-		onAfterDamage: function(damage, target, source, move) {
-			if (move && move.isContact) {
+		onAfterDamage: function (damage, target, source, move) {
+			if (move && move.flags['contact']) {
 				if (this.random(3) < 1) {
 					source.addVolatile('attract', target);
 				}
 			}
-		}
+		},
 	},
 	"effectspore": {
 		inherit: true,
-		onAfterDamage: function(damage, target, source, move) {
-			if (move && move.isContact && !source.status) {
-				var r = this.random(300);
-				if (r < 10) source.setStatus('slp');
-				else if (r < 20) source.setStatus('par');
-				else if (r < 30) source.setStatus('psn');
+		onAfterDamage: function (damage, target, source, move) {
+			if (move && move.flags['contact'] && !source.status) {
+				let r = this.random(300);
+				if (r < 10) {
+					source.setStatus('slp');
+				} else if (r < 20) {
+					source.setStatus('par');
+				} else if (r < 30) {
+					source.setStatus('psn');
+				}
 			}
-		}
+		},
 	},
 	"flamebody": {
 		inherit: true,
-		onAfterDamage: function(damage, target, source, move) {
-			if (move && move.isContact) {
+		onAfterDamage: function (damage, target, source, move) {
+			if (move && move.flags['contact']) {
 				if (this.random(3) < 1) {
 					source.trySetStatus('brn', target, move);
 				}
 			}
-		}
+		},
 	},
 	"flashfire": {
 		inherit: true,
-		onTryHit: function(target, source, move) {
+		onTryHit: function (target, source, move) {
 			if (target !== source && move.type === 'Fire') {
 				if (move.id === 'willowisp' && (target.hasType('Fire') || target.status || target.volatiles['substitute'])) {
 					return;
@@ -42,126 +48,132 @@ exports.BattleAbilities = {
 				}
 				return null;
 			}
-		}
+		},
 	},
 	"lightningrod": {
-		desc: "During double battles, this Pokemon draws any single-target Electric-type attack to itself. If an opponent uses an Electric-type attack that affects multiple Pokemon, those targets will be hit. This ability does not affect Electric Hidden Power or Judgment. The user is immune to Electric and its Special Attack is increased one stage when hit by one.",
+		desc: "During double battles, this Pokemon draws any single-target Electric-type attack to itself. If an opponent uses an Electric-type attack that affects multiple Pokemon, those targets will be hit. This ability does not affect Electric Hidden Power or Judgment.",
 		shortDesc: "This Pokemon draws opposing Electric moves to itself.",
-		onFoeRedirectTargetPriority: 1,
-		onFoeRedirectTarget: function(target, source, source2, move) {
+		onFoeRedirectTarget: function (target, source, source2, move) {
 			if (move.type !== 'Electric') return;
 			if (this.validTarget(this.effectData.target, source, move.target)) {
 				return this.effectData.target;
 			}
 		},
 		id: "lightningrod",
-		name: "Lightningrod",
+		name: "Lightning Rod",
 		rating: 3.5,
-		num: 32
+		num: 32,
+	},
+	"naturalcure": {
+		inherit: true,
+		onCheckShow: function (pokemon) {},
+		onSwitchOut: function (pokemon) {
+			if (!pokemon.status || pokemon.status === 'fnt') return;
+
+			// Because statused/unstatused pokemon are shown after every switch
+			// in gen 3-4, Natural Cure's curing is always known to both players
+
+			this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Natural Cure');
+			pokemon.setStatus('');
+		},
 	},
 	"pickup": {
 		inherit: true,
 		onResidualOrder: null,
 		onResidualSubOrder: null,
-		onResidual: function() {}
+		onResidual: function () {},
 	},
 	"poisonpoint": {
 		inherit: true,
-		onAfterDamage: function(damage, target, source, move) {
-			if (move && move.isContact) {
+		onAfterDamage: function (damage, target, source, move) {
+			if (move && move.flags['contact']) {
 				if (this.random(3) < 1) {
 					source.trySetStatus('psn', target, move);
 				}
 			}
-		}
+		},
 	},
 	"pressure": {
 		inherit: true,
-		onStart: function() { }
-	},
-	"rockhead": {
-		inherit: true,
-		onModifyMove: function(move) {
-			if (move.id !== 'struggle') delete move.recoil;
-		}
+		onStart: function () { },
 	},
 	"roughskin": {
 		inherit: true,
-		onAfterDamage: function(damage, target, source, move) {
-			if (source && source !== target && move && move.isContact) {
-				this.damage(source.maxhp/16, source, target);
+		onAfterDamage: function (damage, target, source, move) {
+			if (source && source !== target && move && move.flags['contact']) {
+				this.damage(source.maxhp / 16, source, target);
 			}
-		}
+		},
+	},
+	"serenegrace": {
+		inherit: true,
+		onModifyMove: function (move) {
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (let i = 0; i < move.secondaries.length; i++) {
+					move.secondaries[i].chance *= 2;
+				}
+			}
+		},
 	},
 	"shadowtag": {
 		inherit: true,
-		onFoeModifyPokemon: function(pokemon) {
+		onFoeTrapPokemon: function (pokemon) {
 			pokemon.trapped = true;
-		}
+		},
 	},
 	"static": {
 		inherit: true,
-		onAfterDamage: function(damage, target, source, effect) {
-			if (effect && effect.isContact) {
+		onAfterDamage: function (damage, target, source, effect) {
+			if (effect && effect.flags['contact']) {
 				if (this.random(3) < 1) {
 					source.trySetStatus('par', target, effect);
 				}
 			}
-		}
+		},
 	},
 	"stench": {
 		inherit: true,
-		onModifyMove: function(){}
+		onModifyMove: function () {},
 	},
 	"sturdy": {
 		inherit: true,
-		onDamage: function(damage, target, source, effect) {
-			if (effect && effect.ohko) {
-				this.add('-activate',target,'Sturdy');
-				return 0;
-			}
-		}
+		onDamage: function () {},
 	},
 	"synchronize": {
 		inherit: true,
-		onAfterSetStatus: function(status, target, source) {
+		onAfterSetStatus: function (status, target, source) {
 			if (!source || source === target) return;
-			var status = status.id;
-			if (status === 'slp' || status === 'frz') return;
-			if (status === 'tox') status = 'psn';
-			source.trySetStatus(status);
-		}
+			let id = status.id;
+			if (id === 'slp' || id === 'frz') return;
+			if (id === 'tox') id = 'psn';
+			source.trySetStatus(id);
+		},
 	},
 	"trace": {
 		inherit: true,
-		onUpdate: function(pokemon) {
-			var target = pokemon.side.foe.randomActive();
+		onUpdate: function (pokemon) {
+			let target = pokemon.side.foe.randomActive();
 			if (!target || target.fainted) return;
-			var ability = this.getAbility(target.ability);
-			var bannedAbilities = {forecast:1, multitype:1, trace:1};
+			let ability = this.getAbility(target.ability);
+			let bannedAbilities = {forecast:1, multitype:1, trace:1};
 			if (bannedAbilities[target.ability]) {
 				return;
 			}
-			if (ability === 'Intimidate')
-			{
-				if (pokemon.setAbility('Illuminate')) {  // Temporary fix so Intimidate doesn't activate in third gen when traced
-					this.add('-ability',pokemon, ability,'[from] ability: Trace','[of] '+target);
-				}
+			if (pokemon.setAbility(ability)) {
+				this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
 			}
-			else if (pokemon.setAbility(ability)) {
-				this.add('-ability',pokemon, ability,'[from] ability: Trace','[of] '+target);
-			}
-		}
+		},
 	},
 	"voltabsorb": {
 		inherit: true,
-		onTryHit: function(target, source, move) {
+		onTryHit: function (target, source, move) {
 			if (target !== source && move.type === 'Electric' && move.id !== 'thunderwave') {
-				if (!this.heal(target.maxhp/4)) {
+				if (!this.heal(target.maxhp / 4)) {
 					this.add('-immune', target, '[msg]');
 				}
 				return null;
 			}
-		}
-	}
+		},
+	},
 };

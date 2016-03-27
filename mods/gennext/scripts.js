@@ -1,7 +1,7 @@
+'use strict';
+
 exports.BattleScripts = {
-	inherit: 'gen5',
-	gen: 5,
-	init: function() {
+	init: function () {
 		this.modData('Pokedex', 'cherrimsunshine').types = ['Grass', 'Fire'];
 
 		// Give Hurricane to all the Bug/Flying Quiver-dancers
@@ -13,9 +13,6 @@ exports.BattleScripts = {
 
 		// Masquerain also gets Surf because we want it to be viable
 		this.modData('Learnsets', 'masquerain').learnset.surf = ['5M'];
-
-		// Shuckle gets Leech Seed
-		this.modData('Learnsets', 'shuckle').learnset.leechseed = ['5L100'];
 
 		// Roserade gets Sludge
 		this.modData('Learnsets', 'roserade').learnset.sludge = ['5L100'];
@@ -61,27 +58,31 @@ exports.BattleScripts = {
 		this.modData('Learnsets', 'mantine').learnset.octazooka = ['5L100'];
 		this.modData('Learnsets', 'mantine').learnset.stockpile = ['5L100'];
 
-		// Aipom: eggSketch! :D
+		// eggSketch! :D
 		this.modData('Learnsets', 'aipom').learnset.sketch = ['5E'];
+		this.modData('Learnsets', 'spinda').learnset.sketch = ['5E'];
+		this.modData('Learnsets', 'mimejr').learnset.sketch = ['5E'];
 
-		// Azumarill: free Belly Drum
-		this.modData('Learnsets', 'azumarill').learnset.bellydrum = ['5L100'];
-
-		// Spinda: free Superpower
+		// Spinda: Contrary
+		this.modData('Learnsets', 'spinda').learnset.vcreate = ['5L100'];
 		this.modData('Learnsets', 'spinda').learnset.superpower = ['5L100'];
+		this.modData('Learnsets', 'spinda').learnset.closecombat = ['5L100'];
+		this.modData('Learnsets', 'spinda').learnset.overheat = ['5L100'];
+		this.modData('Learnsets', 'spinda').learnset.leafstorm = ['5L100'];
+		this.modData('Learnsets', 'spinda').learnset.dracometeor = ['5L100'];
 
 		// Venusaur
 		this.modData('Pokedex', 'venusaur').abilities['1'] = 'Leaf Guard';
 		// Charizard
-		this.modData('Pokedex', 'charizard').abilities['1'] = 'Flash Fire';
+		this.modData('Pokedex', 'charizard').abilities['1'] = 'Flame Body';
 		// Blastoise
 		this.modData('Pokedex', 'blastoise').abilities['1'] = 'Shell Armor';
 		// Meganium
 		this.modData('Pokedex', 'meganium').abilities['1'] = 'Harvest';
 		// Typhlosion
-		this.modData('Pokedex', 'typhlosion').abilities['1'] = 'Flame Body';
+		this.modData('Pokedex', 'typhlosion').abilities['1'] = 'Magma Armor';
 		// Feraligatr
-		this.modData('Pokedex', 'feraligatr').abilities['1'] = 'Intimidate';
+		this.modData('Pokedex', 'feraligatr').abilities['1'] = 'Strong Jaw';
 		// Sceptile
 		this.modData('Pokedex', 'sceptile').abilities['1'] = 'Limber';
 		// Blaziken
@@ -100,10 +101,16 @@ exports.BattleScripts = {
 		this.modData('Pokedex', 'emboar').abilities['1'] = 'Sheer Force';
 		// Samurott
 		this.modData('Pokedex', 'samurott').abilities['1'] = 'Technician';
+		// Chesnaught
+		this.modData('Pokedex', 'chesnaught').abilities['1'] = 'Battle Armor';
+		// Delphox
+		this.modData('Pokedex', 'delphox').abilities['1'] = 'Magic Guard';
+		// Greninja
+		this.modData('Pokedex', 'greninja').abilities['1'] = 'Pickpocket';
 
 		// Levitate mons
-		this.modData('Pokedex', 'unown').abilities['1'] = 'Adaptability';
-		this.modData('Pokedex', 'flygon').abilities['1'] = 'Compoundeyes';
+		this.modData('Pokedex', 'unown').abilities['1'] = 'Shadow Tag';
+		this.modData('Pokedex', 'flygon').abilities['1'] = 'Compound Eyes';
 		this.modData('Pokedex', 'flygon').abilities['H'] = 'Sand Rush';
 		this.modData('Pokedex', 'weezing').abilities['1'] = 'Aftermath';
 		this.modData('Pokedex', 'eelektross').abilities['1'] = 'Poison Heal';
@@ -111,12 +118,27 @@ exports.BattleScripts = {
 		this.modData('Pokedex', 'gengar').abilities['1'] = 'Cursed Body';
 		this.modData('Pokedex', 'mismagius').abilities['1'] = 'Cursed Body';
 		this.modData('Pokedex', 'cryogonal').abilities['1'] = 'Ice Body';
+		this.modData('Pokedex', 'mesprit').abilities['1'] = 'Serene Grace';
+		this.modData('Pokedex', 'uxie').abilities['1'] = 'Synchronize';
+		this.modData('Pokedex', 'azelf').abilities['1'] = 'Steadfast';
+		this.modData('Pokedex', 'hydreigon').abilities['1'] = 'Sheer Force';
+		// Rotoms
+		this.modData('Pokedex', 'rotom').abilities['1'] = 'Trace';
+		this.modData('Pokedex', 'rotomwash').abilities['1'] = 'Trace';
+		this.modData('Pokedex', 'rotomheat').abilities['1'] = 'Trace';
+		this.modData('Pokedex', 'rotommow').abilities['1'] = 'Trace';
+		this.modData('Pokedex', 'rotomfrost').abilities['1'] = 'Trace';
+		this.modData('Pokedex', 'rotomfan').abilities['1'] = 'Trace';
 
-		// Every DW ability that isn't Shadow Tag becomes released
-		for (var i in this.data.FormatsData) {
-			if (i !== 'chandelure' && i !== 'gothitelle') {
-				this.modData('FormatsData', i).dreamWorldRelease = true;
-			}
+		// Adaptability change
+		this.modData('Pokedex', 'crawdaunt').abilities['H'] = 'Tough Claws';
+
+		// Vespiquen
+		this.modData('Pokedex', 'vespiquen').abilities['1'] = 'Swarm';
+
+		// Every hidden ability becomes released
+		for (let i in this.data.FormatsData) {
+			this.modData('FormatsData', i).unreleasedHidden = false;
 		}
-	}
+	},
 };
