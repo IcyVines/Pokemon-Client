@@ -1883,8 +1883,6 @@ Battle = (() => {
 		if (this.terrain && !status.id) {
 			let oldstatus = this.getTerrain();
 			this.singleEvent('End', oldstatus, this.terrainData, this);
-		} else {
-			this.setTerrain('');
 		}
 		let prevTerrain = this.terrain;
 		let prevTerrainData = this.terrainData;
@@ -3342,8 +3340,6 @@ Battle = (() => {
 				this.add('-heal', target, target.getHealth);
 			} else if (source && source !== target) {
 				this.add('-heal', target, target.getHealth, '[from] ' + effect.fullname, '[of] ' + source);
-			} else if (effect.fullname == 'lockedmove'){
-				this.add(msg, target, i, boost[i], '[from] ' + 'thrashing about');
 			} else {
 				this.add('-heal', target, target.getHealth, '[from] ' + effect.fullname);
 			}

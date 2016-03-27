@@ -478,7 +478,7 @@ if (!process.send) {
 		});
 	});
 	server.installHandlers(app, {});
-	if (!Config.bindaddress) Config.bindaddress = '192.168.1.2';
+	if (!Config.bindaddress) Config.bindaddress = '0.0.0.0';
 	app.listen(Config.port, Config.bindaddress);
 	console.log('Worker now listening on ' + Config.bindaddress + ':' + Config.port);
 
