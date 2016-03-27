@@ -1,50 +1,15 @@
-/config/*
-/logs/*
-/node_modules
-/eslint-cache
-/chat-plugins/private.js
-npm-debug.log
-.eslintcache
-
-# boilerplate #
-###############
-
+/sprites/
+/audio/
+/js/config.js
+/index.php
+/index.html
+/data/*
+!/data/graphics.js
+!/data/pokedex-mini.js
+!/data/pokedex-mini-bw.js
+!/data/learnsets-g6.js
+node_modules/
+eslint-cache/
 .DS_Store
-
-# editor temp files
-*~
-.idea/
-
-tmp/**/*
-*.lock
-*.DS_Store
-*.swp
-*.out
-*.pyc
-*.pyo
-.installed.cfg
-
-downloads
-build
-dist
-
-# egg related
-develop-eggs
-*.egg-info
-*.egg
-*.EGG
-*.EGG-INFO
-src/*.egg-info
-eggs
-fake-eggs
-
-# django
-local_settings.py
-
-# SCM
-.hg
-.bzr
-.svn
-
-pip-log.txt
-
+Thumbs.db
+npm-debug.log
